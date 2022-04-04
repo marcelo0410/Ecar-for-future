@@ -1,0 +1,54 @@
+.banner{
+    background-image: url("../../../assets/homepage/bannertop-car.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    margin-left: 50px;
+}
+
+.banner p{
+    text-align: left;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.banner a{
+    padding-top: 10px;
+    float: left;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    background-color: #c4c4c4;
+    width: 200px;
+    height: 50px;
+}
+
+.banner-mid{
+    background-image: url("../../../assets/homepage/car-exhaust-pipe.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    margin-left: 50px;
+    text-align: right;
+}
+
+.banner-mid p{
+    text-align: right;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.banner-mid a{
+    padding-top: 10px;
+    float: right;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    background-color: #c4c4c4;
+    width: 200px;
+    height: 50px;
+}

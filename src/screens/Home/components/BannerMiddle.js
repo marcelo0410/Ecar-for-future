@@ -1,0 +1,16 @@
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import './style.css'
+export default function BannerMiddle() {
+  return (
+    <div className='banner-mid' style={{marginLeft:"32px"}}>
+        <div style={{paddingTop:"20px", marginLeft:"22px"}}>
+            <h3 className='mt-2' style={{fontSize:"20px", textWeight:"bold"}}>Serious situation</h3>
+            <h3 style={{fontSize:"60px", textWeight:"bold"}}>Greenhouse<br/>Gas Emission</h3>
+            <h3 style={{fontSize:"24px", textWeight:"bold"}}>Why should I purchase an EV instead?</h3>
+            <NavLink className="ms-4" to="/">Find out more&gt;&gt;</NavLink>
+        </div>
+        
+    </div>
+  )
+}

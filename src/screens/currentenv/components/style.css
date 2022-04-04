@@ -1,0 +1,18 @@
+.backgroundImg{
+    background-image: url("../../../assets/currentenv/earth.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    margin-left: 50px;
+}
+.container{
+    position: relative;
+    
+}
+.left-middle{
+    position: absolute;
+    top: 40%;
+    left: 12%;
+    font-size: 60px;
+    font-weight: bold;
+}
