@@ -7,14 +7,16 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="App container">
-      <Menu/>
-      <Routes>
-        <Route path="/home" element={<Homepage/>}/>
-        <Route path="/curenv" element={<CurrentEnv/>}/>
-        <Route path="/" element={<Navigate replace to="/home"/>} />
-      </Routes>
-      <Footer/>
+      <div style={{backgroundColor:"#FAFAFA"}}>
+        <div className="App container">
+        <Menu/>
+        <Routes>
+          <Route path="/home" element={<Homepage/>}/>
+          <Route path="/curenv" element={<CurrentEnv/>}/>
+          <Route path="/" element={<Navigate replace to="/home"/>} />
+        </Routes>
+        <Footer/>
+        </div>
       </div>
     </Router>
   );

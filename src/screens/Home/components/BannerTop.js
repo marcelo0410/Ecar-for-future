@@ -9,7 +9,8 @@ export default function BannerTop() {
             <h3 style={{fontSize:"60px", textWeight:"bold", textAlign:"left"}}>Electric Vehicles</h3>
             <h3 style={{fontSize:"24px", textWeight:"bold", textAlign:"left"}}>Why should I purchase an EV instead?</h3>
         </div>
-        <NavLink className="ms-4" to="/sorting">Get to know it&gt;&gt;</NavLink>
+        <br/>
+        <h3 className="ms-4" style={{fontSize:"24px", textWeight:"bold", textAlign:"left"}}>Get to know it&gt;&gt;</h3>
     </div>
   )
 }

@@ -7,8 +7,8 @@ export default function BannerMiddle() {
         <div style={{paddingTop:"20px", marginLeft:"22px"}}>
             <h3 className='mt-2' style={{fontSize:"20px", textWeight:"bold"}}>Serious situation</h3>
             <h3 style={{fontSize:"60px", textWeight:"bold"}}>Greenhouse<br/>Gas Emission</h3>
-            <h3 style={{fontSize:"24px", textWeight:"bold"}}>Why should I purchase an EV instead?</h3>
-            <NavLink className="ms-4" to="/">Find out more&gt;&gt;</NavLink>
+            <h3 style={{fontSize:"24px", textWeight:"bold"}}>Why should I purchase an EV instead?</h3><br/>
+            <h3 className="ms-4" style={{fontSize:"24px", textWeight:"bold"}}>Find out more&gt;&gt;</h3>
         </div>
         
     </div>
