@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes,Route, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Routes,Route, Navigate } from 'react-router-dom'
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import Homepage from './screens/Home/index';
@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/home" element={<Homepage/>}/>
         <Route path="/curenv" element={<CurrentEnv/>}/>
+        <Route path="/" element={<Navigate replace to="/home"/>} />
       </Routes>
       <Footer/>
       </div>
