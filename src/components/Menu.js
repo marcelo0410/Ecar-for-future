@@ -22,7 +22,7 @@ export default function Menu() {
                   <NavLink to="/curenv" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>Know the Env</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/knowenv" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>Why EVs</NavLink>
+                  <NavLink to="/calculator" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>Calculator</NavLink>
                 </li>
                 <li>
                   <NavLink to="/about" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>Why EVs</NavLink>

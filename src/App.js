@@ -3,6 +3,7 @@ import Menu from './components/Menu';
 import Footer from './components/Footer';
 import Homepage from './screens/Home/index';
 import CurrentEnv from './screens/currentenv/index'
+import Calculation from './screens/calculation/index'
 import './App.css';
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Homepage/>}/>
           <Route path="/curenv" element={<CurrentEnv/>}/>
+          <Route path="/calculator" element={<Calculation/>}/>
           <Route path="/" element={<Navigate replace to="/home"/>} />
         </Routes>
         <Footer/>
