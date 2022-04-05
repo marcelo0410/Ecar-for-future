@@ -104,6 +104,7 @@ export default function Calculator() {
             <img src={vis} style={{height:"140px"}} className="ms-3"></img>
             <div className='ms-3'>CO2 generated per week</div>
           </div>
+          <div></div>
         </div>
     </div>
   )
