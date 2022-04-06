@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './style.css'
 import mediumCar from '../../../assets/calculation/Car.png'
 import smallCar from '../../../assets/calculation/SUV.png'
 import vis from '../../../assets/calculation/vis.png'
 import piechart from '../../../assets/currentenv/emi-piechart.png'
 export default function Calculator() {
+
+  const [travelDistance, settravelDistance] = useState(0)
+  const [numTraveler, setnumTraveler] = useState(1)
+  const [fuelConsumption, setfuelConsumption] = useState(5.0)
+  const [carCSSStyle, setcarCSSStyle] = useState("carImage")
+  const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
+  
+
+
+  const handleClickImageGetId = (e) =>{
+    // console.log(e.target.id)
+    console.log(e.currentTarget.id)
+    setcarCSSStyle("carImageSelected")
+  }
+
   return (
     <div className='mt-4'>
         <h3>Calculate your cost and gas emission level</h3>
@@ -13,35 +28,33 @@ export default function Calculator() {
               <div id="distance" className='mt-3'>
                 <div>Travel distance per week</div>
                 <div style={{display:"flex"}}>
-                  <div class="range">
-                    <input type="range" class="form-range" id="customRange1" style={{width:"300px"}}/>
+                  <div className="range">
+                    <input type="range" id="customRange1" className='slider' style={{width:"300px"}} min="0" max="3000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>
                   </div>
-                  <div className='oval-grey-output ms-3'>123</div>
+                  <output className='oval-grey-output ms-3' value={travelDistance} readOnly>{travelDistance}</output>
                   <span className='ms-1'>km</span>
                 </div>
               </div>
               <div id="travlers" className='mt-2'>
                 <div>Number of travelers per car</div>
                 <div style={{display:"flex"}}>
-                  <div class="range">
-                    <input type="range" class="form-range" id="customRange1" style={{width:"300px"}}/>
+                  <div className="range">
+                    <input type="range" className="form-range" id="customRange2" style={{width:"300px"}} min="1" max="8" value={numTraveler} onChange={e => setnumTraveler(e.target.value)}/>
                   </div>
-                  <div className='oval-grey-output ms-3'>123</div>
-                  <span className='ms-1'>ppl</span>
+                  <div className='oval-grey-output ms-3'>{numTraveler}</div>
+                  <span className='ms-1'>people</span>
                 </div>
               </div>
               <div id="fuelCar" className='mt-2'>
                 <div>Do you own a fuel car?</div>
                 <div id="radioArea" style={{display:"flex", justifyContent:"space-evenly"}} className="mt-2">
                   <div>
-                    <input type="radio" id="yes" name="drone" value="yes"
-                          checked/>
-                    <label for="yes">yes</label>
+                    <input type="radio" id="yes" name="ownCar" value="yes"/>
+                    <label className="ms-1 " htmlFor="yes">Yes</label>
                   </div>
                   <div>
-                    <input type="radio" id="no" name="drone" value="no"
-                          checked/>
-                    <label for="no">no</label>
+                    <input type="radio" id="no" name="ownCar" value="no"/>
+                    <label htmlFor="no">No</label>
                   </div>
                 </div>
               </div>
@@ -49,10 +62,10 @@ export default function Calculator() {
               <div id="fuelConsume" className='mt-2'>
                 <div>Fuel consumption per 100 km</div>
                 <div style={{display:"flex"}}>
-                  <div class="range">
-                    <input type="range" class="form-range" id="customRange1" style={{width:"300px"}}/>
+                  <div className="range">
+                    <input type="range" className="form-range" id="customRange3" style={{width:"300px"}} min="5.0" max="20.0" step="0.1" value={fuelConsumption} onChange={e => setfuelConsumption(e.target.value)}/>
                   </div>
-                  <div className='oval-grey-output ms-3'>123</div>
+                  <div className='oval-grey-output ms-3'>{fuelConsumption}</div>
                   <span className='ms-1'>L/100km</span>
                 </div>
               </div>
@@ -67,16 +80,14 @@ export default function Calculator() {
               </div>
               <div id="chargeRadio" className='mt-3'>
                 <div className='mt-2'>Willing to build own charge station?</div>
-                <div id="radioArea" style={{display:"flex", justifyContent:"space-evenly"}}>
+                <div id="radioArea" className="mt-2" style={{display:"flex", justifyContent:"space-evenly"}}>
                   <div>
-                    <input type="radio" id="yes" name="drone" value="yes"
-                          checked/>
-                    <label for="yes">yes</label>
+                    <input type="radio" id="yes" name="ownChargeStation" value="yes"/>
+                    <label htmlFor="yes">Yes</label>
                   </div>
                   <div>
-                    <input type="radio" id="no" name="drone" value="no"
-                          checked/>
-                    <label for="no">no</label>
+                    <input type="radio" id="no" name="ownChargeStation" value="no"/>
+                    <label htmlFor="no">No</label>
                   </div>
                 </div>
               </div>
@@ -84,10 +95,16 @@ export default function Calculator() {
             </div>
             <div id="RightInput" style={{textAlign:"left"}}  className="ms-5">
               <div>Select your car type</div>
-              <img src={mediumCar}  style={{height:"90px", width:"230px", marginTop:"35px"}}></img>
-              <div className='mt-3 text-center'>Medium Car</div>
-              <img src={smallCar} style={{height:"90px", marginTop:"45px"}}></img>
-              <div className='text-center'>Small Car</div>
+              <div id="mediumCar" onClick={handleClickImageGetId} className={carCSSStyle}>
+                <img src={mediumCar}  style={{height:"90px", width:"230px", marginTop:"35px"}}></img>
+                <div className='mt-3 text-center'>Medium Car</div>
+              </div>
+              
+              <div id="smallCar" onClick={handleClickImageGetId} className={carCSSStyle}>
+                <img src={smallCar} style={{height:"90px", marginTop:"45px"}}></img>
+                <div className='text-center'>Small Car</div>
+              </div>
+              
               <input type="submit" value="Submit" className="mt-5" style={{marginLeft:"80px"}}></input>
             </div>
         </div>

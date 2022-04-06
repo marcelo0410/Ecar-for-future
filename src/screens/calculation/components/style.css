@@ -5,3 +5,42 @@
     border-radius: 8px;
     text-align: center;
 }
+
+/* .slider{
+    -webkit-appearance: none;
+    appearance: none;
+    background:#D4D4D4;
+    cursor: pointer;
+    width: 15rem;
+
+}
+/* .slider::-webkit-slider-runnable-track {
+
+
+} */
+/* .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: pink;
+} */
+
+input[type="radio"]{
+    width:15px;
+    height:15px;
+    padding-top: 2px;
+}
+input[type="radio"]:checked::after{
+    background: green;
+}
+input[type="radio"]::after{
+    background: green;
+}
+
+.carImage{
+    border: none;
+    margin-bottom: 30px;
+}
+.carImageSelected{
+    border: #00AF12 4px solid ;
+    margin-bottom: 30px;
+}
