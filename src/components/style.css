@@ -64,3 +64,14 @@
     color: white;
 }
 
+.footer-border-right{
+    border-right: black 1px solid;
+}
+
+.footer-underline{
+    text-decoration: underline;
+}
+.footer-text-border-right{
+    border-right: black 1px solid;
+}
+

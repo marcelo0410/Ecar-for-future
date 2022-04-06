@@ -37,7 +37,7 @@ input[type="radio"]::after{
 }
 
 .carImage{
-    border: none;
+    border: #FAFAFA 4px solid;
     margin-bottom: 30px;
 }
 .carImageSelected{

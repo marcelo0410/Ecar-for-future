@@ -9,15 +9,43 @@ export default function Calculator() {
   const [travelDistance, settravelDistance] = useState(0)
   const [numTraveler, setnumTraveler] = useState(1)
   const [fuelConsumption, setfuelConsumption] = useState(5.0)
-  const [carCSSStyle, setcarCSSStyle] = useState("carImage")
+  const [mediumCarCSSStyle, setMediumCarCSSStyle] = useState("carImageSelected")
+  const [smallCarCSSStyle, setSmallCarCSSStyle] = useState("carImage")
+  const [ownCarRadio, setownCarRadio] = useState("yes")
+  const [petrolSelect, setpetrolSelect] = useState("91")
+  const [ownChargeStationRadio, setownChargeStationRadio] = useState("yes")
   const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
   
 
 
   const handleClickImageGetId = (e) =>{
     // console.log(e.target.id)
-    console.log(e.currentTarget.id)
-    setcarCSSStyle("carImageSelected")
+    // console.log(e.currentTarget.id )
+    if(e.currentTarget.id === "mediumCar"){
+      setMediumCarCSSStyle("carImageSelected")
+      setSmallCarCSSStyle("carImage")
+      setcarCSSStyleFlag(true)
+    } else if(e.currentTarget.id === "smallCar"){
+      setMediumCarCSSStyle("carImage")
+      setSmallCarCSSStyle("carImageSelected")
+      setcarCSSStyleFlag(false)
+    }
+  }
+
+
+  const submitForm = () =>{
+    console.log("travelDistance: ", travelDistance)
+    console.log("numTraveler: ", numTraveler)
+    console.log("fuelConsumption: ", travelDistance)
+    console.log("carCSSStyleFlag: ", carCSSStyleFlag)
+    console.log("ownCarRadio: ", ownCarRadio)
+    console.log("ownChargeStationRadio: ", ownChargeStationRadio)
+    console.log("petrolSelect: ", petrolSelect)
+
+  }
+
+  const CalculateEmission = () =>{
+
   }
 
   return (
@@ -47,9 +75,9 @@ export default function Calculator() {
               </div>
               <div id="fuelCar" className='mt-2'>
                 <div>Do you own a fuel car?</div>
-                <div id="radioArea" style={{display:"flex", justifyContent:"space-evenly"}} className="mt-2">
+                <div id="radioArea" style={{display:"flex", justifyContent:"space-evenly"}} className="mt-2" onChange={ e => setownCarRadio(e.target.value)}>
                   <div>
-                    <input type="radio" id="yes" name="ownCar" value="yes"/>
+                    <input type="radio" id="yes" name="ownCar" value="yes" defaultChecked/>
                     <label className="ms-1 " htmlFor="yes">Yes</label>
                   </div>
                   <div>
@@ -71,7 +99,7 @@ export default function Calculator() {
               </div>
               <div id="fuelType" className='mt-2'>
                 <div>Type of fuel</div>
-                <select id="fuel" name="fuel">
+                <select id="fuel" name="fuel" onChange={e => setpetrolSelect(e.target.value)}>
                   <option value="91">Standard unleaded 91</option>
                   <option value="95">95-octane unleaded petrol</option>
                   <option value="98">98-octane unleaded</option>
@@ -80,9 +108,9 @@ export default function Calculator() {
               </div>
               <div id="chargeRadio" className='mt-3'>
                 <div className='mt-2'>Willing to build own charge station?</div>
-                <div id="radioArea" className="mt-2" style={{display:"flex", justifyContent:"space-evenly"}}>
+                <div id="radioArea2" className="mt-2" style={{display:"flex", justifyContent:"space-evenly"}} onChange={ e => setownChargeStationRadio(e.target.value)}>
                   <div>
-                    <input type="radio" id="yes" name="ownChargeStation" value="yes"/>
+                    <input type="radio" id="yes" name="ownChargeStation" value="yes" defaultChecked/>
                     <label htmlFor="yes">Yes</label>
                   </div>
                   <div>
@@ -95,17 +123,17 @@ export default function Calculator() {
             </div>
             <div id="RightInput" style={{textAlign:"left"}}  className="ms-5">
               <div>Select your car type</div>
-              <div id="mediumCar" onClick={handleClickImageGetId} className={carCSSStyle}>
+              <div id="mediumCar" onClick={handleClickImageGetId} className={mediumCarCSSStyle}>
                 <img src={mediumCar}  style={{height:"90px", width:"230px", marginTop:"35px"}}></img>
                 <div className='mt-3 text-center'>Medium Car</div>
               </div>
               
-              <div id="smallCar" onClick={handleClickImageGetId} className={carCSSStyle}>
+              <div id="smallCar" onClick={handleClickImageGetId} className={smallCarCSSStyle}>
                 <img src={smallCar} style={{height:"90px", marginTop:"45px"}}></img>
                 <div className='text-center'>Small Car</div>
               </div>
               
-              <input type="submit" value="Submit" className="mt-5" style={{marginLeft:"80px"}}></input>
+              <input type="submit" value="Submit" className="mt-2" style={{marginLeft:"80px"}} onClick={submitForm}></input>
             </div>
         </div>
         <div id="vis" className='mt-5'>
