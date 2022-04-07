@@ -4,9 +4,13 @@ import mediumCar from '../../../assets/calculation/Car.png'
 import smallCar from '../../../assets/calculation/SUV.png'
 import vis from '../../../assets/calculation/vis.png'
 import piechart from '../../../assets/currentenv/emi-piechart.png'
+import CostResultWeek from './CostResultWeek'
+import CostResultYear from './CostResultYear'
+import Co2ResultWeek from './Co2ResultWeek'
+import Co2ResultYear from './Co2ResultYear'
 export default function Calculator() {
 
-  const [travelDistance, settravelDistance] = useState(0)
+  const [travelDistance, settravelDistance] = useState(10)
   const [numTraveler, setnumTraveler] = useState(1)
   const [fuelConsumption, setfuelConsumption] = useState(5.0)
   const [mediumCarCSSStyle, setMediumCarCSSStyle] = useState("carImageSelected")
@@ -15,6 +19,10 @@ export default function Calculator() {
   const [petrolSelect, setpetrolSelect] = useState("91")
   const [ownChargeStationRadio, setownChargeStationRadio] = useState("yes")
   const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
+  const [resultCO2, setresultCO2] = useState(0.0)
+  const [resultCost, setresultCost] = useState(0.0)
+  const [showResult, setshowResult] = useState(false)
+  const [ecarCost, setecarCost] = useState(0.0)
   
 
 
@@ -34,22 +42,62 @@ export default function Calculator() {
 
 
   const submitForm = () =>{
-    console.log("travelDistance: ", travelDistance)
-    console.log("numTraveler: ", numTraveler)
-    console.log("fuelConsumption: ", travelDistance)
-    console.log("carCSSStyleFlag: ", carCSSStyleFlag)
-    console.log("ownCarRadio: ", ownCarRadio)
-    console.log("ownChargeStationRadio: ", ownChargeStationRadio)
-    console.log("petrolSelect: ", petrolSelect)
+    // console.log("travelDistance: ", travelDistance)
+    // console.log("numTraveler: ", numTraveler)
+    // console.log("fuelConsumption: ", fuelConsumption)
+    // console.log("carCSSStyleFlag: ", carCSSStyleFlag)
+    // console.log("ownCarRadio: ", ownCarRadio)
+    // console.log("ownChargeStationRadio: ", ownChargeStationRadio)
+    // console.log("petrolSelect: ", petrolSelect)
+
+    calculateCost(travelDistance, numTraveler, fuelConsumption)
+    calculateCo2(travelDistance, fuelConsumption,carCSSStyleFlag)
+    setshowResult(true)
+    window.scrollTo({
+      top: 570,
+      behavior: "smooth"
+  });
 
   }
 
-  const CalculateEmission = () =>{
+  const calculateCost = (travelDistance, numTraveler, fuelConsumption) =>{
+    const fuelPrice = {
+      "91":2.17,
+      "95":2.31,
+      "98":2.39,
+      "E10":2.14
+    }
 
+    if(carCSSStyleFlag){
+      setecarCost(Math.round(travelDistance/100*4.64))
+    } else{
+      setecarCost(Math.round(travelDistance/100*4.77))
+    }
+
+    const result = travelDistance * (1+numTraveler*0.1-0.1)*fuelConsumption/100*fuelPrice[petrolSelect]
+    // console.log(Math.round(result))
+    setresultCost(Math.round(result))
   }
+
+  const calculateCo2 = (travelDistance, fuelConsumption, carCSSStyleFlag) =>{
+    const Co2EmissionCarType = {
+      "smallCar":2171.5,
+      "mediumCar": 2671.2
+    }
+    let carType = ""
+    if(carCSSStyleFlag){
+      carType ="smallCar"
+    } else{
+      carType = "mediumCar"
+    }
+    const result = travelDistance /100 *fuelConsumption*Co2EmissionCarType[carType]
+    setresultCO2(Math.round(result * 100) / 100)
+  }
+
+
 
   return (
-    <div className='mt-4'>
+    <div className='mt-4 responsive-calculator' >
         <h3>Calculate your cost and gas emission level</h3>
         <div id="inputArea" className='' style={{display:"flex"}}>
             <div id="leftInput" style={{textAlign:"left",  borderRight: "2px solid #DBDBDB", paddingRight:"40px"}}>
@@ -57,7 +105,7 @@ export default function Calculator() {
                 <div>Travel distance per week</div>
                 <div style={{display:"flex"}}>
                   <div className="range">
-                    <input type="range" id="customRange1" className='slider' style={{width:"300px"}} min="0" max="3000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>
+                    <input type="range" id="customRange1" className='slider' style={{width:"300px"}} min="10" max="3000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>
                   </div>
                   <output className='oval-grey-output ms-3' value={travelDistance} readOnly>{travelDistance}</output>
                   <span className='ms-1'>km</span>
@@ -136,7 +184,28 @@ export default function Calculator() {
               <input type="submit" value="Submit" className="mt-2" style={{marginLeft:"80px"}} onClick={submitForm}></input>
             </div>
         </div>
-        <div id="vis" className='mt-5'>
+        <div className='text-start lead mt-4'>Cost per week</div>
+        <div className='text-start lead'>Your weekly cost: {resultCost} AU/week</div>
+        <div className='mt-3 d-flex'>
+          <div >
+            <CostResultWeek resultCost={resultCost} carSize={carCSSStyleFlag} ecarCost={ecarCost}/>
+          </div>
+          <div >
+            <CostResultYear resultCost={resultCost} carSize={carCSSStyleFlag} ecarCost={ecarCost}/>
+          </div>
+        </div>
+        <div className='text-start lead mt-3'>CO2 generated per week</div>
+        <div className='text-start lead'>Your car weekly generates: {resultCO2} (g/L)</div>
+        <div className='mt-3 d-flex'>
+          <div>
+             <Co2ResultWeek resultCo2={resultCO2} carSize={carCSSStyleFlag}/>
+          </div>
+          <div>
+              <Co2ResultYear resultCo2={resultCO2} carSize={carCSSStyleFlag}/>
+          </div>
+        </div>
+
+        {/* <div id="vis" className='mt-5'>
           <div className='text-start lead'>Cost per week</div>
           <div className='d-flex ms-2'>
             <img src={piechart} style={{height:"140px"}}></img>
@@ -150,7 +219,7 @@ export default function Calculator() {
             <div className='ms-3'>CO2 generated per week</div>
           </div>
           <div></div>
-        </div>
+        </div> */}
     </div>
   )
 }

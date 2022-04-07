@@ -44,3 +44,9 @@ input[type="radio"]::after{
     border: #00AF12 4px solid ;
     margin-bottom: 30px;
 }
+
+@media (min-width: 576px) {
+.responsive-calculator{
+    margin: auto;
+    width: 90%;
+}}

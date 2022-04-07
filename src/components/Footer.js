@@ -3,7 +3,7 @@ import teamLogo from '../assets/components/Team-logo-for-light-background.png'
 
 export default function Footer() {
   return (
-    <div className='d-flex align-items-center align-content-center justify-content-sm-center'>
+    <div className='d-flex align-items-center align-content-center justify-content-sm-center mt-5'>
       <img src={teamLogo} alt="Noma team logo" style={{height:"90px"}} className="footer-border-right me-2 pe-2"/>
       <div className='ps-2 pt-1'>
         <div>Copyright © Noma Group of Monash</div>
