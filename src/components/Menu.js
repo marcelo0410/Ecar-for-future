@@ -5,7 +5,7 @@ import magnifier from '../assets/components/magnifier.png'
 import './style.css'
 export default function Menu() {
   return (
-    <div>
+    <div className='menu-fixed'>
         <nav  aria-label="Ninth navbar example">
           <div className="navbar" style={{height:"42px"}}>
             <div>

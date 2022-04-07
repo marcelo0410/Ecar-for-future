@@ -54,7 +54,7 @@ export default function Calculator() {
     calculateCo2(travelDistance, fuelConsumption,carCSSStyleFlag)
     setshowResult(true)
     window.scrollTo({
-      top: 570,
+      top: 510,
       behavior: "smooth"
   });
 
@@ -97,7 +97,7 @@ export default function Calculator() {
 
 
   return (
-    <div className='mt-4 responsive-calculator' >
+    <div className='responsive-calculator' style={{paddingTop:"70px"}}>
         <h3>Calculate your cost and gas emission level</h3>
         <div id="inputArea" className='' style={{display:"flex"}}>
             <div id="leftInput" style={{textAlign:"left",  borderRight: "2px solid #DBDBDB", paddingRight:"40px"}}>
@@ -105,37 +105,42 @@ export default function Calculator() {
                 <div>Travel distance per week</div>
                 <div style={{display:"flex"}}>
                   <div className="range">
-                    <input type="range" id="customRange1" className='slider' style={{width:"300px"}} min="10" max="3000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>
+                    <input type="range" id="customRange1" className='form-range' style={{width:"300px"}} min="10" max="3000"  value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>
+                    {/* <br/><output style={{fontSize:"3px"}}>1</output>
+                    <output style={{fontSize:"3px", marginLeft:"270px"}}>3000</output> */}
                   </div>
                   <output className='oval-grey-output ms-3' value={travelDistance} readOnly>{travelDistance}</output>
                   <span className='ms-1'>km</span>
                 </div>
               </div>
-              <div id="travlers" className='mt-2'>
+              <div id="travlers" className='mt-3'>
                 <div>Number of travelers per car</div>
                 <div style={{display:"flex"}}>
                   <div className="range">
                     <input type="range" className="form-range" id="customRange2" style={{width:"300px"}} min="1" max="8" value={numTraveler} onChange={e => setnumTraveler(e.target.value)}/>
+                    {/* <br/>
+                    <output style={{fontSize:"3px"}}>1</output>
+                    <output style={{fontSize:"3px", marginLeft:"290px"}}>8</output> */}
                   </div>
                   <div className='oval-grey-output ms-3'>{numTraveler}</div>
                   <span className='ms-1'>people</span>
                 </div>
               </div>
-              <div id="fuelCar" className='mt-2'>
+              <div id="fuelCar" className='mt-3'>
                 <div>Do you own a fuel car?</div>
-                <div id="radioArea" style={{display:"flex", justifyContent:"space-evenly"}} className="mt-2" onChange={ e => setownCarRadio(e.target.value)}>
+                <div id="radioArea" style={{display:"flex", justifyContent:"start"}} className="mt-2" onChange={ e => setownCarRadio(e.target.value)}>
                   <div>
                     <input type="radio" id="yes" name="ownCar" value="yes" defaultChecked/>
-                    <label className="ms-1 " htmlFor="yes">Yes</label>
+                    <label className="ms-2" htmlFor="yes">Yes</label>
                   </div>
-                  <div>
+                  <div className='ms-5'>
                     <input type="radio" id="no" name="ownCar" value="no"/>
-                    <label htmlFor="no">No</label>
+                    <label className="ms-2 " htmlFor="no">No</label>
                   </div>
                 </div>
               </div>
 
-              <div id="fuelConsume" className='mt-2'>
+              <div id="fuelConsume" className='mt-3'>
                 <div>Fuel consumption per 100 km</div>
                 <div style={{display:"flex"}}>
                   <div className="range">
@@ -156,14 +161,14 @@ export default function Calculator() {
               </div>
               <div id="chargeRadio" className='mt-3'>
                 <div className='mt-2'>Willing to build own charge station?</div>
-                <div id="radioArea2" className="mt-2" style={{display:"flex", justifyContent:"space-evenly"}} onChange={ e => setownChargeStationRadio(e.target.value)}>
+                <div id="radioArea2" className="mt-2" style={{display:"flex", justifyContent:"start"}} onChange={ e => setownChargeStationRadio(e.target.value)}>
                   <div>
                     <input type="radio" id="yes" name="ownChargeStation" value="yes" defaultChecked/>
-                    <label htmlFor="yes">Yes</label>
+                    <label className="ms-2" htmlFor="yes">Yes</label>
                   </div>
-                  <div>
+                  <div className='ms-5'>
                     <input type="radio" id="no" name="ownChargeStation" value="no"/>
-                    <label htmlFor="no">No</label>
+                    <label className="ms-2" htmlFor="no">No</label>
                   </div>
                 </div>
               </div>

@@ -32,7 +32,7 @@ export default class CostResultWeek extends PureComponent {
     return (
       
         <BarChart
-          width={500}
+          width={300}
           height={300}
           data={this.state.dataSet}
           margin={{
@@ -47,8 +47,8 @@ export default class CostResultWeek extends PureComponent {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="YourCar" fill="#8884d8" />
-          <Bar dataKey="ECar" fill="#82ca9d" />
+          <Bar dataKey="YourCar" fill="#8884d8" barSize={25}/>
+          <Bar dataKey="ECar" fill="#82ca9d" barSize={25}/>
         </BarChart>
 
     );

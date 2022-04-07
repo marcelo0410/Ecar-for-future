@@ -4,13 +4,15 @@ import './style.css'
 export default function BannerTop() {
   return (
     <div className='banner'>
-        <div style={{paddingTop:"20px", marginLeft:"22px"}}>
-            <h3 className='mt-2' style={{fontSize:"20px", textWeight:"bold", textAlign:"left"}}>Join the future</h3>
-            <h3 style={{fontSize:"60px", textWeight:"bold", textAlign:"left"}}>Electric Vehicles</h3>
-            <h3 style={{fontSize:"24px", textWeight:"bold", textAlign:"left"}}>Why should I purchase an EV instead?</h3>
+        <div style={{paddingTop:"50px", marginLeft:"22px", paddingLeft:"20px"}}>
+            <h3 className='mt-2' style={{fontSize:"20px", fontWeight:"bold", textAlign:"left",margin:"0",padding:"0"}}>Join the future</h3>
+            <h3 style={{fontSize:"60px", fontWeight:"bold", textAlign:"left", margin:"0",padding:"0"}}>Electric Vehicles</h3>
+            <h3 style={{fontSize:"24px", textAlign:"left",margin:"0",padding:"0"}}>Why should I purchase an EV instead?</h3>
+            <br/>
+            <h3 style={{fontSize:"24px", fontWeight:"bold", textAlign:"left"}}>Get to know it&gt;&gt;</h3>
         </div>
-        <br/>
-        <h3 className="ms-4" style={{fontSize:"24px", textWeight:"bold", textAlign:"left"}}>Get to know it&gt;&gt;</h3>
+       
+        
     </div>
   )
 }
