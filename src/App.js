@@ -5,6 +5,7 @@ import Homepage from './screens/Home/index';
 import CurrentEnv from './screens/currentenv/index'
 import Calculation from './screens/calculation/index'
 import Test from './screens/Test/Ani'
+import Login from './components/login/Login'
 import './App.css';
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
         <Menu/>
         <Routes>
           <Route path="/home" element={<Homepage/>}/>
+          <Route path="/login" element={<Login/>}/>
           <Route path="/curenv" element={<CurrentEnv/>}/>
           <Route path="/calculator" element={<Calculation/>}/>
           <Route path="/test" element={<Test scrollHeight={4000} width={1158} height={770} numFrames={63}/>}/>
-          <Route path="/" element={<Navigate replace to="/home"/>} />
+          <Route path="/" element={<Navigate replace to="/login"/>} />
         </Routes>
         <Footer/>
         </div>
