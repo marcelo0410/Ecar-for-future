@@ -1,13 +1,23 @@
 .banner{
-    background-image: url("../../../assets/homepage/bannertop-car.png");
+    /* background-image: url("../../../assets/homepage/homepage-car.png");
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 500px;
-    margin-left: 50px;
-    margin-top: 60px;
+    background-size: cover;
+    height: 100vh; */
+    /* background: url("../../../assets/homepage/homepage-car.png") no-repeat center center fixed;  */
+    background-image: url("../../../assets/homepage/homepage-car.png");
+
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.banner p{
+
+
+/* .banner p{
     text-align: left;
     padding: 10px;
     font-size: 30px;
@@ -24,7 +34,7 @@
     background-color: #c4c4c4;
     width: 200px;
     height: 50px;
-}
+} */
 
 .banner-mid{
     background-image: url("../../../assets/homepage/car-exhaust-pipe.png");
