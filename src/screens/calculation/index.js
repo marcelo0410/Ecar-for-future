@@ -4,6 +4,7 @@ export default function index() {
   return (
     <div>
         {/* <Calculator/> */}
+        123
     </div>
   )
 }
