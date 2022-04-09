@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Routes,Route, Navigate } from 'react-router-dom'
 import Menu from './components/Menu';
 import Footer from './components/Footer';
-import Homepage from './screens/home/index';
+import Homepage from './screens/Home/index';
 import CurrentEnv from './screens/currentenv/index'
 import Calculation from './screens/calculation/index'
 import Test from './screens/Test/Ani'
