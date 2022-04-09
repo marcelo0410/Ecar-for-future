@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <div style={{backgroundColor:"#FAFAFA"}}>
-        <div className="App container">
+        <div className="App containerr">
         <Menu/>
         <Routes>
           <Route path="/home" element={<Homepage/>}/>

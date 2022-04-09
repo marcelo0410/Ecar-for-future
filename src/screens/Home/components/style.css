@@ -6,13 +6,23 @@
     /* background: url("../../../assets/homepage/homepage-car.png") no-repeat center center fixed;  */
     background-image: url("../../../assets/homepage/homepage-car.png");
 
+    /* background-image: url(./assets/space-bg.jpg); */
+    background-size: cover;
+    /* background-position: top; */
+    min-height: 85%;
+    min-width: 100%;
+    position: absolute;
     /* Full height */
-    height: 100%;
+    /* width: 1200px; */
+    /* height: 100vh; */
   
     /* Center and scale the image nicely */
-    background-position: center;
+    /* background-position: left;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    height: 100vh; 
+    width: 100vw;
+    position: absolute; */
 }
 
 
@@ -62,4 +72,46 @@
     background-color: #c4c4c4;
     width: 200px;
     height: 50px;
+}
+
+.button-know{
+    margin-top: 180px;
+    background: linear-gradient(269.55deg, #43E97B 6.53%, #38F9D7 93.26%); /* Green */
+    color: white;
+    border: none;
+    width: 230px;
+    text-align: center;
+    border-radius: 29.42px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    height: 35px;
+}
+
+.tile-flex{
+    margin-top:20px;
+    /* center the element */
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    min-height: 10em;
+    width: 75%;
+}
+
+.tile-flex img{
+    width: 250px;
+}
+
+.tile-flex h2{
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.tile-flex p{
+    text-align: left;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    margin-left: 60px;
 }
