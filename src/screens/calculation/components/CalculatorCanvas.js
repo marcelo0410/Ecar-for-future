@@ -9,16 +9,23 @@ import QuestionFiveFuel from './QuestionFiveFuel'
 import QuestionSixFuel from './QuestionSixFuel'
 
 export default function CalculatorCanvas() {
+  const [controlCom, setcontrolCom] = useState("8")
+
+  // QuestionStart
+  const changeControl = (newControl) =>{
+    setcontrolCom(newControl)
+  }
+
   return (
     <div>
-      {/* <QuestionStart/> */}
-      <QuestionOneEVModel/>
-      {/* <QuestionTwoJourney/> */}
-      {/* <QuestionThreeTraveler/> */}
-      {/* <QuestionFourCar/> */}
-      {/* <QuestionFiveFuel/> */}
-      {/* <QuestionSixFuel/> */}
-      {/* <QuestionSevenCharging/> */}
+      {controlCom==="1" && <QuestionStart controlCom={controlCom}/>}
+      {controlCom==="2" &&<QuestionOneEVModel/>}
+      {controlCom==="3" &&<QuestionTwoJourney/>}
+      {controlCom==="4" &&<QuestionThreeTraveler/>}
+      {controlCom==="5" &&<QuestionFourCar/>}
+      {controlCom==="6" &&<QuestionFiveFuel/>}
+      {controlCom==="7" &&<QuestionSixFuel/>}
+      {controlCom==="8" &&<QuestionSevenCharging/>}
     </div>
 
   )
