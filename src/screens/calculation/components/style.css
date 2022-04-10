@@ -1,10 +1,11 @@
-/* .oval-grey-output{
-    width: 50px;
-    height: 25px;
+.oval-grey-output{
+    width: 150px;
+    height: 50px;
     background: #EBEBEB;
-    border-radius: 8px;
+    border-radius: 29px;
     text-align: center;
-} */
+
+}
 
 /* .slider{
     -webkit-appearance: none;
@@ -36,14 +37,7 @@ input[type="radio"]::after{
     background: green;
 }
 
-.carImage{
-    border: #FAFAFA 4px solid;
-    margin-bottom: 30px;
-}
-.carImageSelected{
-    border: #00AF12 4px solid ;
-    margin-bottom: 30px;
-}
+
 
 @media (min-width: 576px) {
 .responsive-calculator{
@@ -165,7 +159,7 @@ input[type='radio']:checked:after {
     background: linear-gradient(180deg, #E9DEFA 0%, #FBFCDB 100%);
     font-size: 40px;
     height:765px;
-    font-weight: bold;
+    
 
   }
 .question-desc{
@@ -196,5 +190,38 @@ input[type='radio']:checked:after {
 
 }
 
+.range-label{
+  font-size: 20px;
+  margin-left: 280px;
+  font-weight: bold;
+}
 
+.carImage{
+  border: transparent 4px solid;
+  margin-bottom: 30px;
+}
+.carImageSelected{
+  border: #00AF12 4px solid ;
+  margin-bottom: 30px;
+}
 
+.text-center{
+  font-size: 20px;
+  text-align: center;
+}
+
+.button-submit{
+  margin-top: 20px;
+  background: linear-gradient(269.55deg, #43E97B 6.53%, #38F9D7 93.26%); /* Green */
+  color: white;
+  border: none;
+  width: 150px;
+  text-align: center;
+  border-radius: 29.42px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  cursor: pointer;
+  height: 60px;
+  font-weight: bold;
+}
