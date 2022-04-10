@@ -9,8 +9,8 @@ export default function Emission() {
   };
   return (
     <div >
-      <div style={{fontSize:"25px", fontWeight:"bold", paddingTop:"70px", textAlign:"center"}}>Current Situation of Environment</div>
-      <div style={{marginTop:"10px"}}>
+      
+      <div style={{marginTop:"50px"}}>
         <div>
           <Tableau
           url="https://prod-apnortheast-a.online.tableau.com/t/zshatest/views/test_map/1?:embed=y&:display_count=n&:showVizHome=n&:origin=viz_share_link"

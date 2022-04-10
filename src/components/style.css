@@ -17,7 +17,7 @@
 
 .navbarr{
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     height:"50px";
     min-width: 100%;
 }
@@ -36,6 +36,7 @@
     background-color: #FAFAFA;
     width:220px;
     padding: 0;
+    font-weight: bold;
 }
 
 .navbar-link ul{

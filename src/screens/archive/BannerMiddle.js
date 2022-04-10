@@ -10,7 +10,6 @@ export default function BannerMiddle() {
             <h3 style={{fontSize:"24px"}}>Why should I purchase an EV instead?</h3><br/>
             <h3 className="ms-4" style={{fontSize:"24px", fontWeight:"bold"}}>Find out more&gt;&gt;</h3>
         </div>
-        
     </div>
   )
 }

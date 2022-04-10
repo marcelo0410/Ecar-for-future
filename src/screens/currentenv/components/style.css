@@ -17,8 +17,50 @@
     font-weight: bold;
 }
 
+.tile-flex{
+  margin-top:30px;
+  /* center the element */
+  margin-right: auto;
+  margin-left: auto;
+  /* give it dimensions */
+  min-height: 10em;
+  width: 90%;
+}
 
+.tile-flex img{
+  width: 250px;
+}
 
+.tile-flex h2{
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.tile-flex p{
+  text-align: left;
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  margin-left: 60px;
+  font-size: 14px;
+}
+
+.emission{
+  display: flex;
+  background-color: #F4F4F4;
+  padding-bottom: 40px;
+}
+.vis-emission{
+  padding-left: 90px;
+}
+
+.text-area-emission{
+  margin-left: 90px;
+  margin-top: 100px;
+  text-align: left;
+  width: 27%;
+  font-size: 19px;
+}
 
 
 

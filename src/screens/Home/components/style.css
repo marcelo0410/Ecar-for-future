@@ -12,6 +12,8 @@
     min-height: 85%;
     min-width: 100%;
     position: absolute;
+    background-size:100% auto;
+    background-repeat: no-repeat;
     /* Full height */
     /* width: 1200px; */
     /* height: 100vh; */
@@ -75,18 +77,18 @@
 }
 
 .button-know{
-    margin-top: 180px;
+    margin-top: 500px;
     background: linear-gradient(269.55deg, #43E97B 6.53%, #38F9D7 93.26%); /* Green */
     color: white;
     border: none;
-    width: 230px;
+    width: 289px;
     text-align: center;
     border-radius: 29.42px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
-    height: 35px;
+    height: 65px;
 }
 
 .tile-flex{
