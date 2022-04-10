@@ -8,6 +8,13 @@ import Test from './screens/Test/Ani'
 import Login from './components/login/Login'
 import QuarterlyEmissionCanvas from './screens/currentenv/components/QuarterlyEmissionCanvas';
 import './App.css';
+import QuestionOneEVModel from './screens/calculation/components/QuestionOneEVModel';
+import QuestionTwoJourney from './screens/calculation/components/QuestionTwoJourney';
+import QuestionThreeTraveler from './screens/calculation/components/QuestionThreeTraveler';
+import QuestionFourCar from './screens/calculation/components/QuestionFourCar';
+import QuestionFiveFuel from './screens/calculation/components/QuestionFiveFuel';
+import QuestionSixFuel from './screens/calculation/components/QuestionSixFuel'
+import QuestionSevenCharging from './screens/calculation/components/QuestionSevenCharging';
 
 function App() {
   return (
@@ -22,6 +29,13 @@ function App() {
           <Route path="/calculator" element={<Calculation/>}/>
           <Route path="/about" element={<Homepage/>}/>
           <Route path="/test" element={<QuarterlyEmissionCanvas/>}/>
+          <Route path="/q1" element={<QuestionOneEVModel/>}/>
+          <Route path="/q2" element={<QuestionTwoJourney/>}/>
+          <Route path="/q3" element={<QuestionThreeTraveler/>}/>
+          <Route path="/q4" element={<QuestionFourCar/>}/>
+          <Route path="/q5" element={<QuestionFiveFuel/>}/>
+          <Route path="/q6" element={<QuestionSixFuel/>}/>
+          <Route path="/q7" element={<QuestionSevenCharging/>}/>
           
           {/* <Route path="/test" element={<Test scrollHeight={4000} width={1158} height={770} numFrames={63}/>}/> */}
           

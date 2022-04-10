@@ -225,3 +225,17 @@ input[type='radio']:checked:after {
   height: 60px;
   font-weight: bold;
 }
+
+.vis-word{
+  margin-top: 50px;
+  text-align: left;
+}
+.vis-word span{
+  font-weight: bold;
+  font-size: 18px;
+  
+}
+
+.vis-chart{
+  justify-content: center;
+}

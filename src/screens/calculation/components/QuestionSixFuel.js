@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from 'react'
+import {useLocation, useNavigate} from 'react-router-dom';
 import helpImage from '../../../assets/calculation/help-circle.png'
 import Image91 from '../../../assets/calculation/91.png'
 import Image95 from '../../../assets/calculation/95.png'
@@ -11,8 +12,6 @@ import './style.css'
 export default function QuestionSevenFuel() {
 
   const [fuelCSSStyle, setFuelCSSStyle] = useState("1")
-  const [chargingBanCSSStyle, setChargingBanCSSStyle] = useState("carImage")
-  const [chargingCSSStyleFlag, setChargingCSSStyleFlag] = useState(true)
 
   const handleClickImageGetId = (e) =>{
     console.log(e.target.id)
@@ -22,12 +21,24 @@ export default function QuestionSevenFuel() {
     
   }
 
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const backToPrevious = () =>{
+    navigate('/q5', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel}});
+  }
+
+  const handleClick = () =>{
+    navigate('/q7', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel, fuelType:fuelCSSStyle}})
+  }
+
   return (
     <div className='question-canvas'>
+        {console.log(location.state)}
         <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
         <div style={{textAlign:"left"}}>
             <div className="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
-                <div className="progress-bar w75" role="progressbar" style={{width:"70%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div className="progress-bar w75" role="progressbar" style={{width:"75%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                 <div >Which type of fuel that you use the most?</div>
@@ -69,8 +80,8 @@ export default function QuestionSevenFuel() {
             </div>
         </div>
         <div>
-          <button type='button' className='button-submit' style={{marginRight:"100px"}}>Previous</button>
-          <button type='button' className='button-submit'>Next</button>
+          <button type='button' className='button-submit' style={{marginRight:"100px"}} onClick={backToPrevious}>Previous</button>
+          <button type='button' className='button-submit' onClick={handleClick}>Next</button>
         </div>
     </div>
   )

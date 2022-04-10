@@ -1,7 +1,6 @@
 import React,{useEffect, useState} from 'react'
+import {useLocation, useNavigate} from 'react-router-dom';
 import helpImage from '../../../assets/calculation/help-circle.png'
-import mediumCar from '../../../assets/calculation/SUV.png'
-import smallCar from '../../../assets/calculation/Car.png'
 import clockImage from '../../../assets/calculation/clock.png'
 import './style.css'
 
@@ -12,24 +11,24 @@ export default function QuestionTwoJourney() {
   const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
   const [travelDistance, settravelDistance] = useState(10)
 
-  const handleClickImageGetId = (e) =>{
-    if(e.currentTarget.id === "mediumCar"){
-      setMediumCarCSSStyle("carImageSelected")
-      setSmallCarCSSStyle("carImage")
-      setcarCSSStyleFlag(true)
-    } else if(e.currentTarget.id === "smallCar"){
-      setMediumCarCSSStyle("carImage")
-      setSmallCarCSSStyle("carImageSelected")
-      setcarCSSStyleFlag(false)
-    }
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const backToPrevious = () =>{
+    navigate('/q1', {state:{old:true,carType:location.state.carType}});
+  }
+
+  const handleClick = () =>{
+    navigate('/q3', {state:{old:false,carType:location.state.carType,distance:travelDistance}})
   }
 
   return (
     <div className='question-canvas'>
+        <div>{console.log(location.state)}</div>
         <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
         <div style={{textAlign:"left"}}>
             <div class="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
-                <div class="progress-bar w75" role="progressbar" style={{width:"25%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar w75" role="progressbar" style={{width:"14%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                 <div >Travel distance per week: </div>
@@ -49,8 +48,8 @@ export default function QuestionTwoJourney() {
             </div>
         </div>
         <div>
-          <button type='button' className='button-submit' style={{marginRight:"100px", marginTop:"50px"}}>Previous</button>
-          <button type='button' className='button-submit'>Next</button>
+          <button type='button' className='button-submit' style={{marginRight:"100px", marginTop:"50px"}} onClick={backToPrevious}>Previous</button>
+          <button type='button' className='button-submit' onClick={handleClick}>Next</button>
         </div>
     </div>
   )

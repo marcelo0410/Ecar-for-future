@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from 'react'
+import {useLocation, useNavigate} from 'react-router-dom';
 import helpImage from '../../../assets/calculation/help-circle.png'
 import mediumCar from '../../../assets/calculation/SUV.png'
 import smallCar from '../../../assets/calculation/Car.png'
@@ -9,6 +10,9 @@ export default function QuestionOneEVModel() {
   const [mediumCarCSSStyle, setMediumCarCSSStyle] = useState("carImage")
   const [smallCarCSSStyle, setSmallCarCSSStyle] = useState("carImageSelected")
   const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
+  const location = useLocation()
+  const navigate = useNavigate()
+
 
   const handleClickImageGetId = (e) =>{
     if(e.currentTarget.id === "mediumCar"){
@@ -22,9 +26,17 @@ export default function QuestionOneEVModel() {
     }
   }
 
+  const backToPrevious = () =>{
+    navigate('/calculator');
+  }
+
+  const handleClick = () =>{
+    navigate('/q2', {state:{check:location.state,carType:carCSSStyleFlag}})
+  }
+
   return (
     <div className='question-canvas'>
-        
+        <div>{console.log(location.state)}</div>
         <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
         <div style={{textAlign:"left"}}>
             <div class="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
@@ -47,8 +59,8 @@ export default function QuestionOneEVModel() {
             <div style={{fontSize:"10px", textAlign:"center"}}>* Small EV data is calculated based on Tesla model 3. Medium EV data is calculated based on Tesla model Y. The conversion rate of charging is approximately 0.8 as well as the distance discount rate.</div>
         </div>
         <div>
-          <button type='button' className='button-submit' style={{marginRight:"100px", marginTop:"50px"}}>Previous</button>
-          <button type='button' className='button-submit'>Next</button>
+          <button type='button' className='button-submit' style={{marginRight:"100px", marginTop:"50px"}} onClick={backToPrevious}>Previous</button>
+          <button type='button' className='button-submit' onClick={handleClick}>Next</button>
         </div>
     </div>
   )
