@@ -30,6 +30,17 @@ export default function QuestionThreeTraveler() {
 
   }
 
+  useEffect(() => {
+    if(location.state.old){
+      setnumTraveler(location.state.traveller)
+    }
+  
+    return () => {
+      
+    }
+  }, [])
+  
+
   return (
     <div className='question-canvas'>
         <div>{console.log(location.state)}</div>

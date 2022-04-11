@@ -18,18 +18,28 @@ export default function QuestionSevenFuel() {
     if(e.target.id != null){
       setFuelCSSStyle(e.target.id.toString())
     }
-    
   }
+
+  useEffect(() => {
+    if(location.state.old){
+      setFuelCSSStyle(location.state.fuelType)
+    }
+  
+    return () => {
+      
+    }
+  }, [])
+  
 
   const location = useLocation()
   const navigate = useNavigate()
 
   const backToPrevious = () =>{
-    navigate('/q5', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel}});
+    navigate('/q5', {state:{old:true,ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel}});
   }
 
   const handleClick = () =>{
-    navigate('/q7', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel, fuelType:fuelCSSStyle}})
+    navigate('/q7', {state:{old:false,ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel, fuelType:fuelCSSStyle}})
   }
 
   return (

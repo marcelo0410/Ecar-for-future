@@ -29,14 +29,24 @@ export default function QuestionFourCar() {
   const navigate = useNavigate()
 
   const backToPrevious = () =>{
-    navigate('/q3', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}});
+    navigate('/q3', {state:{old:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}});
   }
+
+  useEffect(() => {
+  
+    return () => {
+      
+    }
+  }, [])
+  
+
+
 
   const handleClick = () =>{
     if(chargingCSSStyleFlag){
-      navigate('/q5', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}})
+      navigate('/q5', {state:{old:false,ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}})
     } else{
-      navigate('/q7', {state:{ownCar:false,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}})
+      navigate('/q7', {state:{old:false,ownCar:false,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}})
       
     }
     

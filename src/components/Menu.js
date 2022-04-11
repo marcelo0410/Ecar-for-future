@@ -25,9 +25,9 @@ export default function Menu() {
                 <li>
                   <NavLink to="/calculator" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>Compare your cars</NavLink>
                 </li>
-                {/* <li>
+                <li>
                   <NavLink to="/about" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>About us</NavLink>
-                </li> */}
+                </li>
                 <li>
                   <a href='#' style={{width:"px", marginLeft:"210px", marginRight:"100px"}}>
                       <img src={magnifier} style={{height:"20px", width:"20px"}} alt="magnifying glass"></img>

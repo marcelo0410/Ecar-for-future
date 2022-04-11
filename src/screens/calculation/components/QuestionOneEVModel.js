@@ -9,7 +9,7 @@ export default function QuestionOneEVModel() {
 
   const [mediumCarCSSStyle, setMediumCarCSSStyle] = useState("carImage")
   const [smallCarCSSStyle, setSmallCarCSSStyle] = useState("carImageSelected")
-  const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
+  const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(false)
   const [divDisplay, setdivDisplay] = useState("help-tooltip help-tooltip-unhover")
   const location = useLocation()
   const navigate = useNavigate()
@@ -27,12 +27,25 @@ export default function QuestionOneEVModel() {
     }
   }
 
+  useEffect(() => {
+    if(location.state.carType){
+      setMediumCarCSSStyle("carImageSelected")
+      setSmallCarCSSStyle("carImage")
+      setcarCSSStyleFlag(true)
+    }
+  
+    return () => {
+      
+    }
+  }, [])
+  
+
   const backToPrevious = () =>{
     navigate('/calculator');
   }
 
   const handleClick = () =>{
-    navigate('/q2', {state:{check:location.state,carType:carCSSStyleFlag}})
+    navigate('/q2', {state:{old:false,carType:carCSSStyleFlag}})
   }
 
   const hoverHelp = () =>{

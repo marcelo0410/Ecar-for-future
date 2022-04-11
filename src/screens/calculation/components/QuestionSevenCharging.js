@@ -50,9 +50,9 @@ export default function QuestionFiveCharging() {
 
   const backToPrevious = () =>{
     if(location.state.ownCar === true){
-      navigate('/q6', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel}});
+      navigate('/q6', {state:{old:true,ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel,fuelType:location.state.fuelType }});
     } else{
-      navigate('/q4', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller,fuelType:location.state.fuelType}});
+      navigate('/q4', {state:{old:true,ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller,fuelType:location.state.fuelType}});
 
     }
     

@@ -9,6 +9,16 @@ export default function QuestionThreeTraveler() {
 
   const [fuelComsumption, setFuelComsumption] = useState(1)
 
+  useEffect(() => {
+    if(location.state.old){
+      setFuelComsumption(location.state.fuel)
+    }
+  
+    return () => {
+      
+    }
+  }, [])
+  
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -19,7 +29,7 @@ export default function QuestionThreeTraveler() {
 
   const handleClick = () =>{
 
-    navigate('/q6', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:fuelComsumption}})
+    navigate('/q6', {state:{old:false,ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:fuelComsumption}})
   }
 
 

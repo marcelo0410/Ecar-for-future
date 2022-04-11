@@ -33,7 +33,9 @@ export default function QuestionTwoJourney() {
   }
 
   useEffect(() => {
-    
+    if(location.state.distance != null){
+      settravelDistance(location.state.distance)
+    }
   
     return () => {
     }
@@ -54,7 +56,7 @@ export default function QuestionTwoJourney() {
                 <div className={divDisplay}>The average of your estimated weekly distance travelled</div>
             </div>
             <div className="range" style={{marginLeft:"280px", marginTop:"50px"}}>
-                <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="1" max="1000" value={!location.state.old? location.state.travel:travelDistance} onChange={e => settravelDistance(e.target.value)}/>                
+                <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="1" max="1000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>                
             </div>
             <div className='range-label'>
                 <output>1</output>

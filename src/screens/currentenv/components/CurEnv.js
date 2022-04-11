@@ -24,12 +24,12 @@ export default function CurEnv() {
                         <div>
                             <img src={curRose3Image}></img>
                         </div>
-                        <img src={cur17Image} style={{marginTop:"6px", height:"75px"}}></img>
+                        <img src={cur17Image} style={{marginTop:"5px", height:"80px", width:"190px"}}></img>
                         <p className='cur-p' style={{fontSize:"18px"}}>Transport generated 96 MtCO2e per year, 17% of total emissions</p>
                     </div>
                     <div id="cur60" style={{width:"33%"}}>
-                        <div><img src={curDouble2Image} style={{width:"180px"}}></img></div>
-                        <img src={cur60Image} style={{height:"75px", width:"200px", marginLeft:"20px"}}></img>
+                        <div><img src={curDouble2Image} style={{width:"200px", marginTop:"40px"}}></img></div>
+                        <img src={cur60Image} style={{height:"80px", width:"200px", marginLeft:"20px", marginBottom:"5px"}}></img>
                         <p className='cur-p' style={{fontSize:"18px"}}>Transport emissions have grown more than any other sector, increasing nearly 70% since 1990.</p>
                     </div>
                 </div>

@@ -17,6 +17,7 @@ import QuestionSixFuel from './screens/calculation/components/QuestionSixFuel'
 import QuestionSevenCharging from './screens/calculation/components/QuestionSevenCharging';
 import EmissionPowerBI from './screens/currentenv/components/EmissionPowerBI';
 import Test1 from './screens/Test/Test1';
+import About from './screens/about/index'
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/curenv" element={<CurrentEnv/>}/>
           <Route path="/calculator" element={<Calculation/>}/>
-          <Route path="/about" element={<Test1/>}/>
+          <Route path="/about" element={<About/>}/>
           <Route path="/test" element={<EmissionPowerBI/>}/>
           <Route path="/q1" element={<QuestionOneEVModel/>}/>
           <Route path="/q2" element={<QuestionTwoJourney/>}/>
