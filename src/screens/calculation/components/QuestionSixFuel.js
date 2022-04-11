@@ -25,11 +25,11 @@ export default function QuestionSevenFuel() {
   const navigate = useNavigate()
 
   const backToPrevious = () =>{
-    navigate('/q5', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel}});
+    navigate('/q5', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel}});
   }
 
   const handleClick = () =>{
-    navigate('/q7', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel, fuelType:fuelCSSStyle}})
+    navigate('/q7', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel, fuelType:fuelCSSStyle}})
   }
 
   return (
@@ -44,35 +44,35 @@ export default function QuestionSevenFuel() {
                 <div >Which type of fuel that you use the most?</div>
                 {/* <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img> */}
             </div>
-            <div className='d-flex car-display justify-content-center '>
+            <div className='d-flex justify-content-center mt-4'>
                 <div >
-                  <div   onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "1"? "carImageSelected":"carImage"}>
-                    <img id="1" src={Image91} style={{width:"143px",height:"143px"}}></img>
+                  <div   onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "1"? "flex-image-selected":"flex-image"}>
+                    <img id="1" src={Image91} style={{width:"143px",height:"143px", marginTop:"10px"}}></img>
                     <div className='text-center' style={{marginTop:"10px", paddingRight:"20px"}}>Standard unleaded 91</div>
                   </div>
                   
                 </div>
                 <div>
-                  <div   onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "2"? "carImageSelected":"carImage"}>
-                    <img id="2" src={Image95} style={{width:"143px", height:"143px", paddingLeft:"10px"}}></img>
+                  <div   onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "2"? "flex-image-selected":"flex-image"}>
+                    <img id="2" src={Image95} style={{width:"143px", height:"143px", paddingLeft:"0px",marginTop:"10px"}}></img>
                     <div className='text-center' style={{marginTop:"10px"}}>Premium 95-octane<br/>  unleaded</div>
                   </div>
                 </div>
                 <div>
-                  <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "3"? "carImageSelected":"carImage"}>
-                    <img id="3" src={Image98} style={{width:"143px", height:"143px", paddingLeft:"10px"}}></img>
+                  <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "3"? "flex-image-selected":"flex-image"}>
+                    <div><img id="3" src={Image98} style={{width:"143px", height:"143px", paddingLeft:"10px",marginTop:"10px"}}></img></div>
                     <div className='text-center' style={{marginTop:"10px"}}>Premium 98-octane<br/> unleaded</div>
                   </div>
                 </div>
                 <div>
-                  <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "4"? "carImageSelected":"carImage"}>
-                    <img id="4" src={ImageE10} style={{width:"143px", height:"143px", paddingLeft:"10px"}}></img>
+                  <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "4"? "flex-image-selected":"flex-image"}>
+                    <img id="4" src={ImageE10} style={{width:"143px", height:"143px", paddingLeft:"10px",marginTop:"10px"}}></img>
                     <div className='text-center' style={{marginTop:"10px"}}>E10</div>
                   </div>
                 </div>
                 <div>
-                  <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "5"? "carImageSelected":"carImage"}>
-                    <img id="5" src={ImageE85} style={{width:"143px", height:"143px", paddingLeft:"10px"}}></img>
+                  <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "5"? "flex-image-selected":"flex-image"}>
+                    <img id="5" src={ImageE85} style={{width:"143px", height:"143px", paddingLeft:"10px",marginTop:"10px"}}></img>
                     <div className='text-center' style={{marginTop:"10px"}}>E85</div>
                   </div>
                 </div>

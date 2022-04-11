@@ -18,7 +18,7 @@ export default function QuarterlyEmissionCanvas() {
               <QuarterlyEmissionOri/>
             </div>
             <div className='text-area-emission'>
-                <p>All motor vehicle pollutants are released into air and mostly through the exhaust fumes that come out of the tailpipe when the engine operates.
+                <p>As the third major source of CO2 emissions in Australia, the impact of vehicle emissions is far worse than we thought. All motor vehicle pollutants are released into air and mostly through the exhaust fumes that come out of the tailpipe when the engine operates.
                 </p>
                 <ul>
                     <li>more than 99.4% of all pollutant gases are invisible</li>

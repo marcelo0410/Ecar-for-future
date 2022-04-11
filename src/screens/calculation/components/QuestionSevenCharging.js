@@ -22,6 +22,17 @@ export default function QuestionFiveCharging() {
   const [ecarCost, setecarCost] = useState(0.0)
   const [petrolSelect, setpetrolSelect] = useState("91")
 
+  const [fuelOption, setfuelOption] = useState(6)
+  let a = "90%"
+
+  useEffect(() => {
+    
+  
+    return () => {
+      
+    }
+  }, [fuelOption])
+  
   const handleClickImageGetId = (e) =>{
     if(e.currentTarget.id === "charging"){
       setChargingCSSStyle("carImageSelected")
@@ -38,16 +49,42 @@ export default function QuestionFiveCharging() {
   const navigate = useNavigate()
 
   const backToPrevious = () =>{
-    navigate('/q6', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel}});
+    if(location.state.ownCar === true){
+      navigate('/q6', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:location.state.fuel}});
+    } else{
+      navigate('/q4', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller,fuelType:location.state.fuelType}});
+
+    }
+    
   }
 
 
   const handleClick = () =>{
 
-    const {carType,distance, traveller, fuel, fuelType} = location.state
-    console.log("a",carType)
-    calculateCost(distance, traveller, fuel, carType, fuelType)
-    calculateCo2(distance, fuel,carType)
+    a = "100%"
+    if(location.state.ownCar){
+      console.log("123")
+      const {carType,distance, traveller, fuel, fuelType} = location.state
+      calculateCost(distance, traveller, fuel, carType, fuelType)
+      calculateCo2(distance, fuel,carType)
+      setfuelOption(fuel)
+    } else{
+      const {carType,distance,ownCar,traveller} = location.state;
+      let fuel = 0
+      if(carType){
+        fuel=10
+        setfuelOption(10)
+      } else{
+        fuel=6
+        setfuelOption(6)
+      }
+    
+      let fuelType = "1"
+      calculateCost(distance, traveller, fuel, carType, fuelType)
+      calculateCo2(distance, fuel,carType)
+    }
+    
+    
     // setshowResult(true)
     window.scrollTo({
       top: 720,
@@ -80,7 +117,7 @@ export default function QuestionFiveCharging() {
       "5":2.15
 
     }
-
+    console.log(fuelConsumption)
     if(carType){
       setecarCost(Math.round(travelDistance/100*4.64))
     } else{
@@ -93,6 +130,7 @@ export default function QuestionFiveCharging() {
   }
 
   const calculateCo2 = (travelDistance, fuelConsumption, carCSSStyleFlag) =>{
+    console.log(fuelConsumption)
     const Co2EmissionCarType = {
       "smallCar":2171.5,
       "mediumCar": 2671.2
@@ -110,11 +148,11 @@ export default function QuestionFiveCharging() {
   return (
     <div>
       <div className='question-canvas'>
-          {console.log(location.state)}
+          {/* {console.log(location.state)} */}
           <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
           <div style={{textAlign:"left"}}>
               <div class="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
-                  <div class="progress-bar w75" role="progressbar" style={{width:"90%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar w75" role="progressbar" style={{width:a, background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                   <div >Do you have a place to install a charging pile?</div>
@@ -145,7 +183,7 @@ export default function QuestionFiveCharging() {
           </div>
       </div>
       <div id="visualization" className='vis'>
-        <div className='vis-word'>For a <span>{location.state.traveller}</span> people family who owns a fossil fueled car which consumpts <span>{location.state.fuel}</span> L/100 km, comparing with a <span>{location.state.carType}</span> EV, the result is as below. </div>
+        <div className='vis-word'>For a <span>{location.state.traveller}</span> people family who owns a fossil fueled car which consumpts <span>{fuelOption}</span> L/100 km, comparing with a <span>{location.state.carType? "Medium":"Small"}</span> EV, the result is as below. </div>
         <div className='d-flex mt-5 vis-chart'>
           <div>
               <div style={{paddingLeft:"0px", fontSize:"24px", fontWeight:"bold", marginBottom:"30px"}}>Maintenance cost per week</div>
@@ -162,7 +200,7 @@ export default function QuestionFiveCharging() {
             </div>
           </div>
         </div>
-        <div className='vis-word' style={{paddingLeft:"10px", marginTop:"30px"}}>Comparing to a fossiled fueled car with a fuel consumption for <span>{location.state.fuel}</span> L/100 km, a <span>{location.state.carType? "medium":"small"}</span> Electric Vehicle cost<br/> <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> less than fossil fueled car.</div>
+        <div className='vis-word' style={{paddingLeft:"10px", marginTop:"30px"}}>Comparing to a fossiled fueled car with a fuel consumption for <span>{fuelOption}</span> L/100 km, a <span>{location.state.carType? "Medium":"Small"}</span> Electric Vehicle cost<br/> <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> less than fossil fueled car.</div>
 
       </div>
         <button type='button' className='button-submit mt-6' onClick={resetDirect}>Restart</button>

@@ -29,7 +29,7 @@ export default function Menu() {
                   <NavLink to="/about" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>About us</NavLink>
                 </li> */}
                 <li>
-                  <a href='#' style={{width:"px", marginLeft:"160px", marginRight:"100px"}}>
+                  <a href='#' style={{width:"px", marginLeft:"210px", marginRight:"100px"}}>
                       <img src={magnifier} style={{height:"20px", width:"20px"}} alt="magnifying glass"></img>
                   </a>
                 </li>

@@ -18,7 +18,8 @@ export default function QuestionThreeTraveler() {
   }
 
   const handleClick = () =>{
-    navigate('/q6', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:fuelComsumption}})
+
+    navigate('/q6', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:fuelComsumption}})
   }
 
 

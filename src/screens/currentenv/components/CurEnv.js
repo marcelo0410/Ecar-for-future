@@ -1,7 +1,10 @@
 import React from 'react'
-import homeEnvImage from '../../../assets/homepage/home-env.png'
-import homeTrendImage from '../../../assets/homepage/home-trend.png'
-import homeSubsidyImage from '../../../assets/homepage/home-subsidy.png'
+import curBar1Image from '../../../assets/currentenv/cur-bar1.png'
+import curDouble2Image from '../../../assets/currentenv/cur-double2.png'
+import curRose3Image from '../../../assets/currentenv/cur-rose3.png'
+import cur17Image from '../../../assets/currentenv/cur-17.png'
+import cur60Image from '../../../assets/currentenv/cur-60.png'
+import cur3thImage from '../../../assets/currentenv/cur-3th.png'
 import './style.css'
 
 
@@ -12,25 +15,22 @@ export default function CurEnv() {
         <div>
             <div >
                 <div id="tileArea" className='tile-flex d-flex justify-content-center'>
-                    <div id="environment" style={{width:"25%"}}>
-                        <img src={homeEnvImage}></img>
-                        <h2>Environment</h2>
-                        <p>Carbon dioxide emissions in Victoria are more serious than expected, which undoubtedly contributes to the greenhouse effect. One of the main sources is vehicle emissions.</p>
+                    <div id="cur3" style={{width:"33%"}}>
+                        <div><img src={curBar1Image}></img></div>
+                        <img src={cur3thImage}  style={{height:"75px", width:"150px"}}></img>
+                        <p className='cur-p' style={{fontSize:"18px"}}>Transport is Australia’s third largest source of green house gas emissions.</p>
                     </div>
-                    <div id="technology" style={{width:"25%"}}>
-                        <img src={homeTrendImage}></img>
-                        <h2>Technology</h2>
-                        <p>Between 2020 and 2021, EV sales in Australia experienced surge from 6,900 sold to 20,665, which is a staggering 200% growth. Increasing number of Australians willing to try electric vehicles.</p>
+                    <div id="cur17" style={{width:"33%"}}>
+                        <div>
+                            <img src={curRose3Image}></img>
+                        </div>
+                        <img src={cur17Image} style={{marginTop:"6px", height:"75px"}}></img>
+                        <p className='cur-p' style={{fontSize:"18px"}}>Transport generated 96 MtCO2e per year, 17% of total emissions</p>
                     </div>
-                    <div id="government" style={{width:"25%"}}>
-                        <img src={homeSubsidyImage}></img>
-                        <h2>Government</h2>
-                        <p>The Victorian Government is incentivising Victorians to choose to buy an EV sooner through the Electric Vehicles Subsidy Program, saving people up to $3,000 on the purchase of a ZEV and driving Victoria’s transition to a net-zero emissions future.</p>
-                    </div>
-                    <div id="limitations" style={{width:"25%"}}>
-                        <img src={homeSubsidyImage}></img>
-                        <h2>Limitations</h2>
-                        <p>The Victorian Government is incentivising Victorians to choose to buy an EV sooner through the Electric Vehicles Subsidy Program, saving people up to $3,000 on the purchase of a ZEV and driving Victoria’s transition to a net-zero emissions future.</p>
+                    <div id="cur60" style={{width:"33%"}}>
+                        <div><img src={curDouble2Image} style={{width:"180px"}}></img></div>
+                        <img src={cur60Image} style={{height:"75px", width:"200px", marginLeft:"20px"}}></img>
+                        <p className='cur-p' style={{fontSize:"18px"}}>Transport emissions have grown more than any other sector, increasing nearly 70% since 1990.</p>
                     </div>
                 </div>
             </div>

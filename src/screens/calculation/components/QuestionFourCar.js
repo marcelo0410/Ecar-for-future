@@ -33,7 +33,13 @@ export default function QuestionFourCar() {
   }
 
   const handleClick = () =>{
-    navigate('/q5', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}})
+    if(chargingCSSStyleFlag){
+      navigate('/q5', {state:{ownCar:true,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}})
+    } else{
+      navigate('/q7', {state:{ownCar:false,carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}})
+      
+    }
+    
   }
 
   const hoverHelp = () =>{

@@ -7,7 +7,7 @@ export default function TopBanner() {
   const navigate = useNavigate()
   const handleClick = () =>{
     window.scrollTo(0,0)
-    navigate('/curenv')
+    navigate('/calculator')
   }
 
   return (

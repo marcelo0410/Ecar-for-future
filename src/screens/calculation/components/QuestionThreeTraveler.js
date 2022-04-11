@@ -14,11 +14,11 @@ export default function QuestionThreeTraveler() {
   const navigate = useNavigate()
 
   const backToPrevious = () =>{
-    navigate('/q2', {state:{carType:location.state.carType,distance:location.state.distance}});
+    navigate('/q2', {state:{old:true,carType:location.state.carType,distance:location.state.distance}});
   }
 
   const handleClick = () =>{
-    navigate('/q4', {state:{carType:location.state.carType,distance:location.state.distance, traveller:numTraveler}})
+    navigate('/q4', {state:{old:false,carType:location.state.carType,distance:location.state.distance, traveller:numTraveler}})
   }
 
   const hoverHelp = () =>{

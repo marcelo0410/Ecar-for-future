@@ -44,7 +44,7 @@ export default class CostResultWeek extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis label={{ value: '(AU$)', angle: -90, position: 'insideLeft',dy: -20, dx:-5}} domain={[0, 100]} />
           <Tooltip />
           <Legend />
           <Bar dataKey="YourCar" fill="#8884d8" barSize={25}/>
