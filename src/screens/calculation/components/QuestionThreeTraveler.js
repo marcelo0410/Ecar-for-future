@@ -40,7 +40,7 @@ export default function QuestionThreeTraveler() {
             <div className='d-flex justify-content-center mt-4'>
                 <img src={peopleImage} style={{height:"50px"}}></img>
                 <div className='oval-grey-output ms-3'>{numTraveler}</div>
-                <span className='ms-1'>km</span>
+                <span className='ms-1'>people</span>
             </div>
         </div>
         <div>

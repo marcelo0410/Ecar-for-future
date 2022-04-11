@@ -27,13 +27,6 @@ export default function CalculatorCanvas() {
   return (
     <div>
       <QuestionStart/>
-      {/* {controlCom==="2" &&<QuestionOneEVModel/>}
-      {controlCom==="3" &&<QuestionTwoJourney/>}
-      {controlCom==="4" &&<QuestionThreeTraveler/>}
-      {controlCom==="5" &&<QuestionFourCar/>}
-      {controlCom==="6" &&<QuestionFiveFuel/>}
-      {controlCom==="7" &&<QuestionSixFuel/>}
-      {controlCom==="8" &&<QuestionSevenCharging/>} */}
     </div>
 
   )

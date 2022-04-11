@@ -3,6 +3,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import helpImage from '../../../assets/calculation/help-circle.png'
 import chargingPipeImage from '../../../assets/calculation/chargingpipe.png'
 import chargingPipeBanImage from '../../../assets/calculation/chargingpipe-ban.png'
+import solarVicImage from '../../../assets/calculation/solar-vic-logo.png'
 import CostResultWeek from './CostResultWeek';
 import Co2ResultWeek from './Co2ResultWeek';
 import './style.css'
@@ -130,24 +131,38 @@ export default function QuestionFiveCharging() {
             <button type='button' className='button-submit' onClick={handleClick}>Submit</button>
           </div>
       </div>
-      <div id="visualization" className='vis-word'>
-        <div style={{paddingLeft:"30px"}}>Comparing to a fossiled fueled car with a fuel consumption for <span>{location.state.fuel}</span> L/100 km, a <span>{location.state.carType? "medium":"small"}</span> Electric Vehicle cost <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> less than fossil fueled car.</div>
+      <div id="visualization" className='vis'>
+        <div className='vis-word'>For a <span>{location.state.traveller}</span> people family who owns a fossil fueled car which consumpts <span>{location.state.fuel}</span> L/100 km, comparing with a <span>{location.state.carType}</span> EV, the result is as below. </div>
         <div className='d-flex mt-5 vis-chart'>
-          <div >
-              <div style={{paddingLeft:"30px", fontSize:"24px", fontWeight:"bold"}}>Maintenance cost per week</div>
-              
-              <CostResultWeek resultCost={resultCost} carSize={location.state.carType} ecarCost={ecarCost}/>
+          <div>
+              <div style={{paddingLeft:"0px", fontSize:"24px", fontWeight:"bold", marginBottom:"30px"}}>Maintenance cost per week</div>
+              <div style={{paddingRight:"90px"}}>
+                <CostResultWeek resultCost={resultCost} carSize={location.state.carType} ecarCost={ecarCost}/>
+              </div>
           </div>
           <div>
             <div>
-              <div style={{paddingLeft:"50px", fontSize:"24px", fontWeight:"bold"}}>Gas emission generated per week</div>
-              <Co2ResultWeek resultCo2={resultCO2} carSize={location.state.carType}/>
+              <div style={{paddingLeft:"50px", fontSize:"24px", fontWeight:"bold", marginBottom:"30px"}}>Gas emission generated per week</div>
+              <div style={{marginLeft:"90px"}}>
+                <Co2ResultWeek resultCo2={resultCO2} carSize={location.state.carType}/>
+              </div>
             </div>
           </div>
         </div>
+        <div className='vis-word' style={{paddingLeft:"10px", marginTop:"30px"}}>Comparing to a fossiled fueled car with a fuel consumption for <span>{location.state.fuel}</span> L/100 km, a <span>{location.state.carType? "medium":"small"}</span> Electric Vehicle cost<br/> <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> less than fossil fueled car.</div>
 
       </div>
-      <button type='button' className='button-submit' onClick={resetDirect}>Restart</button>
+        <button type='button' className='button-submit mt-6' onClick={resetDirect}>Restart</button>
+
+        <div id="subsidy" className='card-80'>
+          <div>
+            <h2>Policy Subsidy</h2>
+            <img src={solarVicImage}></img>
+          </div>
+          
+          <p>The Victorian Government provide the Zero Emissions Vehicle (ZEV) Subsidy to reduces the upfront cost of a new zero emissions vehicle aiming to encourage more Victorians driving the future of transport sooner.
+This subsidy Valued at $3,000 for eligible new ZEVs purchased cusmors. For details of the eligibility terms and subsidy application details, please refer to: <a href='https://www.solar.vic.gov.au/zero-emissions-vehicle-subsidy' target="_blank">https://www.solar.vic.gov.au/zero-emissions-vehicle-subsidy</a> </p>
+        </div>
       </div>
   )
 }

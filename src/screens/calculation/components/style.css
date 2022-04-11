@@ -226,16 +226,50 @@ input[type='radio']:checked:after {
   font-weight: bold;
 }
 
-.vis-word{
+.vis{
   margin-top: 50px;
   text-align: left;
 }
+.vis-word{
+  text-align: left;
+  font-size: 20px;
+  text-align: center;
+}
 .vis-word span{
   font-weight: bold;
-  font-size: 18px;
+  font-size: 25px;
   
 }
 
 .vis-chart{
   justify-content: center;
+}
+
+.card-80{
+  margin-top: 40px;
+  width: 1266.21px;
+  height: 350.74px;
+  background: #F4F4F4;
+  border-radius: 47px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.card-80 img{
+  width: 614px;
+  padding-left: px;
+}
+
+.card-80 h2{
+  font-weight: bold;
+  padding-top: 30px;
+  text-align: left;
+}
+.card-80 p{
+  width: 40%;
+  padding-left: 40px;
+  margin-top: 60px;
+  text-align: left;
 }

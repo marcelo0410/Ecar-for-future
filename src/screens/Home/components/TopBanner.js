@@ -6,6 +6,7 @@ import homeCarImage from '../../../assets/homepage/homepage-car.png'
 export default function TopBanner() {
   const navigate = useNavigate()
   const handleClick = () =>{
+    window.scrollTo(0,0)
     navigate('/curenv')
   }
 

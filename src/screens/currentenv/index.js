@@ -4,11 +4,12 @@ import Health from './components/Health'
 import './components/style.css'
 import QuaterlyEmissionCanvas from './components/QuarterlyEmissionCanvas'
 import CurEnv from './components/CurEnv'
+import EmissionPowerBI from './components/EmissionPowerBI'
 
 export default function index() {
   return (
     <div>
-        <Emission/>
+        <EmissionPowerBI/>
         <CurEnv/>
         <QuaterlyEmissionCanvas/>
         {/* <Health/> */}

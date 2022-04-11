@@ -2,6 +2,7 @@ import React from 'react'
 import homeEnvImage from '../../../assets/homepage/home-env.png'
 import homeTrendImage from '../../../assets/homepage/home-trend.png'
 import homeSubsidyImage from '../../../assets/homepage/home-subsidy.png'
+import './style.css'
 
 
 export default function CurEnv() {
