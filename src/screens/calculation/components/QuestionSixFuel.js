@@ -42,7 +42,7 @@ export default function QuestionSevenFuel() {
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                 <div >Which type of fuel that you use the most?</div>
-                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img>
+                {/* <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img> */}
             </div>
             <div className='d-flex car-display justify-content-center '>
                 <div >

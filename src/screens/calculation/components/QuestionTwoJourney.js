@@ -10,6 +10,7 @@ export default function QuestionTwoJourney() {
   const [smallCarCSSStyle, setSmallCarCSSStyle] = useState("carImage")
   const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
   const [travelDistance, settravelDistance] = useState(10)
+  const [divDisplay, setdivDisplay] = useState("help-tooltip help-tooltip-unhover")
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -22,6 +23,15 @@ export default function QuestionTwoJourney() {
     navigate('/q3', {state:{old:false,carType:location.state.carType,distance:travelDistance}})
   }
 
+  const hoverHelp = () =>{
+    setdivDisplay("help-tooltip help-tooltip-hover")
+  }
+
+  const hoverLeave = () =>{
+    setdivDisplay("help-tooltip help-tooltip-unhover")
+
+  }
+
   return (
     <div className='question-canvas'>
         <div>{console.log(location.state)}</div>
@@ -32,7 +42,8 @@ export default function QuestionTwoJourney() {
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                 <div >Travel distance per week: </div>
-                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img>
+                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}} onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
+                <div className={divDisplay}>The average of your estimated weekly distance travelled</div>
             </div>
             <div className="range" style={{marginLeft:"280px", marginTop:"50px"}}>
                 <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="0" max="50000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>                

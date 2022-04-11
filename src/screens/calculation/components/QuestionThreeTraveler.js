@@ -7,6 +7,8 @@ import './style.css'
 export default function QuestionThreeTraveler() {
 
   const [numTraveler, setnumTraveler] = useState(1)
+  const [divDisplay, setdivDisplay] = useState("help-tooltip help-tooltip-unhover")
+
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -18,6 +20,16 @@ export default function QuestionThreeTraveler() {
   const handleClick = () =>{
     navigate('/q4', {state:{carType:location.state.carType,distance:location.state.distance, traveller:numTraveler}})
   }
+
+  const hoverHelp = () =>{
+    setdivDisplay("help-tooltip help-tooltip-hover")
+  }
+
+  const hoverLeave = () =>{
+    setdivDisplay("help-tooltip help-tooltip-unhover")
+
+  }
+
   return (
     <div className='question-canvas'>
         <div>{console.log(location.state)}</div>
@@ -27,8 +39,9 @@ export default function QuestionThreeTraveler() {
                 <div class="progress-bar w75" role="progressbar" style={{width:"30%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
-                <div >Travel distance per week: </div>
-                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img>
+                <div >How many travelers in your family?</div>
+                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}} onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
+                <div className={divDisplay}>Gas emission generated is based on the number of your travelers.</div>
             </div>
             <div className="range" style={{marginLeft:"280px", marginTop:"50px"}}>
                 <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="1" max="10" value={numTraveler} onChange={e => setnumTraveler(e.target.value)}/>                

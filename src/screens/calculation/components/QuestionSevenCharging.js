@@ -13,6 +13,8 @@ export default function QuestionFiveCharging() {
   const [chargingCSSStyle, setChargingCSSStyle] = useState("carImageSelected")
   const [chargingBanCSSStyle, setChargingBanCSSStyle] = useState("carImage")
   const [chargingCSSStyleFlag, setChargingCSSStyleFlag] = useState(true)
+  const [divDisplay, setdivDisplay] = useState("help-tooltip help-tooltip-unhover")
+
 
   const [resultCO2, setresultCO2] = useState(0.0)
   const [resultCost, setresultCost] = useState(0.0)
@@ -51,6 +53,16 @@ export default function QuestionFiveCharging() {
       top: 720,
       behavior: "smooth"
   });
+
+  }
+
+  
+  const hoverHelp = () =>{
+    setdivDisplay("help-tooltip help-tooltip-hover")
+  }
+
+  const hoverLeave = () =>{
+    setdivDisplay("help-tooltip help-tooltip-unhover")
 
   }
 
@@ -106,7 +118,8 @@ export default function QuestionFiveCharging() {
               </div>
               <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                   <div >Do you have a place to install a charging pile?</div>
-                  <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img>
+                  <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}} onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
+                  <div className={divDisplay}>The price of the electric may be vary due to the place <br/>that you charge your car. The price of your own charging pile is the lowest.</div>
               </div>
               <div className='d-flex car-display justify-content-center '>
                   <div>

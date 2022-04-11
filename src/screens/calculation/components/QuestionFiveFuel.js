@@ -9,6 +9,7 @@ export default function QuestionThreeTraveler() {
 
   const [fuelComsumption, setFuelComsumption] = useState(1)
 
+
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -20,6 +21,8 @@ export default function QuestionThreeTraveler() {
     navigate('/q6', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller, fuel:fuelComsumption}})
   }
 
+
+
   return (
     <div className='question-canvas'>
         <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
@@ -29,7 +32,7 @@ export default function QuestionThreeTraveler() {
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                 <div >Fuel consumpution per 100km</div>
-                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img>
+                {/* <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}} ></img> */}
             </div>
             <div className="range" style={{marginLeft:"280px", marginTop:"50px"}}>
                 <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="1" max="40.0" step="0.1" value={fuelComsumption} onChange={e => setFuelComsumption(e.target.value)}/>                

@@ -10,6 +10,8 @@ export default function QuestionFourCar() {
   const [chargingCSSStyle, setChargingCSSStyle] = useState("carImageSelected")
   const [chargingBanCSSStyle, setChargingBanCSSStyle] = useState("carImage")
   const [chargingCSSStyleFlag, setChargingCSSStyleFlag] = useState(true)
+  const [divDisplay, setdivDisplay] = useState("help-tooltip help-tooltip-unhover")
+
 
   const handleClickImageGetId = (e) =>{
     if(e.currentTarget.id === "charging"){
@@ -34,6 +36,15 @@ export default function QuestionFourCar() {
     navigate('/q5', {state:{carType:location.state.carType,distance:location.state.distance, traveller:location.state.traveller}})
   }
 
+  const hoverHelp = () =>{
+    setdivDisplay("help-tooltip help-tooltip-hover")
+  }
+
+  const hoverLeave = () =>{
+    setdivDisplay("help-tooltip help-tooltip-unhover")
+
+  }
+
   return (
     <div className='question-canvas'>
         <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
@@ -43,7 +54,8 @@ export default function QuestionFourCar() {
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                 <div >Do you currently own a fuel car? </div>
-                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img>
+                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}  onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
+                <div className={divDisplay}>If yes, you will need to input fuel consumption information of your car.<br/> If no, the system will input data for reference.</div>
             </div>
             <div className='d-flex car-display justify-content-center '>
                 <div>

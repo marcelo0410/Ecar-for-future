@@ -10,6 +10,7 @@ export default function QuestionOneEVModel() {
   const [mediumCarCSSStyle, setMediumCarCSSStyle] = useState("carImage")
   const [smallCarCSSStyle, setSmallCarCSSStyle] = useState("carImageSelected")
   const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
+  const [divDisplay, setdivDisplay] = useState("help-tooltip help-tooltip-unhover")
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -34,6 +35,15 @@ export default function QuestionOneEVModel() {
     navigate('/q2', {state:{check:location.state,carType:carCSSStyleFlag}})
   }
 
+  const hoverHelp = () =>{
+    setdivDisplay("help-tooltip help-tooltip-hover")
+  }
+
+  const hoverLeave = () =>{
+    setdivDisplay("help-tooltip help-tooltip-unhover")
+
+  }
+
   return (
     <div className='question-canvas'>
         <div>{console.log(location.state)}</div>
@@ -44,7 +54,8 @@ export default function QuestionOneEVModel() {
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
                 <div >Select your expected EV model: </div>
-                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img>
+                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}} onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
+                <div className={divDisplay}>Depending on the number of passengers and the desire to buy a car,<br/> it can be divided into 5 seats and 7 seats.</div>
             </div>
             <div className='d-flex car-display justify-content-center '>
                 <div id="smallCar" onClick={handleClickImageGetId} className={smallCarCSSStyle} style={{marginRight:"150px"}}>
