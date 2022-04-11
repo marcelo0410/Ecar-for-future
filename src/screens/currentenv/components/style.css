@@ -65,6 +65,11 @@
 
 .health-text-area{
   font-size: 20px;
+  text-align: left;
+}
+
+.text-start{
+  margin-top: 5px;
 }
 
 
