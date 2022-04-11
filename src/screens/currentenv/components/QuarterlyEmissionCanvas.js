@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import QuarterlyEmission from './QuarterlyEmission'
 import QuarterlyEmissionOri from './QuarterlyEmissionOri'
+import './style.css'
 
 export default function QuarterlyEmissionCanvas() {
   const [visOption, setvisOption] = useState("1")

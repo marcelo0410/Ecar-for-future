@@ -50,7 +50,7 @@ export default class Co2ResultWeek extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis label={{ value: '(gram)', angle: -90, position: 'insideLeft',dy: -20, dx:-20}} domain={[0, 100]} />
+          <YAxis label={{ value: '(kg)', angle: -90, position: 'insideLeft',dy: -20, dx:-20}} domain={[0, 100]} />
           <Tooltip />
           <Legend />
           <Bar dataKey="YourCar" fill="#8884d8" barSize={25}/>

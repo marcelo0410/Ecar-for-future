@@ -254,7 +254,7 @@ input[type='radio']:checked:after {
 }
 
 .card-80{
-  margin-top: 40px;
+  margin-top: 20px;
   width: 1266.21px;
   height: 350.74px;
   background: #F4F4F4;
@@ -263,6 +263,7 @@ input[type='radio']:checked:after {
   margin-right: auto;
   display: flex;
   justify-content: center;
+  font-size: 19px;
 }
 
 .card-80 img{

@@ -6,6 +6,7 @@ import Image95 from '../../../assets/calculation/95.png'
 import Image98 from '../../../assets/calculation/98.png'
 import ImageE10 from '../../../assets/calculation/E10.png'
 import ImageE85 from '../../../assets/calculation/E85.png'
+import ImageDiesel from '../../../assets/calculation/diesel.png'
 
 import './style.css'
 
@@ -82,8 +83,8 @@ export default function QuestionSevenFuel() {
                 </div>
                 <div>
                   <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "5"? "flex-image-selected":"flex-image"}>
-                    <img id="5" src={ImageE85} style={{width:"143px", height:"143px", paddingLeft:"10px",marginTop:"10px"}}></img>
-                    <div className='text-center' style={{marginTop:"10px"}}>E85</div>
+                    <img id="5" src={ImageDiesel} style={{width:"143px", height:"143px", paddingLeft:"10px",marginTop:"10px"}}></img>
+                    <div className='text-center' style={{marginTop:"10px"}}>Diesel</div>
                   </div>
                 </div>
                 

@@ -142,7 +142,7 @@ export default function QuestionFiveCharging() {
       carType = "mediumCar"
     }
     const result = travelDistance /100 *fuelConsumption*Co2EmissionCarType[carType]
-    setresultCO2(Math.round(result * 100) / 100)
+    setresultCO2(Math.round(result * 100/1000) / 100 )
   }
 
   return (
@@ -200,7 +200,7 @@ export default function QuestionFiveCharging() {
             </div>
           </div>
         </div>
-        <div className='vis-word' style={{paddingLeft:"10px", marginTop:"30px"}}>Comparing to a fossiled fueled car with a fuel consumption for <span>{fuelOption}</span> L/100 km, a <span>{location.state.carType? "Medium":"Small"}</span> Electric Vehicle cost<br/> <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> less than fossil fueled car.</div>
+        <div className='vis-word' style={{paddingLeft:"10px", marginTop:"30px"}}>Comparing to a fossiled fueled car with a fuel consumption for <span>{fuelOption}</span> L/100 km, a <span>{location.state.carType? "Medium":"Small"}</span> Electric Vehicle cost<br/> <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> kg less than fossil fueled car.</div>
 
       </div>
         <button type='button' className='button-submit mt-6' onClick={resetDirect}>Restart</button>
@@ -212,7 +212,7 @@ export default function QuestionFiveCharging() {
           </div>
           
           <p>The Victorian Government provide the Zero Emissions Vehicle (ZEV) Subsidy to reduces the upfront cost of a new zero emissions vehicle aiming to encourage more Victorians driving the future of transport sooner.
-This subsidy Valued at $3,000 for eligible new ZEVs purchased cusmors. For details of the eligibility terms and subsidy application details, please refer to: <a href='https://www.solar.vic.gov.au/zero-emissions-vehicle-subsidy' target="_blank">https://www.solar.vic.gov.au/zero-emissions-vehicle-subsidy</a> </p>
+This subsidy Valued at <b>$3,000</b> for eligible new ZEVs purchased cusmors. For details of the eligibility terms and subsidy application details, please refer to: <a href='https://www.solar.vic.gov.au/zero-emissions-vehicle-subsidy' target="_blank">https://www.solar.vic.gov.au/zero-emissions-vehicle-subsidy</a> </p>
         </div>
       </div>
   )

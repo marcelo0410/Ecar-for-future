@@ -17,12 +17,13 @@ export default function Health() {
                     <img src={healthPharynx} style={{height:"170px", width:"170px"}}></img>
                 </div>
             </div>
-            <div>Healthy impact: increasing people’s risk of developing
+            <div className='health-text-area'>Healthy impact due to the pollutants:
                 <ul className='text-start'>
-                    <li>cardiovascular disease</li>
-                    <li>respiratory infections </li>
-                    <li>chronic obstructive pulmonary disease (COPD) </li>
-                    <li>lung cancer </li>
+                    <li>Increasing people’s risk of developing</li>
+                    <li>Cardiovascular disease</li>
+                    <li>Hespiratory infections </li>
+                    <li>Chronic obstructive pulmonary disease (COPD) </li>
+                    <li>Lung cancer </li>
                 </ul> 
             </div>
         </div>
