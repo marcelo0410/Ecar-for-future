@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import QuarterlyEmission from './QuarterlyEmission'
+import QuarterlyEmissionOri from './QuarterlyEmissionOri'
 
 export default function QuarterlyEmissionCanvas() {
   const [visOption, setvisOption] = useState("1")
@@ -8,13 +9,13 @@ export default function QuarterlyEmissionCanvas() {
         <div className='emission'>
             
             <div className='vis-emission'>
-              <select name="Council" id="council" onChange={null} value={visOption}>
+              {/* <select name="Council" id="council" onChange={null} value={visOption}>
                 <option value="" disabled>Council</option>
                 <option value="1" selected>Annual</option>
                 <option value="2">Emission by Gas</option>
                 <option value="3">Transport</option>
-              </select>
-              <QuarterlyEmission/>
+              </select> */}
+              <QuarterlyEmissionOri/>
             </div>
             <div className='text-area-emission'>
                 <p>All motor vehicle pollutants are released into air and mostly through the exhaust fumes that come out of the tailpipe when the engine operates.

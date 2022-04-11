@@ -144,7 +144,7 @@ export default class QuaterlyEmission extends PureComponent {
             <h2 className='mt-4 mb-4'>Emission By Gas</h2>
             <div></div>
             <LineChart
-            width={1000}
+            width={800}
             height={500}
             data={data}
             margin={{
