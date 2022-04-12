@@ -42,7 +42,7 @@ function App() {
           
           {/* <Route path="/test" element={<Test scrollHeight={4000} width={1158} height={770} numFrames={63}/>}/> */}
           
-          <Route path="/" element={<Navigate replace to="/login"/>} />
+          <Route path="/" element={<Navigate replace to="/home"/>} />
         </Routes>
         <Footer/>
         </div>

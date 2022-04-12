@@ -15,28 +15,28 @@ export default function teamInfo() {
               <h2>Marcelo Hsiao</h2>
               <h6>Master of Information Technology</h6>
               <h6 style={{fontStyle:'italic'}}>Monash University</h6>
-              <p>Carbon dioxide emissions in Victoria are more serious than expected, which undoubtedly contributes to the greenhouse effect. One of the main sources is vehicle emissions.</p>
+              <p>I am a webside developer and responsible of developing website and maintainence of the system in this team. Love to travel and watch movies. </p>
           </div>
           <div id="sean" style={{width:"25%"}}>
               <img src={Sean}></img>
               <h2>Sean Yang</h2>
               <h6>Master of Business Information System</h6>
               <h6 style={{fontStyle:'italic'}}>Monash University</h6>
-              <p>Carbon dioxide emissions in Victoria are more serious than expected, which undoubtedly contributes to the greenhouse effect. One of the main sources is vehicle emissions.</p>
+              <p>Hey, guys, I’m Sean. I am responsible for the design of the product architecture and user interface. Meanwhile, I also help the team collect and integrate various data and reports.</p>
           </div>
           <div id="tom" style={{width:"25%"}}>
               <img src={Tom}></img>
               <h2>Tom Shan</h2>
               <h6>Master of Data Science</h6>
               <h6 style={{fontStyle:'italic'}}>Monash University</h6>
-              <p>Carbon dioxide emissions in Victoria are more serious than expected, which undoubtedly contributes to the greenhouse effect. One of the main sources is vehicle emissions.</p>
+              <p>I am responsible for data searching, cleaning and wrangling in this project. He loves traveling and playing badminton.</p>
           </div>
           <div id="joshua" style={{width:"25%"}}>
               <img src={Joshua}></img>
               <h2>Joshua Cao</h2>
               <h6>Master of Data Science</h6>
               <h6 style={{fontStyle:'italic'}}>Monash University</h6>
-              <p>Carbon dioxide emissions in Victoria are more serious than expected, which undoubtedly contributes to the greenhouse effect. One of the main sources is vehicle emissions.</p>
+              <p>Friendly and open minded person. Mainly in charge of UI design and data science related works. Happy to make changes and accept challenges.</p>
           </div>
         </div>
     </div>
