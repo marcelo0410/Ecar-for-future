@@ -10,7 +10,7 @@ export default function MiddleBanner() {
       <div>
         
         <div >
-            <div style={{fontSize:"30px", marginTop:"670px", fontWeight:"bold", textAlign:"left", paddingLeft:"200px"}}>From other perspectives</div>  
+            <div style={{fontSize:"30px", fontWeight:"bold", textAlign:"left", paddingLeft:"200px"}}>From other perspectives</div>  
             <div id="tileArea" className='tile-flex d-flex justify-content-center'>
                 <div id="environment" style={{width:"33%"}}>
                     <img src={homeEnvImage}></img>

@@ -7,32 +7,32 @@ import { style } from 'd3'
 export default function Menu() {
   return (
     <div className='menu-fixed'>
-        <nav  aria-label="Ninth navbar example">
-          <div className="navbarr">
+        <nav>
+          <div className="nav_bar">
             <div>
-              <ul className="navbar-link" style={{justifyContent:"left"}}>
-                <li style={{paddingRight:"40px"}}>
+              <ul className="navbar-link">
+                <li>
                     <NavLink to="/">
-                        <img src={logo} style={{width:"60px", height:"40px"}}/>
+                        <img src={logo}/>
                     </NavLink>
                 </li>
                 <li style={{marginLeft:"40px"}}>
-                  <NavLink to="/home" activestyle={{ backgroundColor:"#C4C4C4",color: "white"}}>Home</NavLink>
+                  <NavLink to="/home" >Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/curenv" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>Gas Emission Inventory</NavLink>
+                  <NavLink to="/curenv">Gas Emission Inventory</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/calculator" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>Compare your cars</NavLink>
+                  <NavLink to="/calculator">Compare your cars</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/about" activestyle={{backgroundColor:"#C4C4C4",color: "white"}}>About us</NavLink>
+                  <NavLink to="/about">About us</NavLink>
                 </li>
-                <li>
-                  <a href='#' style={{width:"px", marginLeft:"210px", marginRight:"100px"}}>
-                      <img src={magnifier} style={{height:"20px", width:"20px"}} alt="magnifying glass"></img>
+                {/* <li>
+                  <a href='#'>
+                    <img src={magnifier} style={{height:"20px", width:"20px"}} alt="magnifying glass"></img>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
