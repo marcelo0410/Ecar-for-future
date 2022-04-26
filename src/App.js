@@ -31,7 +31,7 @@ function App() {
           <Route path="/curenv" element={<CurrentEnv/>}/>
           <Route path="/calculator" element={<Calculation/>}/>
           <Route path="/about" element={<About/>}/>
-          <Route path="/test" element={<EmissionPowerBI/>}/>
+          {/* <Route path="/test" element={<EmissionPowerBI/>}/> */}
           <Route path="/q1" element={<QuestionOneEVModel/>}/>
           <Route path="/q2" element={<QuestionTwoJourney/>}/>
           <Route path="/q3" element={<QuestionThreeTraveler/>}/>
