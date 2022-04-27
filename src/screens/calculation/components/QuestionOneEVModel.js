@@ -58,11 +58,10 @@ export default function QuestionOneEVModel() {
   }
 
   return (
-    <div className='question-canvas'>
-        <div>{console.log(location.state)}</div>
-        <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
+    <div className='question-container'>
+        <div className='question-one__section-title'>Start Your Journey of Comparison</div>
         <div style={{textAlign:"left"}}>
-            <div class="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
+            <div class="progress" className='question__progress'>
                 <div class="progress-bar w75" role="progressbar" style={{width:"5%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>

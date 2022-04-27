@@ -12,9 +12,9 @@ export default function TopBanner() {
 
   return (
     <div className='banner'>
-      <div style={{color:"white", fontWeight:"bold", fontSize:"70px", paddingTop:"140px"}}>Change it now!</div>
-      <div style={{color:"white", fontSize:"30px", marginBottom:"10px"}}>Why should I purchase an electric vehicle instead of a fossil fuel one?</div>
-      <button className="button-know" type="button" onClick={handleClick}>Learn more</button>
+      <div className='banner__title'>Change it now!</div>
+      <div className='banner__desc' >Why should I purchase an electric vehicle instead of a fossil fuel one?</div>
+      <button className="banner__button" type="button" onClick={handleClick}>Learn more</button>
     </div>
   )
 }
