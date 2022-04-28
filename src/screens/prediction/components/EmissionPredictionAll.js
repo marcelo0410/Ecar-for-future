@@ -2,11 +2,11 @@ import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
-export default class QuaterlyEmissionAnnual extends PureComponent {
+export default class EmissionPredictionAll extends PureComponent {
   render() {
     return (
         <div>
-            <h2 className='mt-4 mb-4'>Emission Annual</h2>
+            <h2 className='mt-4 mb-4'>{this.props.title}</h2>
             <div></div>
             <LineChart
             width={800}
@@ -24,7 +24,7 @@ export default class QuaterlyEmissionAnnual extends PureComponent {
             <YAxis/>
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="emission" stroke="#4700D8" dot={false}/>
+            <Line type="monotone" dataKey="emission" stroke="#4700D8"/>
             {/* <Line type="monotone" dataKey="lulucf" stroke="#E04DB0" dot={false} /> */}
             </LineChart>
         </div>

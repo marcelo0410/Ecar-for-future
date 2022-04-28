@@ -9,7 +9,7 @@ import EmissionPowerBI from './components/EmissionPowerBI'
 export default function index() {
   return (
     <div>
-        <EmissionPowerBI/>
+        {/* <EmissionPowerBI/> */}
         <CurEnv/>
         <QuaterlyEmissionCanvas/>
         <Health/>
