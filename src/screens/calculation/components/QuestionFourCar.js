@@ -62,21 +62,21 @@ export default function QuestionFourCar() {
   }
 
   return (
-    <div className='question-canvas'>
-        <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
-        <div style={{textAlign:"left"}}>
-            <div class="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
-                <div class="progress-bar w75" role="progressbar" style={{width:"45%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    <div className='question-container'>
+        <div className='question__section-title'>Start Your Journey of Comparison</div>
+        <div>
+            <div class="progress question__progress">
+                <div class="progress-bar w75 question__progress__bg" role="progressbar" style={{width:"45%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
+            <div className='question__title__area'>
                 <div >Do you currently own a fuel car? </div>
-                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}  onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
+                <img src={helpImage} className="question__title__image"  onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
                 <div className={divDisplay}>If yes, you will need to input fuel consumption information of your car.<br/> If no, the system will input data for reference.</div>
             </div>
-            <div className='d-flex car-display justify-content-center '>
+            <div className='question-one__car-display'>
                 <div>
                   <div id="charging" onClick={handleClickImageGetId} className={chargingCSSStyle} style={{marginRight:"150px"}}>
-                    <img src={bluecarImage} style={{width:"300px",height:"170px"}}></img>
+                    <img src={bluecarImage} style={{width:"300px",height:"100px", marginTop:"45px", marginBottom:'25px', paddingLeft:"10px"}}></img>
                     <div className='text-center' style={{marginTop:"10px"}}>Yes</div>
                   </div>
                   
@@ -90,9 +90,9 @@ export default function QuestionFourCar() {
                 
             </div>
         </div>
-        <div>
-          <button type='button' className='button-submit' style={{marginRight:"100px", marginTop:"50px"}} onClick={backToPrevious}>Previous</button>
-          <button type='button' className='button-submit' onClick={handleClick}>Next</button>
+        <div className='question__button__area question__button__area--q4mt'>
+          <button type='button' className='question__button' onClick={backToPrevious}>Previous</button>
+          <button type='button' className='question__button' onClick={handleClick}>Next</button>
         </div>
     </div>
   )

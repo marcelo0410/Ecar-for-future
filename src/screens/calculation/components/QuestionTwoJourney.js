@@ -32,6 +32,10 @@ export default function QuestionTwoJourney() {
 
   }
 
+  const numToStrWithComma = function(){
+    return travelDistance.toLocaleString('en-US')
+  }
+
   useEffect(() => {
     if(location.state.distance != null){
       settravelDistance(location.state.distance)
@@ -43,34 +47,35 @@ export default function QuestionTwoJourney() {
   
 
   return (
-    <div className='question-canvas'>
-        <div>{console.log(location.state)}</div>
-        <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
+    <div className='question-container'>
+        <div className='question__section-title'>Start Your Journey of Comparison</div>
         <div style={{textAlign:"left"}}>
-            <div class="progress" style={{width:"600px", marginLeft:"auto", marginRight:"auto", marginTop:"25px"}}>
-                <div class="progress-bar w75" role="progressbar" style={{width:"14%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress question__progress">
+                <div class="progress-bar w75 question__progress__bg" role="progressbar" style={{width:"14%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
+            <div className='question__title__area'>
                 <div >Travel distance per week: </div>
-                <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}} onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
+                <img src={helpImage} className="question__title__image" onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
                 <div className={divDisplay}>The average of your estimated weekly distance travelled</div>
             </div>
-            <div className="range" style={{marginLeft:"280px", marginTop:"50px"}}>
-                <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="1" max="1000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>                
+            <div className='question__range__container'>
+              <div className="range question__range">
+                  <input type="range" className="form-range " id="customRange2" min="1" max="1000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>                
+              </div>
+              <div className='question__range-label'>
+                  <output>1</output>
+                  <output>1,000</output>
+              </div>
             </div>
-            <div className='range-label'>
-                <output>1</output>
-                <output style={{marginLeft:"925px"}}>1,000</output>
-            </div>
-            <div className='d-flex justify-content-center mt-4'>
-                <img src={clockImage} style={{height:"50px"}}></img>
-                <div className='oval-grey-output ms-3'>{travelDistance}</div>
-                <span className='ms-1'>km</span>
+            <div className='question__output__container'>
+                <img src={clockImage} className="question__output__image"></img>
+                <div className='question__output__oval-shape'>{numToStrWithComma()}</div>
+                <span className='question__output__meric'>km</span>
             </div>
         </div>
-        <div>
-          <button type='button' className='button-submit' style={{marginRight:"100px", marginTop:"50px"}} onClick={backToPrevious}>Previous</button>
-          <button type='button' className='button-submit' onClick={handleClick}>Next</button>
+        <div className='question__button__area'>
+          <button type='button' className='question__button' onClick={backToPrevious}>Previous</button>
+          <button type='button' className='question__button' onClick={handleClick}>Next</button>
         </div>
     </div>
   )

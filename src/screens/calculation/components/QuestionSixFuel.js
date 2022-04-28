@@ -44,18 +44,16 @@ export default function QuestionSevenFuel() {
   }
 
   return (
-    <div className='question-canvas'>
-        {console.log(location.state)}
-        <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
-        <div style={{textAlign:"left"}}>
-            <div className="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
-                <div className="progress-bar w75" role="progressbar" style={{width:"75%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    <div className='question-container'>
+        <div className='question__section-title'>Start Your Journey of Comparison</div>
+        <div >
+            <div className="progress question__progress">
+                <div className="progress-bar w75 question__progress__bg" role="progressbar" style={{width:"75%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
+            <div className="question__title__area">
                 <div >Which type of fuel that you use the most?</div>
-                {/* <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}}></img> */}
             </div>
-            <div className='d-flex justify-content-center mt-4'>
+            <div className='question__selection-container'>
                 <div >
                   <div   onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "1"? "flex-image-selected":"flex-image"}>
                     <img id="1" src={Image91} style={{width:"143px",height:"143px", marginTop:"10px"}}></img>
@@ -90,9 +88,9 @@ export default function QuestionSevenFuel() {
                 
             </div>
         </div>
-        <div>
-          <button type='button' className='button-submit' style={{marginRight:"100px"}} onClick={backToPrevious}>Previous</button>
-          <button type='button' className='button-submit' onClick={handleClick}>Next</button>
+        <div className='question__button__area'>
+          <button type='button' className='question__button' onClick={backToPrevious}>Previous</button>
+          <button type='button' className='question__button' onClick={handleClick}>Next</button>
         </div>
     </div>
   )

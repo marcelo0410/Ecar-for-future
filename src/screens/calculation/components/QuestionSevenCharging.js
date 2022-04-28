@@ -23,7 +23,6 @@ export default function QuestionFiveCharging() {
   const [petrolSelect, setpetrolSelect] = useState("91")
 
   const [fuelOption, setfuelOption] = useState(6)
-  let a = "90%"
 
   useEffect(() => {
     
@@ -61,7 +60,6 @@ export default function QuestionFiveCharging() {
 
   const handleClick = () =>{
 
-    a = "100%"
     if(location.state.ownCar){
       console.log("123")
       const {carType,distance, traveller, fuel, fuelType} = location.state
@@ -147,19 +145,18 @@ export default function QuestionFiveCharging() {
 
   return (
     <div>
-      <div className='question-canvas'>
-          {/* {console.log(location.state)} */}
-          <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
-          <div style={{textAlign:"left"}}>
-              <div class="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
-                  <div class="progress-bar w75" role="progressbar" style={{width:a, background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      <div className='question-container'>
+          <div className='question__section-title'>Start Your Journey of Comparison</div>
+          <div>
+              <div class="progress question__progress">
+                  <div class="progress-bar w75 question__progress__bg" role="progressbar" style={{width:"90%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-              <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
+              <div className="question__title__area">
                   <div >Do you have a place to install a charging pile?</div>
-                  <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}} onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
+                  <img src={helpImage} className="question__title__image" onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img>
                   <div className={divDisplay}>The price of the electric may be vary due to the place <br/>that you charge your car. The price of your own charging pile is the lowest.</div>
               </div>
-              <div className='d-flex car-display justify-content-center '>
+              <div className='question-one__car-display'>
                   <div>
                     <div id="charging" onClick={handleClickImageGetId} className={chargingCSSStyle} style={{marginRight:"150px"}}>
                       <img src={chargingPipeImage} style={{width:"200px",height:"200px"}}></img>
@@ -172,15 +169,13 @@ export default function QuestionFiveCharging() {
                       <img src={chargingPipeBanImage} style={{width:"200px", height:"200px", paddingLeft:"10px"}} ></img>
                       <div className='text-center' style={{marginTop:"10px"}}>No</div>
                     </div>
-                    
                   </div>
-                  
               </div>
           </div>
-          <div>
-            <button type='button' className='button-submit' style={{marginRight:"100px"}} onClick={backToPrevious}>Previous</button>
-            <button type='button' className='button-submit' onClick={handleClick}>Submit</button>
-          </div>
+          <div className='question__button__area'>
+            <button type='button' className='question__button' onClick={backToPrevious}>Previous</button>
+            <button type='button' className='question__button' onClick={handleClick}>Next</button>
+        </div>
       </div>
       <div id="visualization" className='vis'>
         <div className='vis-word'>For a <span>{location.state.traveller}</span> people family who owns a fossil fueled car which consumpts <span>{fuelOption}</span> L/100 km, comparing with a <span>{location.state.carType? "Medium":"Small"}</span> EV, the result is as below. </div>

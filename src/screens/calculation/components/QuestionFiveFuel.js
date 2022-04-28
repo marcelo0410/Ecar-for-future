@@ -35,32 +35,33 @@ export default function QuestionThreeTraveler() {
 
 
   return (
-    <div className='question-canvas'>
-        <div style={{paddingTop:"60px",fontWeight: "bold"}}>Start Your Journey of Comparison</div>
-        <div style={{textAlign:"left"}}>
-            <div class="progress" style={{width:"600px", marginLeft:"460px", marginTop:"25px"}}>
-                <div class="progress-bar w75" role="progressbar" style={{width:"60%", background:"#38F9D7"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    <div className='question-container'>
+        <div className='question__section-title'>Start Your Journey of Comparison</div>
+        <div>
+            <div class="progress question__progress">
+                <div class="progress-bar w75 question__progress__bg" role="progressbar" style={{width:"60%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <div className='d-flex' style={{fontSize:"30px", marginTop:"50px", marginLeft:"180px",fontWeight: "bold"}}>
+            <div className='question__title__area'>
                 <div >Fuel consumpution per 100km</div>
-                {/* <img src={helpImage} style={{width:"33px", height:"33px", marginTop:"7px", marginLeft:"5px"}} ></img> */}
             </div>
-            <div className="range" style={{marginLeft:"280px", marginTop:"50px"}}>
-                <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="1" max="40.0" step="0.1" value={fuelComsumption} onChange={e => setFuelComsumption(e.target.value)}/>                
+            <div className='question__range__container'>
+              <div className="range question__range">
+                  <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="1" max="40.0" step="0.1" value={fuelComsumption} onChange={e => setFuelComsumption(e.target.value)}/>                
+              </div>
+              <div className='question__range-label  question__range-label--q3gap'>
+                  <output>1</output>
+                  <output>40</output>
+              </div>
             </div>
-            <div className='range-label'>
-                <output>1</output>
-                <output style={{marginLeft:"960px"}}>40</output>
-            </div>
-            <div className='d-flex justify-content-center mt-4'>
-                <img src={oilImage} style={{height:"50px"}}></img>
-                <div className='oval-grey-output ms-3'>{fuelComsumption}</div>
-                <span className='ms-1'>L/100 km</span>
+            <div className='question__output__container'>
+                <img src={oilImage} className="question__output__image"></img>
+                <div className='question__output__oval-shape'>{fuelComsumption}</div>
+                <span className='question__output__meric'>L/100 km</span>
             </div>
         </div>
-        <div>
-          <button type='button' className='button-submit' style={{marginRight:"100px", marginTop:"50px"}} onClick={backToPrevious}>Previous</button>
-          <button type='button' className='button-submit' onClick={handleClick}>Next</button>
+        <div className='question__button__area'>
+          <button type='button' className='question__button' onClick={backToPrevious}>Previous</button>
+          <button type='button' className='question__button' onClick={handleClick}>Next</button>
         </div>
     </div>
   )
