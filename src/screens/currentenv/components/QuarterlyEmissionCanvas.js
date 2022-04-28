@@ -12,7 +12,7 @@ export default function QuarterlyEmissionCanvas() {
 
   useEffect(async () => {
     const result = await axios(
-      'http://localhost:8080/v1/api/emissionAll/findAll2',
+      'http://ecarforfuture-env.eba-pbjsb4gy.ap-southeast-2.elasticbeanstalk.com/v1/api/emissionAll/findAll2',
     );
 
     setEmissionAnnualData(result.data);
@@ -21,7 +21,7 @@ export default function QuarterlyEmissionCanvas() {
 
   useEffect(async () => {
     const result = await axios(
-      'http://localhost:8080/v1/api/emission/findAll',
+      'http://ecarforfuture-env.eba-pbjsb4gy.ap-southeast-2.elasticbeanstalk.com/v1/api/emission/findAll',
     );
 
     setEmissionTypeData(result.data);

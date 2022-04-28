@@ -21,7 +21,7 @@ export default class EmissionPredictionAll extends PureComponent {
             >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
-            <YAxis/>
+            <YAxis domain={[15000, 30000]}/>
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="emission" stroke="#4700D8"/>

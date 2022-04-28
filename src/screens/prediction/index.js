@@ -7,23 +7,24 @@ export default function Index() {
     const [emissionPreEVAData, setemissionPreEVAData] = useState("")
     const [emissionPreEVBData, setemissionPreEVBData] = useState("")
 
+    // http://localhost:8080
     useEffect(async () => {
         const result = await axios(
-          'http://localhost:8080/v1/api/predict/findAll',
+          'http://ecarforfuture-env.eba-pbjsb4gy.ap-southeast-2.elasticbeanstalk.com/v1/api/predict/findAll',
         );
         setemissionPreAllData(result.data)
       }, []);
     
       useEffect(async () => {
         const result = await axios(
-          'http://localhost:8080/v1/api/predict/findEVA',
+          'http://ecarforfuture-env.eba-pbjsb4gy.ap-southeast-2.elasticbeanstalk.com/v1/api/predict/findEVA',
         );
         setemissionPreEVAData(result.data)
       }, []);
 
       useEffect(async () => {
         const result = await axios(
-          'http://localhost:8080/v1/api/predict/findEVB',
+          'http://ecarforfuture-env.eba-pbjsb4gy.ap-southeast-2.elasticbeanstalk.com/v1/api/predict/findEVB',
         );
         setemissionPreEVBData(result.data)
       }, []);
