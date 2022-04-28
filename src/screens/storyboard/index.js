@@ -1,9 +1,10 @@
 import React from 'react'
-import Calculator from './components/CalculatorCanvas'
+import Current from './components/Current'
+
 export default function index() {
   return (
     <div>
-        <Calculator/>
+        <Current/>
     </div>
   )
 }

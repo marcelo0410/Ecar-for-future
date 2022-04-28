@@ -85,7 +85,7 @@ export default function QuestionFiveCharging() {
     
     // setshowResult(true)
     window.scrollTo({
-      top: 720,
+      top: 580,
       behavior: "smooth"
   });
 
@@ -159,7 +159,7 @@ export default function QuestionFiveCharging() {
               <div className='question-one__car-display'>
                   <div>
                     <div id="charging" onClick={handleClickImageGetId} className={chargingCSSStyle} style={{marginRight:"150px"}}>
-                      <img src={chargingPipeImage} style={{width:"200px",height:"200px"}}></img>
+                      <img src={chargingPipeImage} style={{width:"200px",height:"200px", paddingLeft:"10px", paddingRight:"10px", paddingBottom:"5px"}}></img>
                       <div className='text-center' style={{marginTop:"10px"}}>Yes</div>
                     </div>
                     
@@ -198,7 +198,7 @@ export default function QuestionFiveCharging() {
         <div className='vis-word' style={{paddingLeft:"10px", marginTop:"30px"}}>Comparing to a fossiled fueled car with a fuel consumption for <span>{fuelOption}</span> L/100 km, a <span>{location.state.carType? "Medium":"Small"}</span> Electric Vehicle cost<br/> <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> kg less than fossil fueled car.</div>
 
       </div>
-        <button type='button' className='button-submit mt-6' onClick={resetDirect}>Restart</button>
+        <button type='button' className='question__button mt-6' onClick={resetDirect}>Restart</button>
 
         <div id="subsidy" className='card-80'>
           <div>

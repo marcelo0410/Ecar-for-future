@@ -8,8 +8,8 @@ export default function Footer() {
       <div className='ps-2 pt-1'>
         <div>Copyright © Noma Group of Monash</div>
         <div className='d-flex'>
-          <div className='footer-underline footer-border-right pe-2'>Legal Stuff</div>
-          <div className='footer-underline ps-2'>Privacy Policy</div>
+          {/* <div className='footer-underline footer-border-right pe-2'>Legal Stuff</div> */}
+          {/* <div className='footer-underline ps-2'>Privacy Policy</div> */}
         </div>
       </div>
     </div>

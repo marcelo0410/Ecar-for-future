@@ -8,7 +8,7 @@
 
 .question-start__image__car{
   width: 200px;
-  margin-top: 53px;
+  margin-top: 103px;
 }
 
 .question-start__desc{
@@ -187,8 +187,10 @@
 }
 
 .text-center{
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
+  font-weight: bold;
+  line-height: 25px;
 }
 
 
