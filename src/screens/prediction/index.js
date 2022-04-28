@@ -30,6 +30,7 @@ export default function Index() {
 
 
   return (
+    // 123
     <div style={{marginTop:"50px", marginLeft:"auto", marginRight:"auto"}}>
         <EmissionPredictionAll title={"Annual Emission Prediction"} visData={emissionPreAllData}/>
         <EmissionPredictionAll title={"EVA Emission Prediction"} visData={emissionPreEVAData}/>
