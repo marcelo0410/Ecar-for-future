@@ -15,21 +15,21 @@ export default function Index() {
     // https://d1pvgbbxmbkkid.cloudfront.net
     useEffect(async () => {
         const result = await axios(
-          'http://localhost:8080/v1/api/predict/findAll/',
+          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findAll/',
         );
         setemissionPreAllData(result.data)
       }, []);
     
       useEffect(async () => {
         const result = await axios(
-          'http://localhost:8080/v1/api/predict/findEVA/',
+          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVA/',
         );
         setemissionPreEVAData(result.data)
       }, []);
 
       useEffect(async () => {
         const result = await axios(
-          'http://localhost:8080/v1/api/predict/findEVB/',
+          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVB/',
         );
         setemissionPreEVBData(result.data)
       }, []);
