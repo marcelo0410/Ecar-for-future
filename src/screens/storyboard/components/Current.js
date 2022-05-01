@@ -10,7 +10,7 @@ import banner3_car from '../../../assets/storyboard/banner3-car.jpg'
 export default function Current() {
   return (
     <div className='current-container'>
-        <div className='current__section-title'>What’s the envrionment like now?</div>
+        <div className='current__section-title'>What’s the environment like now?</div>
         <div className='bannerone'>
             <div className='bannerone__title'>Greenhouse gas emission has <br/>become more serious than<br/>ever...</div>
             <div className='bannerone__image__container'>

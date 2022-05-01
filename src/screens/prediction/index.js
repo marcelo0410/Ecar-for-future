@@ -11,21 +11,21 @@ export default function Index() {
     // http://ecarforfuture-env.eba-pbjsb4gy.ap-southeast-2.elasticbeanstalk.com/
     useEffect(async () => {
         const result = await axios(
-          'https://d1pvgbbxmbkkid.cloudfront.net//v1/api/predict/findAll/',
+          'http://localhost:8080/v1/api/predict/findAll/',
         );
         setemissionPreAllData(result.data)
       }, []);
     
       useEffect(async () => {
         const result = await axios(
-          'https://d1pvgbbxmbkkid.cloudfront.net//v1/api/predict/findEVA/',
+          'http://localhost:8080/v1/api/predict/findEVA/',
         );
         setemissionPreEVAData(result.data)
       }, []);
 
       useEffect(async () => {
         const result = await axios(
-          'https://d1pvgbbxmbkkid.cloudfront.net//v1/api/predict/findEVB/',
+          'http://localhost:8080/v1/api/predict/findEVB/',
         );
         setemissionPreEVBData(result.data)
       }, []);

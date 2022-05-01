@@ -20,6 +20,7 @@ import Test1 from './screens/Test/Test1';
 import About from './screens/about/index'
 import Storyboard from './screens/storyboard/index';
 import EmissionPrediction from './screens/prediction/index';
+import PredictionGraph from './screens/predictiongraph/index';
 
 function App() {
   return (
@@ -42,7 +43,8 @@ function App() {
           <Route path="/q6" element={<QuestionSixFuel/>}/>
           <Route path="/q7" element={<QuestionSevenCharging/>}/>
           <Route path="/current" element={<Storyboard/>}/>
-          <Route path="/prediction" element={<EmissionPrediction/>}/>
+          <Route path="/pp" element={<EmissionPrediction/>}/>
+          <Route path="/prediction" element={<PredictionGraph/>}/>
 
           
           {/* <Route path="/test" element={<Test scrollHeight={4000} width={1158} height={770} numFrames={63}/>}/> */}
