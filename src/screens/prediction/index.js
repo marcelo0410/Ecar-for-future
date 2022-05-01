@@ -16,23 +16,24 @@ export default function Index() {
         setemissionPreAllData(result.data)
       }, []);
     
-      useEffect(async () => {
-        const result = await axios(
-          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVA/',
-        );
-        setemissionPreEVAData(result.data)
-      }, []);
+      // useEffect(async () => {
+      //   const result = await axios(
+      //     'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVA/',
+      //   );
+      //   setemissionPreEVAData(result.data)
+      // }, []);
 
-      useEffect(async () => {
-        const result = await axios(
-          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVB/',
-        );
-        setemissionPreEVBData(result.data)
-      }, []);
+      // useEffect(async () => {
+      //   const result = await axios(
+      //     'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVB/',
+      //   );
+      //   setemissionPreEVBData(result.data)
+      // }, []);
 
 
   return (
     // 123
+
     <div style={{marginTop:"50px", marginLeft:"auto", marginRight:"auto"}}>
         <EmissionPredictionAll title={"Annual Emission Prediction"} visData={emissionPreAllData}/>
         <EmissionPredictionAll title={"EVA Emission Prediction"} visData={emissionPreEVAData}/>
