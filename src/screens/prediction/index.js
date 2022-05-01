@@ -16,19 +16,19 @@ export default function Index() {
         setemissionPreAllData(result.data)
       }, []);
     
-      // useEffect(async () => {
-      //   const result = await axios(
-      //     'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVA/',
-      //   );
-      //   setemissionPreEVAData(result.data)
-      // }, []);
+      useEffect(async () => {
+        const result = await axios(
+          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVA/',
+        );
+        setemissionPreEVAData(result.data)
+      }, []);
 
-      // useEffect(async () => {
-      //   const result = await axios(
-      //     'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVB/',
-      //   );
-      //   setemissionPreEVBData(result.data)
-      // }, []);
+      useEffect(async () => {
+        const result = await axios(
+          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/predict/findEVB/',
+        );
+        setemissionPreEVBData(result.data)
+      }, []);
 
 
   return (
