@@ -68,7 +68,7 @@ export default function Index() {
               </p>
               <div className="diseases">
                   <div className="description">
-                      <img src={healthHeart}/>
+                      <img src={healthHeart} style={{width:"200px"}}/>
                       <p>Cardiovascular disease</p>
                   </div>
                   <div className="description">
@@ -85,7 +85,7 @@ export default function Index() {
       <section className="future" data-color="#71AB5C">
           <div className="question">
               <h2>
-                  What's the environment like in the future?
+                  {/* What's the environment like in the future? */}
               </h2>
           </div>
           <div className="section-1">

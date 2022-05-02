@@ -73,7 +73,7 @@ export default function Index() {
         <div className='pre-vis-container'>
 
             <div className='pre-vis__title'>Here are some projections of future population, <br/>vehicles and carbon emissions</div>
-            <select name="Council" id="council" onChange={updateVisOption} value={visOption}>
+            <select name="Council" id="council" onChange={updateVisOption} value={visOption} style={{marginTop:"20px", marginBottom:"20px"}}>
                 {/* <option value="" disabled>Emission</option> */}
                 <option value="1">Population</option>
                 <option value="2">Vehicle</option>

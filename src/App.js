@@ -46,9 +46,6 @@ function App() {
           <Route path="/pp" element={<EmissionPrediction/>}/>
           <Route path="/prediction" element={<PredictionGraph/>}/>
           <Route path="/storyboard" element={<Storyboard/>}/>
-
-
-          
           {/* <Route path="/test" element={<Test scrollHeight={4000} width={1158} height={770} numFrames={63}/>}/> */}
           
           <Route path="/" element={<Navigate replace to="/home"/>} />

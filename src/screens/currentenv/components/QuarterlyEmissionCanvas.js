@@ -64,7 +64,7 @@ export default function QuarterlyEmissionCanvas() {
     <div>
         <div className='emission'>
             <div className='vis-emission'>
-              <select name="Council" id="council" onChange={updateVisOption} value={visOption}>
+              <select name="Council" id="council" onChange={updateVisOption} value={visOption} style={{marginTop:"20px"}}>
                 <option value="" disabled>Emission</option>
                 <option value="1">Annual</option>
                 <option value="2">Emission by Gas</option>
