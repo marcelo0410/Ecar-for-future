@@ -20,7 +20,15 @@ export default function Menu() {
                   <NavLink to="/home" >Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/curenv">Gas Emission Inventory</NavLink>
+                  <div class="dropdown">
+                    <button class="dropbtn">Gas Emission Inventory
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <NavLink to="/curenv">Current Environment</NavLink>
+                      <NavLink to="/prediction">Future Prediction</NavLink>
+                    </div>
+                  </div>
                 </li>
                 <li>
                   <NavLink to="/calculator">Compare your cars</NavLink>

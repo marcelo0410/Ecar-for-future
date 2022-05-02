@@ -14,7 +14,7 @@
 .bannerone{
     display: flex;
     justify-content: center;
-    gap: 140px;
+    gap: 160px;
 }
 .bannerone__image__container{
     display: flex;

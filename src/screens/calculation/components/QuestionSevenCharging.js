@@ -4,6 +4,8 @@ import helpImage from '../../../assets/calculation/help-circle.png'
 import chargingPipeImage from '../../../assets/calculation/chargingpipe.png'
 import chargingPipeBanImage from '../../../assets/calculation/chargingpipe-ban.png'
 import solarVicImage from '../../../assets/calculation/solar-vic-logo.png'
+import treeImage from '../../../assets/calculation/tree.png'
+import moneyImage from '../../../assets/calculation/money.png'
 import CostResultWeek from './CostResultWeek';
 import Co2ResultWeek from './Co2ResultWeek';
 import './style.css'
@@ -149,7 +151,7 @@ export default function QuestionFiveCharging() {
           <div className='question__section-title'>Start Your Journey of Comparison</div>
           <div>
               <div class="progress question__progress">
-                  <div class="progress-bar w75 question__progress__bg" role="progressbar" style={{width:"90%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar w75 question__progress__bg" role="progressbar" style={{width:"100%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <div className="question__title__area">
                   <div >Do you have a place to install a charging pile?</div>
@@ -181,21 +183,39 @@ export default function QuestionFiveCharging() {
         <div className='vis-word'>For a <span>{location.state.traveller}</span> people family who owns a fossil fueled car which consumpts <span>{fuelOption}</span> L/100 km, comparing with a <span>{location.state.carType? "Medium":"Small"}</span> EV, the result is as below. </div>
         <div className='d-flex mt-5 vis-chart'>
           <div>
-              <div style={{paddingLeft:"0px", fontSize:"24px", fontWeight:"bold", marginBottom:"30px"}}>Maintenance cost per week</div>
-              <div style={{paddingRight:"90px"}}>
+              <div style={{paddingLeft:"0px", fontSize:"24px", fontWeight:"bold", marginBottom:"30px", textAlign:"center"}}>Maintenance cost per week</div>
+              {/* <div style={{paddingRight:"90px"}}>
                 <CostResultWeek resultCost={resultCost} carSize={location.state.carType} ecarCost={ecarCost}/>
+              </div> */}
+              <div style={{width:"400px",maxHeight:"240px",minHeight:"180"}}>
+              {[...Array(Math.round(resultCost*52/500) >= 60? 60:Math.round(resultCost*52/250))].map((e, i) => <img src={moneyImage} key={i} style={{width:"40px"}}></img>)}
+
               </div>
+              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"40px", textAlign:"center"}}>You have saved <span style={{textDecoration:"underline"}}>${(resultCost*52).toString()}</span>  every year!</div>
+              <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>${resultCost} per week</div>
           </div>
           <div>
             <div>
-              <div style={{paddingLeft:"50px", fontSize:"24px", fontWeight:"bold", marginBottom:"30px"}}>Gas emission generated per week</div>
-              <div style={{marginLeft:"90px"}}>
+              <div style={{ fontSize:"24px", fontWeight:"bold", marginBottom:"30px", textAlign:"center"}}>Gas emission generated per week</div>
+              {/* <div style={{marginLeft:"90px"}}>
                 <Co2ResultWeek resultCo2={resultCO2} carSize={location.state.carType}/>
+              </div> */}
+              <div style={{width:"400px", maxHeight:"240px", marginTop:"28px", minHeight:"180px"}}>
+                {/* {resultCO2*52/167} */}
+                {[...Array(Math.round(resultCO2*52/167) > 60? 60:(Math.round(resultCO2*52/167)))].map((e, i) => <img src={treeImage} key={i} style={{width:"40px"}}></img>)}
+
+              
+                {/* <img src={treeImage} style={{width:"40px"}}></img> */}
               </div>
+              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"40px", textAlign:"center"}}>You have planted <span style={{textDecoration:"underline"}}> {Math.round((resultCO2*52/167),2)} </span> trees every year!</div>
+                 <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>{resultCO2}kg per week</div>
+              <div id="resultco2_desc"></div>
             </div>
           </div>
         </div>
-        <div className='vis-word' style={{paddingLeft:"10px", marginTop:"30px"}}>Comparing to a fossiled fueled car with a fuel consumption for <span>{fuelOption}</span> L/100 km, a <span>{location.state.carType? "Medium":"Small"}</span> Electric Vehicle cost<br/> <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> kg less than fossil fueled car.</div>
+        <div className='vis-word' style={{paddingLeft:"10px", marginTop:"30px", textAlign:"center"}}>
+          Comparing to a fossiled fueled car with a fuel consumption for <span>{fuelOption}</span> L/100 km, a <span>{location.state.carType? "Medium":"Small"}</span> Electric Vehicle cost<br/> <span>{location.state.carType? "14.4":"13.2"}</span>  kWh/100 km which is AU$ <span>{resultCost-ecarCost}</span> cheaper per week. And the Carbon Dioxide(CO2) generated is <span>{resultCO2}</span> kg less than fossil fueled car.
+        </div>
 
       </div>
         <button type='button' className='question__button mt-6' onClick={resetDirect}>Restart</button>

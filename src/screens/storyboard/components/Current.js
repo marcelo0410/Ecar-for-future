@@ -24,7 +24,7 @@ export default function Current() {
             <img src={banner2_tire} className='bannertwo__image'></img>
         </div>
         <div className="bannertwo">
-            <div className='bannertwo__title'>More than XX% Australians <br/>choose private cars for <br/>commuting, which <br/>contributes the most part of <br/>the emissions...</div>
+            <div className='bannertwo__title'>More than 92.5% Australians <br/>choose private cars for <br/>commuting, which <br/>contributes the most part of <br/>the emissions...</div>
             <img src={banner3_car} className='bannertwo__image'></img>
         </div>
     </div>

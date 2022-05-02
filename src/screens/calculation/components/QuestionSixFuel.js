@@ -64,25 +64,25 @@ export default function QuestionSevenFuel() {
                 <div>
                   <div   onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "2"? "flex-image-selected":"flex-image"}>
                     <img id="2" src={Image95} style={{width:"143px", height:"143px", paddingLeft:"0px",marginTop:"10px"}}></img>
-                    <div className='text-center' style={{marginTop:"10px"}}>Premium 95-octane<br/>  unleaded</div>
+                    <div className='text-center' style={{marginTop:"10px"}}>Premium 95-octane</div>
                   </div>
                 </div>
                 <div>
                   <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "3"? "flex-image-selected":"flex-image"}>
                     <div><img id="3" src={Image98} style={{width:"143px", height:"143px", paddingLeft:"10px",marginTop:"10px"}}></img></div>
-                    <div className='text-center' style={{marginTop:"10px"}}>Premium 98-octane<br/> unleaded</div>
+                    <div className='text-center' style={{marginTop:"10px"}}>Premium 98-octane</div>
                   </div>
                 </div>
-                <div>
+                {/* <div>
                   <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "4"? "flex-image-selected":"flex-image"}>
                     <img id="4" src={ImageE10} style={{width:"143px", height:"143px", paddingLeft:"10px",marginTop:"10px"}}></img>
                     <div className='text-center' style={{marginTop:"10px"}}>E10</div>
                   </div>
-                </div>
+                </div> */}
                 <div>
                   <div  onClick={handleClickImageGetId} className={fuelCSSStyle.toString() === "5"? "flex-image-selected":"flex-image"}>
                     <img id="5" src={ImageDiesel} style={{width:"143px", height:"143px", paddingLeft:"10px",marginTop:"10px"}}></img>
-                    <div className='text-center' style={{marginTop:"10px"}}>Diesel</div>
+                    <div className='text-center' style={{marginTop:"10px"}}>Diesel<br/></div>
                   </div>
                 </div>
                 
