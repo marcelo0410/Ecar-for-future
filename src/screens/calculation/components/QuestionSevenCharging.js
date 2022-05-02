@@ -190,7 +190,8 @@ export default function QuestionFiveCharging() {
               {[...Array(Math.round(resultCost*52/500) >= 60? 60:Math.round(resultCost*52/250))].map((e, i) => <img src={moneyImage} key={i} style={{width:"40px"}}></img>)}
 
               </div>
-              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have saved <span style={{textDecoration:"underline", fontWeight:"bold"}}>${(resultCost*52).toString()}</span>  every year!</div>
+              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have saved <span style={{textDecoration:"underline", fontWeight:"bold"}}>{(resultCost*52).toLocaleString('en-US', {  style: 'currency',
+                  currency: 'USD',})}</span>  every year!</div>
               {/* <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>${resultCost} per week</div> */}
           </div>
           <div>
@@ -206,7 +207,7 @@ export default function QuestionFiveCharging() {
               
                 {/* <img src={treeImage} style={{width:"40px"}}></img> */}
               </div>
-              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have planted <span style={{textDecoration:"underline"}}> {Math.round((resultCO2*52/167),2)} </span> trees every year!</div>
+              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have planted <span style={{textDecoration:"underline", fontWeight:"bold"}}> {Math.round((resultCO2*52/167),2)} </span> trees every year!</div>
                  {/* <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>{resultCO2}kg per week</div> */}
             </div>
           </div>
