@@ -21,7 +21,7 @@ export default function Menu() {
                 </li>
                 <li>
                   <div class="dropdown">
-                    <button class="dropbtn">Gas Emission Inventory
+                    <button class="dropbtn">CO2 Emission Inventory
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">

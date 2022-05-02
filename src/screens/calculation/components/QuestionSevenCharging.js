@@ -115,7 +115,6 @@ export default function QuestionFiveCharging() {
       "3":2.39,
       "4":2.14,
       "5":2.15
-
     }
     console.log(fuelConsumption)
     if(carType){
@@ -183,33 +182,32 @@ export default function QuestionFiveCharging() {
         <div className='vis-word'>For a <span>{location.state.traveller}</span> people family who owns a fossil fueled car which consumpts <span>{fuelOption}</span> L/100 km, comparing with a <span>{location.state.carType? "Medium":"Small"}</span> EV, the result is as below. </div>
         <div className='d-flex mt-5 vis-chart'>
           <div>
-              <div style={{paddingLeft:"0px", fontSize:"24px", fontWeight:"bold", marginBottom:"30px", textAlign:"center"}}>Maintenance cost per week</div>
+              <div style={{paddingLeft:"0px", fontSize:"24px", fontWeight:"bold", marginBottom:"30px", textAlign:"center"}}>Maintenance cost per year</div>
               {/* <div style={{paddingRight:"90px"}}>
                 <CostResultWeek resultCost={resultCost} carSize={location.state.carType} ecarCost={ecarCost}/>
               </div> */}
-              <div style={{width:"400px",maxHeight:"240px",minHeight:"180"}}>
+              <div style={{width:"400px",height:"240px"}}>
               {[...Array(Math.round(resultCost*52/500) >= 60? 60:Math.round(resultCost*52/250))].map((e, i) => <img src={moneyImage} key={i} style={{width:"40px"}}></img>)}
 
               </div>
-              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"40px", textAlign:"center"}}>You have saved <span style={{textDecoration:"underline"}}>${(resultCost*52).toString()}</span>  every year!</div>
-              <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>${resultCost} per week</div>
+              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have saved <span style={{textDecoration:"underline", fontWeight:"bold"}}>${(resultCost*52).toString()}</span>  every year!</div>
+              {/* <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>${resultCost} per week</div> */}
           </div>
           <div>
             <div>
-              <div style={{ fontSize:"24px", fontWeight:"bold", marginBottom:"30px", textAlign:"center"}}>Gas emission generated per week</div>
+              <div style={{ fontSize:"24px", fontWeight:"bold", marginBottom:"30px", textAlign:"center"}}>CO2 emission generated per year</div>
               {/* <div style={{marginLeft:"90px"}}>
                 <Co2ResultWeek resultCo2={resultCO2} carSize={location.state.carType}/>
               </div> */}
-              <div style={{width:"400px", maxHeight:"240px", marginTop:"28px", minHeight:"180px"}}>
+              <div style={{width:"400px", height:"240px", marginTop:"28px"}}>
                 {/* {resultCO2*52/167} */}
                 {[...Array(Math.round(resultCO2*52/167) > 60? 60:(Math.round(resultCO2*52/167)))].map((e, i) => <img src={treeImage} key={i} style={{width:"40px"}}></img>)}
 
               
                 {/* <img src={treeImage} style={{width:"40px"}}></img> */}
               </div>
-              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"40px", textAlign:"center"}}>You have planted <span style={{textDecoration:"underline"}}> {Math.round((resultCO2*52/167),2)} </span> trees every year!</div>
-                 <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>{resultCO2}kg per week</div>
-              <div id="resultco2_desc"></div>
+              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have planted <span style={{textDecoration:"underline"}}> {Math.round((resultCO2*52/167),2)} </span> trees every year!</div>
+                 {/* <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>{resultCO2}kg per week</div> */}
             </div>
           </div>
         </div>

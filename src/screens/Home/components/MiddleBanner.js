@@ -2,12 +2,20 @@ import React,{useEffect} from 'react'
 import homeEnvImage from '../../../assets/homepage/home-env.png'
 import homeTrendImage from '../../../assets/homepage/home-trend.png'
 import homeSubsidyImage from '../../../assets/homepage/home-subsidy.png'
+import { animated, useSpring } from '@react-spring/web'
 import './style.css'
 
 
 
 export default function MiddleBanner() {
-
+    // const FadeIn = ({ isVisible, children }) => {
+    //     const styles = useSpring({
+    //       opacity: isVisible ? 1 : 0,
+    //       y: isVisible ? 0 : 24
+    //     })
+      
+    //     return <animated.div style={styles}>{children}</animated.div>
+    //   }
     
 
   return (
