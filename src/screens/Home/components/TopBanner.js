@@ -12,7 +12,7 @@ export default function TopBanner() {
 
   return (
     <div className='banner'>
-      <div className='banner__title'>Change it now!</div>
+      <div className='banner__title'>Change it now</div>
       <div className='banner__desc' >Why should I purchase an electric vehicle instead of a fossil fuel one?</div>
       <button className="banner__button" type="button" onClick={handleClick}>Learn more</button>
     </div>
