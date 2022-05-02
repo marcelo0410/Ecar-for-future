@@ -89,12 +89,12 @@ export default function Index() {
               </h2>
           </div>
           <div className="section-1">
-              <p1>Let's have a look at the future.</p1>
-              <p2>In 20 years, the population of Australians will be greatly increased.</p2>
+              {/* <p1>Let's have a look at the future.</p1> */}
+              {/* <p2>In 20 years, the population of Australians will be greatly increased.</p2> */}
               <div className="pictures">
                   <img className="pic1" src="" alt=""/>
               </div>
-              <p3>As well as the number of private cars.</p3>
+              {/* <p3>As well as the number of private cars.</p3> */}
               <div className="pictures">
                   <img className="pic2" src="" alt=""/>
               </div>
