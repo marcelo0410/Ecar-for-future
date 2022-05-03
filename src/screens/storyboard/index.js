@@ -103,7 +103,7 @@ export default function Index() {
       <section className="ev" data-color="#5C8FAB">
           <div className="question">
               <h2>
-                  What can I do?
+                  {/* What can I do? */}
               </h2>
           </div>
       </section>

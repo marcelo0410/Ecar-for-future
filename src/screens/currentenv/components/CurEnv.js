@@ -11,7 +11,7 @@ import './style.css'
 export default function CurEnv() {
   return (
     <div>
-        <div style={{fontSize:"40px", fontWeight:"bold", paddingTop:"20px", textAlign:"center"}}>Current Situation of Environment</div>
+        {/* <div style={{fontSize:"40px", fontWeight:"bold", paddingTop:"20px", textAlign:"center"}}>Current Situation of Environment</div> */}
         <div>
             <div >
                 <div id="tileArea" className='tile-flex d-flex justify-content-center'>
