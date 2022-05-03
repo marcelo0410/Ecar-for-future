@@ -12,8 +12,8 @@ export default function Index() {
         <div className='cur-banner'>
           <div className='cur__title'>Current Situation of Environment</div>
         </div>
-        <EmissionPowerBI/>
         <CurEnv/>
+        <EmissionPowerBI/>
         <QuaterlyEmissionCanvas/>
         <Health/>
     </div>
