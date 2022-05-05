@@ -16,7 +16,10 @@ export default function Index() {
         </div>
         <CurEnv/>
         {/* <EmissionPowerBI/> */}
-        <Map data={geoJSONCED}/>
+        <div style={{width:"66%", margin:"0 auto"}}>
+          <Map data={geoJSONCED}/>
+        </div>
+        
         <QuaterlyEmissionCanvas/>
         <Health/>
     </div>

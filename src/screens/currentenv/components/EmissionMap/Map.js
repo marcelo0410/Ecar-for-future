@@ -65,6 +65,9 @@ export default function Map({ title, data }) {
       .domain([min, max])
       .range([arrayColors[0], arrayColors[4]]);
 
+
+    // backgroundcolor
+
     // zoom functions
     const zoomed = (event) => {
       map
