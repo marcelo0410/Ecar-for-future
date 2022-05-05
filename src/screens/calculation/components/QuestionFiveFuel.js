@@ -7,7 +7,7 @@ import './style.css'
 export default function QuestionThreeTraveler() {
 
 
-  const [fuelComsumption, setFuelComsumption] = useState(1)
+  const [fuelComsumption, setFuelComsumption] = useState(5)
 
   useEffect(() => {
     if(location.state.old){
@@ -46,11 +46,11 @@ export default function QuestionThreeTraveler() {
             </div>
             <div className='question__range__container'>
               <div className="range question__range">
-                  <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="1" max="40.0" step="0.1" value={fuelComsumption} onChange={e => setFuelComsumption(e.target.value)}/>                
+                  <input type="range" className="form-range" id="customRange2" style={{width:"1000px"}} min="5.0" max="30.0" step="0.1" value={fuelComsumption} onChange={e => setFuelComsumption(e.target.value)}/>                
               </div>
               <div className='question__range-label  question__range-label--q3gap'>
-                  <output>1</output>
-                  <output>40</output>
+                  <output>5</output>
+                  <output>30</output>
               </div>
             </div>
             <div className='question__output__container'>

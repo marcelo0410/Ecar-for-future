@@ -79,16 +79,16 @@ export default function Index() {
             </p>
             <div class="diseases">
                 <div class="description">
-                    <img src={cur_sec4_heart}/>
-                    <p>Cardiovascular disease</p>
+                    <img src={cur_sec4_headache}/>
+                    {/* <p>Cardiovascular disease</p> */}
                 </div>
                 <div class="description">
-                    <img src={cur_sec4_lung}/>
-                    <p>Respiratory inflections</p>
+                    <img src={cur_sec4_sneeze}/>
+                    {/* <p>Respiratory inflections</p> */}
                 </div>
                 <div class="description">
-                    <img src={cur_sec4_head}/>
-                    <p>Chronic obstructive pulmonary disease (COPD)</p>
+                    <img src={cur_sec4_heartattack}/>
+                    {/* <p>Chronic obstructive pulmonary disease (COPD)</p> */}
                 </div>
             </div>
         </div>

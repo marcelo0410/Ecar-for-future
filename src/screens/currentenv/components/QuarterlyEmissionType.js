@@ -21,7 +21,7 @@ export default class QuaterlyEmission extends PureComponent {
             >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
-            <YAxis/>
+            <YAxis label={{ value: '(CO₂-e (Mt))', angle: -90, position: 'insideLeft', offset:-3}}/>
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="electricity" stroke="#8884d8" activeDot={{ r: 8 }} dot={false}/>

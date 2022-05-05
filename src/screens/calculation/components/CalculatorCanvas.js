@@ -7,6 +7,7 @@ import QuestionThreeTraveler from './QuestionThreeTraveler'
 import QuestionTwoJourney from './QuestionTwoJourney'
 import QuestionFiveFuel from './QuestionFiveFuel'
 import QuestionSixFuel from './QuestionSixFuel'
+import GeneralCalculator from './GeneralCalculator'
 
 export default function CalculatorCanvas() {
   const [controlCom, setcontrolCom] = useState("1")
@@ -27,6 +28,7 @@ export default function CalculatorCanvas() {
   return (
     <div>
       <QuestionStart/>
+      <GeneralCalculator/>
     </div>
 
   )

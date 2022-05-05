@@ -16,21 +16,21 @@ export default function CurEnv() {
             <div >
                 <div id="tileArea" className='tile-flex d-flex justify-content-center'>
                     <div id="cur3" style={{width:"33%"}}>
-                        <div><img src={curBar1Image}></img></div>
+                        <div><img src={curBar1Image} ></img></div>
                         <img src={cur3thImage}  style={{height:"75px", width:"150px"}}></img>
-                        <p className='cur-p' style={{fontSize:"18px"}}>Transport is Australia’s third largest source of green house gas emissions.</p>
+                        <p className='cur-p' style={{fontSize:"20px"}}>Transport is Australia’s third largest source of green house gas emissions.</p>
                     </div>
                     <div id="cur17" style={{width:"33%"}}>
                         <div>
                             <img src={curRose3Image}></img>
                         </div>
                         <img src={cur17Image} style={{marginTop:"5px", height:"80px", width:"190px"}}></img>
-                        <p className='cur-p' style={{fontSize:"18px"}}>Transport generated 96 MtCO2e per year, 17% of total emissions</p>
+                        <p className='cur-p' style={{fontSize:"20px"}}>Transport generated 96 MtCO2e per year, 17% of total emissions</p>
                     </div>
                     <div id="cur60" style={{width:"33%"}}>
                         <div><img src={curDouble2Image} style={{width:"200px", marginTop:"40px"}}></img></div>
                         <img src={cur60Image} style={{height:"80px", width:"200px", marginLeft:"20px", marginBottom:"5px"}}></img>
-                        <p className='cur-p' style={{fontSize:"18px"}}>Transport emissions have grown more than any other sector, increasing nearly 70% since 1990.</p>
+                        <p className='cur-p' style={{fontSize:"20px"}}>Transport emissions have grown more than any other sector, increasing nearly 70% since 1990.</p>
                     </div>
                 </div>
             </div>

@@ -58,7 +58,7 @@ export default function QuestionThreeTraveler() {
                   <input type="range" className="form-range" id="customRange2" min="1" max="10" value={numTraveler} onChange={e => setnumTraveler(e.target.value)}/>                
               </div>
               <div className='question__range-label  question__range-label--q3gap'>
-                  <output>0</output>
+                  <output>1</output>
                   <output>10</output>
               </div>
             </div>

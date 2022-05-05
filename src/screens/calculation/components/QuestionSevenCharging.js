@@ -207,7 +207,7 @@ export default function QuestionFiveCharging() {
               
                 {/* <img src={treeImage} style={{width:"40px"}}></img> */}
               </div>
-              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have planted <span style={{textDecoration:"underline", fontWeight:"bold"}}> {Math.round((resultCO2*52/167),2)} </span> trees every year!</div>
+              <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have planted <span style={{textDecoration:"underline", fontWeight:"bold"}}> {Math.round((resultCO2*52/167*100))/100} </span> trees every year!</div>
                  {/* <div id="resultcost_desc_sub" style={{fontSize:"20px", textAlign:"center", marginTop:"8px"}}>{resultCO2}kg per week</div> */}
             </div>
           </div>

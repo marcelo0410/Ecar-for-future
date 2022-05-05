@@ -274,3 +274,93 @@
   border: #00AF12 4px solid ;
   margin-bottom: 30px;
 }
+
+.gen-container{
+  background: linear-gradient(180deg, #E0EAFC 0%, rgba(207, 222, 243, 0) 100%);
+
+}
+
+.gen__title{
+  text-align: center;
+  font-size: 40px;
+  padding-top: 48px;
+  font-weight: bold;
+}
+
+.gen__desc{
+  font-weight: bold;
+  font-size: 28px;
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 13%;
+  padding-right: 10%;
+}
+
+.gen__content{
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 40px;
+}
+
+.gen-left__subtitle{
+  font-size: 32px;
+  font-weight: bold;
+  text-align: left;
+}
+.gen-left__smallbutton{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+
+}
+.gen-left__smallbutton--purple{
+  background: linear-gradient(180deg, #7474BF 0%, #348AC7 100%);
+  border: 1px solid #C4C4C4;
+  border-radius: 25px;
+  color:white;
+  font-size: 24px;
+  font-weight: bold;
+  width: 188px;
+}
+
+.gen-left__smallbutton--white{
+  background: white;
+  border: 1px solid #C4C4C4;
+  border-radius: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  width: 188px;
+
+}
+
+.gen-left__button{
+  background: linear-gradient(180deg, #7474BF 0%, #348AC7 100%);
+  border: 1px solid #C4C4C4;
+  border-radius: 25px;
+  height: 40px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+.gen-left__button span{
+  color:white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.gen-left__button img{
+  width: 32px;
+  padding-bottom: 8px;
+  margin-right: 15px;
+}
+
+.gen-right__title{
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.gen-right__select{
+  height: 30px;
+  font-size: 20px;
+}

@@ -5,6 +5,8 @@ import './components/style.css'
 import QuaterlyEmissionCanvas from './components/QuarterlyEmissionCanvas'
 import CurEnv from './components/CurEnv'
 import EmissionPowerBI from './components/EmissionPowerBI'
+import Map from './components/EmissionMap/Map'
+import geoJSONCED from "../../assets/data/state.json";
 
 export default function Index() {
   return (
@@ -13,7 +15,8 @@ export default function Index() {
           <div className='cur__title'>Current Situation of Environment</div>
         </div>
         <CurEnv/>
-        <EmissionPowerBI/>
+        {/* <EmissionPowerBI/> */}
+        <Map data={geoJSONCED}/>
         <QuaterlyEmissionCanvas/>
         <Health/>
     </div>

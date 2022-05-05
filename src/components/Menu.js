@@ -20,8 +20,11 @@ export default function Menu() {
                   <NavLink to="/home" >Home</NavLink>
                 </li>
                 <li>
+                  <NavLink to="/storyboard">Storyboard</NavLink>
+                </li>
+                <li>
                   <div class="dropdown">
-                    <button class="dropbtn">CO2 Emission Inventory
+                    <button class="dropbtn">Emission Inventory
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
@@ -31,11 +34,9 @@ export default function Menu() {
                   </div>
                 </li>
                 <li>
-                  <NavLink to="/calculator">Compare your cars</NavLink>
+                  <NavLink to="/calculator">Know Electric Vehicles More</NavLink>
                 </li>
-                <li>
-                  <NavLink to="/about">About us</NavLink>
-                </li>
+
                 {/* <li>
                   <a href='#'>
                     <img src={magnifier} style={{height:"20px", width:"20px"}} alt="magnifying glass"></img>

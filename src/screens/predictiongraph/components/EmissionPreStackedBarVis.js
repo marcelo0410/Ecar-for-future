@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { isCompositeComponent } from 'react-dom/test-utils';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default class Example extends PureComponent {
@@ -20,7 +21,7 @@ export default class Example extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis domain={[15000, 34000]} label={{ value: 'CO2 (million)', angle: -90, position: 'insideLeft', offset:-10}}/>
+          <YAxis domain={[15000, 34000]} label={{ value: '(CO₂-e (Mt))', angle: -90, position: 'insideLeft', offset:-6}}/>
           <Tooltip />
           <Legend />
           <Bar name='emission_fifty' dataKey="emissionFifty" stackId="a" fill="#4771b2" />

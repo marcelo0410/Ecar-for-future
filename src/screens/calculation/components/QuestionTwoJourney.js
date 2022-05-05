@@ -9,7 +9,7 @@ export default function QuestionTwoJourney() {
   const [mediumCarCSSStyle, setMediumCarCSSStyle] = useState("carImageSelected")
   const [smallCarCSSStyle, setSmallCarCSSStyle] = useState("carImage")
   const [carCSSStyleFlag, setcarCSSStyleFlag] = useState(true)
-  const [travelDistance, settravelDistance] = useState(1)
+  const [travelDistance, settravelDistance] = useState(30)
   const [divDisplay, setdivDisplay] = useState("help-tooltip help-tooltip-unhover")
 
   const location = useLocation()
@@ -60,10 +60,10 @@ export default function QuestionTwoJourney() {
             </div>
             <div className='question__range__container'>
               <div className="range question__range">
-                  <input type="range" className="form-range " id="customRange2" min="1" max="1000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>                
+                  <input type="range" className="form-range " id="customRange2" min="30" max="1000" value={travelDistance} onChange={e => settravelDistance(e.target.value)}/>                
               </div>
               <div className='question__range-label'>
-                  <output>1</output>
+                  <output>30</output>
                   <output>1,000</output>
               </div>
             </div>
