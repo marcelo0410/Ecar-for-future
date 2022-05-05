@@ -187,7 +187,7 @@ export default function QuestionFiveCharging() {
                 <CostResultWeek resultCost={resultCost} carSize={location.state.carType} ecarCost={ecarCost}/>
               </div> */}
               <div style={{width:"400px",height:"240px"}}>
-              {[...Array(Math.round(resultCost*52/500) >= 60? 60:Math.round(resultCost*52/250))].map((e, i) => <img src={moneyImage} key={i} style={{width:"40px"}}></img>)}
+              {[...Array(Math.round(resultCost*52/250) >= 60? 60:Math.round(resultCost*52/250))].map((e, i) => <img src={moneyImage} key={i} style={{width:"40px"}}></img>)}
 
               </div>
               <div id="resultcost_desc" style={{fontSize:"24px", marginTop:"20px", textAlign:"center"}}>You have saved <span style={{textDecoration:"underline", fontWeight:"bold"}}>{(resultCost*52).toLocaleString('en-US', {  style: 'currency',
@@ -228,6 +228,7 @@ export default function QuestionFiveCharging() {
           <p>The Victorian Government provide the Zero Emissions Vehicle (ZEV) Subsidy to reduces the upfront cost of a new zero emissions vehicle aiming to encourage more Victorians driving the future of transport sooner.
 This subsidy Valued at <b>$3,000</b> for eligible new ZEVs purchased cusmors. For details of the eligibility terms and subsidy application details, please refer to: <a href='https://www.solar.vic.gov.au/zero-emissions-vehicle-subsidy' target="_blank">https://www.solar.vic.gov.au/zero-emissions-vehicle-subsidy</a> </p>
         </div>
+        
       </div>
   )
 }

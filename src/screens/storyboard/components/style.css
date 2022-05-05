@@ -57,7 +57,7 @@
     width: 600px;
 } */
 
-.container{
+.story-container{
     background: #5CAB98;
     color: #fff;
     margin: 0;
@@ -74,7 +74,7 @@
 
 .current {
     display: block;
-    height: 750vh;
+    height: 1200vh;
     box-sizing: border-box;
 }
 
@@ -84,9 +84,13 @@
     padding-top: 40vh;
     padding-bottom: 90vh;
     text-align: center;
-    color: #fff;
-    font-size: 32px;
+
+}
+
+.question h2{
+    font-size: 50px;
     font-weight: bold;
+    color: #fff;
 }
 
 .current .section-1 .pictures {
@@ -145,12 +149,13 @@
 
 .current .section-2 .pictures {
     padding-top: 40vh;
+    /* border: dotted; */
 }
 
 .current .section-2 .pictures img {
     display: block;
-    width: 500px;
-    margin-left: 55%;
+    width: 600px;
+    margin-left: 50%;
     /* margin-right: 10%; */
     z-index: 1;
     padding-top: 20px;
@@ -180,8 +185,8 @@
 
 .current .section-3 .pictures img {
     display: block;
-    width: 500px;
-    margin-left: 55%;
+    width: 600px;
+    margin-left: 50%;
     /* margin-right: 10%; */
     z-index: 1;
     padding-top: 20px;
@@ -211,7 +216,7 @@
 
 .current .section-4 .diseases .description img {
     display: block;
-    width: 300px;
+    width: 500px;
     margin-left: 55%;
     /* margin-right: 10%; */
     z-index: 1;
@@ -232,7 +237,8 @@
 }
 
 .future {
-    height: 700vh;
+    display: block;
+    height: 500vh;
     box-sizing: border-box;
 }
 
@@ -266,6 +272,7 @@
     font-size: 28px;
     color:#fff;
     padding: 0;
+    padding-bottom: 80vh;
     position: relative;
     margin-top: auto;
     margin-left: 10%;
@@ -275,4 +282,42 @@
     top: 45vh;
     /* transform: scale(clamp(0.15, var(--scale), 1)); */
     /* transform-origin: 0% 0%; */
+}
+
+.future .section-1 p2 {
+    font-size: 28px;
+    color:#fff;
+    padding: 0;
+    position: relative;
+    margin-top: auto;
+    margin-left: 10%;
+    margin-right: auto;
+    width: 500px;
+    position: sticky;
+    top: 49vh;
+    /* transform: scale(clamp(0.15, var(--scale), 1)); */
+    /* transform-origin: 0% 0%; */
+}
+
+.future .section-1 p2 {
+    font-size: 28px;
+    color:#fff;
+    padding: 0;
+    position: relative;
+    margin-top: auto;
+    margin-left: 10%;
+    margin-right: auto;
+    width: 300px;
+    position: sticky;
+    top: 49vh;
+    /* transform: scale(clamp(0.15, var(--scale), 1)); */
+    /* transform-origin: 0% 0%; */
+    border: dotted;
+}
+
+
+.ev {
+    display: block;
+    height: 500vh;
+    box-sizing: border-box;
 }
