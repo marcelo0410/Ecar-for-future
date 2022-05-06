@@ -201,9 +201,9 @@ export default function Index() {
         </div>
         <div class="final">
             <h2 >What to know more?</h2>
-            <div style={{display:"flex", justifyContent:"space-between"}}>
-                <h3 onClick={resetDirectToCur}>About environment</h3>
-                <h3 onClick={resetDirectToEV}>Explore EVs</h3>
+            <div style={{display:"flex", justifyContent:"center", gap:"260px"}}>
+                <a className="final__link" onClick={resetDirectToCur}>About environment</a>
+                <a className="final__link" onClick={resetDirectToEV}>Explore EVs</a>
             </div>
 
         </div>

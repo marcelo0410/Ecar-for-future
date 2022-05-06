@@ -9,8 +9,8 @@ export default class QuaterlyEmissionAnnual extends PureComponent {
             <h2 className='mt-4 mb-4'>Emission Annual</h2>
             <div></div>
             <LineChart
-            width={800}
-            height={500}
+            width={660}
+            height={450}
             data={this.props.visData}
             margin={{
                 top: 5,

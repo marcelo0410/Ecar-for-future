@@ -78,12 +78,15 @@
 }
 
 .emission{
-  display: flex;
   background-color: #F4F4F4;
   padding-bottom: 40px;
 }
-.vis-emission{
-  padding-left: 90px;
+
+
+.vis-emission__content{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .text-area-emission{
@@ -158,5 +161,23 @@
     font-size: px;
   }
 
+  .vis-emission__title{
+    text-align: left;
+    font-size: 26px;
+    font-weight: bold;
+    width: 66%;
+    margin: 0 auto;
+    padding-top: 40px;
+  }
+
+  .text-area-emission__title{
+    font-weight: bold;
+  }
+
+  .vis-emission__select{
+    width: 180px;
+    height: 35px;
+    font-size: 20px;
+  }
 
   

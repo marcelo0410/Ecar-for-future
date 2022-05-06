@@ -63,8 +63,12 @@ export default function QuarterlyEmissionCanvas() {
   return (
     <div>
         <div className='emission'>
+            <div className="vis-emission__title">
+            As the third major source of CO2 emissions in Australia, the impact of vehicle emissions is far worse than we thought. All motor vehicle pollutants are released into air and mostly through the exhaust fumes. 
+            </div>
+            <div className='vis-emission__content'>
             <div className='vis-emission'>
-              <select name="Council" id="council" onChange={updateVisOption} value={visOption} style={{marginTop:"20px"}}>
+              <select className="vis-emission__select" name="emission" id="emission" onChange={updateVisOption} value={visOption} style={{marginTop:"20px"}}>
                 <option value="" disabled>Emission</option>
                 <option value="1">Annual</option>
                 <option value="2">Emission by Gas</option>
@@ -76,15 +80,15 @@ export default function QuarterlyEmissionCanvas() {
 
             </div>
             <div className='text-area-emission'>
-                <p>As the third major source of CO2 emissions in Australia, the impact of vehicle emissions is far worse than we thought. All motor vehicle pollutants are released into air and mostly through the exhaust fumes that come out of the tailpipe when the engine operates.
-                </p>
-                <ul>
-                    <li>more than 99.4% of all pollutant gases are invisible</li>
-                    <li>your car releases emissions even when it's standing still</li>
-                    <li>other fumes from petrol and lubricants evaporate into the air.</li>
-                </ul>
-                <p>Pollutants produced by vehicle exhausts include carbon monoxide, hydrocarbons, nitrogen oxides, particles, volatile organic compounds and sulfur dioxide.</p>
+                <h3>Annual</h3>
+                <p>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p>
+                <h3>Emission by Gas</h3>
+                <p>Energy production is the largest contributor to Australia's carbon emissions. This is followed by transport, agriculture, and industrial processes.</p>
+                <h3>Transport</h3>
+                <p>Transport emissions have grown more than any other sector, increasing nearly 60% since 1990. Cars are responsible for roughly half of all transport emissions.</p>
             </div>
+            </div>
+            
         </div>
     </div>
   )

@@ -85,7 +85,12 @@
     padding-bottom: 90vh;
     text-align: center;
     color: #fff;
-    font-size: 32px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.question h2{
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -233,7 +238,7 @@
 
 .future {
     display: block;
-    height: 1300vh;
+    height: 1000vh;
     box-sizing: border-box;
 }
 
@@ -441,7 +446,7 @@
 
 .final {
     display: block;
-    height: 120vh;
+    height: 80vh;
     box-sizing: border-box;
 }
 
@@ -455,14 +460,19 @@
     font-weight: bold;
 }
 
-.final h3 {
-    width: 100%;
+.final a {
+    width: 20%;
     height: auto;
-    padding-top: 40vh;
-    padding-bottom: 20vh;
+    margin-top: 40vh;
+    margin-bottom: 20vh;
     text-align: center;
     color: #fff;
     font-size: 30px;
     font-weight: bold;
     font-style: underline;
+}
+
+.final a:hover{
+    color:#5C8FAB;
+    background: #fff;
 }

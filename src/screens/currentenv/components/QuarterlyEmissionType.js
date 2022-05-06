@@ -9,8 +9,8 @@ export default class QuaterlyEmission extends PureComponent {
             <h2 className='mt-4 mb-4'>Emission By Gas</h2>
             <div></div>
             <LineChart
-            width={800}
-            height={500}
+            width={660}
+            height={450}
             data={this.props.visData}
             margin={{
                 top: 5,
