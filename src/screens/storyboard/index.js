@@ -205,7 +205,6 @@ export default function Index() {
                 <a className="final__link" onClick={resetDirectToCur}>About environment</a>
                 <a className="final__link" onClick={resetDirectToEV}>Explore EVs</a>
             </div>
-
         </div>
         </section>
     </div>

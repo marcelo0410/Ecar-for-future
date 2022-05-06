@@ -74,7 +74,7 @@
 
 .current {
     display: block;
-    height: 1300vh;
+    height: 1120vh;
     box-sizing: border-box;
 }
 
@@ -238,7 +238,7 @@
 
 .future {
     display: block;
-    height: 1000vh;
+    height: 930vh;
     box-sizing: border-box;
 }
 
@@ -319,7 +319,7 @@
 
 .ev {
     display: block;
-    height: 1300vh;
+    height: 1210vh;
     box-sizing: border-box;
 }
 
@@ -446,7 +446,7 @@
 
 .final {
     display: block;
-    height: 80vh;
+    height: 50vh;
     box-sizing: border-box;
 }
 
