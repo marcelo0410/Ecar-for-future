@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Emission from './components/Emission'
 import Health from './components/Health'
 import './components/style.css'
@@ -9,6 +9,9 @@ import Map from './components/EmissionMap/Map'
 import geoJSONCED from "../../assets/data/state.json";
 
 export default function Index() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
         <div className='cur-banner'>

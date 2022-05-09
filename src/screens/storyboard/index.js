@@ -58,6 +58,7 @@ export default function Index() {
       }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     $(window).scroll(function() {
       $('section').each(function(i) {
         if ($(this).position().top <= $(window).scrollTop()) {

@@ -27,12 +27,12 @@ export default function QuestionFiveCharging() {
   const [fuelOption, setfuelOption] = useState(6)
 
   useEffect(() => {
-    
+    window.scrollTo(0, 0);
   
     return () => {
       
     }
-  }, [fuelOption])
+  }, [])
   
   const handleClickImageGetId = (e) =>{
     if(e.currentTarget.id === "charging"){

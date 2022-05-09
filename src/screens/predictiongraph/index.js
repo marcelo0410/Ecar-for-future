@@ -10,6 +10,9 @@ import EmissionPreStackedBarVis from '../predictiongraph/components/EmissionPreS
 
 export default function Index() {
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
     
     // const [emissionPreEVAData, setemissionPreEVAData] = useState("")
     // const [emissionPreEVBData, setemissionPreEVBData] = useState("")

@@ -1,6 +1,9 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Calculator from './components/CalculatorCanvas'
-export default function index() {
+export default function Index() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
         <Calculator/>
