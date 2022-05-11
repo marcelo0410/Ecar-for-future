@@ -21,6 +21,8 @@ import About from './screens/about/index'
 import Storyboard from './screens/storyboard/index';
 import EmissionPrediction from './screens/prediction/index';
 import PredictionGraph from './screens/predictiongraph/index';
+import Carselection from './screens/carselection/index';
+import GeneralCalculatorV from './screens/calculation/components/GeneralCalculatorNew';
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
           <Route path="/pp" element={<EmissionPrediction/>}/>
           <Route path="/prediction" element={<PredictionGraph/>}/>
           <Route path="/storyboard" element={<Storyboard/>}/>
+          <Route path="/gen" element={<GeneralCalculatorV/>}/>
+          <Route path="/carselection" element={<Carselection/>}/>
           {/* <Route path="/test" element={<Test scrollHeight={4000} width={1158} height={770} numFrames={63}/>}/> */}
           
           <Route path="/" element={<Navigate replace to="/home"/>} />

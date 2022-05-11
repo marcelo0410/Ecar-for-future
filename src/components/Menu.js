@@ -34,7 +34,10 @@ export default function Menu() {
                   </div>
                 </li>
                 <li>
-                  <NavLink to="/calculator">Know Electric Vehicles More</NavLink>
+                  <NavLink to="/calculator">Comparison</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/carselection">Select your car</NavLink>
                 </li>
 
                 {/* <li>

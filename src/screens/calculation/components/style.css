@@ -277,7 +277,7 @@
 
 .gen-container{
   background: linear-gradient(180deg, #E0EAFC 0%, rgba(207, 222, 243, 0) 100%);
-
+  
 }
 
 .gen__title{
@@ -364,3 +364,15 @@
   height: 30px;
   font-size: 20px;
 }
+
+.genc-container{
+  margin-top: 100px;
+  font-size: 100px;
+}
+
+.fff{
+  margin-top: 100px;
+  font-size: 100px;
+}
+
+

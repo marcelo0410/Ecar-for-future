@@ -27,6 +27,13 @@
   padding-top: 210px;
   color: white;
   font-weight: bold;
+  line-height: 5.681rem;
+}
+
+.cur__subtitle{
+  font-size: 1.316rem;
+  color: white;
+  font-weight: bold;
 }
 
 .backgroundImg{
@@ -49,14 +56,16 @@
 }
 
 .tile-flex{
-  margin-top:30px;
+  /* margin-top:30px; */
   /* center the element */
   margin-right: auto;
   margin-left: auto;
   /* give it dimensions */
   min-height: 10em;
-  width: 75%;
+  /* width: 80%; */
   margin-bottom: 30px;
+  gap: 2rem;
+  background: white;
 }
 
 .tile-flex img{
@@ -78,7 +87,7 @@
 }
 
 .emission{
-  background-color: #F4F4F4;
+  background-color: white;
   padding-bottom: 40px;
 }
 
