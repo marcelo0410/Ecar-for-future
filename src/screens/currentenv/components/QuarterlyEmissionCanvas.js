@@ -3,7 +3,7 @@ import QuarterlyEmissionAnnual from './QuarterlyEmissionAnnual'
 import QuarterlyEmissionType from './QuarterlyEmissionType'
 import QuarterlyEmissionTransport from './QuarterlyEmissionTransport'
 import axios from 'axios'
-import './style.css'
+import './style.module.css'
 
 export default function QuarterlyEmissionCanvas() {
   const [visOption, setvisOption] = useState("1")

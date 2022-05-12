@@ -2,7 +2,7 @@ import React from 'react'
 import healthHeart from '../../../assets/currentenv/health-human-heart.png'
 import healthBreath from '../../../assets/currentenv/health-breath.png'
 import healthPharynx from '../../../assets/currentenv/health-pharynx.png'
-import './style.css'
+import './style.module.css'
 export default function Health() {
   return (
     <div>

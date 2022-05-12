@@ -10,6 +10,7 @@ import rec_audi from '../../../assets/carselection/rec_audi.jpg'
 import rec_benz from '../../../assets/carselection/rec_benz.jpg'
 import upicon from '../../../assets/common/upicon.png'
 import GeneralCalculatorNew from '../../calculation/components/GeneralCalculatorNew'
+import ChargingStation from './chargingstation/Index'
 export default function Questionaire() {
 
     const backToTop = () =>{
@@ -61,7 +62,7 @@ export default function Questionaire() {
                         </div>
                         <div className={style.que__block__split__right}>
                             <input className={style.que__block__split__input}></input>
-                            <span>  km</span>
+                            <span className={style.que__block__split__span}>   km</span>
                         </div>
                 </div>
             </div>
@@ -96,10 +97,10 @@ export default function Questionaire() {
                         </div>
                         <div className={style.que__block__split__right}>
                             <select className={style.que__block__split__select}>
-                                <option value="tesla">Tesla</option>
-                                <option value="audi">Audi</option>
-                                <option value="benz">Benz</option>
-                                <option value="bmw">BMW</option>
+                                <option value="tesla">Under 30k</option>
+                                <option value="audi">20k - 30k</option>
+                                <option value="benz">10k - 20k</option>
+                                <option value="bmw">Under 10k</option>
                             </select>
                             {/* <span>  km</span> */}
                         </div>
@@ -159,11 +160,17 @@ export default function Questionaire() {
             <div className={style.que__title}>Supporting Facilities</div>
             <div className={style.que__desc}>Display the charging stations and maintenance store on the map and shows the contact information <br/>on the list.</div>
         </div>
-        <div className={style.sup__input__area}>
-            <div>Select your suburb:</div>
-            <input></input>
-            <span>km</span>
-        </div>
+        <section>
+            <div style={{width:"75%", margin:"30px auto"}}>
+                <ChargingStation/>
+            </div>
+            
+            <div className={style.sup__input__area}>
+                <div>Select your suburb:</div>
+                <input></input>
+                <span>km</span>
+            </div>
+        </section>
         <div className={style.back__area} onClick={backToTop}>
             <div>Back to top</div>
             <img src={upicon}></img>

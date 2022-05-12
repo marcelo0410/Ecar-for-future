@@ -23,6 +23,7 @@ import EmissionPrediction from './screens/prediction/index';
 import PredictionGraph from './screens/predictiongraph/index';
 import Carselection from './screens/carselection/index';
 import GeneralCalculatorV from './screens/calculation/components/GeneralCalculatorNew';
+import ChargingStation from './screens/carselection/components/chargingstation/Index';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/storyboard" element={<Storyboard/>}/>
           <Route path="/gen" element={<GeneralCalculatorV/>}/>
           <Route path="/carselection" element={<Carselection/>}/>
+          <Route path="/char" element={<ChargingStation/>}/>
           {/* <Route path="/test" element={<Test scrollHeight={4000} width={1158} height={770} numFrames={63}/>}/> */}
           
           <Route path="/" element={<Navigate replace to="/home"/>} />

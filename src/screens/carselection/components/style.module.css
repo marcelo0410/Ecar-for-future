@@ -131,12 +131,17 @@
 }
 
 .que__block__split__input{
-    width: 10rem;
+    width: 11rem;
     height: 2.44rem;
     background: #F2F2F2;
     border: 1px solid #00A19D;
     border-radius: 9px;
     text-align: right;
+    font-size: 1.128rem;
+    padding-right: 10px;
+}
+
+.que__block__split__span{
     font-size: 1.128rem;
 }
 

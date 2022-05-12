@@ -1,8 +1,8 @@
-.cur-banner{
+.cur__banner{
   background-image: url("../../../assets/currentenv/current_background.jpg");
   background-size: cover;
   /* height: 100vh; */
-  height: 610px;
+  height: 630px;
   min-width: 100%;
   background-position:top;
   background-size:100% auto;
@@ -36,6 +36,31 @@
   font-weight: bold;
 }
 
+.cur__emisec{
+  width: 66%;
+  margin: 0 auto;
+  background:#F8F8F8;
+  padding-bottom: 30px;
+}
+
+.cur__emisec__title{
+  font-weight: bold;
+  font-size: 1.316rem;
+  margin-bottom: 20px;
+}
+
+.cur__emisec__map{
+  display: flex;
+  justify-content: start;
+}
+
+
+
+
+
+
+
+
 .backgroundImg{
     background-image: url("../../../assets/currentenv/earth.jpg");
     background-repeat: no-repeat;
@@ -55,36 +80,37 @@
     font-weight: bold;
 }
 
-.tile-flex{
+.tile__flex1{
   /* margin-top:30px; */
   /* center the element */
   margin-right: auto;
   margin-left: auto;
   /* give it dimensions */
-  min-height: 10em;
-  /* width: 80%; */
+  /* min-height: 10em;   */
   margin-bottom: 30px;
-  gap: 2rem;
+  gap: 6.5rem;
   background: white;
+  display: flex;
+  justify-content: center;
 }
 
-.tile-flex img{
+/* .tile__flex1 img{
   width: 160px;
 }
 
-.tile-flex h2{
+.tile__flex1 h2{
   margin-top: 30px;
   font-weight: bold;
 }
 
-.tile-flex p{
+.tile__flex1 p{
   text-align: left;
   display: flex;
   width: 70%;
   justify-content: center;
   margin-left: 60px;
   font-size: 14px;
-}
+} */
 
 .emission{
   background-color: white;
@@ -165,9 +191,8 @@
    color: rgba(117, 117, 117);
   }
 
-  .cur-p{
+  .cur__p{
     margin-top: 20px;
-    font-size: px;
   }
 
   .vis-emission__title{
