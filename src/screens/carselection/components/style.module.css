@@ -1,8 +1,8 @@
 .banner{
     background-image: url("../../../assets/carselection/select-background.jpg");
     background-size: cover;
-    /* height: 100vh; */
-    height: 85vh;
+    /* height: 85vh; */
+    height: 610px;
     min-width: 100%;
     background-position:top;
     background-size:100% auto;
@@ -44,14 +44,9 @@
 }
 
 .progress__sec{
-    height: 9.4rem;
-    /* margin-left: auto;
-    margin-right: auto;
-    display: block; */
-    /* vertially and horizontally center photo  */
-    display:table-cell; 
-    vertical-align:middle; 
-    text-align:center;
+    position: sticky; 
+    top:50px;
+    background: white;
 }
 
 .progress__img{
@@ -76,6 +71,11 @@
     height: 8.46rem;
 }
 
+.que__block__button__area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .que__block__img{
@@ -128,6 +128,7 @@
     border-radius: 9px;
     text-align: right;
     font-size: 1.128rem;
+    padding-right: 1rem;
 }
 
 .que__block__split__input{
@@ -225,6 +226,7 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    gap: 20px;
 }
 .back__area{
     display: flex;
@@ -233,3 +235,306 @@
     margin-top: 30px;
     font-weight: bold;
 }
+
+.stepper__wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 20px 0;
+    z-index: 999;
+  }
+  .stepper__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+  
+  .stepper__item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+  }
+  
+  .stepper__item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+  }
+  
+  .stepper__item .step__counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+  }
+  
+  .stepper__item.active {
+    font-weight: bold;
+  }
+  
+  .stepper__item.completed .step__counter {
+    background-color: #00A19D;
+  }
+  
+  .stepper__item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #00A19D;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+  }
+  
+  .stepper__item:first-child::before {
+    content: none;
+  }
+  .stepper__item:last-child::after {
+    content: none;
+  }
+
+  .genc__container{
+    padding-top: 50px;
+    width: 75%;
+    margin: 0 auto;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic,sans-serif;
+  }
+  
+  .genc__sec{
+    /* width: 75%; */
+    /* background-color: white; */
+    margin: 0 auto;
+    /* height: 1000px; */
+    
+  }
+  
+  .genc__split{
+    display: flex;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    text-align: left;
+    
+  
+    /* align-items: center; */
+    /* margin: 0 auto; */
+  }
+  
+  .genc__split__left{
+    width: 50%;
+  }
+  
+  .genc__split__right{
+    width: 50%; 
+  
+  }
+  
+  .genc__split__topbar{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .genc__topbar--blue{
+    background-color: #FFB344;
+    width: 100%;
+    height: 20px;
+  }
+  
+  .genc__topbar--green{
+    background-color: #E05D5D;
+    width: 100%;
+    height: 20px;
+  }
+  
+  .genc__split__title{
+    font-size: 1.25rem;
+    margin-top: 43px;
+    line-height: 1.25px;
+    font-weight: bold;
+    font-weight: 900;
+  }
+  
+  .genc__split__desc{
+    font-size: 1.25rem;
+    text-align: left;
+    line-height: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  .genc__que__split{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    /* gap: 2.6rem; */
+    margin-bottom: 1.4rem;
+  
+  }
+  
+  .genc__que__area{
+    text-align: left;
+    padding-left: 2.8125rem;
+  }
+  
+  .genc__que__area__title{
+    font-size: 0.85rem;
+    font-weight: bold;
+    line-height: 1.2rem;
+    font-weight: 700;
+  }
+  
+  .genc__que__area__desc{
+    font-size: 0.85rem;
+    line-height: 1rem;
+  }
+  
+  .genc__que__area__right{
+    align-items: center;
+  }
+  
+  .genc__que__area__input{
+    background: #F2F2F2;
+    border: 1px solid #FFB344;
+    border-radius: 9px;
+    width: 7.379rem;
+    height: 2.3rem;
+    text-align: right;
+    padding-right: 15px;
+    font-size: 1.128rem;
+  }
+  
+  .genc__que__area__span{
+    font-size: 1.128rem;
+  }
+  
+  .genc__que__area__left{
+    width: 16rem;
+  }
+  
+  .genc__que__button{
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .genc__que__button__orange{
+    background: #FFB344;
+    border-radius: 0.94rem;
+    width: 6.2rem;
+    height: 1.9rem;
+    color: white;
+    border: none;
+  }
+  
+  .genc__que__button__white{
+    background: white;
+    border-radius: 0.94rem;
+    width: 6.2rem;
+    height: 1.9rem;
+    color: black;
+    border: none;
+    border: 1px solid #FFB344;
+  }
+  
+  .genc__que__button__right__red{
+      width: 11.28rem;
+      height: 1.739rem;
+      border-radius: 27px;
+      background: #E05D5D;
+      color: white;
+      border: none;
+  }
+  
+  .genc__que__button__right__white{
+    width: 15.04rem;
+    height: 1.739rem;
+    border-radius: 27px;
+    background: white;
+    color: #E05D5D;
+    border: 1px solid #E05D5D;
+  }
+  
+  .genc__split__result{
+    text-align: left;
+    padding-left: 2.8125rem;
+  }
+  
+  .genc__que__result__button{
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .genc__que__area__select{
+    background: #F2F2F2;
+    border: 1px solid #FFB344;
+    border-radius: 9px;
+    width: 12.7rem;
+    height: 2.3rem;
+    text-align: right;
+    padding-right: 15px;
+    font-size: 1.128rem;
+  }
+  
+  .genc__bottom__bar{
+    background: rgba(221, 221, 221, 0.5);
+    display: flex;
+    justify-content: center;
+    height: 5.5rem;
+    align-items: center;
+    gap: 9%;
+    margin-bottom: 3.76rem;
+  }
+  .genc__bottom__orangebutton{
+    color: white;
+    background: #FFB344;
+    border-radius: 27px;
+    width: 9.4rem;
+    height: 2.2rem;
+    font-size: 1.316rem;
+    border: none;
+    margin-left: 1.081rem;
+  }
+  
+  .genc__bottom__desc{
+    font-size: 1.316rem;
+  
+  }
+  
+  .genc__bottom__redbutton{
+    color: white;
+    background: #E05D5D;
+    border-radius: 27px;
+    width: 9.4rem;
+    height: 2.2rem;
+    font-size: 1.316rem;
+    border: none;
+    margin-left: 1.081rem;
+  }
+  
+  .genc_bottom__bar__split{
+    display: flex;
+    justify-content: center;
+  }
+
+  .genc__que__result__vis{
+      margin-top: 30px;
+  }

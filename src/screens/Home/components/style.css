@@ -1,47 +1,73 @@
 .banner{
-    background-image: url("../../../assets/homepage/homepage-car.png");
+    background-image: url("../../../assets/homepage/home_background.jpg");
     background-size: cover;
-    /* height: 100vh; */
-    height: 573px;
-    min-width: 100%;
+    height: 91.5vh;
+    /* height: 573px; */
+    /* min-width: 100%; */
     background-position:top;
     background-size:100% auto;
     background-repeat: no-repeat;
+    /* padding-top: 50px; */
+    font-family: 'Century Gothic';
 }
 
 .banner__title{
     font-size: 80px;
     font-weight: bold;
     color: white;
-    padding-top: 162px;
+    padding-top: 14%;
+    line-height: 5rem;
 }
 
 .banner__desc{
     color: white;
-    font-size: 40px;
+    font-size: 1.316rem;
+    font-weight: bold;
     margin-bottom: 10px;
-    margin-top: 5px;
 }
 
 .banner__button{
-    background: linear-gradient(269.55deg, #43E97B 6.53%, #38F9D7 93.26%); /* Green */
+    background: #00A19D;
+    border-radius: 27px;
     color: white;
     border: none;
-    width: 289px;
+    width: 16.92rem;
     text-align: center;
-    border-radius: 29.42px;
     text-align: center;
     text-decoration: none;
-    font-size: 35px;
+    font-size: 1.316rem;
     font-weight: bold;
     cursor: pointer;
-    height: 65px;
+    height: 2.3rem;
     margin-top: 45px;
+    margin-top: 5%;
 }
 
 .banner__button:hover{
     background: white;
-    color:#38F9D7;
+    color:#00A19D;
+}
+
+.banner__button__img{
+    width:1.8rem;
+    padding-bottom: 3px;
+}
+
+
+
+.banner__title__span{
+    color: #FFB344;
+}
+
+.banner__bottom__desc{
+    font-size: 1.316rem;
+    color: white;
+    font-weight: bold;
+    margin-top: 9%;
+}
+
+.banner__bottom__img{
+
 }
 
 .section-title{

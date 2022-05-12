@@ -31,8 +31,9 @@ export default function QuarterlyEmissionCanvas() {
   }, []);
 
   const updateVisOption = (evt) =>{
-    if(evt.target.value !== visOption){
-      setvisOption(evt.target.value.toString())
+    console.log(evt.target.id)
+    if(evt.target.id !== visOption){
+      setvisOption(evt.target.id.toString())
     }
     
   }
@@ -68,12 +69,17 @@ export default function QuarterlyEmissionCanvas() {
             </div>
             <div className='vis-emission__content'>
             <div className='vis-emission'>
-              <select className="vis-emission__select" name="emission" id="emission" onChange={updateVisOption} value={visOption} style={{marginTop:"20px"}}>
+              {/* <select className="vis-emission__select" name="emission" id="emission" onChange={updateVisOption} value={visOption} style={{marginTop:"20px"}}>
                 <option value="" disabled>Emission</option>
                 <option value="1">Annual</option>
                 <option value="2">Emission by Gas</option>
                 <option value="3">Transport</option>
-              </select>
+              </select> */}
+              <div>
+                <button id="1" onClick={updateVisOption}>Annual</button>
+                <button id="2" onClick={updateVisOption}>Emission by Gas</button>
+                <button id="3" onClick={updateVisOption}>Transport</button>
+              </div>
               {visOption === '1' && <QuarterlyEmissionAnnual visData={emissionAnnualData}/>}
               {visOption === '2' && <QuarterlyEmissionType visData={emissionTypeData}/>}
               {visOption === '3' && <QuarterlyEmissionTransport visData={emissionTypeData}/>}

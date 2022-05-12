@@ -22,7 +22,7 @@ import Storyboard from './screens/storyboard/index';
 import EmissionPrediction from './screens/prediction/index';
 import PredictionGraph from './screens/predictiongraph/index';
 import Carselection from './screens/carselection/index';
-import GeneralCalculatorV from './screens/calculation/components/GeneralCalculatorNew';
+import GeneralCalculatorV from './screens/carselection/components/GeneralCalculatorNew';
 import ChargingStation from './screens/carselection/components/chargingstation/Index';
 
 function App() {

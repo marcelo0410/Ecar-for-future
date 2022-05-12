@@ -19,6 +19,7 @@
   /* flex-wrap: wrap; */
   justify-content: center;
   text-align: left;
+  
 
   /* align-items: center; */
   /* margin: 0 auto; */
@@ -151,9 +152,9 @@
   width: 15.04rem;
   height: 1.739rem;
   border-radius: 27px;
-  background: #E05D5D;
-  color: white;
-  border: none;
+  background: white;
+  color: #E05D5D;
+  border: 1px solid #E05D5D;
 }
 
 .genc__split__result{

@@ -1,15 +1,27 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 // import * as chargingpointData from "../../../../assets/data/cpm_mod.json";
 import * as chargingpointData from "./cpm_mod.json";
 import style from './style.module.css'
 // import 'leaflet/dist/leaflet.css';
 
-export default function Index() {
+export default function Index(props) {
+  const melGeo = [-37.814107, 144.96328]
+  const zoomSize = 13
   const data = require('./cpm_mod.json')
+  useEffect(() => {
+    console.log(props.coordinate)
+  
+    return () => {
+      
+    }
+  }, [props])
+  
   return (
-    
-    <MapContainer center={[-37.814107, 144.96328]} zoom={13} scrollWheelZoom={true} className={style.leaflet_container}>
+    <div>
+      {console.log(props.coordinate)}
+    <MapContainer center={props.coordinate} zoom={13} scrollWheelZoom={true} className={style.leaflet_container}>
+      
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -29,5 +41,6 @@ export default function Index() {
           ))}
 
     </MapContainer>
+    </div>
       );
 }
