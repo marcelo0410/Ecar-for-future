@@ -23,6 +23,7 @@ export default function GeneralCalculatorNew() {
   }
 
   const selectRef = useRef(null)
+  const calRef = useRef(null)
 
   const changeButtonOrange = () =>{
     if(chargingButtonCss == 0){
@@ -49,6 +50,11 @@ export default function GeneralCalculatorNew() {
   }
 
   const calculateCost = () => {
+    // calRef.current.scrollIntoView()
+    window.scrollTo({
+      top: 2270,
+      behavior: "smooth"
+  });
     const fuelPrice = {
       "1":2.17,
       "2":2.31,
@@ -67,12 +73,12 @@ export default function GeneralCalculatorNew() {
   }
 
   return (
-    <div className={style.genc__container}>
+    <div className={style.genc__container} ref={calRef}>
       
         <section className={style.genc__sec}>
             <div className={style.genc__split}>
               <div className={style.genc__split__left}>
-                <div className={style['genc__topbar--blue']}></div>
+                <div className={style['genc__topbar--blue']} ></div>
                 <div className={style.genc__que__area}>
                   <h1 className={style.genc__split__title}>Questions</h1>
                   <p className={style.genc__split__desc}>These questions provide a more accurate<br/> comparison between fossil fuel cars and electric <br/>vehicles.</p>
@@ -141,7 +147,8 @@ export default function GeneralCalculatorNew() {
                     <button className={ resultButtonCss===1? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonRed}>Payment Comparison</button>
                     <button className={resultButtonCss===0? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonWhite}>Carbon Emission Comparison</button>
                   </div>
-                  <div className={style.genc__que__result__vis}><CostLineChart/></div>
+                  {resultButtonCss == 1 && <div className={style.genc__que__result__vis}><CostLineChart resultCo2={resultCost}/></div>}
+                  {resultButtonCss == 0 && <div className={style.genc__que__result__vis}><CostLineChart/></div>}
                 </div>
               </div>
             </div>
