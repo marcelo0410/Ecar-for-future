@@ -13,17 +13,31 @@ import GeneralCalculatorNew from './GeneralCalculatorNew'
 import ChargingStation from './chargingstation/Index'
 import $ from 'jquery'
 import useOnScreen from './useOnScreen'
+import CostLineChart from './CostLineChart'
 
 export default function Questionaire() {
     
-    const [first, setfirst] = useState(style.stepper__item)
+    const [progressStep, setProgressStep] = useState('1000')
     const [distance, setDistance] = useState(0)
     const [suburb, setSuburb] = useState([-37.814107, 144.96328])
     const [barVisOption, setBarVisOption] = useState(0)
 
+    // General Calculator
+    const [travelDistance, setTravelDistance] = useState(0)
+    const [fuelCom, setFuelCom] = useState(0.0)
+    const [fuelType, setFuelType] = useState('1')
+    const [passenger, setPassenger] = useState(1)
+    const [chargingButtonCss, setChargingButtonCss] = useState(1)
+    const [resultButtonCss, setResultButtonCss] = useState(1)
+    const [resultCost, setResultCost] = useState(0)
+    const [resultEmi, setResultEmi] = useState(0)
+
     const recRef = useRef(null);
     const comRef = useRef(null);
     const supRef = useRef(null);
+    const selectRef = useRef(null)
+    const calRef = useRef(null)
+    const mapRef = useRef(null)
 
     const isVisible = useOnScreen(recRef)
     
@@ -33,10 +47,22 @@ export default function Questionaire() {
             top: 0,
             behavior: "smooth"
         });
+        setProgressStep('1000')
     }
 
-    const NaviToRec = () =>{
+    const naviToRec = () =>{
         recRef.current.scrollIntoView()
+        setProgressStep('2100')
+    }
+
+    const naviToCompare = () =>{
+        calRef.current.scrollIntoView()
+        setProgressStep('2210')
+    }
+
+    const naviToMap = () =>{
+        mapRef.current.scrollIntoView()
+        setProgressStep('2221')
     }
 
     const updateMap = (e) =>{
@@ -55,6 +81,71 @@ export default function Questionaire() {
         
     }
 
+    const progressArray = {
+        '0': `${style.stepper__item}`,
+        '1': `${style.stepper__item} ${style.active}`,
+        '2': `${style.stepper__item} ${style.completed}`
+    }
+
+    const resetValue = () =>{
+        setTravelDistance(0)
+        setFuelCom(0)
+        setFuelType('1')
+        setPassenger(1)
+        selectRef.current.selectedIndex=0
+        setResultCost(0)
+        setResultEmi(0)
+      }
+    
+
+    
+      const changeButtonOrange = () =>{
+        if(chargingButtonCss == 0){
+          setChargingButtonCss(1)
+        }
+      }
+    
+      const changeButtonWhite = () =>{
+        if(chargingButtonCss == 1){
+          setChargingButtonCss(0)
+        }
+      }
+    
+      const changeResultButtonRed = () =>{
+        if(resultButtonCss == 0){
+          setResultButtonCss(1)
+        }
+      }
+    
+      const changeResultButtonWhite = () =>{
+        if(resultButtonCss == 1){
+          setResultButtonCss(0)
+        }
+      }
+    
+      const calculateCost = () => {
+        // calRef.current.scrollIntoView()
+        window.scrollTo({
+          top: 2270,
+          behavior: "smooth"
+      });
+        const fuelPrice = {
+          "1":2.17,
+          "2":2.31,
+          "3":2.39,
+          "4":2.14
+        }
+        let result = Math.round(travelDistance * (1+passenger*0.1-0.1)*fuelCom/100*fuelPrice[fuelType])
+        setResultCost(result)
+    
+        const resultCo2 = travelDistance /100 *fuelCom*2500
+        setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
+    
+        console.log(resultCost)
+        console.log(resultEmi)
+    
+      }
+
   return (
     //   `${style.stepper__item} ${style.completed}`
     // `${style.stepper__item} ${style.active}`
@@ -62,19 +153,19 @@ export default function Questionaire() {
     <div >
         <div className={style.progress__sec}>
             <div className={style.stepper__wrapper}>
-                <div className={first}>
+                <div className={progressArray[progressStep[0]]}>
                     <div className={style.step__counter}>1</div>
                     <div className={style.step__name}>Preferences</div>
                 </div>
-                <div className={first}>
+                <div className={progressArray[progressStep[1]]}>
                     <div className={style.step__counter}>2</div>
                     <div className={style.step__name}>Recommondations</div>
                 </div>
-                <div className={first}>
+                <div className={progressArray[progressStep[2]]}>
                     <div className={style.step__counter}>3</div>
                     <div className={style.step__name}>Comparison</div>
                 </div>
-                <div className={first}>
+                <div className={progressArray[progressStep[3]]}>
                     <div className={style.step__counter}>4</div>
                     <div className={style.step__name}>Infrastructures</div>
                 </div>
@@ -145,7 +236,7 @@ export default function Questionaire() {
             </div>
             <div className={style.que__block__gray}>
                 <div className={style.que__block__button__area} ref={recRef}>
-                    <button className={style.rec__bottom__button} onClick={NaviToRec}>Submit</button>
+                    <button className={style.rec__bottom__button} onClick={naviToRec}>Submit</button>
                 </div>
                 
                 {/* <div className={style.que__block__split}>
@@ -180,7 +271,8 @@ export default function Questionaire() {
                     Travel distance: 510km<br/>
                     Electric consumption: <br/>
                     7kwh/100km</div>
-                <div className={style.rec__tile__item__button}>Learn More</div>
+                <div className={style.rec__tile__item__button} onClick={naviToCompare}>Select</div>
+                <a className={style.rec__tile__item__link}>Learn More</a>
             </div>
             <div className={style.rec__tile__item}>
                 <img src={rec_benz} className={style.rec__tile__item__img2}></img>
@@ -190,7 +282,8 @@ export default function Questionaire() {
                     Travel distance: 510km<br/>
                     Electric consumption: <br/>
                     7kwh/100km</div>
-                <div className={style.rec__tile__item__button}>Learn More</div>
+                <div className={style.rec__tile__item__button} onClick={naviToCompare}>Select</div>
+                <a className={style.rec__tile__item__link}>Learn More</a>
             </div>
             <div className={style.rec__tile__item}>
                 
@@ -203,31 +296,122 @@ export default function Questionaire() {
                     Travel distance: 510km<br/>
                     Electric consumption: <br/>
                     7kwh/100km</div>
-                <div className={style.rec__tile__item__button}>Learn More</div>
+                <div className={style.rec__tile__item__button} onClick={naviToCompare}>Select</div>
+                <a className={style.rec__tile__item__link}>Learn More</a>
             </div>
 
         </section>
-            <div className={style.rec__bottom__title}>Not satisfied with the recommondations?</div>
-            <button className={style.rec__bottom__button}>See all models</button>
+            <div className={style.rec__bottom__title} ref={calRef}>Not satisfied with the recommondations?</div>
+            <button className={style.rec__bottom__button} >See all models</button>
         <div className={style.que__container}>
             <div className={style.que__title} ref={comRef}>Comparison</div>
             <div className={style.que__desc}>Compare your fossil fuel car and the recommended EV model to display the contribution and benefits</div>
         </div>
         <section>
-            <GeneralCalculatorNew/>
+            <div className={style.genc__container} >
+      
+            <section className={style.genc__sec}>
+                <div className={style.genc__split}>
+                    <div className={style.genc__split__left}>
+                    <div className={style['genc__topbar--blue']} ></div>
+                    <div className={style.genc__que__area}>
+                        <h1 className={style.genc__split__title}>Questions</h1>
+                        <p className={style.genc__split__desc}>These questions provide a more accurate<br/> comparison between fossil fuel cars and electric <br/>vehicles.</p>
+                        <div className={style.genc__que__split}>
+                        <div className={style.genc__que__area__left}>
+                            <div className={style.genc__que__area__title}>1. Travel distance</div>
+                            <p className={style.genc__que__area__desc}>Your average travel distance per <br/>week.</p>
+                        </div>
+                        <div className={style.genc__que__area__right}>
+                            <input className={style.genc__que__area__input} name="travelDistance" value={travelDistance} onChange={ e => setTravelDistance(e.target.value)}/>
+                            <span className={style.genc__que__area__span}>  km</span>
+                        </div>
+                        </div>
+                        <div className={style.genc__que__split}>
+                        <div className={style.genc__que__area__left}>
+                            <div className={style.genc__que__area__title} >2. Fuel consumptions</div>
+                            <p className={style.genc__que__area__desc}>Your average fuel consumptions <br/>per week by your car.</p>
+                        </div>
+                        <div>
+                            <input className={style.genc__que__area__input} min="0" max="10" value={fuelCom} onChange={ e => setFuelCom(e.target.value)}></input>
+                            <span className={style.genc__que__area__span}>  L/100km</span>
+                        </div>
+                        </div>
+                        <div className={style.genc__que__split}>
+                        <div className={style.genc__que__area__left}>
+                            <div className={style.genc__que__area__title}> 3. Fuel type</div>
+                            <p className={style.genc__que__area__desc}>Your commonly used fuel type</p>
+                        </div>
+                        <div>
+                            <select className={style.genc__que__area__select} ref={selectRef} onChange={e => setFuelType(e.target.value)}>
+                            <option value="1">Unleaded 91</option>
+                            <option value="2">Unleaded 95</option>
+                            <option value="3">Unleaded 98</option>
+                            <option value="4">Diesel</option>
+                            </select>
+                        </div>
+                        </div>
+                        <div className={style.genc__que__split}>
+                        <div className={style.genc__que__area__left}>
+                            <div className={style.genc__que__area__title}>4. Passengers</div>
+                            <p className={style.genc__que__area__desc}>Your number of passengers in <br/>your car</p>
+                        </div>
+                        <div>
+                            <input className={style.genc__que__area__input}  value={passenger} onChange={e => setPassenger(e.target.value)}></input>
+                            <span className={style.genc__que__area__span}>  persons</span>
+                        </div>
+                        </div>
+                        <div className={style.genc__que__split}>
+                        <div className={style.genc__que__area__left}>
+                            <div className={style.genc__que__area__title} >5. Charging pile</div>
+                            <p className={style.genc__que__area__desc}>Available to install your own <br/>charging pile</p>
+                        </div>
+                        <div className={style.genc__que__button} ref={mapRef}>
+                            <button className={ chargingButtonCss===1? `${style.genc__que__button__orange}`:`${style.genc__que__button__white}`} onClick={changeButtonOrange}>Yes</button>
+                            <button className={ chargingButtonCss===1? `${style.genc__que__button__white}`:`${style.genc__que__button__orange}`} onClick={changeButtonWhite}>No</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div className={style.genc__split__right}>
+                    <div className={style['genc__topbar--green']}></div>
+                    <div className={style.genc__split__result}>
+                        <div className={style.genc__split__title}>Comparison Results</div>
+                        <p className={style.genc__split__desc}>Comparing with the fossiled fueled car, the <br/>recommended electric vehicle model can reduce <br/>$ {resultCost} per week, and reduce {resultEmi} kg Carbon <br/>dioxide (CO2) emissions per week. </p>
+                        <div className={style.genc__que__result__button}>
+                        <button className={ resultButtonCss===1? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonRed}>Payment Comparison</button>
+                        <button className={resultButtonCss===0? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonWhite}>Carbon Emission Comparison</button>
+                        </div>
+                        {resultButtonCss == 1 && <div className={style.genc__que__result__vis}><CostLineChart resultCo2={resultCost}/></div>}
+                        {resultButtonCss == 0 && <div className={style.genc__que__result__vis}><CostLineChart/></div>}
+                    </div>
+                    </div>
+                </div>
+            </section>
+            <div className={style.genc__bottom__bar}>
+                <div className={style.genc_bottom__bar__split}>
+                    {/* <div className={style.genc__bottom__desc}>Want to know the answer?</div> */}
+                    <button className={style.genc__bottom__orangebutton} onClick={calculateCost}>Start</button>
+                </div>
+                <div className={style.genc_bottom__bar__split} >
+                    {/* <div className={style.genc__bottom__desc}>Want to know more features?</div> */}
+                    <button className={style.genc__bottom__redbutton} onClick={resetValue}>Reset</button>
+                </div>
+                <div className={style.genc_bottom__bar__split} >
+                    {/* <div className={style.genc__bottom__desc}>Want to know more features?</div> */}
+                    <button className={style.genc__bottom__redbutton} onClick={naviToMap}>ChargingMap</button>
+                </div>
+            </div>
+        </div>
         </section> 
         <div className={style.que__container}>
             <div className={style.que__title} ref={supRef}>Supporting Facilities</div>
             <div className={style.que__desc}>Display the charging stations and maintenance store on the map and shows the contact information <br/>on the list.</div>
         </div>
         <section>
-            <div style={{width:"75%", margin:"30px auto", zIndex:"0"}}>
-                <ChargingStation coordinate={suburb}/>
-            </div>
-            
             <div className={style.sup__input__area}>
-                <div>Select your suburb:</div>
-                <select onChange={e => updateMap(e)}>
+                <div className={style.sup__input__desc}>Select your suburb:</div>
+                <select onChange={e => updateMap(e)} className={style.sup__input__select}>
                     <option value="1">Melbourne</option>
                     <option value="2">South Melbourne</option>
                     <option value="3">Port Melbourne</option>
@@ -236,6 +420,11 @@ export default function Questionaire() {
                     <option value="6">Clayton</option>
                 </select>
             </div>
+            <div style={{width:"75%", margin:"30px auto", zIndex:"0"}}>
+                <ChargingStation coordinate={suburb}/>
+            </div>
+            
+
         </section>
         <a className={style.back__area} onClick={backToTop}>
             <div>Back to top</div>

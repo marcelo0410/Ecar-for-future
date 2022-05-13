@@ -162,6 +162,10 @@ export default function GeneralCalculatorNew() {
               {/* <div className={style.genc__bottom__desc}>Want to know more features?</div> */}
               <button className={style.genc__bottom__redbutton} onClick={resetValue}>Reset</button>
             </div>
+            <div className={style.genc_bottom__bar__split} >
+              {/* <div className={style.genc__bottom__desc}>Want to know more features?</div> */}
+              <button className={style.genc__bottom__redbutton} onClick={resetValue}>ChargingMap</button>
+            </div>
         </div>
     </div>
   )

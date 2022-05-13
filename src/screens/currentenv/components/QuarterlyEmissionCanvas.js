@@ -91,12 +91,12 @@ export default function QuarterlyEmissionCanvas() {
 
             </div>
             <div className='text-area-emission'>
-              {visOption === '1' && (<div ><div className='text-area_title'>Annually inventory</div>
-                <p className='text-area_desc'>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p></div>)}
-              {visOption === '2' && (<div ><div className='text-area_title'>Emission by categories</div>
-                <p className='text-area_desc'>Energy production is the largest contributor to Australia's carbon emissions. This is followed by transport, agriculture, and industrial processes.</p></div>)}
-              {visOption === '3' && (<div ><div className='text-area_title'>Transportation</div>
-                <p className='text-area_desc'>Transport emissions have grown more than any other sector, increasing nearly 60% since 1990. Cars are responsible for roughly half of all transport emissions.</p></div>)}
+                {visOption === '1' && (<div ><div className='text-area_title'>Annually inventory</div>
+                  <p className='text-area_desc'>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p></div>)}
+                {visOption === '2' && (<div ><div className='text-area_title'>Emission by categories</div>
+                  <p className='text-area_desc'>Energy production is the largest contributor to Australia's carbon emissions. This is followed by transport, agriculture, and industrial processes.</p></div>)}
+                {visOption === '3' && (<div ><div className='text-area_title'>Transportation</div>
+                  <p className='text-area_desc'>Transport emissions have grown more than any other sector, increasing nearly 60% since 1990. Cars are responsible for roughly half of all transport emissions.</p></div>)}
                 
             </div>
             </div>
