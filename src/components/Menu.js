@@ -19,7 +19,7 @@ export default function Menu() {
                   <NavLink to="/home" >Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/storyboard">Explore the Sotry</NavLink>
+                  <NavLink to="/storyboard">Explore the Story</NavLink>
                 </li>
                 <li>
                   <div class="dropdown">
@@ -32,9 +32,9 @@ export default function Menu() {
                     </div>
                   </div>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/calculator">Comparison</NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink to="/carselection">Select your car</NavLink>
                 </li>
