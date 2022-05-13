@@ -12,6 +12,8 @@
     font-family: "Century Gothic", CenturyGothic, century-gothic, CenturyGothic,"Century Gothic",CenturyGothic,"Century Gothic",  AppleGothic,sans-serif;
 }
 
+
+
 .banner__title{
     font-size: 4.7rem;
     padding-top: 10.3rem;
@@ -231,18 +233,35 @@
 .back__area{
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
+    /* gap: 20px; */
+    margin: 0 auto;
     font-weight: bold;
+    text-decoration: none;
+    width: 20%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    color: black;
+}
+
+.back__area:hover{
+  color: #00A19D;
+}
+
+.progress__sec{
+  z-index: 1;
+  
+  margin: 0 auto;
 }
 
 .stepper__wrapper {
-    margin-top: auto;
+    margin:0 auto;
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
     padding: 20px 0;
-    z-index: 999;
+    z-index: 1;
+    width: 75%;
   }
   .stepper__item {
     position: relative;

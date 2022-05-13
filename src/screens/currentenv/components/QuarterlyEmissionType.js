@@ -6,7 +6,7 @@ export default class QuaterlyEmission extends PureComponent {
   render() {
     return (
         <div>
-            <h2 className='mt-4 mb-4'>Emission By Gas</h2>
+            {/* <h2 className='mt-4 mb-4'>Emission By Gas</h2> */}
             <div></div>
             <LineChart
             width={660}

@@ -6,7 +6,7 @@ export default class QuaterlyEmissionAnnual extends PureComponent {
   render() {
     return (
         <div>
-            <h2 className='mt-4 mb-4'>Emission Annual</h2>
+            {/* <h2 className='mt-4 mb-4'>Emission Annual</h2> */}
             <div></div>
             <LineChart
             width={660}

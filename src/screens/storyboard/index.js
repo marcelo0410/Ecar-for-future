@@ -70,7 +70,19 @@ export default function Index() {
       
     }
   }, [])
+
+  useEffect(() => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
   
+    return () => {
+      
+    }
+  }, [])
+  
+
   return (
     <div className="story-container" id="mainContainer">
           <section class="current" data-color="#5CAB98">

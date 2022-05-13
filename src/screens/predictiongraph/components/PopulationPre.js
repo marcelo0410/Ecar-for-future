@@ -51,27 +51,27 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-    //   <ResponsiveContainer width="100%" height="100%">
+      // <ResponsiveContainer width="99%">
         <BarChart
-          width={800}
-          height={500}
+          width={660}
+          height={450}
           data={this.props.visData}
           margin={{
             top: 5,
             right: 30,
-            left: 20,
+            left: 45,
             bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="year" />
-          <YAxis padding={{ top: 15 }} label={{ value: '(people)', angle: -90, position: 'insideLeft', offset:-10}}/>
+          <YAxis padding={{ top: 15 }} label={{ value: '(people)', angle: -90, position: 'insideLeft', offset:-38}}/>
           <Tooltip />
           <Legend />
           {/* <Bar dataKey="population" fill="#8884d8" /> */}
           <Bar dataKey="population" fill="#82ca9d" />
         </BarChart>
-    //   </ResponsiveContainer>
+    // </ResponsiveContainer>
     );
   }
 }

@@ -1,3 +1,4 @@
+
 .pre-banner{
     background-image: url("../../../assets/prediction/prediction-cover.jpg");
     background-size: cover;
@@ -106,6 +107,7 @@
 .pre-vis-container{
     margin: 0 auto;
     justify-content: center;
+    margin-top: 3.76rem;
 }
 
 .pre-vis__body {
@@ -115,6 +117,7 @@
     padding-bottom: 30px;
     width: 75%;
     margin: auto;
+    gap: 1rem;
 }
 
 .pre-vis__body p{
@@ -122,4 +125,56 @@
     font-size: 20px;
     font-family: 'Century Gothic', sans-serif;
     text-align: left;
+}
+
+.pre-vis__body {
+    padding-top: 20px;
+    font-size: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    text-align: left;
+}
+
+.pre-vis__option{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.pre-vis__option__button--green{
+    width: 10.8rem;
+    height: 1.7rem;
+    background: #00A19D;
+    border-radius: 27px;
+    border: none;
+    color: white;
+}
+
+.pre-vis__option__button--white{
+    width: 10.8rem;
+    height: 1.7rem;
+    background: white;
+    color: #00A19D;
+    border-radius: 27px;
+    border: 1px solid #00A19D ;
+}
+
+.pre-vis__split__left{
+    margin-top: 1px;
+}
+
+.pre-vis__split__right{
+    width: 30%
+}
+
+.pre-vis__split__desc{
+    text-align: left;
+}
+
+.pre-vis__split__title{
+    text-align: center;
+    margin-top: 3rem;
+    font-weight: bold;
+    font-size: 1.5rem
 }

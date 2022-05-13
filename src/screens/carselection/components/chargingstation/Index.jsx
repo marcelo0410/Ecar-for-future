@@ -10,7 +10,7 @@ export default function Index(props) {
   const zoomSize = 13
   const data = require('./cpm_mod.json')
   useEffect(() => {
-    console.log(props.coordinate)
+    
   
     return () => {
       
@@ -26,7 +26,6 @@ export default function Index(props) {
 
   return (
     <div>
-      {console.log(props.coordinate)}
     <MapContainer center={props.coordinate} zoom={13} scrollWheelZoom={true} className={style.leaflet_container}>
       <ChangeView center={props.coordinate} zoom={14}/>
       <TileLayer

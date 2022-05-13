@@ -11,16 +11,21 @@ import rec_benz from '../../../assets/carselection/rec_benz.jpg'
 import upicon from '../../../assets/common/upicon.png'
 import GeneralCalculatorNew from './GeneralCalculatorNew'
 import ChargingStation from './chargingstation/Index'
+import $ from 'jquery'
+import useOnScreen from './useOnScreen'
+
 export default function Questionaire() {
     
     const [first, setfirst] = useState(style.stepper__item)
     const [distance, setDistance] = useState(0)
     const [suburb, setSuburb] = useState([-37.814107, 144.96328])
+    const [barVisOption, setBarVisOption] = useState(0)
 
     const recRef = useRef(null);
     const comRef = useRef(null);
     const supRef = useRef(null);
 
+    const isVisible = useOnScreen(recRef)
     
 
     const backToTop = () =>{
@@ -216,7 +221,7 @@ export default function Questionaire() {
             <div className={style.que__desc}>Display the charging stations and maintenance store on the map and shows the contact information <br/>on the list.</div>
         </div>
         <section>
-            <div style={{width:"75%", margin:"30px auto", zIndex:"1"}}>
+            <div style={{width:"75%", margin:"30px auto", zIndex:"0"}}>
                 <ChargingStation coordinate={suburb}/>
             </div>
             
@@ -232,10 +237,10 @@ export default function Questionaire() {
                 </select>
             </div>
         </section>
-        <div className={style.back__area} onClick={backToTop}>
+        <a className={style.back__area} onClick={backToTop}>
             <div>Back to top</div>
             <img src={upicon}></img>
-        </div>
+        </a>
     </div>
   )
 }

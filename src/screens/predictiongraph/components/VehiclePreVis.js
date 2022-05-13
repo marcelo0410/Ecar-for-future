@@ -7,15 +7,15 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-    //   <ResponsiveContainer width="100%" height="100%">
+      // <ResponsiveContainer width="99%">
         <BarChart
-          width={800}
-          height={500}
+          width={660}
+          height={450}
           data={this.props.visData}
           margin={{
             top: 5,
             right: 30,
-            left: 20,
+            left: 30,
             bottom: 5,
           }}
         >
@@ -27,7 +27,7 @@ export default class Example extends PureComponent {
           {/* <Bar dataKey="population" fill="#8884d8" /> */}
           <Bar dataKey="count" fill="#8884d8" />
         </BarChart>
-    //   </ResponsiveContainer>
+      //  </ResponsiveContainer>
     );
   }
 }

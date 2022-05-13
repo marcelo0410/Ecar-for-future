@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Emission from './components/Emission'
 import Health from './components/Health'
 import './components/style.css'
@@ -7,8 +7,29 @@ import CurEnv from './components/CurEnv'
 import EmissionPowerBI from './components/EmissionPowerBI'
 import Map from './components/EmissionMap/Map'
 import geoJSONCED from "../../assets/data/state.json";
+import upicon from '../../assets/common/upicon.png'
 
 export default function Index() {
+
+  useEffect(() => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+  
+    return () => {
+      
+    }
+  }, [])
+
+  const backToTop = () =>{
+      window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+      });
+  }
+  
+
   return (
     <div> 
         <div className='cur-banner'>
@@ -23,7 +44,7 @@ export default function Index() {
               <div style={{width:'70%'}}>
                 <Map data={geoJSONCED}/>
               </div>
-              <div style={{width:'30%', paddingLeft:'10px', textAlign:'left'}}>
+              <div style={{width:'30%', paddingLeft:'30px', textAlign:'left', paddingTop:"50px"}}>
                 <p className='env_map_p'>As the third major source of CO2 emissions in Australia, the impact of vehicle emissions is far worse than we thought. All motor vehicle pollutants are released into the air and mostly through the exhaust fumes.</p>
               </div>
           </div>
@@ -32,9 +53,10 @@ export default function Index() {
         
         <QuaterlyEmissionCanvas/>
         <Health/>
-        <div className='back-prompt'>
-            Back to top
-        </div>
+        <a className='back__area' onClick={backToTop}>
+            <div>Back to top</div>
+            <img src={upicon}></img>
+        </a>
     </div>
   )
 }

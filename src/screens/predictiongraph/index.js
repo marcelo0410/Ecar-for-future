@@ -12,6 +12,7 @@ import CarIcon from '../../assets/prediction/car.png'
 import EcarIcon from '../../assets/prediction/ecar.png'
 import QuestionIcon from '../../assets/prediction/question.png'
 import PeopleIcon from '../../assets/prediction/people.png'
+import upicon from '../../assets/common/upicon.png'
 
 export default function Index() {
 
@@ -23,6 +24,23 @@ export default function Index() {
     const [populationData, setPopulationData] = useState("")
     const [vehicleData, setVehicleTypeData] = useState("")
 
+    useEffect(() => {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+    
+      return () => {
+        
+      }
+    }, [])
+
+    const backToTop = () =>{
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
 
     // http://localhost:8080
     // https://d1pvgbbxmbkkid.cloudfront.net
@@ -62,8 +80,8 @@ export default function Index() {
       // }, []);
 
       const updateVisOption = (evt) =>{
-        if(evt.target.value !== visOption){
-          setvisOption(evt.target.value.toString())
+        if(evt.target.id !== visOption){
+          setvisOption(evt.target.id.toString())
         }
       }
 
@@ -145,23 +163,36 @@ export default function Index() {
         </div>
         <div className='pre-vis-container'>
             <div className='pre-vis__title'>General Prediction of Victoria 2000-2030</div>
-            <select name="Council" id="council" onChange={updateVisOption} value={visOption} style={{marginTop:"20px", marginBottom:"20px"}}>
-                {/* <option value="" disabled>Emission</option> */}
+              {/* <select name="Council" id="council" onChange={updateVisOption} value={visOption} style={{marginTop:"20px", marginBottom:"20px"}}>
+                <option value="" disabled>Emission</option>
                 <option value="1">Population</option>
                 <option value="2">Vehicle</option>
                 <option value="3">Emission</option>
-              </select>
+              </select> */}
+              <div className='pre-vis__option'>
+                <button id="1" onClick={e => updateVisOption(e)} className={visOption == 1? 'pre-vis__option__button--green':'pre-vis__option__button--white'}>Population</button>
+                <button id="2" onClick={e => updateVisOption(e)} className={visOption == 2? 'pre-vis__option__button--green':'pre-vis__option__button--white'}>Vehicles</button>
+                <button id="3" onClick={e => updateVisOption(e)} className={visOption == 3? 'pre-vis__option__button--green':'pre-vis__option__button--white'}>Carbon Emissions</button>
+              </div>
             <div className='pre-vis__body'>
-                {visOption === '1' && <PopulationPre visData={populationData}/>}
-                {visOption === '2' && <VehiclePreVis visData={vehicleData}/>}
-                {visOption === '3' && <EmissionPreStackedBarVis visData={emissionPreAllData}/>}
-                <p>As the seccond largest state in Australia by population, Victoria has been growing by more than any other states or territory at up to 150,000 per annum.</p>
+                <div className='pre-vis__split__left'>
+                  {visOption === '1' && <PopulationPre visData={populationData}/>}
+                  {visOption === '2' && <VehiclePreVis visData={vehicleData}/>}
+                  {visOption === '3' && <EmissionPreStackedBarVis visData={emissionPreAllData}/>}
+                </div>
+                <div className='pre-vis__split__right'>
+                  {visOption === '1' && (<div><div className='pre-vis__split__title'>Population</div><p className='pre-vis__split__desc'>As the seccond largest state in Australia by population, Victoria has been growing by more than any other states or territory at up to 150,000 per annum.</p></div>)}
+                  {visOption === '2' && (<div><div className='pre-vis__split__title'>Vehicles</div><p className='pre-vis__split__desc'>The number of vehicle is expected to grow to 4.6 million, with the slowdown mainly due to the impact of COVID-19 and work from home.</p></div>)}
+                  {visOption === '3' && (<div><div className='pre-vis__split__title'>Emissions</div><p className='pre-vis__split__desc'>  Considering the growth of the population and vehicles, the urgency of calling on the public to use electric vehicles to get around is now apparent, which is a significant contribution to carbon emissions</p></div>)}
+                </div>
+                
             </div>
             
         </div>
-        <div className='back-prompt'>
-            Back to top
-        </div>
+        <a className='back__area' onClick={backToTop}>
+            <div>Back to top</div>
+            <img src={upicon}></img>
+        </a>
     </div>
   )
 }

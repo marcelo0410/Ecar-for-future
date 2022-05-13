@@ -213,10 +213,19 @@
   }
 
   .text-area_desc{
-    padding-top: 150px;
+    padding-top: 15px;
     font-size: 20px;
     color: #000000;
     font-family: 'Century Gothic', sans-serif;
+  }
+
+  .text-area_title{
+    padding-top: 60px;
+    font-size: 28px;
+    color: #000000;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    text-align: center;
   }
 
 .map_title {
@@ -284,4 +293,47 @@
   font-weight: bold;
   font-family: 'Century Gothic', sans-serif;
   padding: 20px;
+}
+
+.vis-emi__option__button--green{
+  width: 12rem;
+  height: 2rem;
+  background: #00A19D;
+  border-radius: 27px;
+  border: none;
+  color: white;
+}
+
+.vis-emi__option__button--white{
+  width: 12rem;
+  height: 2rem;
+  background: white;
+  color: #00A19D;
+  border-radius: 27px;
+  border: 1px solid #00A19D ;
+}
+
+.vis-emi__option{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem auto;
+}
+
+.back__area{
+  display: flex;
+  justify-content: center;
+  /* gap: 20px; */
+  margin: 0 auto;
+  font-weight: bold;
+  text-decoration: none;
+  width: 20%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  color: black;
+}
+
+.back__area:hover{
+  color: #00A19D;
 }
