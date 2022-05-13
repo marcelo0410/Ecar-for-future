@@ -3,7 +3,7 @@ import QuarterlyEmissionAnnual from './QuarterlyEmissionAnnual'
 import QuarterlyEmissionType from './QuarterlyEmissionType'
 import QuarterlyEmissionTransport from './QuarterlyEmissionTransport'
 import axios from 'axios'
-import './style.module.css'
+import './style.css'
 
 export default function QuarterlyEmissionCanvas() {
   const [visOption, setvisOption] = useState("1")
@@ -31,9 +31,8 @@ export default function QuarterlyEmissionCanvas() {
   }, []);
 
   const updateVisOption = (evt) =>{
-    console.log(evt.target.id)
-    if(evt.target.id !== visOption){
-      setvisOption(evt.target.id.toString())
+    if(evt.target.value !== visOption){
+      setvisOption(evt.target.value.toString())
     }
     
   }
@@ -65,21 +64,19 @@ export default function QuarterlyEmissionCanvas() {
     <div>
         <div className='emission'>
             <div className="vis-emission__title">
+              Greenhouse gas emission inventory 2001-2020
+            </div>
+            <div className="vis-emission__title title_desc">
             As the third major source of CO2 emissions in Australia, the impact of vehicle emissions is far worse than we thought. All motor vehicle pollutants are released into air and mostly through the exhaust fumes. 
             </div>
             <div className='vis-emission__content'>
             <div className='vis-emission'>
-              {/* <select className="vis-emission__select" name="emission" id="emission" onChange={updateVisOption} value={visOption} style={{marginTop:"20px"}}>
+              <select className="vis-emission__select" name="emission" id="emission" onChange={updateVisOption} value={visOption} style={{marginTop:"20px"}}>
                 <option value="" disabled>Emission</option>
                 <option value="1">Annual</option>
                 <option value="2">Emission by Gas</option>
                 <option value="3">Transport</option>
-              </select> */}
-              <div>
-                <button id="1" onClick={updateVisOption}>Annual</button>
-                <button id="2" onClick={updateVisOption}>Emission by Gas</button>
-                <button id="3" onClick={updateVisOption}>Transport</button>
-              </div>
+              </select>
               {visOption === '1' && <QuarterlyEmissionAnnual visData={emissionAnnualData}/>}
               {visOption === '2' && <QuarterlyEmissionType visData={emissionTypeData}/>}
               {visOption === '3' && <QuarterlyEmissionTransport visData={emissionTypeData}/>}

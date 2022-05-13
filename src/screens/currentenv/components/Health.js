@@ -2,30 +2,34 @@ import React from 'react'
 import healthHeart from '../../../assets/currentenv/health-human-heart.png'
 import healthBreath from '../../../assets/currentenv/health-breath.png'
 import healthPharynx from '../../../assets/currentenv/health-pharynx.png'
-import './style.module.css'
+import './style.css'
 export default function Health() {
   return (
     <div>
-        <div style={{display:"flex", marginTop:"40px", justifyContent:"center"}}>
-            <div style={{display:"flex", flexDirection: "row", marginRight:"100px"}}>
-                <div style={{backgroundColor:"#D7E349",height:"170px", width:"170px", marginRight:"20px"}}>
-                    <img src={healthHeart} style={{height:"166px", width:"110px"}}></img>
+        <div className='h3-black center-text-20pad'>
+            Potential diseases caused by car emissions
+        </div>
+        <div style={{display:'flex', flexDirection:'row', width:'75%', margin:'auto'}}>
+            <div className='disease-card-item card-left' style={{width:'33%'}}>
+                <div style={{backgroundColor:"#D7E349",height:"200px", width:"200px", margin:'auto'}}>
+                    <img src={healthHeart} style={{height:"180px", width:"130px"}}></img>
                 </div>
-                <div style={{backgroundColor:"#E3A649",height:"170px", width:"170px", marginRight:"20px"}}>
-                    <img src={healthBreath} style={{height:"170px", width:"170px"}}></img>
-                </div>
-                <div style={{backgroundColor:"#E26F56",height:"170px", width:"170px", marginRight:"20px"}}>
-                    <img src={healthPharynx} style={{height:"170px", width:"170px"}}></img>
-                </div>
+                <p className='h3-black' style={{marginTop:'20px'}}>Cardiovascular Disease</p>
+                <p className='text-desc text-left'>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p>
             </div>
-            <div className='health-text-area'>
-                <div>Fuel vehicle exhaust pollution significantly affects <br/>people's health and increases the risk of diseases:</div>
-                <ul className='text-start'>
-                    <li>Cardiovascular disease</li>
-                    <li>Hespiratory infections </li>
-                    <li>Chronic obstructive pulmonary disease (COPD) </li>
-                    <li>Lung cancer </li>
-                </ul> 
+            <div className='disease-card-item card-middle' style={{width:'33%'}}>
+                <div style={{backgroundColor:"#E3A649",height:"200px", width:"200px", margin:"auto"}}>
+                    <img src={healthBreath} style={{height:"190px", width:"190px"}}></img>
+                </div>
+                <p className='h3-black' style={{marginTop:'20px'}}>Cardiovascular Disease</p>
+                <p className='text-desc text-left'>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p>
+            </div>
+            <div className='disease-card-item card-right' style={{width:'33%'}}>
+                <div style={{backgroundColor:"#E26F56", height:"200px", width:"200px",margin:"auto"}}>
+                    <img src={healthPharynx} style={{height:"190px", width:"190px"}}></img>
+                </div>
+                <p className='h3-black' style={{marginTop:'20px'}}>Cardiovascular Disease</p>
+                <p className='text-desc text-left'>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p>
             </div>
         </div>
     </div>

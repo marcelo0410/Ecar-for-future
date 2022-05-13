@@ -9,18 +9,17 @@ export default function Menu() {
     <div className='menu-fixed'>
         <nav>
           <div className="nav_bar">
-            <div>
               <ul className="navbar-link">
                 <li>
                     <NavLink to="/">
                         <img src={logo}/>
                     </NavLink>
                 </li>
-                <li style={{marginLeft:"40px"}}>
+                <li>
                   <NavLink to="/home" >Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/storyboard">Storyboard</NavLink>
+                  <NavLink to="/storyboard">Explore the Sotry</NavLink>
                 </li>
                 <li>
                   <div class="dropdown">
@@ -47,7 +46,6 @@ export default function Menu() {
                 </li> */}
               </ul>
             </div>
-          </div>
         </nav>
       </div>
   )

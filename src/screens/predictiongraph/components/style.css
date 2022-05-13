@@ -1,19 +1,93 @@
-.prediction-container{
-    margin-top: 50px;
-}
 .pre-banner{
     background-image: url("../../../assets/prediction/prediction-cover.jpg");
     background-size: cover;
     /* height: 100vh; */
-    height: 570px;
+    height: 610px;
     min-width: 100%;
     background-position:top;
     background-size:100% auto;
     background-repeat: no-repeat;
-    margin: 0 auto;
-    opacity: 0.7;
     /* background-color:#fff;
     filter:Alpha(Opacity=60); */
+}
+
+.pre-info-card {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.pre-info-white {
+    background-color: white;
+    padding-top: 20px;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.pre-info-green {
+    background-color: #00A19D;
+    padding-top: 20px;
+    color: white;
+    padding-bottom: 20px;
+}
+
+.pre-info-img {
+    width: 30%;
+}
+
+.pre-info-img p {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+    color: #FFB344; 
+}
+
+.pre-info-img img {
+    width: 150px;
+}
+
+.pre-info-desc {
+    width: 70%;
+    text-align: left;
+}
+
+.pre-info-desc h2 {
+    padding-top: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.pre-info-desc p{
+    font-size: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    padding-top: 30px;
+}
+
+.pre-info-desc ul{
+    font-size: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    padding-top: 0px;
+}
+
+.pre-right {
+    padding-right: 20px;
+}
+
+.pre-question-desc {
+    background-color: #FFB344;
+    height: 150px;
+}
+
+.pre-question-desc p {
+    width: 70%;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+    margin: auto;
+    color: white;
+    padding-top: 25px;
 }
 
 .pre__title{
@@ -24,19 +98,28 @@
 }
 
 .pre-vis__title{
-    font-size: 40px;
-    color: #5CAB98;
-    padding-top: 90px;
+    font-size: 24px;
+    padding-top: 30px;
     font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
 }
 .pre-vis-container{
     margin: 0 auto;
     justify-content: center;
 }
 
-.pre-vis__body{
-   display: flex;
-   justify-content: center;
-    padding-bottom: 100px;
+.pre-vis__body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 30px;
+    width: 75%;
+    margin: auto;
 }
 
+.pre-vis__body p{
+    padding-top: 20px;
+    font-size: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    text-align: left;
+}

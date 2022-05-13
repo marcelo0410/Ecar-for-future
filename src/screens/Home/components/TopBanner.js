@@ -1,7 +1,7 @@
 import React from 'react'
 import {useLocation, useNavigate} from 'react-router-dom';
 import './style.css'
-import homeCarImage from '../../../assets/homepage/homepage-car.png'
+import homeCarImage from '../../../assets/homepage/homepage-car.jpg'
 import arrow from '../../../assets/homepage/arrow.png'
 import doublearrow from '../../../assets/homepage/doublearrow.png'
 

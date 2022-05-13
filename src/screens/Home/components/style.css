@@ -1,5 +1,5 @@
 .banner{
-    background-image: url("../../../assets/homepage/home_background.jpg");
+    background-image: url("../../../assets/homepage/home_background.jpeg");
     background-size: cover;
     height: 91.5vh;
     /* height: 573px; */
@@ -118,4 +118,3 @@
     margin-top: 40px;
     font-size: 40px;
 }
-

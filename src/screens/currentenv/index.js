@@ -1,7 +1,7 @@
 import React from 'react'
 import Emission from './components/Emission'
 import Health from './components/Health'
-import style from './components/style.module.css'
+import './components/style.css'
 import QuaterlyEmissionCanvas from './components/QuarterlyEmissionCanvas'
 import CurEnv from './components/CurEnv'
 import EmissionPowerBI from './components/EmissionPowerBI'
@@ -11,31 +11,30 @@ import geoJSONCED from "../../assets/data/state.json";
 export default function Index() {
   return (
     <div> 
-        <div className={style.cur__banner}>
-          <div className={style.cur__title}>Current Situation</div>
-          <div className={style.cur__subtitle}>The current environment here in Victoria is not optimistic, especialy for transport</div>
+        <div className='cur-banner'>
+          <div className='cur__title'><span style={{color:'#FFF8E5'}}>Current</span> Situation</div>
+          <div className='cur__subtitle'>The current environment here in Victoria is not optimistic, especialy for transport</div>
         </div>
-        <section id="tile__data__infographic">
-          <CurEnv/>
-        </section>
-        <section className={style.cur__emisec} >
-          <div className={style.cur__emisec__title}>Density Map of Greenhouse Gas Emissions of States in Au</div>
-          <div className={style.cur__emisec__map}>
-            <div>
-              <Map data={geoJSONCED}/><span></span>
-            </div>
-            
-            <div>123</div>
+        <CurEnv/>
+        {/* <EmissionPowerBI/> */}
+        <div style={{width:"66%", margin:"0 auto"}}>
+          <div className='map_title'>Density Map of Greenhouse Gas Emissions of States in Au</div>
+          <div style={{display:'flex', flexDirection:'row', justifyContent:"center", marginBottom:'20px'}}>
+              <div style={{width:'70%'}}>
+                <Map data={geoJSONCED}/>
+              </div>
+              <div style={{width:'30%', paddingLeft:'10px', textAlign:'left'}}>
+                <p className='env_map_p'>As the third major source of CO2 emissions in Australia, the impact of vehicle emissions is far worse than we thought. All motor vehicle pollutants are released into the air and mostly through the exhaust fumes.</p>
+              </div>
           </div>
           
-        </section>
-        <section>
-          <QuaterlyEmissionCanvas/>
-        </section>
-        <section>
-          <Health/>
-        </section>
-
+        </div>
+        
+        <QuaterlyEmissionCanvas/>
+        <Health/>
+        <div className='back-prompt'>
+            Back to top
+        </div>
     </div>
   )
 }
