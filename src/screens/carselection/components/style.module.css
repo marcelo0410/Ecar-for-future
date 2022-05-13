@@ -1,5 +1,5 @@
 .banner{
-    background-image: url("../../../assets/carselection/select-background.jpg");
+    background-image: url("../../../assets/carselection/carselection_bg.jpg");
     background-size: cover;
     /* height: 85vh; */
     height: 610px;
@@ -53,9 +53,9 @@
     width: 56%;
 }
 
-.que__sec{
+/* .que__sec{
     
-}
+} */
 
 .que__block__white{
 
