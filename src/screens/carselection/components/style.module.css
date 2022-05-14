@@ -189,9 +189,10 @@
 .rec__tile__area{
     display: flex;
     justify-content: center;
-    gap: 5%;
+    gap: 4%;
     padding-top: 2.11rem;
     background-color: white;
+    padding-bottom: 1rem;
 }
 
 .rec__tile__item{
@@ -199,16 +200,21 @@
     background: #F9F9F9;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
-    width: 21%;
+    width: 22%;
     /* padding: 30px 0px 20px 50px; */
     /* margin: 0 auto; */
     align-items: center;
 }
 
+.rec__tile__item:hover{
+  border: 1px solid #00A19D;
+}
+
 .rec__tile__item__img{
-    width: 200px;
-    height: 250px;
-    margin: 10px auto;
+    width: 17.8rem;
+    height: 9.87rem;
+    margin: 20px auto 20px auto;
+    
 }
 
 .rec__tile__item__img2{
@@ -227,8 +233,7 @@
     border-radius: 27px;
     width: 10.81rem;
     height: 1.73rem;
-    margin: 0 auto;
-    margin-top: 15px;
+    margin: 20px auto 10px auto;
     font-size: 0.94rem;
     font-weight: bold;
     text-align: center;
@@ -236,11 +241,32 @@
     padding-top: 2px;
 }
 
+.rec__tile__item__button:hover{
+  background: white;
+  border-radius: 27px;
+  width: 10.81rem;
+  height: 1.73rem;
+  margin: 20px auto 10px auto;
+  font-size: 0.94rem;
+  font-weight: bold;
+  text-align: center;
+  color: #00A19D;
+  padding-top: 2px;
+  border: 1px solid #00A19D;
+}
+.rec__title{
+  text-align: left;
+  background: white;
+  padding: 0.5rem 0 0 14%;
+  font-size: 1.316rem;
+}
+
+
 .rec__tile__item__desc{
     text-align: left;
     display: inline-block;
-    font-size: 1.128rem;
-    line-height: 1.36rem;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
 }
 
 .rec__bottom__title{
@@ -454,6 +480,20 @@
     line-height: 1.25rem;
     margin-top: 1rem;
   }
+
+  .genc__split__desc__show{
+    display: none;
+  }
+
+  .genc__split__desc__highlight{
+    font-size: 1.25rem;
+    text-align: left;
+    line-height: 1.25rem;
+    margin-top: 1rem;
+    color: #E05D5D;
+    font-weight: bold;
+    text-decoration: underline;
+  }
   
   .genc__que__split{
     display: flex;
@@ -565,6 +605,7 @@
   .genc__que__result__button{
     display: flex;
     gap: 1rem;
+    margin-top: 1.5rem;
   }
   
   .genc__que__area__select{
@@ -574,7 +615,7 @@
     width: 12.7rem;
     height: 2.3rem;
     text-align: right;
-    padding-right: 15px;
+    padding-right: 5px;
     font-size: 1.128rem;
   }
   
@@ -624,10 +665,10 @@
   }
 
   .rec__tile__item__link{
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     text-decoration: none;
     color: black;
-    margin-top: 30px;
+    margin-top: 0px;
     margin-bottom: 10px;
   }
 

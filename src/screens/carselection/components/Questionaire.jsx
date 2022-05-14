@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
-import { Form,Col,Button } from 'react-bootstrap';
+import {useLocation, useNavigate} from 'react-router-dom';
 import style from './style.module.css'
 import progress3 from '../../../assets/carselection/progress_3.jpg'
 import que_brand1 from '../../../assets/carselection/que_brand1.jpg'
@@ -15,15 +15,29 @@ import ChargingStation from './chargingstation/Index'
 import $ from 'jquery'
 import CostLineChart from './CostLineChart'
 import EmiLineChart from './EmiLineChart'
+import axios from 'axios'
+
 
 export default function Questionaire() {
+
+    const location = useLocation()
+    const navigate = useNavigate()
     
     const [progressStep, setProgressStep] = useState('1000')
-    const [distance, setDistance] = useState(0)
+
+    // charging map
     const [suburb, setSuburb] = useState([-37.814107, 144.96328])
-    const [barVisOption, setBarVisOption] = useState(0)
+
+
+    // car recommendation
+    const [carData, setCarData] = useState("")
+    const [recCarData, setRecCarData] = useState("")
+    const [carBudget, setCarBudget] = useState("budgetAll")
+    const [carType, setCarType] = useState("typeAll")
+    const [distance, setDistance] = useState(100)
 
     // General Calculator
+    const [selectedCar, setSelectedCar] = useState(null)
     const [travelDistance, setTravelDistance] = useState(0)
     const [fuelCom, setFuelCom] = useState(0.0)
     const [fuelType, setFuelType] = useState('1')
@@ -41,6 +55,7 @@ export default function Questionaire() {
     const [calPassengerValidate, setCalPassengerValidate] = useState(false);
     const [triggerUpdate, setTriggerUpdate] = useState(1)
 
+    // ref for scrolling to certain section
     const recRef = useRef(null);
     const comRef = useRef(null);
     const supRef = useRef(null);
@@ -48,7 +63,14 @@ export default function Questionaire() {
     const calRef = useRef(null)
     const mapRef = useRef(null)
 
-    
+    //http://localhost:8080/v1/api/evDetail/findAll/
+    useEffect(async () => {
+        const result = await axios(
+          'http://localhost:8080/v1/api/evDetail/findAll/',
+        );
+        setCarData(Array.from(result.data)) 
+        
+      }, []);
 
     const backToTop = () =>{
         window.scrollTo({
@@ -65,17 +87,117 @@ export default function Questionaire() {
             recRef.current.scrollIntoView()
             setProgressStep('2100')
             setQueDistanceValidate(false)
+            recommendCar()
         }
     }
 
-    const naviToCompare = () =>{
+    const recommendCar = () =>{
+        // let temp = carData.sort(function (a,b){
+        //     return parseInt(b.evBudget) - parseInt(a.evBudget)
+        // })
+        // setRecCarData(temp.slice(0,3))
+        console.log(carType)
+        console.log(carBudget)
+        console.log(distance)
+
+        // temp = carData.filter((item) => item['evBrand'] === 'Tesla')
+        // temp = carData.filter((item) => (
+        //     item['evBrand'] === 'Tesla' && parseInt(item['evBudget']) > 100000
+        // ))
+        let temp = ""
+        let max = 0
+        let min = 0
+        if(carBudget === "50"){
+            min = 50000
+            max = 100000
+        } else if (carBudget === "100"){
+            min = 100001
+            max = 150000
+        } else if (carBudget === "150"){
+            min = 150001
+            max = 10000000
+        }
+
+        if(carType === 'typeAll'){
+            temp = carData.filter((item) => (
+                parseInt(item['evDistance'])*0.8 >= distance*1.25
+            ))
+            if(carBudget === "budgetAll"){
+                temp = temp.sort(function (a,b){
+                    return parseInt(a.evBudget) - parseInt(b.evBudget)
+                }).slice(0,3)
+                console.log(temp)
+            } else{
+                temp = temp.filter((item) => (
+                    parseInt(item['evBudget']) < max && parseInt(item['evBudget']) > min
+                )).slice(0,3)
+                console.log(temp)
+            }
+        } else{
+            temp = carData.filter((item) => (
+                item['evBrand'] === carType && (parseInt(item['evDistance'])*0.8 >= distance*1.25)
+            ))
+            if(carBudget === "budgetAll"){
+                temp = temp.sort(function (a,b){
+                    return parseInt(a.evBudget) - parseInt(b.evBudget)
+                }).slice(0,3)
+                console.log(temp)
+            } else{
+                temp = temp.filter((item) => (
+                    parseInt(item['evBudget']) < max && parseInt(item['evBudget']) > min
+                )).sort(function (a,b){
+                    return parseInt(a.evBudget) - parseInt(b.evBudget)
+                }).slice(0,3)
+                console.log('abc',temp)
+                console.log('min', min)
+                console.log('max', max)
+            }
+        }
+        if(temp.length < 3){
+            if(carType === 'typeAll'){
+                temp = carData.filter((item) => (
+                    parseInt(item['evDistance'])*0.8 >= distance*1.25
+            )).slice(0,3)
+        } else{
+                temp = carData.filter((item) => (
+                    item['evBrand'] === carType && (parseInt(item['evDistance'])*0.8 >= distance*1.25)
+                )).slice(0,3)
+            }
+        }
+        if(1<temp.length<3){
+            setRecCarData(temp)
+        } else if(temp.length === 3){    
+            setRecCarData(temp)
+        } else{
+            temp = carData.slice(0,3)
+            setRecCarData(temp)
+        }
+        if(temp.length == 0){
+            temp = carData.filter((item) => (
+                item['evId'] === 5 || item['evId'] === 28 || item['evId'] === 30
+            ))
+            setRecCarData(temp)
+        }
+    }
+
+    const naviToCompare = (id) =>{
         calRef.current.scrollIntoView()
         setProgressStep('2210')
+        setSelectedCar(id)
+        console.log(id)
     }
 
     const naviToMap = () =>{
         mapRef.current.scrollIntoView()
         setProgressStep('2221')
+    }
+
+    const naviToCarGuide = () =>{
+        navigate('/carguide');
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 
     const updateMap = (e) =>{
@@ -182,7 +304,6 @@ export default function Questionaire() {
       }
 
       const calculateAndVis = () =>{
-          console.log("123")
         if(calDistanceValidate === false && calFuelComValidate === false && calPassengerValidate === false){
             const fuelPrice = {
                 "1":2.17,
@@ -205,6 +326,17 @@ export default function Questionaire() {
             //   setCalPassengerValidate(false)
         }
       }
+
+      const displayCar = () =>{
+        const firstNData = carData.slice(0, 3);
+        console.log(firstNData)
+        firstNData.map((data) =>{
+             <div key={data.evId}>{data.evBrand}</div>
+        }
+        );
+      }
+
+      
 
 
 
@@ -248,13 +380,13 @@ export default function Questionaire() {
                         </div>
                     </div>
                     <div className={style.que__block__split__right}>
-                        <select className={style.que__block__split__select}>
-                            <option value="typeAll">All</option>
-                            <option value="tesla">Tesla</option>
-                            <option value="audi">Audi</option>
-                            <option value="benz">Benz</option>
-                            <option value="bmw">BMW</option>
-                            <option value="hyundai">Hyundai</option>
+                        <select className={style.que__block__split__select} onChange={e => setCarType(e.target.value)}>
+                            <option value="typeAll">All Brands</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Audi">Audi</option>
+                            {/* <option value="benz">Benz</option> */}
+                            <option value="BMW">BMW</option>
+                            {/* <option value="hyundai">Hyundai</option> */}
                         </select>
                         {/* <span>  km</span> */}
                     </div>
@@ -288,8 +420,8 @@ export default function Questionaire() {
                             </div>
                         </div>
                         <div className={style.que__block__split__right}>
-                            <select className={style.que__block__split__select}>
-                                <option value="priceAll">All</option>
+                            <select className={style.que__block__split__select} value={carBudget} onChange={e => setCarBudget(e.target.value)}>
+                                <option value="budgetAll">No budget</option>
                                 <option value="50">50k - 100k</option>
                                 <option value="100">100k - 150k</option>
                                 <option value="150">Over 150k</option>
@@ -302,7 +434,6 @@ export default function Questionaire() {
                 <div className={style.que__block__button__area} ref={recRef}>
                     <button className={style.rec__bottom__button} onClick={validateAndNaviToRec}>Submit</button>
                 </div>
-                
                 {/* <div className={style.que__block__split}>
                             <div className={style.que__block__split__left}>
                                 <img src={que_brain4} className={style.que__block__img}></img>
@@ -326,47 +457,42 @@ export default function Questionaire() {
             <div className={style.que__title} >Recommendation</div>
             <div className={style.que__desc}>Recommend the appropriate electric vehicle model for your requirements and preferences</div>
         </div>
-        <section className={style.rec__tile__area}>
-            <div className={style.rec__tile__item}>
-                <img src={rec_tesla} className={style.rec__tile__item__img}></img>
-                <div className={style.rec__tile__item__desc}>Brand: Tesla <br/>
-                    Model: Model S <br/>
-                    Price range: 50 - 70k<br/>
-                    Travel distance: 510km<br/>
-                    Electric consumption: <br/>
-                    7kwh/100km</div>
-                <div className={style.rec__tile__item__button} onClick={naviToCompare}>Select</div>
-                <a className={style.rec__tile__item__link}>Learn More</a>
-            </div>
-            <div className={style.rec__tile__item}>
-                <img src={rec_benz} className={style.rec__tile__item__img2}></img>
-                <div className={style.rec__tile__item__desc}>Brand: Tesla <br/>
-                    Model: Model S <br/>
-                    Price range: 50 - 70k<br/>
-                    Travel distance: 510km<br/>
-                    Electric consumption: <br/>
-                    7kwh/100km</div>
-                <div className={style.rec__tile__item__button} onClick={naviToCompare}>Select</div>
-                <a className={style.rec__tile__item__link}>Learn More</a>
-            </div>
-            <div className={style.rec__tile__item}>
-                
-                <div>
-                    <img src={rec_audi} className={style.rec__tile__item__img3}></img>
-                </div>
-                <div className={style.rec__tile__item__desc}>Brand: Tesla <br/>
-                    Model: Model S <br/>
-                    Price range: 50 - 70k<br/>
-                    Travel distance: 510km<br/>
-                    Electric consumption: <br/>
-                    7kwh/100km</div>
-                <div className={style.rec__tile__item__button} onClick={naviToCompare}>Select</div>
-                <a className={style.rec__tile__item__link}>Learn More</a>
-            </div>
+        <section >
+            <div className={style.rec__title}>Here are the top three recommended models <br/>Please select your preferred model for the next step of comparison</div>
+            <div className={style.rec__tile__area}>
+                {
+                    Array.from(recCarData).slice(0,3).map((item,index)=>
+                    <div className={style.rec__tile__item} key={item['evId']}>
+                        <img src={item['imgLink']} className={style.rec__tile__item__img}></img>
+                        <div className={style.rec__tile__item__desc}>
+                            Brand: {item['evBrand']}<br/>
+                            Model: {item['evType']}<br/>
+                            Price range: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}<br/>
+                            Travel distance: {item['evDistance']} km<br/>
+                        </div>
+                        <div className={style.rec__tile__item__button} onClick={() =>naviToCompare(item['evId'])}>Select</div>
+                        <div  className={style.rec__tile__item__link}><a href={item['link']} target="_blank">Learn More</a></div>
+                    </div>
+                     )
+                }
+                {/* <div className={style.rec__tile__item}>
+                    <img src={rec_tesla} className={style.rec__tile__item__img}></img>
+                    <div className={style.rec__tile__item__desc}>
+                        Brand: Tesla<br/>
+                        Model: Model 3 Rear-Wheel Drive<br/>
+                        Price range: $ 63,900<br/>
+                        Travel distance: 491km<br/>
 
+                    </div>
+                    <div className={style.rec__tile__item__button} onClick={naviToCompare}>Select</div>
+                    <div  className={style.rec__tile__item__link}><a>Learn More</a></div>
+                </div> */}
+            </div>
+            
+            
         </section>
             <div className={style.rec__bottom__title} ref={calRef}>Not satisfied with the recommondations?</div>
-            <button className={style.rec__bottom__button} >See all models</button>
+            <button className={style.rec__bottom__button} onClick={naviToCarGuide}>See all models</button>
         <div className={style.que__container}>
             <div className={style.que__title} ref={comRef}>Comparison</div>
             <div className={style.que__desc}>Compare your fossil fuel car and the recommended EV model to display the contribution and benefits</div>
@@ -447,10 +573,10 @@ export default function Questionaire() {
                     <div className={style['genc__topbar--green']}></div>
                     <div className={style.genc__split__result}>
                         <div className={style.genc__split__title}>Comparison Results</div>
-                        <p className={style.genc__split__desc}>Comparing with the fossiled fueled car, the <br/>recommended electric vehicle model can reduce <br/>$ {resultCost} per week, and reduce {resultEmi} kg Carbon <br/>dioxide (CO2) emissions per week. </p>
+                        <p className={resultCost>0? style.genc__split__desc:style.genc__split__desc__show}>The recommended EV model can reduce $ <span className={style.genc__split__desc__highlight}>{resultCost}</span> per week, and reduce <span className={style.genc__split__desc__highlight}>{resultEmi}</span> kg (CO2), compared with the fossil fuel car. </p>
                         <div className={style.genc__que__result__button}>
-                        <button className={ resultButtonCss===1? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonRed}>Payment Comparison</button>
-                        <button className={resultButtonCss===0? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonWhite}>Carbon Emission Comparison</button>
+                            <button className={ resultButtonCss===1? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonRed}>Payment Comparison</button>
+                            <button className={resultButtonCss===0? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonWhite}>Carbon Emission Comparison</button>
                         </div>
                         {resultButtonCss == 1 && <div className={style.genc__que__result__vis}><CostLineChart resultCost={resultCost} ecarFixedCost={ecarFixedCost}/></div>}
                         {resultButtonCss == 0 && <div className={style.genc__que__result__vis}><EmiLineChart resultEmi={resultEmi}/></div>}

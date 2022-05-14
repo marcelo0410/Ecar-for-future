@@ -1,0 +1,131 @@
+.banner{
+    background-image: url("../../assets/carselection/carselection_bg.jpg");
+    background-size: cover;
+    /* height: 85vh; */
+    height: 610px;
+    min-width: 100%;
+    background-position:top;
+    background-size:100% auto;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    /* opacity: 0.7; */
+    font-family: "Century Gothic", CenturyGothic, century-gothic, CenturyGothic,"Century Gothic",CenturyGothic,"Century Gothic",  AppleGothic,sans-serif;
+}
+
+
+
+.banner__title{
+    font-size: 4.7rem;
+    padding-top: 10.3rem;
+    color: white;
+    font-weight: bold;
+    line-height: 4.6rem;
+  }
+.banner_desc{
+    font-size: 1.31rem;
+    font-weight: bold;
+    color: white;
+}
+
+.rec__tile__area{
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    padding-top: 2.11rem;
+    background-color: white;
+    padding-bottom: 1rem;
+}
+
+.rec__tile__item{
+    text-align: center;
+    background: #F9F9F9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    width: 22%;
+    /* padding: 30px 0px 20px 50px; */
+    /* margin: 0 auto; */
+    align-items: center;
+}
+
+.rec__tile__item:hover{
+  border: 1px solid #00A19D;
+}
+
+.rec__tile__item__img{
+    width: 17.8rem;
+    height: 9.87rem;
+    margin: 20px auto 20px auto;
+    
+}
+
+.rec__tile__item__img2{
+    width: 100%;
+    height: 250px;
+    margin: 10px auto;
+}
+.rec__tile__item__img3{
+    width: 100%;
+    height: 250px;
+    margin: 10px auto;
+}
+
+.rec__tile__item__button{
+    background: #00A19D;
+    border-radius: 27px;
+    width: 10.81rem;
+    height: 1.73rem;
+    margin: 20px auto 10px auto;
+    font-size: 0.94rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding-top: 2px;
+}
+
+.rec__tile__item__button:hover{
+  background: white;
+  border-radius: 27px;
+  width: 10.81rem;
+  height: 1.73rem;
+  margin: 20px auto 10px auto;
+  font-size: 0.94rem;
+  font-weight: bold;
+  text-align: center;
+  color: #00A19D;
+  padding-top: 2px;
+  border: 1px solid #00A19D;
+}
+.rec__title{
+  text-align: left;
+  background: white;
+  padding: 0.5rem 0 0 14%;
+  font-size: 1.316rem;
+}
+
+
+.rec__tile__item__desc{
+    text-align: left;
+    display: inline-block;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+}
+
+.rec__bottom__title{
+    font-size: 1.128rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2.21rem;
+    margin-bottom: 0.75rem;
+}
+
+.rec__bottom__button{
+    background: #00A19D;
+    border-radius: 27px;
+    width: 16.5rem;
+    height: 2.44rem;
+    border: none;
+    margin-bottom: 2.21rem;
+    color: white;
+    font-size: 1.27rem;
+    font-weight: bold;
+}
