@@ -105,11 +105,11 @@ export default class Example extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis label={{ value: '(kg)', angle: -90, position: 'insideLeft', offset:-5}}/>
+          <YAxis label={{ value: '(kg)', angle: -90, position: 'insideLeft', offset:-5,dy: -20}}/>
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="YourCar" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="ECar" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="YourCar" stroke="#8884d8" activeDot={{ r: 5.5 }} />
+          <Line type="monotone" dataKey="ECar" stroke="#82ca9d" activeDot={{ r: 5.5 }} />
         </LineChart>
       </ResponsiveContainer>
     );

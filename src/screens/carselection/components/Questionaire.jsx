@@ -39,6 +39,7 @@ export default function Questionaire() {
     const [calDistanceValidate, setCalDistanceValidate] = useState(false);
     const [calFuelComValidate, setCalFuelComValidate] = useState(false);
     const [calPassengerValidate, setCalPassengerValidate] = useState(false);
+    const [triggerUpdate, setTriggerUpdate] = useState(1)
 
     const recRef = useRef(null);
     const comRef = useRef(null);
@@ -58,7 +59,7 @@ export default function Questionaire() {
     }
 
     const validateAndNaviToRec = () =>{
-        if(isNaN(distance) || distance<0){
+        if(isNaN(distance) || distance<=0 || distance > 10000){
             setQueDistanceValidate(true)
         } else{
             recRef.current.scrollIntoView()
@@ -140,42 +141,49 @@ export default function Questionaire() {
       }
     
       const calculateCost = () => {
-        // calRef.current.scrollIntoView()
-    //     window.scrollTo({
-    //       top: 2270,
-    //       behavior: "smooth"
-    //   });
+        validateCalculatorInput()
+      }
 
-    // const [calDistanceValidate, setCalDistanceValidate] = useState(false);
-    // const [calFuelComValidate, setCalFuelComValidate] = useState(false);
-    // const [calPassengerValidate, setCalPassengerValidate] = useState(false);
-    // const [travelDistance, setTravelDistance] = useState(0)
-    // const [fuelCom, setFuelCom] = useState(0.0)
-    // const [fuelType, setFuelType] = useState('1')
+      useEffect(() => {
+        calculateAndVis()
+        return () => {
 
-    // console.log(travelDistance)
-    // console.log(fuelCom)
-    // console.log(passenger)  
+        }
+      }, [triggerUpdate])
+      
 
+      const validateCalculatorInput = () =>{
         console.log(isNaN(travelDistance.toString()))
-        if(isNaN(travelDistance.toString()) || travelDistance<=0){
+        if(isNaN(travelDistance.toString()) || travelDistance<=0 || travelDistance > 10000){
             setCalDistanceValidate(true)
-        } 
+        } else{
+            if(calDistanceValidate !== false){
+                setCalDistanceValidate(false)
+            }
+            
+        }
 
-        if(isNaN(fuelCom.toString()) || fuelCom<=0){
+        if(isNaN(fuelCom.toString()) || fuelCom<=0 || fuelCom > 30){
             setCalFuelComValidate(true)
+        } else{
+            if(calFuelComValidate !== false){
+                setCalFuelComValidate(false)
+            }
         }
 
-        if(isNaN(passenger.toString()) || passenger<0){
+        if(isNaN(passenger.toString()) || passenger<=0 || passenger > 20){
             setCalPassengerValidate(true)
+        } else{
+            if(calPassengerValidate !== false){
+                setCalPassengerValidate(false)
+            }
         }
-        
-        console.log(calDistanceValidate)
-        console.log(calFuelComValidate)
-        console.log(calPassengerValidate)
+        setTriggerUpdate(triggerUpdate+1)
+      }
 
+      const calculateAndVis = () =>{
+          console.log("123")
         if(calDistanceValidate === false && calFuelComValidate === false && calPassengerValidate === false){
-            console.log(123)
             const fuelPrice = {
                 "1":2.17,
                 "2":2.31,
@@ -192,9 +200,9 @@ export default function Questionaire() {
               setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
 
               setEcarFixedCost(Math.round(travelDistance*0.04))
-              setCalDistanceValidate(false)
-              setCalFuelComValidate(false)
-              setCalPassengerValidate(false)
+            //   setCalDistanceValidate(false)
+            //   setCalFuelComValidate(false)
+            //   setCalPassengerValidate(false)
         }
       }
 
@@ -419,7 +427,7 @@ export default function Questionaire() {
                         </div>
                         <div>
                             <input className={calPassengerValidate === false? style.genc__que__area__input:style.genc__que__area__input__error}  value={passenger} onChange={e => setPassenger(e.target.value)}></input>
-                            <span className={style.genc__que__area__span}>  persons</span>
+                            <span className={style.genc__que__area__span}>  people</span>
                             <div className={calPassengerValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
                         </div>
                         </div>
