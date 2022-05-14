@@ -29,6 +29,7 @@
 
 .rec__tile__area{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 4%;
     padding-top: 2.11rem;
@@ -41,10 +42,11 @@
     background: #F9F9F9;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
-    width: 22%;
+    width: 20%;
     /* padding: 30px 0px 20px 50px; */
     /* margin: 0 auto; */
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .rec__tile__item:hover{

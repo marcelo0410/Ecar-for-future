@@ -24,7 +24,7 @@ export default function Index() {
         <section>
             <div className={style.rec__tile__area}>
                 {
-                    Array.from(carData).slice(0,3).map((item,index)=>
+                    Array.from(carData).map((item,index)=>
                     <div className={style.rec__tile__item} key={item['evId']}>
                         <img src={item['imgLink']} className={style.rec__tile__item__img}></img>
                         <div className={style.rec__tile__item__desc}>
