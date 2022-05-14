@@ -107,18 +107,18 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    gap: 0%;
+    /* gap: 5%; */
 }
 
 .que__block__split__left{
     display: flex;
     justify-content: start;
-    width: 750px;
+    width: 650px;
     
 }
 
 .que__block__split__right{
-    width: 30%;
+    width: 300px;
     margin-top: 3.8%;
 }
 
@@ -144,9 +144,47 @@
     padding-right: 10px;
 }
 
+.que__block__split__input__error{
+  width: 11rem;
+  height: 2.44rem;
+  background: #F2F2F2;
+  border: 1px solid red;
+  border-radius: 9px;
+  text-align: right;
+  font-size: 1.128rem;
+  padding-right: 10px;
+}
+
 .que__block__split__span{
     font-size: 1.128rem;
 }
+
+.que__block__error{
+  display: none;
+  margin-top: 4px;
+}
+
+.que__block__error__show{
+  /* display: none; */
+  margin-top: 4px;
+  color: red;
+}
+
+
+.genc__block__error{
+  display: none;
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.genc__block__error__show{
+  /* display: none; */
+  margin-top: 4px;
+  color: red;
+  font-size: 13px;
+}
+
+
 
 .rec__tile__area{
     display: flex;
@@ -449,6 +487,17 @@
   .genc__que__area__input{
     background: #F2F2F2;
     border: 1px solid #FFB344;
+    border-radius: 9px;
+    width: 7.379rem;
+    height: 2.3rem;
+    text-align: right;
+    padding-right: 15px;
+    font-size: 1.128rem;
+  }
+
+  .genc__que__area__input__error{
+    background: #F2F2F2;
+    border: 1px solid red;
     border-radius: 9px;
     width: 7.379rem;
     height: 2.3rem;

@@ -10,38 +10,38 @@ export default class Example extends PureComponent {
     componentDidMount(){
       const newData = [{
         name:"1 yr",
-        YourCar:this.props.resultCo2*1,
-        ECar:0
+        YourCar:this.props.resultCost*1*52,
+        ECar:this.props.ecarFixedCost*52
     }, 
     {
         name:"2 yr",
-        YourCar:this.props.resultCo2*2,
-        ECar:0
+        YourCar:this.props.resultCost*2*52,
+        ECar:this.props.ecarFixedCost*2*52
     },
     {
         name:"3 yr",
-        YourCar:this.props.resultCo2*3,
-        ECar:0
+        YourCar:this.props.resultCost*3*52,
+        ECar:this.props.ecarFixedCost*3*52
     },
     {
         name:"4 yr",
-        YourCar:this.props.resultCo2*4,
-        ECar:0
+        YourCar:this.props.resultCost*4*52,
+        ECar:this.props.ecarFixedCost*4*52
     },
     {
         name:"5 yr",
-        YourCar:this.props.resultCo2*5,
-        ECar:0
+        YourCar:this.props.resultCost*5*52,
+        ECar:this.props.ecarFixedCost*5*52
     },
     {
         name:"6 yr",
-        YourCar:this.props.resultCo2*6,
-        ECar:0
+        YourCar:this.props.resultCost*6*52,
+        ECar:this.props.ecarFixedCost*6*52
     },
     {
         name:"7 yr",
-        YourCar:this.props.resultCo2*7,
-        ECar:0
+        YourCar:this.props.resultCost*7*52,
+        ECar:this.props.ecarFixedCost*7*52
     },
     ]
     this.setState({data:newData})
@@ -51,38 +51,38 @@ export default class Example extends PureComponent {
       if(prevProp !== this.props){
           const newData = [{
             name:"1 yr",
-            YourCar:this.props.resultCo2*1*52,
-            ECar:15
+            YourCar:this.props.resultCost*1*52,
+            ECar:this.props.ecarFixedCost*52
         }, 
         {
             name:"2 yr",
-            YourCar:this.props.resultCo2*2*52,
-            ECar:15*2
+            YourCar:this.props.resultCost*2*52,
+            ECar:this.props.ecarFixedCost*2*52
         },
         {
             name:"3 yr",
-            YourCar:this.props.resultCo2*3*52,
-            ECar:15*3
+            YourCar:this.props.resultCost*3*52,
+            ECar:this.props.ecarFixedCost*3*52
         },
         {
             name:"4 yr",
-            YourCar:this.props.resultCo2*4*52,
-            ECar:15*4
+            YourCar:this.props.resultCost*4*52,
+            ECar:this.props.ecarFixedCost*4*52
         },
         {
             name:"5 yr",
-            YourCar:this.props.resultCo2*5*52,
-            ECar:15*5
+            YourCar:this.props.resultCost*5*52,
+            ECar:this.props.ecarFixedCost*5*52
         },
         {
             name:"6 yr",
-            YourCar:this.props.resultCo2*6*52,
-            ECar:15*6
+            YourCar:this.props.resultCost*6*52,
+            ECar:this.props.ecarFixedCost*6*52
         },
         {
             name:"7 yr",
-            YourCar:this.props.resultCo2*7*52,
-            ECar:15*7
+            YourCar:this.props.resultCost*7*52,
+            ECar:this.props.ecarFixedCost*7*52
         },
     ]
     this.setState({data:newData})}
@@ -105,7 +105,7 @@ export default class Example extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis label={{ value: '$AUD', angle: -90, position: 'insideLeft', offset:-5}}/>
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="YourCar" stroke="#8884d8" activeDot={{ r: 8 }} />

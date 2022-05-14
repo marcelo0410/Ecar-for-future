@@ -4,7 +4,6 @@ import Footer from './components/Footer';
 import Homepage from './screens/Home/index';
 import CurrentEnv from './screens/currentenv/index'
 import Calculation from './screens/calculation/index'
-import Test from './screens/Test/Ani'
 import Login from './components/login/Login'
 import QuarterlyEmissionCanvas from './screens/currentenv/components/QuarterlyEmissionCanvas';
 import './App.css';
@@ -15,15 +14,11 @@ import QuestionFourCar from './screens/calculation/components/QuestionFourCar';
 import QuestionFiveFuel from './screens/calculation/components/QuestionFiveFuel';
 import QuestionSixFuel from './screens/calculation/components/QuestionSixFuel'
 import QuestionSevenCharging from './screens/calculation/components/QuestionSevenCharging';
-import EmissionPowerBI from './screens/currentenv/components/EmissionPowerBI';
-import Test1 from './screens/Test/Test1';
-import About from './screens/about/index'
 import Storyboard from './screens/storyboard/index';
 import EmissionPrediction from './screens/prediction/index';
 import PredictionGraph from './screens/predictiongraph/index';
 import Carselection from './screens/carselection/index';
 import GeneralCalculatorV from './screens/carselection/components/GeneralCalculatorNew';
-import ChargingStation from './screens/carselection/components/chargingstation/Index';
 
 function App() {
   return (
@@ -36,8 +31,6 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/curenv" element={<CurrentEnv/>}/>
           <Route path="/calculator" element={<Calculation/>}/>
-          <Route path="/about" element={<About/>}/>
-          {/* <Route path="/test" element={<EmissionPowerBI/>}/> */}
           <Route path="/q1" element={<QuestionOneEVModel/>}/>
           <Route path="/q2" element={<QuestionTwoJourney/>}/>
           <Route path="/q3" element={<QuestionThreeTraveler/>}/>
@@ -51,8 +44,6 @@ function App() {
           <Route path="/storyboard" element={<Storyboard/>}/>
           <Route path="/gen" element={<GeneralCalculatorV/>}/>
           <Route path="/carselection" element={<Carselection/>}/>
-          <Route path="/char" element={<ChargingStation/>}/>
-          {/* <Route path="/test" element={<Test scrollHeight={4000} width={1158} height={770} numFrames={63}/>}/> */}
           
           <Route path="/" element={<Navigate replace to="/home"/>} />
         </Routes>

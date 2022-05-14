@@ -163,12 +163,6 @@ export default function Index() {
         </div>
         <div className='pre-vis-container'>
             <div className='pre-vis__title'>General Prediction of Victoria 2000-2030</div>
-              {/* <select name="Council" id="council" onChange={updateVisOption} value={visOption} style={{marginTop:"20px", marginBottom:"20px"}}>
-                <option value="" disabled>Emission</option>
-                <option value="1">Population</option>
-                <option value="2">Vehicle</option>
-                <option value="3">Emission</option>
-              </select> */}
               <div className='pre-vis__option'>
                 <button id="1" onClick={e => updateVisOption(e)} className={visOption == 1? 'pre-vis__option__button--green':'pre-vis__option__button--white'}>Population</button>
                 <button id="2" onClick={e => updateVisOption(e)} className={visOption == 2? 'pre-vis__option__button--green':'pre-vis__option__button--white'}>Vehicles</button>

@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
+import { Form,Col,Button } from 'react-bootstrap';
 import style from './style.module.css'
 import progress3 from '../../../assets/carselection/progress_3.jpg'
 import que_brand1 from '../../../assets/carselection/que_brand1.jpg'
@@ -12,8 +13,8 @@ import upicon from '../../../assets/common/upicon.png'
 import GeneralCalculatorNew from './GeneralCalculatorNew'
 import ChargingStation from './chargingstation/Index'
 import $ from 'jquery'
-import useOnScreen from './useOnScreen'
 import CostLineChart from './CostLineChart'
+import EmiLineChart from './EmiLineChart'
 
 export default function Questionaire() {
     
@@ -31,6 +32,13 @@ export default function Questionaire() {
     const [resultButtonCss, setResultButtonCss] = useState(1)
     const [resultCost, setResultCost] = useState(0)
     const [resultEmi, setResultEmi] = useState(0)
+    const [ecarFixedCost, setEcarFixedCost] = useState(0)
+
+    // validation
+    const [queDistanceValidate, setQueDistanceValidate] = useState(false);
+    const [calDistanceValidate, setCalDistanceValidate] = useState(false);
+    const [calFuelComValidate, setCalFuelComValidate] = useState(false);
+    const [calPassengerValidate, setCalPassengerValidate] = useState(false);
 
     const recRef = useRef(null);
     const comRef = useRef(null);
@@ -39,7 +47,6 @@ export default function Questionaire() {
     const calRef = useRef(null)
     const mapRef = useRef(null)
 
-    const isVisible = useOnScreen(recRef)
     
 
     const backToTop = () =>{
@@ -50,9 +57,14 @@ export default function Questionaire() {
         setProgressStep('1000')
     }
 
-    const naviToRec = () =>{
-        recRef.current.scrollIntoView()
-        setProgressStep('2100')
+    const validateAndNaviToRec = () =>{
+        if(isNaN(distance) || distance<0){
+            setQueDistanceValidate(true)
+        } else{
+            recRef.current.scrollIntoView()
+            setProgressStep('2100')
+            setQueDistanceValidate(false)
+        }
     }
 
     const naviToCompare = () =>{
@@ -95,6 +107,10 @@ export default function Questionaire() {
         selectRef.current.selectedIndex=0
         setResultCost(0)
         setResultEmi(0)
+        setEcarFixedCost(0)
+        setCalDistanceValidate(false)
+        setCalFuelComValidate(false)
+        setCalPassengerValidate(false)
       }
     
 
@@ -125,26 +141,64 @@ export default function Questionaire() {
     
       const calculateCost = () => {
         // calRef.current.scrollIntoView()
-        window.scrollTo({
-          top: 2270,
-          behavior: "smooth"
-      });
-        const fuelPrice = {
-          "1":2.17,
-          "2":2.31,
-          "3":2.39,
-          "4":2.14
+    //     window.scrollTo({
+    //       top: 2270,
+    //       behavior: "smooth"
+    //   });
+
+    // const [calDistanceValidate, setCalDistanceValidate] = useState(false);
+    // const [calFuelComValidate, setCalFuelComValidate] = useState(false);
+    // const [calPassengerValidate, setCalPassengerValidate] = useState(false);
+    // const [travelDistance, setTravelDistance] = useState(0)
+    // const [fuelCom, setFuelCom] = useState(0.0)
+    // const [fuelType, setFuelType] = useState('1')
+
+    // console.log(travelDistance)
+    // console.log(fuelCom)
+    // console.log(passenger)  
+
+        console.log(isNaN(travelDistance.toString()))
+        if(isNaN(travelDistance.toString()) || travelDistance<=0){
+            setCalDistanceValidate(true)
+        } 
+
+        if(isNaN(fuelCom.toString()) || fuelCom<=0){
+            setCalFuelComValidate(true)
         }
-        let result = Math.round(travelDistance * (1+passenger*0.1-0.1)*fuelCom/100*fuelPrice[fuelType])
-        setResultCost(result)
-    
-        const resultCo2 = travelDistance /100 *fuelCom*2500
-        setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
-    
-        console.log(resultCost)
-        console.log(resultEmi)
-    
+
+        if(isNaN(passenger.toString()) || passenger<0){
+            setCalPassengerValidate(true)
+        }
+        
+        console.log(calDistanceValidate)
+        console.log(calFuelComValidate)
+        console.log(calPassengerValidate)
+
+        if(calDistanceValidate === false && calFuelComValidate === false && calPassengerValidate === false){
+            console.log(123)
+            const fuelPrice = {
+                "1":2.17,
+                "2":2.31,
+                "3":2.39,
+                "4":2.14
+              }
+
+              // Cost and maintenance
+              let result = Math.round(travelDistance * (1+passenger*0.1-0.1)*fuelCom/100*fuelPrice[fuelType])
+              setResultCost(result)
+          
+              // CO2 generated
+              const resultCo2 = travelDistance /100 *fuelCom*2500
+              setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
+
+              setEcarFixedCost(Math.round(travelDistance*0.04))
+              setCalDistanceValidate(false)
+              setCalFuelComValidate(false)
+              setCalPassengerValidate(false)
+        }
       }
+
+
 
   return (
     //   `${style.stepper__item} ${style.completed}`
@@ -209,8 +263,10 @@ export default function Questionaire() {
                             </div>
                         </div>
                         <div className={style.que__block__split__right}>
-                            <input className={style.que__block__split__input} value={distance} onChange={e => setDistance(e.target.value)}></input>
+                            <input className={queDistanceValidate === false? style.que__block__split__input:style.que__block__split__input__error} value={distance} onChange={e => setDistance(e.target.value)}></input>
                             <span className={style.que__block__split__span}>   km</span>
+                            <div className={queDistanceValidate === false? style.que__block__error:style.que__block__error__show}>Please enter a valid number</div>
+
                         </div>
                 </div>
             </div>
@@ -236,7 +292,7 @@ export default function Questionaire() {
             </div>
             <div className={style.que__block__gray}>
                 <div className={style.que__block__button__area} ref={recRef}>
-                    <button className={style.rec__bottom__button} onClick={naviToRec}>Submit</button>
+                    <button className={style.rec__bottom__button} onClick={validateAndNaviToRec}>Submit</button>
                 </div>
                 
                 {/* <div className={style.que__block__split}>
@@ -323,8 +379,9 @@ export default function Questionaire() {
                             <p className={style.genc__que__area__desc}>Your average travel distance per <br/>week.</p>
                         </div>
                         <div className={style.genc__que__area__right}>
-                            <input className={style.genc__que__area__input} name="travelDistance" value={travelDistance} onChange={ e => setTravelDistance(e.target.value)}/>
+                            <input className={calDistanceValidate === false? style.genc__que__area__input:style.genc__que__area__input__error} name="travelDistance" value={travelDistance} onChange={ e => setTravelDistance(e.target.value)}/>
                             <span className={style.genc__que__area__span}>  km</span>
+                            <div className={calDistanceValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
                         </div>
                         </div>
                         <div className={style.genc__que__split}>
@@ -332,9 +389,13 @@ export default function Questionaire() {
                             <div className={style.genc__que__area__title} >2. Fuel consumptions</div>
                             <p className={style.genc__que__area__desc}>Your average fuel consumptions <br/>per week by your car.</p>
                         </div>
+                        {/*     const [calDistanceValidate, setCalDistanceValidate] = useState(false);
+    const [calFuelComValidate, setCalFuelComValidate] = useState(false);
+    const [calPassengerValidate, setCalPassengerValidate] = useState(false); */}
                         <div>
-                            <input className={style.genc__que__area__input} min="0" max="10" value={fuelCom} onChange={ e => setFuelCom(e.target.value)}></input>
+                            <input className={calFuelComValidate === false? style.genc__que__area__input:style.genc__que__area__input__error} min="0" max="10" value={fuelCom} onChange={ e => setFuelCom(e.target.value)}></input>
                             <span className={style.genc__que__area__span}>  L/100km</span>
+                            <div className={calFuelComValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
                         </div>
                         </div>
                         <div className={style.genc__que__split}>
@@ -357,8 +418,9 @@ export default function Questionaire() {
                             <p className={style.genc__que__area__desc}>Your number of passengers in <br/>your car</p>
                         </div>
                         <div>
-                            <input className={style.genc__que__area__input}  value={passenger} onChange={e => setPassenger(e.target.value)}></input>
+                            <input className={calPassengerValidate === false? style.genc__que__area__input:style.genc__que__area__input__error}  value={passenger} onChange={e => setPassenger(e.target.value)}></input>
                             <span className={style.genc__que__area__span}>  persons</span>
+                            <div className={calPassengerValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
                         </div>
                         </div>
                         <div className={style.genc__que__split}>
@@ -382,8 +444,8 @@ export default function Questionaire() {
                         <button className={ resultButtonCss===1? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonRed}>Payment Comparison</button>
                         <button className={resultButtonCss===0? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonWhite}>Carbon Emission Comparison</button>
                         </div>
-                        {resultButtonCss == 1 && <div className={style.genc__que__result__vis}><CostLineChart resultCo2={resultCost}/></div>}
-                        {resultButtonCss == 0 && <div className={style.genc__que__result__vis}><CostLineChart/></div>}
+                        {resultButtonCss == 1 && <div className={style.genc__que__result__vis}><CostLineChart resultCost={resultCost} ecarFixedCost={ecarFixedCost}/></div>}
+                        {resultButtonCss == 0 && <div className={style.genc__que__result__vis}><EmiLineChart resultEmi={resultEmi}/></div>}
                     </div>
                     </div>
                 </div>
