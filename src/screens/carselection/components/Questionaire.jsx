@@ -449,7 +449,7 @@ export default function Questionaire() {
                         <img src={item['imgLink']} className={style.rec__tile__item__img}></img>
                         <div className={style.rec__tile__item__desc}>
                             Brand: {item['evBrand']}<br/>
-                            Model: {item['evType']}<br/>
+                            Model: <span className={item['evType'].length>18? style.rec__tile__item__desc__type__smallfont: style.rec__tile__item__desc__type}>{item['evType']}</span><br/>
                             Price: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD',maximumFractionDigits: '0' })}<br/>
                             Travel distance: {item['evDistance']} km<br/>
                         </div>

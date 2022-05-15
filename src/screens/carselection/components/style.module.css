@@ -283,6 +283,18 @@
     font-weight: bold;
 }
 
+.rec__tile__item__desc__type{
+  text-align: left;
+  margin-bottom: 3px;
+  font-size: 1.2rem;
+}
+
+.rec__tile__item__desc__type__smallfont{
+  text-align: left;
+  margin-bottom: 3px;
+  font-size: 1rem;
+}
+
 .sup__input__area{
     display: flex;
     justify-content: center;
