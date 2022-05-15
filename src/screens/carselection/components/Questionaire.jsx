@@ -450,7 +450,7 @@ export default function Questionaire() {
                         <div className={style.rec__tile__item__desc}>
                             Brand: {item['evBrand']}<br/>
                             Model: {item['evType']}<br/>
-                            Price: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}<br/>
+                            Price: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD',maximumFractionDigits: '0' })}<br/>
                             Travel distance: {item['evDistance']} km<br/>
                         </div>
                         <div className={style.rec__tile__item__button} onClick={() =>naviToCompare(item['evId'])}>Select</div>

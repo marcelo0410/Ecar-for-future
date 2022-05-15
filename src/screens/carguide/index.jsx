@@ -53,7 +53,7 @@ export default function Index() {
                             Model: {item['evBrand']}<br/>
                             <div style={{textAlign:"center", marginBottom:"3px"}}>{item['evType']}</div>
                             Distance: {item['evDistance']} km<br/>   
-                            Price range: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}<br/>
+                            Price range: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD',maximumFractionDigits: '0' })}<br/>
                             
                         </div>
                         <a className={style.rec__tile__item__a} href={item['link']} target="_blank"><div className={style.rec__tile__item__button}>View More</div></a>
