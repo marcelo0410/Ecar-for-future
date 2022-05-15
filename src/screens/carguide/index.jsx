@@ -7,6 +7,7 @@ export default function Index() {
 
     const [carData, setCarData] = useState("")
 
+    // https://d1pvgbbxmbkkid.cloudfront.net
     useEffect(async () => {
         const result = await axios(
           'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/evDetail/findAll/',
@@ -51,7 +52,7 @@ export default function Index() {
                         <img src={item['imgLink']} className={style.rec__tile__item__img}></img>
                         <div className={style.rec__tile__item__desc}>
                             Model: {item['evBrand']}<br/>
-                            <div style={{textAlign:"center", marginBottom:"3px"}}>{item['evType']}</div>
+                            <div className={item['evType'].length > 25? style.rec__tile__item__desc__type:style.rec__tile__item__desc__type__smallfont}>{item['evType']}</div>
                             Distance: {item['evDistance']} km<br/>   
                             Price range: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD',maximumFractionDigits: '0' })}<br/>
                             

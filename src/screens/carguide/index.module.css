@@ -125,6 +125,19 @@
     line-height: 1.6rem;
 }
 
+/* style={{textAlign:"center", marginBottom:"3px"}} */
+.rec__tile__item__desc__type{
+    text-align: center;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.rec__tile__item__desc__type__smallfont{
+    text-align: center;
+    margin-bottom: 3px;
+    font-size: 16px;
+}
+
 .rec__bottom__title{
     font-size: 1.128rem;
     font-weight: bold;
