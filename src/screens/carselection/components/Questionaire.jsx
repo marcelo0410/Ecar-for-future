@@ -565,15 +565,12 @@ export default function Questionaire() {
         </div>
         <div className={style.genc__bottom__bar}>
                 <div className={style.genc_bottom__bar__split}>
-                    {/* <div className={style.genc__bottom__desc}>Want to know the answer?</div> */}
                     <button className={style.genc__bottom__orangebutton} onClick={calculateCost}>Start</button>
                 </div>
                 <div className={style.genc_bottom__bar__split} >
-                    {/* <div className={style.genc__bottom__desc}>Want to know more features?</div> */}
                     <button className={style.genc__bottom__redbutton} onClick={resetValue}>Reset</button>
                 </div>
                 <div className={style.genc_bottom__bar__split} >
-                    {/* <div className={style.genc__bottom__desc}>Want to know more features?</div> */}
                     <button className={style.genc__bottom__redbutton} onClick={naviToMap}>Charging Map</button>
                 </div>
             </div>
