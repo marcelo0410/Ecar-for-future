@@ -453,7 +453,7 @@ export default function Questionaire() {
                             Price: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD',maximumFractionDigits: '0' })}<br/>
                             Travel distance: {item['evDistance']} km<br/>
                         </div>
-                        <div className={style.rec__tile__item__button} onClick={() =>naviToCompare(item['evId'])}>Select</div>
+                        <button className={style.rec__tile__item__button} onClick={() =>naviToCompare(item['evId'])}>Select</button>
                         <div  className={style.rec__tile__item__link}><a href={item['link']} target="_blank">Learn More</a></div>
                     </div>
                      )

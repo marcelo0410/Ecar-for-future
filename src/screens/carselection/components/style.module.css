@@ -226,20 +226,21 @@
     background: #00A19D;
     border-radius: 27px;
     width: 10.81rem;
-    height: 1.73rem;
+    height: 1.9rem;
     margin: 20px auto 10px auto;
     font-size: 0.94rem;
     font-weight: bold;
     text-align: center;
     color: white;
     padding-top: 2px;
+    border: none
 }
 
 .rec__tile__item__button:hover{
   background: white;
   border-radius: 27px;
   width: 10.81rem;
-  height: 1.73rem;
+  height: 1.9rem;
   margin: 20px auto 10px auto;
   font-size: 0.94rem;
   font-weight: bold;
