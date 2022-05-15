@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react'
 import style from './index.module.css'
 import axios from 'axios'
+import upicon from '../../assets/common/upicon.png'
 
 export default function Index() {
 
@@ -13,6 +14,24 @@ export default function Index() {
         setCarData(result.data) 
         
       }, []);
+
+      useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+      
+        return () => {
+          
+        }
+      }, [])
+
+      const backToTop = () =>{
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
 
 
   return (
@@ -44,6 +63,10 @@ export default function Index() {
                 }
             </div>
         </section>
+        <a className={style.back__area} onClick={backToTop}>
+            <div>Back to top</div>
+            <img src={upicon}></img>
+        </a>
       </div>
   )
 }
