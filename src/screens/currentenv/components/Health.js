@@ -15,21 +15,21 @@ export default function Health() {
                     <img src={healthHeart} style={{height:"180px", width:"130px"}}></img>
                 </div>
                 <p className='h3-black' style={{marginTop:'20px'}}>Cardiovascular Disease</p>
-                <p className='text-desc text-left'>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p>
+                <p className='text-desc text-left'>Cardiovascular diseases (CVDs) are the leading cause of death globally, taking an estimated 17.9 million lives each year. 85% of all CVD deaths are due to heart attacks and strokes</p>
             </div>
             <div className='disease-card-item card-middle' style={{width:'33%'}}>
                 <div style={{backgroundColor:"#E3A649",height:"200px", width:"200px", margin:"auto"}}>
                     <img src={healthBreath} style={{height:"190px", width:"190px"}}></img>
                 </div>
-                <p className='h3-black' style={{marginTop:'20px'}}>Cardiovascular Disease</p>
-                <p className='text-desc text-left'>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p>
+                <p className='h3-black' style={{marginTop:'20px'}}>Respiratory infections</p>
+                <p className='text-desc text-left'>Respiratory tract infections (RTIs) are infections of parts of the body involved in breathing, such as the sinuses, throat, airways or lungs. Especially lower respiratory infections, which is world’s most deadly communicable disease</p>
             </div>
             <div className='disease-card-item card-right' style={{width:'33%'}}>
                 <div style={{backgroundColor:"#E26F56", height:"200px", width:"200px",margin:"auto"}}>
                     <img src={healthPharynx} style={{height:"190px", width:"190px"}}></img>
                 </div>
-                <p className='h3-black' style={{marginTop:'20px'}}>Cardiovascular Disease</p>
-                <p className='text-desc text-left'>Greenhouse gas emissions by Australia totalled 392 million tonnes CO2-equivalent for 2020, representing per capita CO2e emissions of 15 tons, three times the global average.</p>
+                <p className='h3-black' style={{marginTop:'20px'}}>Chronic Obstructive Pulmonary Disease (COPD)</p>
+                <p className='text-desc text-left'>COPD is the third leading cause of death worldwide, causing 3.23 million deaths in 2019. COPD results from long-term exposure to harmful gases and air pollution </p>
             </div>
         </div>
     </div>

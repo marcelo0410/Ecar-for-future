@@ -458,7 +458,7 @@ export default function Questionaire() {
             <div className={style.que__desc}>Recommend the appropriate electric vehicle model for your requirements and preferences</div>
         </div>
         <section >
-            <div className={style.rec__title}>Here are the top three recommended models <br/>Please select your preferred model for the next step of comparison</div>
+            {recCarData !== "" && (<div className={style.rec__title}>Here are the top three recommended models <br/>Please select your preferred model for the next step of comparison</div>)}
             <div className={style.rec__tile__area}>
                 {
                     Array.from(recCarData).slice(0,3).map((item,index)=>
@@ -491,8 +491,9 @@ export default function Questionaire() {
             
             
         </section>
-            <div className={style.rec__bottom__title} ref={calRef}>Not satisfied with the recommondations?</div>
-            <button className={style.rec__bottom__button} onClick={naviToCarGuide}>See all models</button>
+            {recCarData !== "" && (<div><div className={style.rec__bottom__title} ref={calRef}>Not satisfied with the recommondations?</div>
+            <button className={style.rec__bottom__button} onClick={naviToCarGuide}>See all models</button></div>)}
+            
         <div className={style.que__container}>
             <div className={style.que__title} ref={comRef}>Comparison</div>
             <div className={style.que__desc}>Compare your fossil fuel car and the recommended EV model to display the contribution and benefits</div>
