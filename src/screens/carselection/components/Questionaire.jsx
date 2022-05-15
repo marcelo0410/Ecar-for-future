@@ -436,10 +436,10 @@ export default function Questionaire() {
                 </div>
             </div>
         </section>
-        <div className={style.que__container}>
-            {recCarData !== "" && (<div><div className={style.que__title} >Recommendation</div>
-            <div className={style.que__desc}>Recommend the appropriate electric vehicle model for your requirements and preferences</div></div>)}
-        </div>
+        {recCarData !== "" && (<div><div className={style.que__container}>
+            <div className={style.que__title} >Recommendation</div>
+            <div className={style.que__desc}>Recommend the appropriate electric vehicle model for your requirements and preferences</div>
+        </div></div>)}
         <section >
             {recCarData !== "" && (<div className={style.rec__title}>Here are the top three recommended models <br/>Please select your preferred model for the next step of comparison</div>)}
             <div className={style.rec__tile__area}>
@@ -450,7 +450,7 @@ export default function Questionaire() {
                         <div className={style.rec__tile__item__desc}>
                             Brand: {item['evBrand']}<br/>
                             Model: {item['evType']}<br/>
-                            Price range: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}<br/>
+                            Price: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}<br/>
                             Travel distance: {item['evDistance']} km<br/>
                         </div>
                         <div className={style.rec__tile__item__button} onClick={() =>naviToCompare(item['evId'])}>Select</div>
