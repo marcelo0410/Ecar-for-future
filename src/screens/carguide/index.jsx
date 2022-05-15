@@ -56,7 +56,7 @@ export default function Index() {
                             Price range: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}<br/>
                             
                         </div>
-                        <div className={style.rec__tile__item__button}><a href={item['link']} target="_blank">View More</a></div>
+                        <a className={style.rec__tile__item__a} href={item['link']} target="_blank"><div className={style.rec__tile__item__button}>View More</div></a>
                         <div  className={style.rec__tile__item__link}></div>
                     </div>
                      )

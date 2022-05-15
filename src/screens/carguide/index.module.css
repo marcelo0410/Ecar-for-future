@@ -85,18 +85,15 @@
     color: #00A19D;
     margin: 20px auto;
     border: 1px solid #00A19D;
-    
+    text-decoration: none;
 }
 
-.rec__tile__item__button a{
+.rec__tile__item__a{
     text-decoration: none;
-    color: #00A19D;
-    
 }
 
-.rec__tile__item__button a:hover{
+.rec__tile__item__a:hover{
     text-decoration: none;
-    color: white;
 }
 
 .rec__tile__item__button:hover{
