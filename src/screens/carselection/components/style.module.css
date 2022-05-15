@@ -206,26 +206,20 @@
     align-items: center;
 }
 
-.rec__tile__item:hover{
-  border: 1px solid #00A19D;
+.rec__title__border{
+  border: 2px solid transparent;
+  display: block;
+}
+
+.rec__title__border:hover{
+  border: 2px solid #00A19D;
 }
 
 .rec__tile__item__img{
     width: 100%;
-    height: 9.87rem;
+    height: 15rem;
     margin: 20px auto 20px auto;
     
-}
-
-.rec__tile__item__img2{
-    width: 100%;
-    height: 250px;
-    margin: 10px auto;
-}
-.rec__tile__item__img3{
-    width: 100%;
-    height: 250px;
-    margin: 10px auto;
 }
 
 .rec__tile__item__button{
@@ -434,7 +428,7 @@
     /* flex-wrap: wrap; */
     justify-content: center;
     text-align: left;
-    
+    gap: 15px;
   
     /* align-items: center; */
     /* margin: 0 auto; */
@@ -453,6 +447,11 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .genc__topbar{
+    display: flex;
+    justify-content: center;
+  }
   
   .genc__topbar--blue{
     background-color: #FFB344;
@@ -468,7 +467,7 @@
   
   .genc__split__title{
     font-size: 1.25rem;
-    margin-top: 43px;
+    margin-top: 1rem;
     line-height: 1.25px;
     font-weight: bold;
     font-weight: 900;
@@ -548,7 +547,7 @@
   }
   
   .genc__que__area__span{
-    font-size: 1.128rem;
+    font-size: 0.9rem;
   }
   
   .genc__que__area__left{
@@ -612,7 +611,7 @@
     background: #F2F2F2;
     border: 1px solid #FFB344;
     border-radius: 9px;
-    width: 12.7rem;
+    width: 11.6rem;
     height: 2.3rem;
     text-align: right;
     padding-right: 5px;
@@ -626,14 +625,13 @@
     height: 5.5rem;
     align-items: center;
     gap: 9%;
-    margin-bottom: 3.76rem;
   }
   .genc__bottom__orangebutton{
     color: white;
     background: #FFB344;
     border-radius: 27px;
-    width: 9.4rem;
-    height: 2.2rem;
+    width: 10rem;
+    height: 2.5rem;
     font-size: 1.316rem;
     border: none;
     margin-left: 1.081rem;
@@ -648,8 +646,8 @@
     color: white;
     background: #E05D5D;
     border-radius: 27px;
-    width: 9.4rem;
-    height: 2.2rem;
+    width: 10rem;
+    height: 2.5rem;
     font-size: 1.316rem;
     border: none;
     margin-left: 1.081rem;

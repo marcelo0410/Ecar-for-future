@@ -8,7 +8,7 @@ export default function Index() {
 
     useEffect(async () => {
         const result = await axios(
-          'http://localhost:8080/v1/api/evDetail/findAll/',
+          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/evDetail/findAll/',
         );
         setCarData(result.data) 
         
@@ -18,26 +18,27 @@ export default function Index() {
   return (
       <div>
         <div className={style.banner}>
-            <div className={style.banner__title}>Car Guide</div>
-            <div className={style.banner_desc}>The future prediction of Victoria is based on the government's development blueprint.  </div>
+            <div className={style.banner__title}>Vehicle Guide</div>
+            {/* <div className={style.banner_desc}>The future prediction of Victoria is based on the government's development blueprint.  </div> */}
         </div>
         <div className={style.rec__title}>
-            <div>This vehicle guide presents all of the electric vehicles currently available in the Australian market with their associated resources. For further information on the environmental performance of light vehicles sold in Australia, see the Australian Government's Green Vehicle Guide website.</div>
+            <div>This vehicle guide presents all of the electric vehicles currently available in the Australian market with their associated resources. For further information on the environmental performance of light vehicles sold in Australia, see the Australian Government's <a href='https://www.greenvehicleguide.gov.au/' target="_blank">Green Vehicle Guide website</a>.</div>
         </div>
         <section>
             <div className={style.rec__tile__area}>
                 {
                     Array.from(carData).map((item,index)=>
-                    <div className={style.rec__tile__item} key={item['evId']}>
+                    <div className={`${style.rec__tile__item} ${style.rec__title__border}`} key={item['evId']}>
                         <img src={item['imgLink']} className={style.rec__tile__item__img}></img>
                         <div className={style.rec__tile__item__desc}>
-                            Brand: {item['evBrand']}<br/>
-                            Model: {item['evType']}<br/>
+                            Model: {item['evBrand']}<br/>
+                            <div style={{textAlign:"center", marginBottom:"3px"}}>{item['evType']}</div>
+                            Distance: {item['evDistance']} km<br/>   
                             Price range: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}<br/>
-                            Travel distance: {item['evDistance']} km<br/>
+                            
                         </div>
-                        <div className={style.rec__tile__item__button}>Select</div>
-                        <div  className={style.rec__tile__item__link}><a href={item['link']} target="_blank">Learn More</a></div>
+                        <div className={style.rec__tile__item__button}><a href={item['link']} target="_blank">View More</a></div>
+                        <div  className={style.rec__tile__item__link}></div>
                     </div>
                      )
                 }

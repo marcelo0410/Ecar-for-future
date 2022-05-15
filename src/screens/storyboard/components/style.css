@@ -319,7 +319,7 @@
 
 .ev {
     display: block;
-    height: 1215vh;
+    height: 1310vh;
     box-sizing: border-box;
 }
 
@@ -461,7 +461,7 @@
 }
 
 .final a {
-    width: 20%;
+    width: 30%;
     height: auto;
     margin-top: 40vh;
     margin-bottom: 20vh;

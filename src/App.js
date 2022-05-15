@@ -15,7 +15,6 @@ import QuestionFiveFuel from './screens/calculation/components/QuestionFiveFuel'
 import QuestionSixFuel from './screens/calculation/components/QuestionSixFuel'
 import QuestionSevenCharging from './screens/calculation/components/QuestionSevenCharging';
 import Storyboard from './screens/storyboard/index';
-import EmissionPrediction from './screens/prediction/index';
 import PredictionGraph from './screens/predictiongraph/index';
 import Carselection from './screens/carselection/index';
 import GeneralCalculatorV from './screens/carselection/components/GeneralCalculatorNew';
@@ -40,7 +39,6 @@ function App() {
           <Route path="/q6" element={<QuestionSixFuel/>}/>
           <Route path="/q7" element={<QuestionSevenCharging/>}/>
           <Route path="/current" element={<Storyboard/>}/>
-          <Route path="/pp" element={<EmissionPrediction/>}/>
           <Route path="/prediction" element={<PredictionGraph/>}/>
           <Route path="/storyboard" element={<Storyboard/>}/>
           <Route path="/gen" element={<GeneralCalculatorV/>}/>

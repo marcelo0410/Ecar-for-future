@@ -39,7 +39,7 @@ export default function Questionaire() {
     // General Calculator
     const [selectedCar, setSelectedCar] = useState(null)
     const [travelDistance, setTravelDistance] = useState(0)
-    const [fuelCom, setFuelCom] = useState(0.0)
+    const [fuelCom, setFuelCom] = useState(0)
     const [fuelType, setFuelType] = useState('1')
     const [passenger, setPassenger] = useState(1)
     const [chargingButtonCss, setChargingButtonCss] = useState(1)
@@ -66,7 +66,7 @@ export default function Questionaire() {
     //http://localhost:8080/v1/api/evDetail/findAll/
     useEffect(async () => {
         const result = await axios(
-          'http://localhost:8080/v1/api/evDetail/findAll/',
+          'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/evDetail/findAll/',
         );
         setCarData(Array.from(result.data)) 
         
@@ -369,7 +369,7 @@ export default function Questionaire() {
             <div className={style.que__title} >Questionnaire</div>
             <div className={style.que__desc}>Survey your daily needs and personal preferences to make reasonable recommendations</div>
         </div>
-        <section id="questions" className={style.que__sec}>
+        <section id="questions" className={style.que__sec}> 
             <div className={style.que__block__white}>
                 <div className={style.que__block__split}>
                     <div className={style.que__block__split__left}>
@@ -434,23 +434,6 @@ export default function Questionaire() {
                 <div className={style.que__block__button__area} ref={recRef}>
                     <button className={style.rec__bottom__button} onClick={validateAndNaviToRec}>Submit</button>
                 </div>
-                {/* <div className={style.que__block__split}>
-                            <div className={style.que__block__split__left}>
-                                <img src={que_brain4} className={style.que__block__img}></img>
-                                <div>
-                                    <div className={style.que__block__title}>4. Other features</div>
-                                    <div className={style.que__block__desc}>What other features do you expect from an EV?</div>
-                                </div>
-                            </div>
-                            <div className={style.que__block__split__right}>
-                                <select className={style.que__block__split__select}>
-                                    <option value="tesla">Under 30k</option>
-                                    <option value="audi">20k - 30k</option>
-                                    <option value="benz">10k - 20k</option>
-                                    <option value="bmw">Under 10k</option>
-                                </select>
-                            </div>
-                    </div> */}
             </div>
         </section>
         <div className={style.que__container}>
@@ -462,7 +445,7 @@ export default function Questionaire() {
             <div className={style.rec__tile__area}>
                 {
                     Array.from(recCarData).slice(0,3).map((item,index)=>
-                    <div className={style.rec__tile__item} key={item['evId']}>
+                    <div className={`${style.rec__tile__item} ${style.rec__title__border}`} key={item['evId']}>
                         <img src={item['imgLink']} className={style.rec__tile__item__img}></img>
                         <div className={style.rec__tile__item__desc}>
                             Brand: {item['evBrand']}<br/>
@@ -475,18 +458,6 @@ export default function Questionaire() {
                     </div>
                      )
                 }
-                {/* <div className={style.rec__tile__item}>
-                    <img src={rec_tesla} className={style.rec__tile__item__img}></img>
-                    <div className={style.rec__tile__item__desc}>
-                        Brand: Tesla<br/>
-                        Model: Model 3 Rear-Wheel Drive<br/>
-                        Price range: $ 63,900<br/>
-                        Travel distance: 491km<br/>
-
-                    </div>
-                    <div className={style.rec__tile__item__button} onClick={naviToCompare}>Select</div>
-                    <div  className={style.rec__tile__item__link}><a>Learn More</a></div>
-                </div> */}
             </div>
             
             
@@ -498,16 +469,22 @@ export default function Questionaire() {
             <div className={style.que__title} ref={comRef}>Comparison</div>
             <div className={style.que__desc}>Compare your fossil fuel car and the recommended EV model to display the contribution and benefits</div>
         </div>
+        <div className={style['genc__topbar']}>
+            <div className={style['genc__topbar--blue']} ></div>
+            <div className={style['genc__topbar--green']}></div>
+        </div>
+
         <section>
             <div className={style.genc__container} >
       
             <section className={style.genc__sec}>
                 <div className={style.genc__split}>
+                    
                     <div className={style.genc__split__left}>
-                    <div className={style['genc__topbar--blue']} ></div>
+                    
                     <div className={style.genc__que__area}>
                         <h1 className={style.genc__split__title}>Questions</h1>
-                        <p className={style.genc__split__desc}>These questions provide a more accurate<br/> comparison between fossil fuel cars and electric <br/>vehicles.</p>
+                        <p className={style.genc__split__desc}>These questions provide a more accurate<br/> comparison between fossil fuel cars and electric vehicles.</p>
                         <div className={style.genc__que__split}>
                         <div className={style.genc__que__area__left}>
                             <div className={style.genc__que__area__title}>1. Travel distance</div>
@@ -534,24 +511,24 @@ export default function Questionaire() {
                         </div>
                         </div>
                         <div className={style.genc__que__split}>
-                        <div className={style.genc__que__area__left}>
-                            <div className={style.genc__que__area__title}> 3. Fuel type</div>
-                            <p className={style.genc__que__area__desc}>Your commonly used fuel type</p>
-                        </div>
-                        <div>
-                            <select className={style.genc__que__area__select} ref={selectRef} onChange={e => setFuelType(e.target.value)}>
-                            <option value="1">Unleaded 91</option>
-                            <option value="2">Unleaded 95</option>
-                            <option value="3">Unleaded 98</option>
-                            <option value="4">Diesel</option>
-                            </select>
-                        </div>
+                            <div className={style.genc__que__area__left}>
+                                <div className={style.genc__que__area__title}> 3. Fuel type</div>
+                                <p className={style.genc__que__area__desc}>Your commonly used fuel type</p>
+                            </div>
+                            <div>
+                                <select className={style.genc__que__area__select} ref={selectRef} onChange={e => setFuelType(e.target.value)}>
+                                    <option value="1">Unleaded 91</option>
+                                    <option value="2">Unleaded 95</option>
+                                    <option value="3">Unleaded 98</option>
+                                    <option value="4">Diesel</option>
+                                </select>
+                            </div>
                         </div>
                         <div className={style.genc__que__split}>
-                        <div className={style.genc__que__area__left}>
-                            <div className={style.genc__que__area__title}>4. Passengers</div>
-                            <p className={style.genc__que__area__desc}>Your number of passengers in <br/>your car</p>
-                        </div>
+                            <div className={style.genc__que__area__left}>
+                                <div className={style.genc__que__area__title}>4. Passengers</div>
+                                <p className={style.genc__que__area__desc}>Your number of passengers in <br/>your car</p>
+                            </div>
                         <div>
                             <input className={calPassengerValidate === false? style.genc__que__area__input:style.genc__que__area__input__error}  value={passenger} onChange={e => setPassenger(e.target.value)}></input>
                             <span className={style.genc__que__area__span}>  people</span>
@@ -571,7 +548,7 @@ export default function Questionaire() {
                     </div>
                     </div>
                     <div className={style.genc__split__right}>
-                    <div className={style['genc__topbar--green']}></div>
+                    
                     <div className={style.genc__split__result}>
                         <div className={style.genc__split__title}>Comparison Results</div>
                         <p className={resultCost>0? style.genc__split__desc:style.genc__split__desc__show}>The recommended EV model can reduce $ <span className={style.genc__split__desc__highlight}>{resultCost}</span> per week, and reduce <span className={style.genc__split__desc__highlight}>{resultEmi}</span> kg (CO2), compared with the fossil fuel car. </p>
@@ -585,7 +562,8 @@ export default function Questionaire() {
                     </div>
                 </div>
             </section>
-            <div className={style.genc__bottom__bar}>
+        </div>
+        <div className={style.genc__bottom__bar}>
                 <div className={style.genc_bottom__bar__split}>
                     {/* <div className={style.genc__bottom__desc}>Want to know the answer?</div> */}
                     <button className={style.genc__bottom__orangebutton} onClick={calculateCost}>Start</button>
@@ -596,10 +574,9 @@ export default function Questionaire() {
                 </div>
                 <div className={style.genc_bottom__bar__split} >
                     {/* <div className={style.genc__bottom__desc}>Want to know more features?</div> */}
-                    <button className={style.genc__bottom__redbutton} onClick={naviToMap}>ChargingMap</button>
+                    <button className={style.genc__bottom__redbutton} onClick={naviToMap}>Charging Map</button>
                 </div>
             </div>
-        </div>
         </section> 
         <div className={style.que__container}>
             <div className={style.que__title} ref={supRef}>Supporting Facilities</div>

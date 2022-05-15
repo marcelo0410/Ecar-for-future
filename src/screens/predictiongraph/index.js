@@ -3,7 +3,6 @@ import axios from 'axios';
 import predictionGraph from '../../assets/prediction/prediction.png'
 import predictionCover from '../../assets/prediction/prediction-cover.jpg'
 import './components/style.css'
-import EmissionPredictionAll from '../prediction/components/EmissionPredictionAll';
 import PopulationPre from '../predictiongraph/components/PopulationPre';
 import VehiclePreVis from '../predictiongraph/components/VehiclePreVis'
 import EmissionPreStackedBarVis from '../predictiongraph/components/EmissionPreStackedBarVis'

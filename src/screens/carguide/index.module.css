@@ -1,5 +1,5 @@
 .banner{
-    background-image: url("../../assets/carselection/carselection_bg.jpg");
+    background-image: url("../../assets/carguide/carguide_background.jpg");
     background-size: cover;
     /* height: 85vh; */
     height: 610px;
@@ -27,10 +27,6 @@
     color: white;
 }
 
-.rec__title{
-    font-weight: bold;
-    
-}
 
 .rec__tile__area{
     display: flex;
@@ -40,6 +36,9 @@
     padding-top: 2.11rem;
     background-color: white;
     padding-bottom: 1rem;
+    width: 80%;
+    margin: 0 auto;
+    background: #FAFAFA;
 }
 
 .rec__tile__item{
@@ -47,35 +46,30 @@
     background: #F9F9F9;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
-    width: 20%;
+    width: 21%;
     /* padding: 30px 0px 20px 50px; */
     /* margin: 0 auto; */
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-.rec__tile__item:hover{
-  border: 1px solid #00A19D;
+.rec__title__border{
+    border: 2px solid transparent;
+    display: block;
+}
+
+.rec__title__border:hover{
+  border: 2px solid #00A19D;
 }
 
 .rec__tile__item__img{
     /* width: 17.8rem; */
     width: 100%;
     height: 9.87rem;
-    margin: 20px auto 20px auto;
+    margin: 0 auto 20px auto;
     
 }
 
-.rec__tile__item__img2{
-    width: 100%;
-    height: 250px;
-    margin: 10px auto;
-}
-.rec__tile__item__img3{
-    width: 100%;
-    height: 250px;
-    margin: 10px auto;
-}
 
 .rec__tile__item__button{
     background: #00A19D;
@@ -87,7 +81,18 @@
     font-weight: bold;
     text-align: center;
     color: white;
-    padding-top: 2px;
+    margin: 20px auto;
+    
+}
+
+.rec__tile__item__button a{
+    text-decoration: none;
+    color: white;
+}
+
+.rec__tile__item__button a:hover{
+    text-decoration: none;
+    color: #00A19D;
 }
 
 .rec__tile__item__button:hover{
@@ -100,21 +105,22 @@
   font-weight: bold;
   text-align: center;
   color: #00A19D;
-  padding-top: 2px;
   border: 1px solid #00A19D;
 }
 .rec__title{
   text-align: left;
-  background: white;
-  padding: 0.5rem 0 0 14%;
+  background: #FAFAFA;
   font-size: 1.316rem;
+  font-weight: bold;
+  margin: 1rem auto 1rem auto;
+  width: 75%;
 }
 
 
 .rec__tile__item__desc{
     text-align: left;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6rem;
 }
 
