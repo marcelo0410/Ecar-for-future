@@ -454,8 +454,8 @@ export default function Questionaire() {
             </div>
         </section>
         <div className={style.que__container}>
-            <div className={style.que__title} >Recommendation</div>
-            <div className={style.que__desc}>Recommend the appropriate electric vehicle model for your requirements and preferences</div>
+            {recCarData !== "" && (<div><div className={style.que__title} >Recommendation</div>
+            <div className={style.que__desc}>Recommend the appropriate electric vehicle model for your requirements and preferences</div></div>)}
         </div>
         <section >
             {recCarData !== "" && (<div className={style.rec__title}>Here are the top three recommended models <br/>Please select your preferred model for the next step of comparison</div>)}

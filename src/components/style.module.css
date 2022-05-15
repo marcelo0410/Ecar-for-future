@@ -95,33 +95,59 @@
     background-color: #00A19D;
     height: 14.1rem;
     font-family: 'Century Gothic', sans-serif;
+    
 }
 
-/* style={{width:'75%', display:"flex", paddingTop:"30px", margin:'auto'}} */
 .footer__content{
     width: 75%;
     display: flex;
     justify-content: center;
     padding-top: 30px;
+    margin: 0 auto;
+    gap: 8%;
 }
 
-.footer-text {
+/* .footer__tile{
+
+} */
+
+.footer__text {
     color: white;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: bold;
     text-align: left;
-    padding-left: 85px;
+    text-decoration: none;
+    /* display: inline-block; */
 }
 
-.footer-text-thin {
+.footer__text a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer__text a:hover{
+    text-decoration: underline;
+}
+
+.footer__text__bottom{
+    margin-top: 1rem;
+}
+
+.footer__text__thin {
+    color: white;
     font-weight: normal;
     text-align: left;
-    padding-left: 0px;
+    padding-top: 5px;
 }
 
-.footer-desc {
+.footer__text__bold{
+    font-weight: bold;
+    margin-top: 1.36rem;
+}
+
+.footer__desc {
     color: white;
     font-size: 14px;
-    padding-top: 5px;
+    padding-top: 20px;
     padding-bottom: 10px;
 }

@@ -21,6 +21,9 @@ export default function Index() {
             <div className={style.banner__title}>Car Guide</div>
             <div className={style.banner_desc}>The future prediction of Victoria is based on the government's development blueprint.  </div>
         </div>
+        <div className={style.rec__title}>
+            <div>This vehicle guide presents all of the electric vehicles currently available in the Australian market with their associated resources. For further information on the environmental performance of light vehicles sold in Australia, see the Australian Government's Green Vehicle Guide website.</div>
+        </div>
         <section>
             <div className={style.rec__tile__area}>
                 {
