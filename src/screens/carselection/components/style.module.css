@@ -600,8 +600,8 @@
   }
   
   .genc__que__button__right__red{
-      width: 11.28rem;
-      height: 1.739rem;
+      width: 12rem;
+      height: 1.8rem;
       border-radius: 27px;
       background: #E05D5D;
       color: white;
@@ -609,8 +609,8 @@
   }
   
   .genc__que__button__right__white{
-    width: 15.04rem;
-    height: 1.739rem;
+    width: 12rem;
+    height: 1.8rem;
     border-radius: 27px;
     background: white;
     color: #E05D5D;
@@ -624,8 +624,8 @@
   
   .genc__que__result__button{
     display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 2rem;
+    margin: 1.5rem 0 0 2rem;
   }
   
   .genc__que__area__select{
