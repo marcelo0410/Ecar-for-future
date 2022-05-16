@@ -22,37 +22,37 @@ export default class Example extends PureComponent {
       const newData = [{
         name:"1 yr",
         YourCar:this.props.resultEmi*1*52,
-        ECar:0
+        ECar:this.props.ecarEmi*1*52
     }, 
     {
         name:"2 yr",
         YourCar:this.props.resultEmi*2*52,
-        ECar:0
+        ECar:this.props.ecarEmi*2*52
     },
     {
         name:"3 yr",
         YourCar:this.props.resultEmi*3*52,
-        ECar:0
+        ECar:this.props.ecarEmi*3*52
     },
     {
         name:"4 yr",
         YourCar:this.props.resultEmi*4*52,
-        ECar:0
+        ECar:this.props.ecarEmi*4*52
     },
     {
         name:"5 yr",
         YourCar:this.props.resultEmi*5*52,
-        ECar:0
+        ECar:this.props.ecarEmi*5*52
     },
     {
         name:"6 yr",
         YourCar:this.props.resultEmi*6*52,
-        ECar:0
+        ECar:this.props.ecarEmi*6*52
     },
     {
         name:"7 yr",
         YourCar:this.props.resultEmi*7*52,
-        ECar:0
+        ECar:this.props.ecarEmi*7*52
     },
     ]
     this.setState({data:newData})
@@ -63,37 +63,37 @@ export default class Example extends PureComponent {
           const newData = [{
             name:"1 yr",
             YourCar:this.props.resultEmi*1*52,
-            ECar:0
+            ECar:this.props.ecarEmi*1*52
         }, 
         {
             name:"2 yr",
             YourCar:this.props.resultEmi*2*52,
-            ECar:0
+            ECar:this.props.ecarEmi*2*52
         },
         {
             name:"3 yr",
             YourCar:this.props.resultEmi*3*52,
-            ECar:0
+            ECar:this.props.ecarEmi*3*52
         },
         {
             name:"4 yr",
             YourCar:this.props.resultEmi*4*52,
-            ECar:0
+            ECar:this.props.ecarEmi*4*52
         },
         {
             name:"5 yr",
             YourCar:this.props.resultEmi*5*52,
-            ECar:0
+            ECar:this.props.ecarEmi*5*52
         },
         {
             name:"6 yr",
             YourCar:this.props.resultEmi*6*52,
-            ECar:0
+            ECar:this.props.ecarEmi*6*52
         },
         {
             name:"7 yr",
             YourCar:this.props.resultEmi*7*52,
-            ECar:0
+            ECar:this.props.ecarEmi*7*52
         },
     ]
     this.setState({data:newData})}
@@ -116,7 +116,7 @@ export default class Example extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis label={{ value: 'CO2 emissions (kg)', angle: -90, position: 'insideLeft', offset:0,dy: 40}} tickFormatter={DataFormater}/>
+          <YAxis label={{ value: 'CO2 emissions (kg)', angle: -90, position: 'insideLeft', offset:0,dy: 70}} tickFormatter={DataFormater}/>
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="YourCar" stroke="#8884d8" activeDot={{ r: 5.5 }} />

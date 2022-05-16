@@ -116,7 +116,7 @@ export default class Example extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis label={{ value: '$AUD', angle: -90, position: 'insideLeft', offset:10,dy: -14}} tickFormatter={DataFormater}/>
+          <YAxis label={{ value: '$AUD', angle: -90, position: 'insideLeft', offset:2,dy: -5}} tickFormatter={DataFormater}/>
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="YourCar" stroke="#8884d8" activeDot={{ r: 5.5 }} />
