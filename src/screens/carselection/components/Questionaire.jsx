@@ -148,9 +148,6 @@ export default function Questionaire() {
                 )).sort(function (a,b){
                     return parseInt(a.evBudget) - parseInt(b.evBudget)
                 }).slice(0,3)
-                console.log('abc',temp)
-                console.log('min', min)
-                console.log('max', max)
             }
         }
         if(temp.length < 3){
@@ -223,7 +220,7 @@ export default function Questionaire() {
     }
 
     const resetValue = () =>{
-        setTravelDistance(0)
+        // setTravelDistance(0)
         setFuelCom(0)
         setFuelType('1')
         setPassenger(1)
@@ -231,7 +228,7 @@ export default function Questionaire() {
         setResultCost(0)
         setResultEmi(0)
         setEcarFixedCost(0)
-        setCalDistanceValidate(false)
+        // setCalDistanceValidate(false)
         setCalFuelComValidate(false)
         setCalPassengerValidate(false)
       }
@@ -275,15 +272,15 @@ export default function Questionaire() {
       
 
       const validateCalculatorInput = () =>{
-        console.log(isNaN(travelDistance.toString()))
-        if(isNaN(travelDistance.toString()) || travelDistance<=0 || travelDistance > 10000){
-            setCalDistanceValidate(true)
-        } else{
-            if(calDistanceValidate !== false){
-                setCalDistanceValidate(false)
-            }
+        // console.log(isNaN(travelDistance.toString()))
+        // if(isNaN(travelDistance.toString()) || travelDistance<=0 || travelDistance > 10000){
+        //     setCalDistanceValidate(true)
+        // } else{
+        //     if(calDistanceValidate !== false){
+        //         setCalDistanceValidate(false)
+        //     }
             
-        }
+        // }
 
         if(isNaN(fuelCom.toString()) || fuelCom<=0 || fuelCom > 30){
             setCalFuelComValidate(true)
@@ -302,9 +299,9 @@ export default function Questionaire() {
         }
         setTriggerUpdate(triggerUpdate+1)
       }
-
+      //calDistanceValidate === false && 
       const calculateAndVis = () =>{
-        if(calDistanceValidate === false && calFuelComValidate === false && calPassengerValidate === false){
+        if(calFuelComValidate === false && calPassengerValidate === false){
             const fuelPrice = {
                 "1":2.17,
                 "2":2.31,
@@ -313,14 +310,14 @@ export default function Questionaire() {
               }
 
               // Cost and maintenance
-              let result = Math.round(travelDistance * (1+passenger*0.1-0.1)*fuelCom/100*fuelPrice[fuelType])
+              let result = Math.round(distance * (1+passenger*0.1-0.1)*fuelCom/100*fuelPrice[fuelType])
               setResultCost(result)
           
               // CO2 generated
-              const resultCo2 = travelDistance /100 *fuelCom*2500
+              const resultCo2 = distance /100 *fuelCom*2500
               setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
 
-              setEcarFixedCost(Math.round(travelDistance*0.04))
+              setEcarFixedCost(Math.round(distance*0.04))
             //   setCalDistanceValidate(false)
             //   setCalFuelComValidate(false)
             //   setCalPassengerValidate(false)
@@ -361,7 +358,7 @@ export default function Questionaire() {
                 </div>
                 <div className={progressArray[progressStep[3]]}>
                     <div className={style.step__counter}>4</div>
-                    <div className={style.step__name}>Infrastructures</div>
+                    <div className={style.step__name}>Maintenance</div>
                 </div>
             </div>
         </div>
@@ -375,7 +372,7 @@ export default function Questionaire() {
                     <div className={style.que__block__split__left}>
                         <img src={que_brand1} className={style.que__block__img}></img>
                         <div>
-                            <div className={style.que__block__title}>1. Brand</div>
+                            <div className={style.que__block__title}>Brand</div>
                             <div className={style.que__block__desc}>Which brand do you prefer?</div>
                         </div>
                     </div>
@@ -398,7 +395,7 @@ export default function Questionaire() {
                         <div className={style.que__block__split__left}>
                             <img src={que_loc2} className={style.que__block__img}></img>
                             <div>
-                                <div className={style.que__block__title}>2. Distance</div>
+                                <div className={style.que__block__title}>Distance</div>
                                 <div className={style.que__block__desc}>What is your average travel distance per week?</div>
                             </div>
                         </div>
@@ -415,7 +412,7 @@ export default function Questionaire() {
                         <div className={style.que__block__split__left}>
                             <img src={que_wallet3} className={style.que__block__img}></img>
                             <div>
-                                <div className={style.que__block__title}>3. Budget</div>
+                                <div className={style.que__block__title}>Budget</div>
                                 <div className={style.que__block__desc}>What is your expected buget?</div>
                             </div>
                         </div>
@@ -486,19 +483,19 @@ export default function Questionaire() {
                         <h1 className={style.genc__split__title}>Questions</h1>
                         <p className={style.genc__split__desc}>These questions provide a more accurate<br/> comparison between fossil fuel cars and electric vehicles.</p>
                         <div className={style.genc__que__split}>
-                        <div className={style.genc__que__area__left}>
-                            <div className={style.genc__que__area__title}>1. Travel distance</div>
+                        {/* <div className={style.genc__que__area__left}>
+                            <div className={style.genc__que__area__title}>Travel distance</div>
                             <p className={style.genc__que__area__desc}>Your average travel distance per <br/>week.</p>
                         </div>
                         <div className={style.genc__que__area__right}>
                             <input className={calDistanceValidate === false? style.genc__que__area__input:style.genc__que__area__input__error} name="travelDistance" value={travelDistance} onChange={ e => setTravelDistance(e.target.value)}/>
                             <span className={style.genc__que__area__span}>  km</span>
                             <div className={calDistanceValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
-                        </div>
+                        </div> */}
                         </div>
                         <div className={style.genc__que__split}>
                         <div className={style.genc__que__area__left}>
-                            <div className={style.genc__que__area__title} >2. Fuel consumptions</div>
+                            <div className={style.genc__que__area__title} >Fuel consumptions</div>
                             <p className={style.genc__que__area__desc}>Your average fuel consumptions <br/>per week by your car.</p>
                         </div>
                         {/*     const [calDistanceValidate, setCalDistanceValidate] = useState(false);
@@ -512,7 +509,7 @@ export default function Questionaire() {
                         </div>
                         <div className={style.genc__que__split}>
                             <div className={style.genc__que__area__left}>
-                                <div className={style.genc__que__area__title}> 3. Fuel type</div>
+                                <div className={style.genc__que__area__title}>Fuel type</div>
                                 <p className={style.genc__que__area__desc}>Your commonly used fuel type</p>
                             </div>
                             <div>
@@ -526,7 +523,7 @@ export default function Questionaire() {
                         </div>
                         <div className={style.genc__que__split}>
                             <div className={style.genc__que__area__left}>
-                                <div className={style.genc__que__area__title}>4. Passengers</div>
+                                <div className={style.genc__que__area__title}>Passengers</div>
                                 <p className={style.genc__que__area__desc}>Your number of passengers in <br/>your car</p>
                             </div>
                         <div>
@@ -537,7 +534,7 @@ export default function Questionaire() {
                         </div>
                         <div className={style.genc__que__split}>
                         <div className={style.genc__que__area__left}>
-                            <div className={style.genc__que__area__title} >5. Charging pile</div>
+                            <div className={style.genc__que__area__title} >Charging pile</div>
                             <p className={style.genc__que__area__desc}>Available to install your own <br/>charging pile</p>
                         </div>
                         <div className={style.genc__que__button} ref={mapRef}>
@@ -576,8 +573,8 @@ export default function Questionaire() {
             </div>
         </section> 
         <div className={style.que__container}>
-            <div className={style.que__title} ref={supRef}>Supporting Facilities</div>
-            <div className={style.que__desc}>Display the charging stations and maintenance store on the map and shows the contact information <br/>on the list.</div>
+            <div className={style.que__title} ref={supRef}>Maintenance</div>
+            <div className={style.que__desc}>Display the charging stations and relevant information on the map. </div>
         </div>
         <section>
             <div className={style.sup__input__area}>

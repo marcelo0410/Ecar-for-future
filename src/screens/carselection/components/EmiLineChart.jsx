@@ -109,14 +109,14 @@ export default class Example extends PureComponent {
           data={this.state.data}
           margin={{
             top: 5,
-            right: 30,
-            left: 20,
+            right: 35,
+            left: 0,
             bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis label={{ value: '(kg)', angle: -90, position: 'insideLeft', offset:-5,dy: -20}} tickFormatter={DataFormater}/>
+          <YAxis label={{ value: 'CO2 emissions (kg)', angle: -90, position: 'insideLeft', offset:18,dy: 40}} tickFormatter={DataFormater}/>
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="YourCar" stroke="#8884d8" activeDot={{ r: 5.5 }} />
