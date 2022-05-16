@@ -110,7 +110,7 @@ export default class Example extends PureComponent {
           margin={{
             top: 5,
             right: 35,
-            left: 0,
+            left: 10,
             bottom: 5,
           }}
         >
