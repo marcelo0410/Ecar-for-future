@@ -332,7 +332,7 @@ export default function Questionaire() {
               // E-car Carbon emission = 
               // Travel distance * 0.04 + 
               // Travel distance * (EV battery capacity / 80% EV标注里程) * 0.8 （0.8指的是每发一度电会产生约0.8kgCO2）
-              let selectCarData = Array.from(carData).filter((item) => item['evId'] == 3)
+              let selectCarData = Array.from(carData).filter((item) => item['evId'] == selectedCar)
               const resultEcarCo2 = distance * (selectCarData[0]['evBattery'] / selectCarData[0]['evDistance']) * 0.8
               setEcarEmi(Math.round(resultEcarCo2))
               
