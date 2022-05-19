@@ -69,7 +69,13 @@ export default function Questionaire() {
         const result = await axios(
           'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/evDetail/findAll/',
         );
-        setCarData(Array.from(result.data)) 
+        let temp = result.data.sort( function( a, b ) {
+            a = a['evBrand'].toLowerCase();
+            b = b['evBrand'].toLowerCase();
+        
+            return a < b ? -1 : a > b ? 1 : 0;
+        });
+        setCarData(Array.from(temp)) 
         
       }, []);
 

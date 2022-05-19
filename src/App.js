@@ -14,11 +14,13 @@ import QuestionFourCar from './screens/calculation/components/QuestionFourCar';
 import QuestionFiveFuel from './screens/calculation/components/QuestionFiveFuel';
 import QuestionSixFuel from './screens/calculation/components/QuestionSixFuel'
 import QuestionSevenCharging from './screens/calculation/components/QuestionSevenCharging';
-import Storyboard from './screens/storyboard/index';
+// import Storyboard from './screens/storyboard/index';
 import PredictionGraph from './screens/predictiongraph/index';
 import Carselection from './screens/carselection/index';
 import GeneralCalculatorV from './screens/carselection/components/GeneralCalculatorNew';
 import CarGuide from './screens/carguide/index'
+import Storytelling from './screens/Storytelling/index'
+import Story from './screens/Storytelling/Story'
 
 function App() {
   return (
@@ -38,12 +40,14 @@ function App() {
           <Route path="/q5" element={<QuestionFiveFuel/>}/>
           <Route path="/q6" element={<QuestionSixFuel/>}/>
           <Route path="/q7" element={<QuestionSevenCharging/>}/>
-          <Route path="/current" element={<Storyboard/>}/>
+          {/* <Route path="/current" element={<Storyboard/>}/> */}
           <Route path="/prediction" element={<PredictionGraph/>}/>
-          <Route path="/storyboard" element={<Storyboard/>}/>
+          {/* <Route path="/storyboard" element={<Storyboard/>}/> */}
           <Route path="/gen" element={<GeneralCalculatorV/>}/>
           <Route path="/carselection" element={<Carselection/>}/>
           <Route path="/carguide" element={<CarGuide/>}/>
+          <Route path="/story" element={<Storytelling/>}/>
+          <Route path="/story1" element={<Story/>}/>
           
           <Route path="/" element={<Navigate replace to="/home"/>} />
         </Routes>

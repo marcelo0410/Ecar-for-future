@@ -21,7 +21,7 @@ export default class Example extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis domain={[15000, 34000]} label={{ value: '(CO₂-e (Mt))', angle: -90, position: 'insideLeft', offset:-18}}/>
+          <YAxis domain={[15000, 34000]} label={{ value: '(CO₂-e (Kt))', angle: -90, position: 'insideLeft', offset:-25}}/>
           <Tooltip />
           <Legend />
           <Bar name='emission_fifty' dataKey="emissionFifty" stackId="a" fill="#4771b2" />

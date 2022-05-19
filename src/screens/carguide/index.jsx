@@ -6,13 +6,17 @@ import upicon from '../../assets/common/upicon.png'
 export default function Index() {
 
     const [carData, setCarData] = useState("")
+    const [filteredData, setFilteredData] = useState("")
+    const [carBudget, setCarBudget] = useState("budgetAll")
+    const [carType, setCarType] = useState("typeAll")
 
     // https://d1pvgbbxmbkkid.cloudfront.net
     useEffect(async () => {
         const result = await axios(
           'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/evDetail/findAll/',
         );
-        setCarData(result.data) 
+        setCarData(result.data)
+        setFilteredData(result.data) 
         
       }, []);
 
@@ -34,6 +38,48 @@ export default function Index() {
         });
     }
 
+    const filterCarData = () =>{
+      let tempData
+      if(carType === "typeAll"){
+        tempData = carData
+      } else{
+        tempData = carData.filter(item => item['evBrand'] === carType)
+        console.log(tempData)
+      }
+
+
+
+      if(carBudget === "budgetAll"){
+        setFilteredData(tempData)
+      } else{
+        let min =0
+        let max = 0
+        if(carBudget === '50'){
+          min = 50000
+          max = 100000
+        } else if(carBudget === "100"){
+          min = 100000
+          max = 150000
+        } else{
+          min = 150000
+          max = 1000000
+        }
+
+        tempData = Array.from(tempData).filter(item => (
+          min < parseInt(item['evBudget']) && max > parseInt(item['evBudget'])
+        ))
+        setFilteredData(tempData)
+      }
+
+
+    }
+
+    const resetData = () =>{
+      setFilteredData(carData)
+      setCarBudget("budgetAll")
+      setCarType("typeAll")
+    }
+
 
   return (
       <div>
@@ -45,9 +91,26 @@ export default function Index() {
             <div>This vehicle guide presents all of the electric vehicles currently available in the Australian market with their associated resources. For further information on the environmental performance of light vehicles sold in Australia, see the Australian Government's <a href='https://www.greenvehicleguide.gov.au/' target="_blank">Green Vehicle Guide website</a>.</div>
         </div>
         <section>
+            <div className={style.filter__select__area}>
+              <select value={carType} onChange={e => setCarType(e.target.value)}>
+                  <option value="typeAll" >No Preferred Brand</option>
+                  <option value="Tesla">Tesla</option>
+                  <option value="Audi">Audi</option>
+                  <option value="BMW">BMW</option>
+              </select>
+              <select  value={carBudget} onChange={e => setCarBudget(e.target.value)}>
+                  <option value="budgetAll">No budget</option>
+                  <option value="50">50k - 100k</option>
+                  <option value="100">100k - 150k</option>
+                  <option value="150">Over 150k</option>
+              </select>
+              <button onClick={filterCarData}>submit</button>
+              <button onClick={resetData}>reset</button>
+              
+            </div>
             <div className={style.rec__tile__area}>
                 {
-                    Array.from(carData).map((item,index)=>
+                    Array.from(filteredData).map((item,index)=>
                     <div className={`${style.rec__tile__item} ${style.rec__title__border}`} key={item['evId']}>
                         <img src={item['imgLink']} className={style.rec__tile__item__img}></img>
                         <div className={style.rec__tile__item__desc}>
@@ -62,7 +125,9 @@ export default function Index() {
                     </div>
                      )
                 }
+                
             </div>
+            {filteredData.length == 0 &&<div className={style.hidden_msg}>No Results</div>}
         </section>
         <a className={style.back__area} onClick={backToTop}>
             <div>Back to top</div>

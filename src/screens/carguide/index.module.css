@@ -31,7 +31,7 @@
 .rec__tile__area{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     gap: 4%;
     padding-top: 2.11rem;
     background-color: white;
@@ -39,6 +39,7 @@
     width: 80%;
     margin: 0 auto;
     background: #FAFAFA;
+    text-align: center;
 }
 
 .rec__tile__item{
@@ -51,6 +52,11 @@
     /* margin: 0 auto; */
     align-items: center;
     margin-bottom: 30px;
+}
+
+.hidden_msg{
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 .rec__title__border{
@@ -174,4 +180,10 @@
 
 .back__area:hover{
   color: #00A19D;
+}
+
+.filter__select__area{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
 }
