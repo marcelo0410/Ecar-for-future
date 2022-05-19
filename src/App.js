@@ -46,9 +46,7 @@ function App() {
           <Route path="/gen" element={<GeneralCalculatorV/>}/>
           <Route path="/carselection" element={<Carselection/>}/>
           <Route path="/carguide" element={<CarGuide/>}/>
-          <Route path="/story" element={<Storytelling/>}/>
-          <Route path="/story1" element={<Story/>}/>
-          
+          <Route path="/storyboard" element={<Storytelling/>}/>
           <Route path="/" element={<Navigate replace to="/home"/>} />
         </Routes>
         <Footer/>
