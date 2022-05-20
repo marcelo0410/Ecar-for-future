@@ -428,3 +428,20 @@
     font-weight: bold;
     font-style: underline;
 }
+
+.final a {
+    width: 20%;
+    height: auto;
+    margin-top: 40vh;
+    margin-bottom: 20vh;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: underline;
+}
+
+.final a:hover{
+    color:#5C8FAB;
+    background: #fff;
+}

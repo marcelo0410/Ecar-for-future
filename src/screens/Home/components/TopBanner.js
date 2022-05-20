@@ -16,7 +16,7 @@ export default function TopBanner() {
     <div className='banner'>
       <div className='banner__title'>Make a <span className='banner__title__span'>change</span></div>
       <div className='banner__desc' >Maybe you want to purchase an Electric Vehicle instead of a fossil fuel car?</div>
-      <button className="banner__button" type="button" onClick={handleClick}>Learn the reason <img className='banner__button__img' src={arrow}></img></button>
+      <button className="banner__button" type="button" onClick={handleClick}>Select your car <img className='banner__button__img' src={arrow}></img></button>
       <div className='banner__bottom__desc'>Scroll down to explore your journey</div>
       <img className='banner__bottom__img' src={doublearrow}></img>
     </div>

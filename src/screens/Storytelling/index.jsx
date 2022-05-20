@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import {useLocation, useNavigate} from 'react-router-dom';
 import $ from "jquery";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -7,6 +8,21 @@ import Chart from "chart.js/auto";
 // import p1 from './pic2/greenbackground.png'
 
 export default function Index() {
+
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const resetDirectToCur = () =>{
+
+      navigate('/curenv')
+      window.scrollTo(0, 0);
+    }
+    const resetDirectToEV= () =>{
+
+      navigate('/calculator')
+      window.scrollTo(0, 0);
+    }
+
   const containerRef = useRef(null);
   const myChartRef = useRef(null);
   const myChart2Ref = useRef(null);
@@ -586,11 +602,10 @@ export default function Index() {
         </div>
         <div className="final">
           <h2>What to know more?</h2>
-          <h3>
-            About environment
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Explore
-            EVs
-          </h3>
+          <div style={{display:"flex", justifyContent:"center", gap:"260px"}}>
+                <a className="final__link" onClick={resetDirectToCur}>About environment</a>
+                <a className="final__link" onClick={resetDirectToEV}>Explore EVs</a>
+          </div>
         </div>
       </section>
     </div>
