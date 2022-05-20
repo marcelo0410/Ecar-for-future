@@ -38,7 +38,7 @@ export default function Menu() {
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                      <NavLink to="/carselection">Recommondation</NavLink>
+                      <NavLink to="/carselection">recommendation</NavLink>
                       <NavLink to="/carguide">Vehicle Guide</NavLink>
                     </div>
                   </div>

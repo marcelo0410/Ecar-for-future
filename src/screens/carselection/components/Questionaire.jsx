@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import {useLocation, useNavigate} from 'react-router-dom';
 import style from './style.module.css'
 import progress3 from '../../../assets/carselection/progress_3.jpg'
-import que_brand1 from '../../../assets/carselection/que_brand1.jpg'
+import que_brand1 from '../../../assets/carselection/que_brand1.png'
 import que_loc2 from '../../../assets/carselection/que_loc2.png'
 import que_wallet3 from '../../../assets/carselection/que_wallet3.png'
 import que_brain4 from '../../../assets/carselection/que_brain4.jpg'
@@ -507,8 +507,10 @@ export default function Questionaire() {
                     <div className={style.genc__split__left}>
                     
                     <div className={style.genc__que__area}>
-                        <h1 className={style.genc__split__title}>Questions</h1>
-                        <p className={style.genc__split__desc}>These questions provide a more accurate<br/> comparison between fossil fuel cars and electric vehicles.</p>
+                    <div className={style.gen__select__title}>Your selected model is: </div>
+                    
+                        {selectedCar != 0 && (<div>{ Array.from(carData).filter((item) => item['evId'] == selectedCar)[0]['evBrand'] }<span> { Array.from(carData).filter((item) => item['evId'] == selectedCar)[0]['evType'] }</span></div>)}    
+                        <p className={style.genc__split__desc}>These questions provide a more accurate comparison between fossil fuel cars and electric vehicles.</p>
                         <div className={style.genc__que__split}>
                         {/* <div className={style.genc__que__area__left}>
                             <div className={style.genc__que__area__title}>Travel distance</div>
@@ -520,8 +522,6 @@ export default function Questionaire() {
                             <div className={calDistanceValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
                         </div> */}
                         </div>
-                        <div>Your selected model is: </div>
-                        {/* <div>{selectedCar != 0 && (Array.from(carData).filter(item => item['evId'] === selectedCar)) }</div>     */}
                         <div className={style.genc__que__split}>
                         
                         <div className={style.genc__que__area__left}>
