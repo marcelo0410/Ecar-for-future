@@ -31,7 +31,7 @@ export default function Footer() {
           <div>Select Your Car</div>
           <div className={style.footer__text__bottom}>
             <div className={style.footer__text__thin}><a href='/carselection'>Recommondation</a></div>
-            <div className={style.footer__text__thin}><a href='/carguide'>Explore All</a></div>
+            <div className={style.footer__text__thin}><a href='/carguide'>Vehicle Guide</a></div>
           </div>
         </div>
 

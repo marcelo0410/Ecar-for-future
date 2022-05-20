@@ -36,7 +36,7 @@ export default function Index() {
         </div>
         <CurEnv/>
         <div style={{width:"66%", margin:"0 auto"}}>
-          <div className='map_title'>Density Map of Greenhouse Gas Emissions of States in Au</div>
+          <div className='map_title'>Density Map of Greenhouse Gas Emissions of States in Australia</div>
           <div style={{display:'flex', flexDirection:'row', justifyContent:"center", marginBottom:'20px'}}>
               <div style={{width:'70%'}}>
                 <Map data={geoJSONCED}/>

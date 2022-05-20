@@ -184,7 +184,7 @@
 
 .future {
     display: block;
-    height: 1400vh;
+    height: 600vh;
     box-sizing: border-box;
 }
 
@@ -214,7 +214,7 @@
     margin-right: auto;
     width: 500px;
     height: 80px;
-    background-color: #71AB5C;
+    /* background-color: #71AB5C; */
     padding-bottom: 80vh;
     /* transform: scale(clamp(0.15, var(--scale), 1)); */
     /* transform-origin: 0% 0%; */
@@ -272,7 +272,7 @@
 
 .ev {
     display: block;
-    height: 1300vh;
+    height: 1500vh;
     box-sizing: border-box;
     padding-top: 20vh;
 }

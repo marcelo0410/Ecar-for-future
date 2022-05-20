@@ -39,7 +39,7 @@ export default function Menu() {
                     </button>
                     <div class="dropdown-content">
                       <NavLink to="/carselection">Recommondation</NavLink>
-                      <NavLink to="/carguide">Explore All</NavLink>
+                      <NavLink to="/carguide">Vehicle Guide</NavLink>
                     </div>
                   </div>
                 </li>

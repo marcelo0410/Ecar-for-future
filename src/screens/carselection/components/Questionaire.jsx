@@ -37,7 +37,7 @@ export default function Questionaire() {
     const [distance, setDistance] = useState(100)
 
     // General Calculator
-    const [selectedCar, setSelectedCar] = useState(1)
+    const [selectedCar, setSelectedCar] = useState(0)
     const [travelDistance, setTravelDistance] = useState(0)
     const [fuelCom, setFuelCom] = useState(0)
     const [fuelType, setFuelType] = useState('1')
@@ -297,7 +297,7 @@ export default function Questionaire() {
             
         // }
 
-        if(isNaN(fuelCom.toString()) || fuelCom<=0 || fuelCom > 30){
+        if(isNaN(fuelCom.toString()) || fuelCom<=5 || fuelCom > 50){
             setCalFuelComValidate(true)
         } else{
             if(calFuelComValidate !== false){
@@ -391,7 +391,7 @@ export default function Questionaire() {
         </div>
         <div className={style.que__container}>
             <div className={style.que__title} >Questionnaire</div>
-            <div className={style.que__desc}>Survey your daily needs and personal preferences to make reasonable recommendations</div>
+            <div className={style.que__desc}>Please complete the survey to find the commended electric vehicle that best suits your needs</div>
         </div>
         <section id="questions" className={style.que__sec}> 
             <div className={style.que__block__white}>
@@ -429,7 +429,7 @@ export default function Questionaire() {
                         <div className={style.que__block__split__right}>
                             <input className={queDistanceValidate === false? style.que__block__split__input:style.que__block__split__input__error} value={distance} onChange={e => setDistance(e.target.value)}></input>
                             <span className={style.que__block__split__span}>   km</span>
-                            <div className={queDistanceValidate === false? style.que__block__error:style.que__block__error__show}>Please enter a valid number</div>
+                            <div className={queDistanceValidate === false? style.que__block__error:style.que__block__error__show}>Please enter a valid number(1-10000)</div>
 
                         </div>
                 </div>
@@ -520,7 +520,10 @@ export default function Questionaire() {
                             <div className={calDistanceValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
                         </div> */}
                         </div>
+                        <div>Your selected model is: </div>
+                        {/* <div>{selectedCar != 0 && (Array.from(carData).filter(item => item['evId'] === selectedCar)) }</div>     */}
                         <div className={style.genc__que__split}>
+                        
                         <div className={style.genc__que__area__left}>
                             <div className={style.genc__que__area__title} >Fuel consumptions</div>
                             <p className={style.genc__que__area__desc}>Your average fuel consumptions <br/>per week by your car.</p>
@@ -531,7 +534,7 @@ export default function Questionaire() {
                         <div>
                             <input className={calFuelComValidate === false? style.genc__que__area__input:style.genc__que__area__input__error} min="0" max="10" value={fuelCom} onChange={ e => setFuelCom(e.target.value)}></input>
                             <span className={style.genc__que__area__span}>  L/100km</span>
-                            <div className={calFuelComValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
+                            <div className={calFuelComValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number (5-50)</div>
                         </div>
                         </div>
                         <div className={style.genc__que__split}>
@@ -556,7 +559,7 @@ export default function Questionaire() {
                         <div>
                             <input className={calPassengerValidate === false? style.genc__que__area__input:style.genc__que__area__input__error}  value={passenger} onChange={e => setPassenger(e.target.value)}></input>
                             <span className={style.genc__que__area__span}>  people</span>
-                            <div className={calPassengerValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number</div>
+                            <div className={calPassengerValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number(1-20)</div>
                         </div>
                         </div>
                         <div className={style.genc__que__split}>
@@ -594,9 +597,9 @@ export default function Questionaire() {
                 <div className={style.genc_bottom__bar__split} >
                     <button className={style.genc__bottom__redbutton} onClick={resetValue}>Reset</button>
                 </div>
-                <div className={style.genc_bottom__bar__split} >
+                {/* <div className={style.genc_bottom__bar__split} >
                     <button className={style.genc__bottom__redbutton} onClick={naviToMap}>Charging Map</button>
-                </div>
+                </div> */}
             </div>
         </section> 
         <div className={style.que__container}>
