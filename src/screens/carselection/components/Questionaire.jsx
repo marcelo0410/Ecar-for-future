@@ -282,7 +282,7 @@ export default function Questionaire() {
       }
     
       const calculateCost = () => {
-        setProgressStep('2221')
+
         validateCalculatorInput()
       }
 
@@ -313,7 +313,7 @@ export default function Questionaire() {
             
         // }
 
-        if(isNaN(fuelCom.toString()) || fuelCom<5 || fuelCom > 50 || (!isNaN(parseFloat(fuelCom)) && isFinite(fuelCom))){
+        if(isNaN(fuelCom.toString()) || fuelCom<5 || fuelCom > 50){
             setCalFuelComValidate(true)
         } else{
             if(calFuelComValidate !== false){
@@ -321,7 +321,7 @@ export default function Questionaire() {
             }
         }
 
-        if(isNaN(passenger.toString()) || passenger<=0 || passenger > 20 || (!isNaN(parseFloat(passenger)) && isFinite(passenger))){
+        if(isNaN(passenger.toString()) || passenger<=0 || passenger > 20){
             setCalPassengerValidate(true)
         } else{
             if(calPassengerValidate !== false){
@@ -382,6 +382,7 @@ export default function Questionaire() {
               const resultEcarCo2 = distance * (selectCarData[0]['evBattery'] / selectCarData[0]['evDistance']) * 0.8
               setEcarEmi(Math.round(resultEcarCo2))
               console.log('setEcarEmi', Math.round(resultEcarCo2))
+              setProgressStep('2221')
               
               
             //   setCalDistanceValidate(false)
