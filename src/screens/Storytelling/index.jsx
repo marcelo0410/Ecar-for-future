@@ -19,7 +19,7 @@ export default function Index() {
     }
     const resetDirectToEV= () =>{
 
-      navigate('/calculator')
+      navigate('/carselection')
       window.scrollTo(0, 0);
     }
 
@@ -603,8 +603,8 @@ export default function Index() {
         <div className="final">
           <h2>What to know more?</h2>
           <div style={{display:"flex", justifyContent:"center", gap:"260px"}}>
-                <a className="final__link" onClick={resetDirectToCur}>About environment</a>
-                <a className="final__link" onClick={resetDirectToEV}>Explore EVs</a>
+                <a href="/curenv" className="final__link" >About environment</a>
+                <a href="/carselection" className="final__link" >Explore EVs</a>
           </div>
         </div>
       </section>

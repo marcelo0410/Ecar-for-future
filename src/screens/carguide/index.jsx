@@ -15,8 +15,14 @@ export default function Index() {
         const result = await axios(
           'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/evDetail/findAll/',
         );
-        setCarData(result.data)
-        setFilteredData(result.data) 
+        let temp = result.data.sort( function( a, b ) {
+            a = a['evBrand'].toLowerCase();
+            b = b['evBrand'].toLowerCase();
+        
+            return a < b ? -1 : a > b ? 1 : 0;
+        });
+        setCarData(temp)
+        setFilteredData(temp) 
         
       }, []);
 
@@ -92,20 +98,20 @@ export default function Index() {
         </div>
         <section>
             <div className={style.filter__select__area}>
-              <select value={carType} onChange={e => setCarType(e.target.value)}>
+              <select className={style.que__block__split__select} value={carType} onChange={e => setCarType(e.target.value)}>
                   <option value="typeAll" >No Preferred Brand</option>
                   <option value="Tesla">Tesla</option>
                   <option value="Audi">Audi</option>
                   <option value="BMW">BMW</option>
               </select>
-              <select  value={carBudget} onChange={e => setCarBudget(e.target.value)}>
+              <select className={style.que__block__split__select2}  value={carBudget} onChange={e => setCarBudget(e.target.value)}>
                   <option value="budgetAll">No budget</option>
                   <option value="50">50k - 100k</option>
                   <option value="100">100k - 150k</option>
                   <option value="150">Over 150k</option>
               </select>
-              <button onClick={filterCarData}>submit</button>
-              <button onClick={resetData}>reset</button>
+              <button className={style.genc__bottom__orangebutton} onClick={filterCarData}>Submit</button>
+              <button className={style.genc__bottom__orangebutton} onClick={resetData}>Reset</button>
               
             </div>
             <div className={style.rec__tile__area}>
@@ -114,10 +120,14 @@ export default function Index() {
                     <div className={`${style.rec__tile__item} ${style.rec__title__border}`} key={item['evId']}>
                         <img src={item['imgLink']} className={style.rec__tile__item__img}></img>
                         <div className={style.rec__tile__item__desc}>
-                            Model: {item['evBrand']}<br/>
-                            <div className={item['evType'].length > 25? style.rec__tile__item__desc__type:style.rec__tile__item__desc__type__smallfont}>{item['evType']}</div>
+                            {item['evType'].length >= 25 && (<div><div>Model: {item['evBrand']}</div>
+                            <div className={style.rec__tile__item__desc__type__smallfont}>{item['evType']}</div></div>)}
+                            { (item['evType'].length < 25) && 8 < item['evType'].length && (<div><div>Model: {item['evBrand']}</div>
+                            <div className={style.rec__tile__item__desc__type}>{item['evType']}</div></div>)}
+                            {item['evType'].length <= 8 && (<div><div>Model: {item['evBrand']} {item['evType']}</div><br/>
+                            </div>)}
                             Distance: {item['evDistance']} km<br/>   
-                            Price range: {parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD',maximumFractionDigits: '0' })}<br/>
+                            Price: {'\u00A0'}{'\u00A0'}{'\u00A0'}{parseInt(item['evBudget']).toLocaleString('en-US', { style: 'currency', currency: 'USD',maximumFractionDigits: '0' })}<br/>
                             
                         </div>
                         <a className={style.rec__tile__item__a} href={item['link']} target="_blank"><div className={style.rec__tile__item__button}>View More</div></a>

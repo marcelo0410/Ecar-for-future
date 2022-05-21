@@ -18,9 +18,9 @@ export default function Menu() {
                 <li>
                   <NavLink to="/home" >Home</NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/storyboard">Explore the Story</NavLink>
-                </li>
+                </li> */}
                 <li>
                   <div class="dropdown">
                     <button class="dropbtn">Emission Inventory

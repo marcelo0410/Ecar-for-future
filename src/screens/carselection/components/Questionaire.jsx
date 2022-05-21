@@ -10,6 +10,7 @@ import rec_tesla from '../../../assets/carselection/rec_tesla.jpg'
 import rec_audi from '../../../assets/carselection/rec_audi.jpg'
 import rec_benz from '../../../assets/carselection/rec_benz.jpg'
 import upicon from '../../../assets/common/upicon.png'
+import helpImage from '../../../assets/calculation/help-circle.png'
 import GeneralCalculatorNew from './GeneralCalculatorNew'
 import ChargingStation from './chargingstation/Index'
 import $ from 'jquery'
@@ -37,17 +38,18 @@ export default function Questionaire() {
     const [distance, setDistance] = useState(100)
 
     // General Calculator
-    const [selectedCar, setSelectedCar] = useState(0)
+    const [selectedCar, setSelectedCar] = useState(-1)
     const [travelDistance, setTravelDistance] = useState(0)
-    const [fuelCom, setFuelCom] = useState(0)
+    const [fuelCom, setFuelCom] = useState(10)
     const [fuelType, setFuelType] = useState('1')
     const [passenger, setPassenger] = useState(1)
     const [chargingButtonCss, setChargingButtonCss] = useState(1)
     const [resultButtonCss, setResultButtonCss] = useState(1)
-    const [resultCost, setResultCost] = useState(0)
-    const [resultEmi, setResultEmi] = useState(0)
-    const [ecarFixedCost, setEcarFixedCost] = useState(0)
-    const [ecarEmi, setEcarEmi] = useState(0)
+
+    const [resultCost, setResultCost] = useState(22)
+    const [resultEmi, setResultEmi] = useState(25)
+    const [ecarFixedCost, setEcarFixedCost] = useState(4)
+    const [ecarEmi, setEcarEmi] = useState(13)
 
     // validation
     const [queDistanceValidate, setQueDistanceValidate] = useState(false);
@@ -56,6 +58,10 @@ export default function Questionaire() {
     const [calPassengerValidate, setCalPassengerValidate] = useState(false);
     const [triggerUpdate, setTriggerUpdate] = useState(1)
 
+    // tooltip
+    const [divDisplay, setdivDisplay] = useState(`${style.help__tooltip} ${style.help__tooltip__unhover}`)
+
+
     // ref for scrolling to certain section
     const recRef = useRef(null);
     const comRef = useRef(null);
@@ -63,6 +69,8 @@ export default function Questionaire() {
     const selectRef = useRef(null)
     const calRef = useRef(null)
     const mapRef = useRef(null)
+
+
 
     //http://localhost:8080/v1/api/evDetail/findAll/
     useEffect(async () => {
@@ -75,7 +83,8 @@ export default function Questionaire() {
         
             return a < b ? -1 : a > b ? 1 : 0;
         });
-        setCarData(Array.from(temp)) 
+        console.log(temp)
+        setCarData(temp)
         
       }, []);
 
@@ -188,6 +197,10 @@ export default function Questionaire() {
         calRef.current.scrollIntoView()
         setProgressStep('2210')
         setSelectedCar(id)
+        setResultCost(0)
+        setResultEmi(0)
+        setEcarEmi(0)
+        setEcarFixedCost(0)
     }
 
     const naviToMap = () =>{
@@ -228,17 +241,18 @@ export default function Questionaire() {
 
     const resetValue = () =>{
         // setTravelDistance(0)
-        setFuelCom(0)
+        setFuelCom(10)
         setFuelType('1')
         setPassenger(1)
         selectRef.current.selectedIndex=0
-        setResultCost(0)
-        setResultEmi(0)
-        setEcarEmi(0)
-        setEcarFixedCost(0)
+        setResultCost(22)
+        setResultEmi(25)
+        setEcarEmi(13)
+        setEcarFixedCost(4)
         // setCalDistanceValidate(false)
         setCalFuelComValidate(false)
         setCalPassengerValidate(false)
+        setSelectedCar(-1)
       }
     
 
@@ -268,6 +282,7 @@ export default function Questionaire() {
       }
     
       const calculateCost = () => {
+        setProgressStep('2221')
         validateCalculatorInput()
       }
 
@@ -284,6 +299,7 @@ export default function Questionaire() {
 
         }
       }, [triggerUpdate])
+
       
 
       const validateCalculatorInput = () =>{
@@ -297,7 +313,7 @@ export default function Questionaire() {
             
         // }
 
-        if(isNaN(fuelCom.toString()) || fuelCom<=5 || fuelCom > 50){
+        if(isNaN(fuelCom.toString()) || fuelCom<5 || fuelCom > 50 || (!isNaN(parseFloat(fuelCom)) && isFinite(fuelCom))){
             setCalFuelComValidate(true)
         } else{
             if(calFuelComValidate !== false){
@@ -305,7 +321,7 @@ export default function Questionaire() {
             }
         }
 
-        if(isNaN(passenger.toString()) || passenger<=0 || passenger > 20){
+        if(isNaN(passenger.toString()) || passenger<=0 || passenger > 20 || (!isNaN(parseFloat(passenger)) && isFinite(passenger))){
             setCalPassengerValidate(true)
         } else{
             if(calPassengerValidate !== false){
@@ -327,20 +343,45 @@ export default function Questionaire() {
               // Cost and maintenance
               let result = Math.round(distance * (1+passenger*0.1-0.1)*fuelCom/100*fuelPrice[fuelType])
               setResultCost(result)
+              console.log('resultCost', result)
 
-              setEcarFixedCost(Math.round(distance*0.04))
+
+              let temp1;
+              if(selectedCar === -1){
+                  temp1 = 1
+              } else{
+                  temp1 = selectedCar
+              }
+              let selectCarData1 = Array.from(carData).filter((item) => item['evId'] == temp1)
+              if(chargingButtonCss ===1){
+                setEcarFixedCost(Math.round(distance/100*selectCarData1[0]['evEnergy']*0.3))
+              } else{
+                setEcarFixedCost(Math.round(distance/100*selectCarData1[0]['evEnergy']*0.5))
+              }
+              
+              console.log('setEcarFixedCost', Math.round(distance*0.04))
+
           
               // CO2 generated
               const resultCo2 = distance /100 *fuelCom*2500
               setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
+              console.log('setResultEmi', Math.round(resultCo2 * 100/1000) / 100)
+
 
               // CO2 generated ecar
               // E-car Carbon emission = 
               // Travel distance * 0.04 + 
               // Travel distance * (EV battery capacity / 80% EV标注里程) * 0.8 （0.8指的是每发一度电会产生约0.8kgCO2）
-              let selectCarData = Array.from(carData).filter((item) => item['evId'] == selectedCar)
+              let temp;
+              if(selectedCar === -1){
+                  temp = 1
+              } else{
+                  temp = selectedCar
+              }
+              let selectCarData = Array.from(carData).filter((item) => item['evId'] == temp)
               const resultEcarCo2 = distance * (selectCarData[0]['evBattery'] / selectCarData[0]['evDistance']) * 0.8
               setEcarEmi(Math.round(resultEcarCo2))
+              console.log('setEcarEmi', Math.round(resultEcarCo2))
               
               
             //   setCalDistanceValidate(false)
@@ -359,6 +400,15 @@ export default function Questionaire() {
 
       const renderProgressbar = () =>{
         setProgressStep('2222')
+      }
+
+      const hoverHelp = () =>{
+        setdivDisplay(`${style.help__tooltip} ${style.help__tooltip__hover}`)
+      }
+    
+      const hoverLeave = () =>{
+        setdivDisplay(`${style.help__tooltip} ${style.help__tooltip__unhover}`)
+    
       }
       
 
@@ -479,10 +529,15 @@ export default function Questionaire() {
                         </div>
                         <button className={style.rec__tile__item__button} onClick={() =>naviToCompare(item['evId'])}>Select</button>
                         <div  className={style.rec__tile__item__link}><a href={item['link']} target="_blank">Learn More</a></div>
+                        
                     </div>
+                    
                      )
                 }
+            
+
             </div>
+            {recCarData !== "" && (<div className={style.rec__bottom__title__gray}>*Price is based on the Manufacturer's Suggested Retail Price for the lowest priced model.</div>)}
             
             
         </section>
@@ -509,7 +564,8 @@ export default function Questionaire() {
                     <div className={style.genc__que__area}>
                     <div className={style.gen__select__title}>Your selected model is: </div>
                     
-                        {selectedCar != 0 && (<div>{ Array.from(carData).filter((item) => item['evId'] == selectedCar)[0]['evBrand'] }<span> { Array.from(carData).filter((item) => item['evId'] == selectedCar)[0]['evType'] }</span></div>)}    
+                        {selectedCar !== -1 && carData!=="" && (<div className={style.gen__select__carName}>{ Array.from(carData).filter((item) => item['evId'] === selectedCar)[0]['evBrand'] }<span> { Array.from(carData).filter((item) => item['evId'] === selectedCar)[0]['evType'] }</span></div>)}    
+                        {selectedCar === -1 && carData!=="" && (<div className={style.gen__select__carName}>{ Array.from(carData).filter((item) => item['evId'] === 1)[0]['evBrand'] }<span> { Array.from(carData).filter((item) => item['evId'] === 1)[0]['evType'] } (default)</span></div>)}    
                         <p className={style.genc__split__desc}>These questions provide a more accurate comparison between fossil fuel cars and electric vehicles.</p>
                         <div className={style.genc__que__split}>
                         {/* <div className={style.genc__que__area__left}>
@@ -562,15 +618,19 @@ export default function Questionaire() {
                             <div className={calPassengerValidate === false? style.genc__block__error:style.genc__block__error__show}>Please enter a valid number(1-20)</div>
                         </div>
                         </div>
+                        <div className={style.genc__que__split__nomargin}>
+                            <div className={style.genc__que__area__left}>
+                                <div className={style.genc__que__area__title} >Charging pile<img src={helpImage} className={style.genc__que__area__title__img} onMouseOver={hoverHelp} onMouseOut={hoverLeave}></img></div>
+                                <p className={style.genc__que__area__desc}>Available to install your own <br/>charging pile</p>
+                                
+                            </div>
+                            <div className={style.genc__que__button} ref={mapRef}>
+                                <button className={ chargingButtonCss===1? `${style.genc__que__button__orange}`:`${style.genc__que__button__white}`} onClick={changeButtonOrange}>Yes</button>
+                                <button className={ chargingButtonCss===1? `${style.genc__que__button__white}`:`${style.genc__que__button__orange}`} onClick={changeButtonWhite}>No</button>
+                            </div>
+                        </div>
                         <div className={style.genc__que__split}>
-                        <div className={style.genc__que__area__left}>
-                            <div className={style.genc__que__area__title} >Charging pile</div>
-                            <p className={style.genc__que__area__desc}>Available to install your own <br/>charging pile</p>
-                        </div>
-                        <div className={style.genc__que__button} ref={mapRef}>
-                            <button className={ chargingButtonCss===1? `${style.genc__que__button__orange}`:`${style.genc__que__button__white}`} onClick={changeButtonOrange}>Yes</button>
-                            <button className={ chargingButtonCss===1? `${style.genc__que__button__white}`:`${style.genc__que__button__orange}`} onClick={changeButtonWhite}>No</button>
-                        </div>
+                            <div className={divDisplay}>The price of the electric may be vary due to the place that you charge your car. The price of your own charging pile is the lowest.</div>
                         </div>
                     </div>
                     </div>
@@ -583,8 +643,8 @@ export default function Questionaire() {
                             <button className={ resultButtonCss===1? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonRed}>Payment Comparison</button>
                             <button className={resultButtonCss===0? `${style.genc__que__button__right__red}`:`${style.genc__que__button__right__white}`} onClick={changeResultButtonWhite}>Emission Comparison</button>
                         </div>
-                        {resultButtonCss == 1 && <div className={style.genc__que__result__vis}><CostLineChart resultCost={resultCost} ecarFixedCost={ecarFixedCost}/></div>}
-                        {resultButtonCss == 0 && <div className={style.genc__que__result__vis}><EmiLineChart resultEmi={resultEmi} ecarEmi={ecarEmi}/></div>}
+                        {resultButtonCss === 1 && <div className={style.genc__que__result__vis}><CostLineChart resultCost={resultCost} ecarFixedCost={ecarFixedCost}/></div>}
+                        {resultButtonCss === 0 && <div className={style.genc__que__result__vis}><EmiLineChart resultEmi={resultEmi} ecarEmi={ecarEmi}/></div>}
                     </div>
                     </div>
                 </div>
@@ -594,9 +654,9 @@ export default function Questionaire() {
                 <div className={style.genc_bottom__bar__split}>
                     <button className={style.genc__bottom__orangebutton} onClick={calculateCost}>Start</button>
                 </div>
-                <div className={style.genc_bottom__bar__split} >
+                {/* <div className={style.genc_bottom__bar__split} >
                     <button className={style.genc__bottom__redbutton} onClick={resetValue}>Reset</button>
-                </div>
+                </div> */}
                 {/* <div className={style.genc_bottom__bar__split} >
                     <button className={style.genc__bottom__redbutton} onClick={naviToMap}>Charging Map</button>
                 </div> */}

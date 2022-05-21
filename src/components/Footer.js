@@ -10,9 +10,9 @@ export default function Footer() {
         <div>
           <div className={style.footer__text}><a href='/home'>Home</a></div>
         </div>
-        <div className={style.footer__text }>
+        {/* <div className={style.footer__text }>
           <a href='/storyboard'>Explore The Story</a>
-        </div>
+        </div> */}
         <div className={style.footer__text }>
           <div>Emission Inventory</div>
           <div className={style.footer__text__bottom}>

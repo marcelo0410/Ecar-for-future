@@ -289,7 +289,7 @@
 .rec__tile__item__desc__type{
   text-align: left;
   margin-bottom: 3px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .rec__tile__item__desc__type__smallfont{
@@ -440,7 +440,7 @@
     /* background-color: white; */
     margin: 0 auto;
     /* height: 1000px; */
-    
+    /* padding-bottom: 100px; */
   }
   
   .genc__split{
@@ -475,13 +475,13 @@
   }
   
   .genc__topbar--blue{
-    background-color: #FFB344;
+    background-color: #08AD5E;
     width: 100%;
     height: 20px;
   }
   
   .genc__topbar--green{
-    background-color: #E05D5D;
+    background-color: #1C5BBA;
     width: 100%;
     height: 20px;
   }
@@ -495,7 +495,7 @@
   }
   
   .genc__split__desc{
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-align: left;
     line-height: 1.25rem;
     margin-top: 1rem;
@@ -510,7 +510,7 @@
     text-align: left;
     line-height: 1.25rem;
     margin-top: 1rem;
-    color: #E05D5D;
+    color: #00A19D;
     font-weight: bold;
     text-decoration: underline;
   }
@@ -521,6 +521,15 @@
     justify-content: start;
     /* gap: 2.6rem; */
     margin-bottom: 1.78rem;
+  
+  }
+
+  .genc__que__split__nomargin{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    /* gap: 2.6rem; */
+    /* margin-bottom: 1.78rem; */
   
   }
   
@@ -547,7 +556,7 @@
   
   .genc__que__area__input{
     background: #F2F2F2;
-    border: 1px solid #FFB344;
+    border: 1px solid #08AD5E;
     border-radius: 9px;
     width: 7.379rem;
     height: 2.3rem;
@@ -581,7 +590,7 @@
   }
   
   .genc__que__button__orange{
-    background: #FFB344;
+    background: #08AD5E;
     border-radius: 0.94rem;
     width: 6.2rem;
     height: 1.9rem;
@@ -596,14 +605,14 @@
     height: 1.9rem;
     color: black;
     border: none;
-    border: 1px solid #FFB344;
+    border: 1px solid #08AD5E;
   }
   
   .genc__que__button__right__red{
       width: 12rem;
       height: 1.8rem;
       border-radius: 27px;
-      background: #E05D5D;
+      background: #1C5BBA;
       color: white;
       border: none;
   }
@@ -613,8 +622,8 @@
     height: 1.8rem;
     border-radius: 27px;
     background: white;
-    color: #E05D5D;
-    border: 1px solid #E05D5D;
+    color: #1C5BBA;
+    border: 1px solid #1C5BBA;
   }
   
   .genc__split__result{
@@ -630,7 +639,7 @@
   
   .genc__que__area__select{
     background: #F2F2F2;
-    border: 1px solid #FFB344;
+    border: 1px solid #08AD5E;
     border-radius: 9px;
     width: 11.6rem;
     height: 2.3rem;
@@ -647,16 +656,19 @@
     align-items: center;
     gap: 9%;
   }
+
   .genc__bottom__orangebutton{
     color: white;
-    background: #FFB344;
+    background: #00A19D;
     border-radius: 27px;
     width: 10rem;
     height: 2.5rem;
-    font-size: 1.316rem;
+    font-size: 1.2rem;
     border: none;
-    margin-left: 1.081rem;
+    margin-left: 0.6rem;
   }
+
+
   
   .genc__bottom__desc{
     font-size: 1.316rem;
@@ -705,4 +717,37 @@
     font-weight: bold;
     font-size: 1.25rem;
     margin-top: 10px;
+  }
+
+  .rec__bottom__title__gray{
+    color: #C2C2C2;
+    font-size: 0.9rem;
+    background: white;
+    text-align: left;
+    padding-left: 14%;
+    padding-bottom: 1%;
+  }
+
+  .gen__select__carName{
+    text-decoration: underline;
+  }
+
+
+  .help__tooltip{
+    font-size: 0.85rem;
+    line-height: 1rem;
+  }
+  
+  .help__tooltip__hover{
+    color: black;
+  }
+  
+  .help__tooltip__unhover{
+
+    color: transparent;
+  }
+
+  .genc__que__area__title__img{
+    width: 20px;
+    margin-left: 5px;
   }
