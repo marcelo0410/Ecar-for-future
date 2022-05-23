@@ -4,9 +4,11 @@
     /* height: 85vh; */
     height: 610px;
     min-width: 100%;
-    background-position:top;
     background-size:100% auto;
     background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
     padding-top: 50px;
     /* opacity: 0.7; */
     font-family: "Century Gothic", CenturyGothic, century-gothic, CenturyGothic,"Century Gothic",CenturyGothic,"Century Gothic",  AppleGothic,sans-serif;
@@ -46,7 +48,7 @@
     text-align: center;
     background: #F9F9F9;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
+    border-radius: 15px;
     width: 21%;
     /* padding: 30px 0px 20px 50px; */
     /* margin: 0 auto; */
@@ -73,8 +75,8 @@
     width: 100%;
     /* height: 9.87rem; */
     margin: 0 auto 20px auto;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     
 }
 
@@ -199,6 +201,9 @@
     text-align: right;
     font-size: 1.128rem;
     padding-right: 1rem;
+    text-align-last: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
 }
 
 .que__block__split__select2{
@@ -210,6 +215,9 @@
     text-align: right;
     font-size: 1.128rem;
     padding-right: 1rem;
+    text-align-last: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
 }
 
 .genc__bottom__orangebutton{

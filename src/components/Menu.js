@@ -10,7 +10,7 @@ export default function Menu() {
         <nav>
           <div className="nav_bar">
               <ul className="navbar-link">
-                <li>
+                <li className='navbar__link__img'>
                     <NavLink to="/">
                         <img src={logo}/>
                     </NavLink>
@@ -38,7 +38,7 @@ export default function Menu() {
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                      <NavLink to="/carselection">recommendation</NavLink>
+                      <NavLink to="/carselection">Recommendation</NavLink>
                       <NavLink to="/carguide">Vehicle Guide</NavLink>
                     </div>
                   </div>

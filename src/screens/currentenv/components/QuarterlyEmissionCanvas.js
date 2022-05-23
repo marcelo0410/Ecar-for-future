@@ -17,7 +17,7 @@ export default function QuarterlyEmissionCanvas() {
   // http://ecarforfuture-env.eba-pbjsb4gy.ap-southeast-2.elasticbeanstalk.com
   useEffect(async () => {
     const result = await axios(
-      'https://d1pvgbbxmbkkid.cloudfront.net/v1/api/emissionAll/findAll/',
+      'http://localhost:8080/v1/api/emissionAll/findAll2/',
     );
 
     setEmissionAnnualData(result.data);
@@ -65,12 +65,17 @@ export default function QuarterlyEmissionCanvas() {
   return (
     <div>
         <div className='emission'>
-            <div className="vis-emission__title">
-              Greenhouse gas emission inventory 2001-2020
+            <div className="que__container">
+                <div className="que__title" >Greenhouse gas emission inventory 2001-2020</div>
+                <div className="que__desc">As the third major source of CO2 emissions in Australia, the impact of vehicle emissions is far worse than </div>
+                <div className="que__desc">we thought. All motor vehicle pollutants are released into air and mostly through the exhaust fumes. </div>
+                
             </div>
-            <div className="vis-emission__title title_desc">
-            As the third major source of CO2 emissions in Australia, the impact of vehicle emissions is far worse than we thought. All motor vehicle pollutants are released into air and mostly through the exhaust fumes. 
-            </div>
+            <div className='vis-emi__option'>
+                <button value="1" onClick={updateVisOption} className={visOption == 1? 'vis-emi__option__button--green':'vis-emi__option__button--white'}>Annually inventory</button>
+                <button value="2" onClick={updateVisOption} className={visOption == 2? 'vis-emi__option__button--green':'vis-emi__option__button--white'}>Emission by categories</button>
+                <button value="3" onClick={updateVisOption} className={visOption == 3? 'vis-emi__option__button--green':'vis-emi__option__button--white'}>By Transportation</button>
+              </div>
             <div className='vis-emission__content'>
             <div className='vis-emission'>
               {/* <select className="vis-emission__select" name="emission" id="emission" onChange={updateVisOption} value={visOption} style={{marginTop:"20px"}}>
@@ -80,11 +85,7 @@ export default function QuarterlyEmissionCanvas() {
                 Emission by Gas</option>
                 <option value="3">Transport</option>
               </select> */}
-              <div className='vis-emi__option'>
-                <button value="1" onClick={updateVisOption} className={visOption == 1? 'vis-emi__option__button--green':'vis-emi__option__button--white'}>Annually inventory</button>
-                <button value="2" onClick={updateVisOption} className={visOption == 2? 'vis-emi__option__button--green':'vis-emi__option__button--white'}>Emission by categories</button>
-                <button value="3" onClick={updateVisOption} className={visOption == 3? 'vis-emi__option__button--green':'vis-emi__option__button--white'}>By Transportation</button>
-              </div>
+
               {visOption === '1' && <QuarterlyEmissionAnnual visData={emissionAnnualData}/>}
               {visOption === '2' && <QuarterlyEmissionType visData={emissionTypeData}/>}
               {visOption === '3' && <QuarterlyEmissionTransport visData={emissionTypeData}/>}

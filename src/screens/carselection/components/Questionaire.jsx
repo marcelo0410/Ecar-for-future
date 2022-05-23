@@ -220,11 +220,15 @@ export default function Questionaire() {
         setProgressStep('2222')
         const coordinates = {
             "1": [-37.814107, 144.96328],
-            "2": [-37.83333, 144.96667],
-            "3": [-37.83961, 144.94228],
-            "4": [-37.799167, 144.946667],
-            "5": [-37.8, 144.96667],
-            "6": [-37.915047, 145.129272],
+            "2": [-37.823258, 144.965926],
+            "3": [-37.807101, 144.907953],
+            "4": [-37.814719, 144.948039],
+            "5": [-37.821, 145.125],
+            "6": [-37.823002, 144.998001],
+            "7": [-37.84, 144.989],
+            "8": [-37.7912335017, 145.155],
+            "9": [-37.864, 144.982],
+            "10": [-37.915047, 145.129272],
 
         }
         if(suburb !== coordinates[e.target.value]){
@@ -456,7 +460,7 @@ export default function Questionaire() {
                     </div>
                     <div className={style.que__block__split__right}>
                         <select className={style.que__block__split__select} onChange={e => setCarType(e.target.value)}>
-                            <option value="typeAll">All Brands</option>
+                            <option value="typeAll">No specific brand</option>
                             <option value="Tesla">Tesla</option>
                             <option value="Audi">Audi</option>
                             {/* <option value="benz">Benz</option> */}
@@ -496,7 +500,7 @@ export default function Questionaire() {
                         </div>
                         <div className={style.que__block__split__right}>
                             <select className={style.que__block__split__select} value={carBudget} onChange={e => setCarBudget(e.target.value)}>
-                                <option value="budgetAll">No budget</option>
+                                <option value="budgetAll">No specific budget</option>
                                 <option value="50">50k - 100k</option>
                                 <option value="100">100k - 150k</option>
                                 <option value="150">Over 150k</option>
@@ -543,7 +547,7 @@ export default function Questionaire() {
             
         </section>
             {recCarData !== "" && (<div><div className={style.rec__bottom__title} ref={calRef}>Not satisfied with the recommondations?</div>
-            <button className={style.rec__bottom__button} onClick={naviToCarGuide}>See all models</button></div>)}
+            <a href='carguide' target="_blank"><button className={style.rec__bottom__button}>See all models</button></a></div>)}
             
         <div className={style.que__container}>
             <div className={style.que__title} ref={comRef}>Comparison</div>
@@ -653,7 +657,7 @@ export default function Questionaire() {
         </div>
         <div className={style.genc__bottom__bar}>
                 <div className={style.genc_bottom__bar__split}>
-                    <button className={style.genc__bottom__orangebutton} onClick={calculateCost}>Start</button>
+                    <button className={style.genc__bottom__orangebutton} onClick={calculateCost}>Compare</button>
                 </div>
                 {/* <div className={style.genc_bottom__bar__split} >
                     <button className={style.genc__bottom__redbutton} onClick={resetValue}>Reset</button>
@@ -672,11 +676,16 @@ export default function Questionaire() {
                 <div className={style.sup__input__desc}>Select your suburb:</div>
                 <select onChange={e => updateMap(e)} className={style.sup__input__select}>
                     <option value="1">Melbourne</option>
-                    <option value="2">South Melbourne</option>
-                    <option value="3">Port Melbourne</option>
-                    <option value="4">North Melbourne</option>
-                    <option value="5">Carlton</option>
-                    <option value="6">Clayton</option>
+                    <option value="2">Southbank</option>
+                    <option value="3">Footscray</option>
+                    <option value="4">Docklands</option>
+                    <option value="5">Box Hill</option>
+                    <option value="6">Richmond</option>
+                    <option value="7">South Yarra</option>
+                    <option value="8">Doncaster</option>
+                    <option value="9">St Kilda</option>
+                    <option value="10">Clayton</option>
+                    {/* Melbourne 3000, Southbank 3006, Footscray 3011, Docklands 3008, Box Hill 3128, Richmond 3121, South Yarra 3141, Doncaster 3108, St Kilda 3182, Clayton 3168 */}
                 </select>
             </div>
             <div style={{width:"75%", margin:"30px auto", zIndex:"0"}} onClick={renderProgressbar}>
