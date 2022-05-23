@@ -37,12 +37,35 @@ export default function Index() {
         }
       }, [])
 
+      useEffect(() => {
+        filterCarData()
+      
+        return () => {
+          
+        }
+      }, [carBudget,carType])
+      
+
       const backToTop = () =>{
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
     }
+
+    const setCarTypeAndRerender = (e) =>{
+      // console.log(e)
+      setCarType(e);
+      // filterCarData()
+    }
+
+    const setCarBudgetAndRerender = (e) =>{
+
+      setCarBudget(e);
+      // setCarBudget(e)
+      // filterCarData()
+    }
+
 
     const filterCarData = () =>{
       let tempData
@@ -98,19 +121,19 @@ export default function Index() {
         </div>
         <section>
             <div className={style.filter__select__area}>
-              <select className={style.que__block__split__select} value={carType} onChange={e => setCarType(e.target.value)}>
+              <select className={style.que__block__split__select} value={carType} onChange={e => setCarTypeAndRerender(e.target.value)}>
                   <option value="typeAll" >No Preferred Brand</option>
                   <option value="Tesla">Tesla</option>
                   <option value="Audi">Audi</option>
                   <option value="BMW">BMW</option>
               </select>
-              <select className={style.que__block__split__select2}  value={carBudget} onChange={e => setCarBudget(e.target.value)}>
+              <select className={style.que__block__split__select2}  value={carBudget} onChange={e => setCarBudgetAndRerender(e.target.value)}>
                   <option value="budgetAll">No budget</option>
                   <option value="50">50k - 100k</option>
                   <option value="100">100k - 150k</option>
                   <option value="150">Over 150k</option>
               </select>
-              <button className={style.genc__bottom__orangebutton} onClick={filterCarData}>Submit</button>
+              {/* <button className={style.genc__bottom__orangebutton} onClick={filterCarData}>Submit</button> */}
               <button className={style.genc__bottom__orangebutton} onClick={resetData}>Reset</button>
               
             </div>

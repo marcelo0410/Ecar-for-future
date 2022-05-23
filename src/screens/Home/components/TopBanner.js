@@ -21,7 +21,7 @@ export default function TopBanner() {
       <div className='banner__desc' >Maybe you want to purchase an Electric Vehicle</div>
       <div className='banner__desc' >instead of a fossil fuel car?</div>
       <button className="banner__button" type="button" onClick={handleClick}>
-        Select your car<img className='banner__button__img' src={arrow}></img>
+        Select your car
         <i class="fa fa-long-arrow-right arrow1 iii" aria-hidden="true"></i>
       </button>
       

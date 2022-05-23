@@ -601,7 +601,7 @@ export default function Index() {
           </div>
         </div>
         <div className="final">
-          <h2>What to know more?</h2>
+          <h2>Want to know more?</h2>
           <div style={{display:"flex", justifyContent:"center", gap:"260px"}}>
                 <a href="/curenv" className="final__link" >About environment</a>
                 <a href="/carselection" className="final__link" >Explore EVs</a>

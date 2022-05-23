@@ -24,8 +24,8 @@ export default class Example extends PureComponent {
           <YAxis domain={[15000, 34000]} label={{ value: '(CO₂-e (Kt))', angle: -90, position: 'insideLeft', offset:-25}}/>
           <Tooltip />
           <Legend />
-          <Bar name='emission_fifty' dataKey="emissionFifty" stackId="a" fill="#4771b2" />
-          <Bar dataKey="difference" stackId="a" fill="#a5d5d8" />
+          <Bar name='emission' dataKey="emissionFifty" stackId="a" fill="#4771b2" />
+          <Bar name='emission reduction' dataKey="difference" stackId="a" fill="#a5d5d8" />
         </BarChart>
         // </ResponsiveContainer>
     );

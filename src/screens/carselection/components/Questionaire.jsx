@@ -179,7 +179,7 @@ export default function Questionaire() {
         }
         if(1<temp.length<3){
             setRecCarData(temp)
-        } else if(temp.length === 3){    
+        } else if(temp.length === 3){
             setRecCarData(temp)
         } else{
             temp = carData.slice(0,3)
@@ -197,10 +197,62 @@ export default function Questionaire() {
         calRef.current.scrollIntoView()
         setProgressStep('2210')
         setSelectedCar(id)
-        setResultCost(0)
-        setResultEmi(0)
-        setEcarEmi(0)
-        setEcarFixedCost(0)
+        calculateAndVis()
+        // setResultCost(0)
+        // setResultEmi(0)
+        // setEcarEmi(0)
+        // setEcarFixedCost(0)
+        const fuelPrice = {
+            "1":2.17,
+            "2":2.31,
+            "3":2.39,
+            "4":2.14
+          }
+
+          // Cost and maintenance
+          let result = Math.round(distance * (1+passenger*0.1-0.1)*fuelCom/100*fuelPrice[fuelType])
+          setResultCost(result)
+          console.log('resultCost', result)
+
+
+          let temp1;
+          if(selectedCar === -1){
+              temp1 = 1
+          } else{
+              temp1 = selectedCar
+          }
+          let selectCarData1 = Array.from(carData).filter((item) => item['evId'] == id)
+          if(chargingButtonCss ===1){
+            setEcarFixedCost(Math.round(distance/100*selectCarData1[0]['evEnergy']*0.3))
+          } else{
+            setEcarFixedCost(Math.round(distance/100*selectCarData1[0]['evEnergy']*0.5))
+          }
+          
+          console.log('setEcarFixedCost', Math.round(distance*0.04))
+
+      
+          // CO2 generated
+          const resultCo2 = distance /100 *fuelCom*2500
+          setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
+          console.log('setResultEmi', Math.round(resultCo2 * 100/1000) / 100)
+
+
+          // CO2 generated ecar
+          // E-car Carbon emission = 
+          // Travel distance * 0.04 + 
+          // Travel distance * (EV battery capacity / 80% EV标注里程) * 0.8 （0.8指的是每发一度电会产生约0.8kgCO2）
+          let temp;
+          if(selectedCar === -1){
+              temp = 1
+          } else{
+              temp = selectedCar
+          }
+          let selectCarData = Array.from(carData).filter((item) => item['evId'] == id)
+          const resultEcarCo2 = distance * (selectCarData[0]['evBattery'] / selectCarData[0]['evDistance']) * 0.8
+          setEcarEmi(Math.round(resultEcarCo2))
+          console.log('setEcarEmi', Math.round(resultEcarCo2))
+          setTriggerUpdate(triggerUpdate+1)
+
     }
 
     const naviToMap = () =>{
@@ -449,7 +501,7 @@ export default function Questionaire() {
             <div className={style.que__desc}>Please complete the survey to find the commended electric vehicle that best suits your needs</div>
         </div>
         <section id="questions" className={style.que__sec}> 
-            <div className={style.que__block__white}>
+            <div className={style.que__block__gray}>
                 <div className={style.que__block__split}>
                     <div className={style.que__block__split__left}>
                         <img src={que_brand1} className={style.que__block__img}></img>
@@ -472,7 +524,7 @@ export default function Questionaire() {
                 </div>
                 
             </div>
-            <div className={style.que__block__gray}>
+            <div className={style.que__block__white}>
             <div className={style.que__block__split}>
                         <div className={style.que__block__split__left}>
                             <img src={que_loc2} className={style.que__block__img}></img>
@@ -489,7 +541,7 @@ export default function Questionaire() {
                         </div>
                 </div>
             </div>
-            <div className={style.que__block__white}>
+            <div className={style.que__block__gray}>
             <div className={style.que__block__split}>
                         <div className={style.que__block__split__left}>
                             <img src={que_wallet3} className={style.que__block__img}></img>
@@ -509,7 +561,7 @@ export default function Questionaire() {
                         </div>
                 </div>
             </div>
-            <div className={style.que__block__gray}>
+            <div className={style.que__block__white}>
                 <div className={style.que__block__button__area} ref={recRef}>
                     <button className={style.rec__bottom__button} onClick={validateAndNaviToRec}>Submit</button>
                 </div>

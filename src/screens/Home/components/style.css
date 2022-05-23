@@ -1,7 +1,7 @@
 .banner{
     background-image: url("../../../assets/homepage/homepage-car.jpg");
     background-size: cover;
-    height: 93vh;
+    height: 100vh;
     /* height: 610px; */
     /* min-width: 100%; */
     /* background-position:top; */
@@ -37,7 +37,7 @@
     border-radius: 27px;
     color: white;
     border: none;
-    width: 16.92rem;
+    width: 16rem;
     text-align: center;
     text-align: center;
     text-decoration: none;
@@ -69,10 +69,7 @@
     font-size: 1.316rem;
     color: white;
     font-weight: bold;
-    /* margin-top: 5%; */
-    position: absolute;
-    top: 81%;
-    left: 37.5%;
+    margin-top: 5%;
 }
 
 
