@@ -32,6 +32,7 @@ export default function TopBanner() {
             <span></span>
             <span></span>
       </div>
+      <i class='fas fa-arrow-right'></i>
     </div>
   )
 }

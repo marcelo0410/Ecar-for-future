@@ -176,7 +176,7 @@ export default function Index() {
                 <div className='pre-vis__split__right'>
                   {visOption === '1' && (<div><div className='pre-vis__split__title'>Population</div><p className='pre-vis__split__desc'>As the seccond largest state in Australia by population, Victoria has been growing by more than any other states or territory at up to 150,000 per annum.</p></div>)}
                   {visOption === '2' && (<div><div className='pre-vis__split__title'>Vehicles</div><p className='pre-vis__split__desc'>The number of vehicle is expected to grow to 4.6 million, with the slowdown mainly due to the impact of COVID-19 and work from home.</p></div>)}
-                  {visOption === '3' && (<div><div className='pre-vis__split__title'>Emissions</div><p className='pre-vis__split__desc'>  Considering the growth of the population and vehicles, the urgency of calling on the public to use electric vehicles to get around is now apparent, which is a significant contribution to carbon emissions</p></div>)}
+                  {visOption === '3' && (<div><div className='pre-vis__split__title'>Emissions</div><p className='pre-vis__split__desc'>Carbon emission is strongly related to the population and vehicles. As shown in the chart, it displays the difference between driving EVs and without driving EVs in terms of emissions, which is expected to reduce about 4,000 Kilotons of carbon emissions.</p></div>)}
                 </div>
                 
             </div>
