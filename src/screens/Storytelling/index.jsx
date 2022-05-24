@@ -64,6 +64,8 @@ export default function Index() {
     `url('/pic2/bluebackground.png')`,
   ];
 
+
+
   function updateBackgroundPicture(path) {
     // let divStyle = {
     //     backgroundImage: path
@@ -126,8 +128,29 @@ export default function Index() {
         ],
       },
       options: {
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: "",
+            font: {
+              size: 16,
+              weight: "bold",
+              color: "rgba(255,255,255,0.5)"
+            }
+          }
+        },
         scales: {
           x: {
+            title: {
+              display: true,
+              text: "",
+              font: {
+                color: "rgba(255,255,255,0.5)",
+              }
+            },
             grid: {
               display: true,
               color: "rgba(255,255,255,0.5)",
@@ -140,6 +163,13 @@ export default function Index() {
             },
           },
           y: {
+            title: {
+              display: true,
+              text: "",
+              font: {
+                color: "rgba(255,255,255,0.5)",
+              }
+            },
             grid: {
               display: true,
               color: "rgba(255,255,255,0.5)",
@@ -188,8 +218,9 @@ export default function Index() {
     gradientBkgrd2.addColorStop(0, "rgba(226,209,195,0.4)");
     gradientBkgrd2.addColorStop(1, "rgba(172,224,249,0)");
 
-    function updateData(myChart, labels, data, color, colorsBkgrd, mode) {
+    function updateData(myChart, labels, chartOption, data, color, colorsBkgrd, mode) {
       chartCfg.type = mode;
+      chartCfg.options = chartOption;
       myChart.data.labels = labels;
       myChart.data.datasets[0].data = data;
       myChart.data.datasets[0].backgroundColor = colorsBkgrd;
@@ -197,22 +228,91 @@ export default function Index() {
       myChart.update();
     }
 
-    function updateConfigAsNewObject(myChart) {
-      myChart.options = {
-        responsive: true,
+    // function updateConfigAsNewObject(myChart) {
+    //   myChart.options = {
+    //     responsive: true,
+    //     scales: {
+    //       x: {
+    //         grid: {
+    //           display: false,
+    //         },
+    //         ticks: { color: "rgba(255,255,255,0.5)" },
+    //       },
+    //       y: {
+    //         grid: {
+    //           display: true,
+    //           color: "rgba(255,255,255,0.5)",
+    //         },
+    //         beginAtZero: true,
+    //         ticks: { color: "rgba(255,255,255,0.5)" },
+    //       },
+    //     },
+    //     animation: {
+    //       onComplete: () => {
+    //         delayed = true;
+    //       },
+    //       delay: (context) => {
+    //         let delay = 0;
+    //         if (
+    //           context.type === "data" &&
+    //           context.mode === "default" &&
+    //           !delayed
+    //         ) {
+    //           delay = context.dataIndex * 300 + context.datasetIndex * 100;
+    //         }
+    //         return delay;
+    //       },
+    //     },
+    //   };
+    // }
+
+    const chartOptions = [
+      {
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: '2000-2030 Population changes in Australia',
+            color: "rgba(255,255,255,0.5)",
+            font: {
+              size: 16,
+              weight: 'bold'
+            }
+          }
+        },
         scales: {
           x: {
+            title:{
+              display: true,
+              text: 'Year',
+              color: "rgba(255,255,255,0.5)"
+            },
             grid: {
               display: false,
             },
-            ticks: { color: "rgba(255,255,255,0.5)" },
+            ticks: {
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
           },
           y: {
+            title:{
+              display: true,
+              text: 'Number of Population',
+              color: "rgba(255,255,255,0.5)"
+            },
             grid: {
               display: true,
               color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
             },
-            beginAtZero: true,
+            // beginAtZero: true,
             ticks: { color: "rgba(255,255,255,0.5)" },
           },
         },
@@ -232,42 +332,274 @@ export default function Index() {
             return delay;
           },
         },
-      };
-    }
+      },
+      {
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: '2000-2030 Vehicle number changes in Australia',
+            color: "rgba(255,255,255,0.5)",
+            font: {
+              size: 16,
+              weight: 'bold'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title:{
+              display: true,
+              text: 'Year',
+              color: "rgba(255,255,255,0.5)"
+            },
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
+          },
+          y: {
+            title:{
+              display: true,
+              text: 'Number of Vehicles',
+              color: "rgba(255,255,255,0.5)"
+            },
+            grid: {
+              display: true,
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
+            // beginAtZero: true,/
+            ticks: { color: "rgba(255,255,255,0.5)" },
+          },
+        },
+        animation: {
+          onComplete: () => {
+            delayed = true;
+          },
+          delay: (context) => {
+            let delay = 0;
+            if (
+              context.type === "data" &&
+              context.mode === "default" &&
+              !delayed
+            ) {
+              delay = context.dataIndex * 300 + context.datasetIndex * 100;
+            }
+            return delay;
+          },
+        },
+      },
+      {
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'Greenhouse gas emission distributions in Australia',
+            color: "rgba(255,255,255,0.5)",
+            font: {
+              size: 16,
+              weight: 'bold'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title:{
+              display: true,
+              text: 'Type of factors',
+              color: "rgba(255,255,255,0.5)"
+            },
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
+          },
+          y: {
+            title:{
+              display: true,
+              text: 'Percentage of Emission Contribution',
+              color: "rgba(255,255,255,0.5)"
+            },
+            grid: {
+              display: true,
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
+            // beginAtZero: true,
+            ticks: { color: "rgba(255,255,255,0.5)" },
+          },
+        },
+        animation: {
+          onComplete: () => {
+            delayed = true;
+          },
+          delay: (context) => {
+            let delay = 0;
+            if (
+              context.type === "data" &&
+              context.mode === "default" &&
+              !delayed
+            ) {
+              delay = context.dataIndex * 300 + context.datasetIndex * 100;
+            }
+            return delay;
+          },
+        },
+      },
+      {
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: '2000-2030 Carbon emission changes in Australia',
+            color: "rgba(255,255,255,0.5)",
+            font: {
+              size: 16,
+              weight: 'bold'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title:{
+              display: true,
+              text: 'Year',
+              color: "rgba(255,255,255,0.5)"
+            },
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
+          },
+          y: {
+            title:{
+              display: true,
+              text: 'Number of Carbon Emissions (Kt)',
+              color: "rgba(255,255,255,0.5)"
+            },
+            grid: {
+              display: true,
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
+            // beginAtZero: true,
+            ticks: { color: "rgba(255,255,255,0.5)" },
+          },
+        },
+        animation: {
+          onComplete: () => {
+            delayed = true;
+          },
+          delay: (context) => {
+            let delay = 0;
+            if (
+              context.type === "data" &&
+              context.mode === "default" &&
+              !delayed
+            ) {
+              delay = context.dataIndex * 300 + context.datasetIndex * 100;
+            }
+            return delay;
+          },
+        },
+      },
+      {
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: '2000-2030 Carbon emission changes in Australia',
+            color: "rgba(255,255,255,0.5)",
+            font: {
+              size: 16,
+              weight: 'bold'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title:{
+              display: true,
+              text: 'Year',
+              color: "rgba(255,255,255,0.5)"
+            },
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
+          },
+          y: {
+            title:{
+              display: true,
+              text: 'Number of Carbon Emissions (Kt)',
+              color: "rgba(255,255,255,0.5)"
+            },
+            grid: {
+              display: true,
+              color: "rgba(255,255,255,0.5)",
+              font: {
+                size: 16,
+              },
+            },
+            // beginAtZero: true,
+            ticks: { color: "rgba(255,255,255,0.5)" },
+          },
+        },
+        animation: {
+          onComplete: () => {
+            delayed = true;
+          },
+          delay: (context) => {
+            let delay = 0;
+            if (
+              context.type === "data" &&
+              context.mode === "default" &&
+              !delayed
+            ) {
+              delay = context.dataIndex * 300 + context.datasetIndex * 100;
+            }
+            return delay;
+          },
+        },
+      }
+    ];
 
-    // const updateConfigAsNewObject = (myChart) => {(
-    //     myChart.options = {
-    //         responsive: true,
-    //         scales: {
-    //                 x: {
-    //                     grid: {
-    //                         display: false,
-    //                     },
-    //                     ticks: {color: 'rgba(255,255,255,0.5)'}
-    //                 },
-    //                 y: {
-    //                     grid: {
-    //                         display: true,
-    //                         color: 'rgba(255,255,255,0.5)',
-    //                     },
-    //                     beginAtZero: true,
-    //                     ticks: {color: 'rgba(255,255,255,0.5)'}
-    //             }
-    //         },
-    //         animation: {
-    //             onComplete: () => {
-    //               delayed = true;
-    //             },
-    //             delay: (context) => {
-    //               let delay = 0;
-    //               if (context.type === 'data' && context.mode === 'default' && !delayed) {
-    //                 delay = context.dataIndex * 300 + context.datasetIndex * 100;
-    //               }
-    //               return delay;
-    //             },
-    //           },
-    //     }
-    // )}
+
 
     const labels = [
       ["2000", "2005", "2010", "2015", "2020", "2025", "2030"],
@@ -336,20 +668,22 @@ export default function Index() {
           updateData(
             myChart,
             labels[i],
+            chartOptions[i],
             data[i],
             colors[i],
             colorsBkgrd[i],
-            mode[i]
+            mode[i],
           );
         },
         onEnterBack: () => {
           updateData(
             myChart,
             labels[i],
+            chartOptions[i],
             data[i],
             colors[i],
             colorsBkgrd[i],
-            mode[i]
+            mode[i],
           );
         },
         // markers: true,
@@ -379,7 +713,7 @@ export default function Index() {
         ],
         datasets: [
           {
-            label: "",
+            label: "# of People",
             data: [
               49, 253, 293, 1322, 1771, 1369, 2284, 2216, 6718, 3226, 8688,
             ],
@@ -393,8 +727,27 @@ export default function Index() {
         ],
       },
       options: {
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: '2001-2021 Number of EVs in Australia',
+            color: "rgba(255,255,255,0.5)",
+            font: {
+              size: 16,
+              weight: 'bold'
+            }
+          }
+        },
         scales: {
           x: {
+            title:{
+              display: true,
+              text: 'Year',
+              color: "rgba(255,255,255,0.5)"
+            },
             grid: {
               display: false,
             },
@@ -406,6 +759,11 @@ export default function Index() {
             },
           },
           y: {
+            title:{
+              display: true,
+              text: 'Number of Electric Cars',
+              color: "rgba(255,255,255,0.5)"
+            },
             grid: {
               display: true,
               color: "rgba(255,255,255,0.5)",
@@ -517,22 +875,26 @@ export default function Index() {
         </div>
         <div className="part-1">
           <p ref={partRef} id="part-1-p" className="part-1-p">
-            In 20 years, the population of Australia will be greatly
-            increased.
+            In 30 years, the population of Australia will be greatly
+            increased.<br />
+            As you can see from the chart, the number of population will be almost doubled in 30 years.
           </p>
           <p ref={partRef} id="part-1-p" className="part-1-p">
-            As well as the number of private cars.
+            The number private cars will also be greatly increased in 30 years.<br />The graph shows the same trend as 
+            the population.
           </p>
           <p ref={partRef} id="part-1-p" className="part-1-p">
             The main harm of transport to environment will mainly be greenhouse
-            gases.
+            gases.<br />From the chart we can see that transport contributes 3rd largest carbon emissions among others.
           </p>
           <p ref={partRef} id="part-1-p" className="part-1-p">
             If we stick to the status quo, the environment will be worse and
-            worse...
+            worse...<br/>
+            The number of carbon emission will be doubled in 30 years if we didn't do anything as per the graph.
           </p>
           <p ref={partRef} id="part-1-p" className="part-1-p">
-            But if we want to make some changes, the future will be different!
+            But if we want to make some changes, the future will be different!<br/>
+            Actions need to be made in order to reduce the number of carbon emission caused by transport. Thus the future will be different.
           </p>
         </div>
       </section>
@@ -568,7 +930,7 @@ export default function Index() {
         </div>
         <div className="sec-3">
           <p>
-            The goal of using an EV is to decrease the emission caused
+            The goal of using an EV is to decrease the carbon emission caused
             by fossil fueled cars, and also save energy.
           </p>
           <div className="pictures">
@@ -601,7 +963,7 @@ export default function Index() {
           </div>
         </div>
         <div className="final">
-          <h2>Want to know more?</h2>
+          <h2>What to know more?</h2>
           <div style={{display:"flex", justifyContent:"center", gap:"260px"}}>
                 <a href="/curenv" className="final__link" >About environment</a>
                 <a href="/carselection" className="final__link" >Explore EVs</a>

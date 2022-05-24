@@ -37,35 +37,12 @@ export default function Index() {
         }
       }, [])
 
-      useEffect(() => {
-        filterCarData()
-      
-        return () => {
-          
-        }
-      }, [carBudget,carType])
-      
-
       const backToTop = () =>{
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
     }
-
-    const setCarTypeAndRerender = (e) =>{
-      // console.log(e)
-      setCarType(e);
-      // filterCarData()
-    }
-
-    const setCarBudgetAndRerender = (e) =>{
-
-      setCarBudget(e);
-      // setCarBudget(e)
-      // filterCarData()
-    }
-
 
     const filterCarData = () =>{
       let tempData
@@ -113,27 +90,27 @@ export default function Index() {
   return (
       <div>
         <div className={style.banner}>
-            <div className={style.banner__title}>Vehicle Guide</div>
-            {/* <div className={style.banner_desc}>The future prediction of Victoria is based on the government's development blueprint.  </div> */}
+            <div className={style.banner__title}>Vehicle <span style={{color:"#E05D5D"}}>Guide</span></div>
+            <div className={style.banner_desc}>These are the common electric car models available in the Australian market. Choose your favorite and learn more.</div>
         </div>
         <div className={style.rec__title}>
             <div>This vehicle guide presents all of the electric vehicles currently available in the Australian market with their associated resources. For further information on the environmental performance of light vehicles sold in Australia, see the Australian Government's <a href='https://www.greenvehicleguide.gov.au/' target="_blank">Green Vehicle Guide website</a>.</div>
         </div>
         <section>
             <div className={style.filter__select__area}>
-              <select className={style.que__block__split__select} value={carType} onChange={e => setCarTypeAndRerender(e.target.value)}>
+              <select className={style.que__block__split__select} value={carType} onChange={e => setCarType(e.target.value)}>
                   <option value="typeAll" >No Preferred Brand</option>
                   <option value="Tesla">Tesla</option>
                   <option value="Audi">Audi</option>
                   <option value="BMW">BMW</option>
               </select>
-              <select className={style.que__block__split__select2}  value={carBudget} onChange={e => setCarBudgetAndRerender(e.target.value)}>
+              <select className={style.que__block__split__select2}  value={carBudget} onChange={e => setCarBudget(e.target.value)}>
                   <option value="budgetAll">No budget</option>
                   <option value="50">50k - 100k</option>
                   <option value="100">100k - 150k</option>
                   <option value="150">Over 150k</option>
               </select>
-              {/* <button className={style.genc__bottom__orangebutton} onClick={filterCarData}>Submit</button> */}
+              <button className={style.genc__bottom__orangebutton} onClick={filterCarData}>Submit</button>
               <button className={style.genc__bottom__orangebutton} onClick={resetData}>Reset</button>
               
             </div>

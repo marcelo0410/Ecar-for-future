@@ -208,8 +208,9 @@
 
 
 .future .part-1 p {
-    font-size: 28px;
+    font-size: 24px;
     color:#fff;
+    text-align: left;
     /* padding: 0; */
     /* padding-bottom: 80vh; */
     /* position: absolute; */
