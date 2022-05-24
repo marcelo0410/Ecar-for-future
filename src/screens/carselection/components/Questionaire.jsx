@@ -484,7 +484,7 @@ export default function Questionaire() {
                 </div>
                 <div className={progressArray[progressStep[1]]}>
                     <div className={style.step__counter}>2</div>
-                    <div className={style.step__name}>recommendations</div>
+                    <div className={style.step__name}>Recommendations</div>
                 </div>
                 <div className={progressArray[progressStep[2]]}>
                     <div className={style.step__counter}>3</div>
