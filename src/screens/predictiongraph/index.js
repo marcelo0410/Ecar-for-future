@@ -88,7 +88,7 @@ export default function Index() {
     <div className='prediction-container'>
         <div className='pre-banner'>
           <div className='cur__title'><span style={{color:'#FFB344'}}>Future</span> Prediction</div>
-          <div className='cur__subtitle'>The current environment here in Victoria is not optimistic, especialy for transport</div>
+          <div className='cur__subtitle'>The current environment here in Victoria is not optimistic, especially for transport</div>
         </div>
         <div className='pre-info-white'>
           <div className='pre-info-card'>

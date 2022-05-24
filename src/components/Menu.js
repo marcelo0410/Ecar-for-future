@@ -34,7 +34,7 @@ export default function Menu() {
                 </li>
                 <li>
                   <div class="dropdown">
-                    <button class="dropbtn">Select your car
+                    <button class="dropbtn">Select Your Car
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">

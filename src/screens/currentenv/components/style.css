@@ -62,7 +62,7 @@
 
 .cur_info_container {
   background-color: white;
-  height: 420px;
+  /* height: 420px; */
   /* border: dotted; */
   display: flex;
   flex-direction: row;

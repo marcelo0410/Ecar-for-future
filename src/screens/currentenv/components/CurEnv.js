@@ -18,7 +18,7 @@ export default function CurEnv() {
             <div id="cur3" style={{width:"33%"}}>
                 <div><img src={curBar1Image} style={{width:"10rem"}}></img></div>
                 <img src={cur3thImage}  style={{height:"60px", width:"120px"}}></img>
-                <p className='cur-p' style={{fontSize:"20px"}}>Transport is Australia’s third largest source of green house gas emissions.</p>
+                <p className='cur-p' style={{fontSize:"20px"}}>Transport is Australia’s third largest source of greenhouse gas emissions.</p>
             </div>
             <div id="cur17" style={{width:"33%"}}>
                 <div>

@@ -483,7 +483,7 @@ export default function Index() {
 
         <div className="section-4">
           <p>
-            Green gas emission is not the only harm that typical private cars
+            Greenhouse gas emission is not the only harm that typical private cars
             bring...
           </p>
           <div className="diseases">
@@ -517,7 +517,7 @@ export default function Index() {
         </div>
         <div className="part-1">
           <p ref={partRef} id="part-1-p" className="part-1-p">
-            In 20 years, the population of Australians will be greatly
+            In 20 years, the population of Australia will be greatly
             increased.
           </p>
           <p ref={partRef} id="part-1-p" className="part-1-p">
@@ -528,7 +528,7 @@ export default function Index() {
             gases.
           </p>
           <p ref={partRef} id="part-1-p" className="part-1-p">
-            If we stick the status quo, the environment will be worse and
+            If we stick to the status quo, the environment will be worse and
             worse...
           </p>
           <p ref={partRef} id="part-1-p" className="part-1-p">
@@ -568,7 +568,7 @@ export default function Index() {
         </div>
         <div className="sec-3">
           <p>
-            The goal of using an EV is to decreasing the emission effects caused
+            The goal of using an EV is to decrease the emission caused
             by fossil fueled cars, and also save energy.
           </p>
           <div className="pictures">

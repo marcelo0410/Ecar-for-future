@@ -32,7 +32,7 @@ export default class Example extends PureComponent {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="year" />
-          <YAxis tickFormatter={DataFormater}/>
+          <YAxis tickFormatter={DataFormater} label={{ value: '(vehicle count)', angle: -90, position: 'insideLeft', offset:-10}}/>
           <Tooltip />
           <Legend />
           {/* <Bar dataKey="population" fill="#8884d8" /> */}

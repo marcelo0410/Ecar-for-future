@@ -32,7 +32,7 @@ export default function Index() {
     <div> 
         <div className='cur-banner'>
           <div className='cur__title'><span style={{color:'#FFF8E5'}}>Current</span> Situation</div>
-          <div className='cur__subtitle'>The current environment here in Victoria is not optimistic, especialy for transport</div>
+          <div className='cur__subtitle'>The current environment here in Victoria is not optimistic, especially for transport</div>
         </div>
         <CurEnv/>
         <div style={{width:"66%", margin:"0 auto"}}>
