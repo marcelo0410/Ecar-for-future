@@ -212,8 +212,6 @@ export default function Questionaire() {
           // Cost and maintenance
           let result = Math.round(distance * (1+passenger*0.1-0.1)*fuelCom/100*fuelPrice[fuelType])
           setResultCost(result)
-          console.log('resultCost', result)
-
 
           let temp1;
           if(selectedCar === -1){
@@ -228,13 +226,11 @@ export default function Questionaire() {
             setEcarFixedCost(Math.round(distance/100*selectCarData1[0]['evEnergy']*0.5))
           }
           
-          console.log('setEcarFixedCost', Math.round(distance*0.04))
 
       
           // CO2 generated
           const resultCo2 = distance /100 *fuelCom*2500
           setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
-          console.log('setResultEmi', Math.round(resultCo2 * 100/1000) / 100)
 
 
           // CO2 generated ecar
@@ -250,8 +246,8 @@ export default function Questionaire() {
           let selectCarData = Array.from(carData).filter((item) => item['evId'] == id)
           const resultEcarCo2 = distance * (selectCarData[0]['evBattery'] / selectCarData[0]['evDistance']) * 0.8
           setEcarEmi(Math.round(resultEcarCo2))
-          console.log('setEcarEmi', Math.round(resultEcarCo2))
           setTriggerUpdate(triggerUpdate+1)
+          
 
     }
 
@@ -340,6 +336,7 @@ export default function Questionaire() {
       const calculateCost = () => {
 
         validateCalculatorInput()
+        setProgressStep('2221')
       }
 
       // stop useEffect to initially render 
@@ -359,15 +356,6 @@ export default function Questionaire() {
       
 
       const validateCalculatorInput = () =>{
-        // console.log(isNaN(travelDistance.toString()))
-        // if(isNaN(travelDistance.toString()) || travelDistance<=0 || travelDistance > 10000){
-        //     setCalDistanceValidate(true)
-        // } else{
-        //     if(calDistanceValidate !== false){
-        //         setCalDistanceValidate(false)
-        //     }
-            
-        // }
 
         if(isNaN(fuelCom.toString()) || fuelCom<5 || fuelCom > 50){
             setCalFuelComValidate(true)
@@ -385,6 +373,8 @@ export default function Questionaire() {
             }
         }
         setTriggerUpdate(triggerUpdate+1)
+        
+
       }
       //calDistanceValidate === false && 
       const calculateAndVis = () =>{
@@ -415,13 +405,11 @@ export default function Questionaire() {
                 setEcarFixedCost(Math.round(distance/100*selectCarData1[0]['evEnergy']*0.5))
               }
               
-              console.log('setEcarFixedCost', Math.round(distance*0.04))
 
           
               // CO2 generated
               const resultCo2 = distance /100 *fuelCom*2500
               setResultEmi(Math.round(resultCo2 * 100/1000) / 100)
-              console.log('setResultEmi', Math.round(resultCo2 * 100/1000) / 100)
 
 
               // CO2 generated ecar
@@ -437,13 +425,6 @@ export default function Questionaire() {
               let selectCarData = Array.from(carData).filter((item) => item['evId'] == temp)
               const resultEcarCo2 = distance * (selectCarData[0]['evBattery'] / selectCarData[0]['evDistance']) * 0.8
               setEcarEmi(Math.round(resultEcarCo2))
-              console.log('setEcarEmi', Math.round(resultEcarCo2))
-              setProgressStep('2221')
-              
-              
-            //   setCalDistanceValidate(false)
-            //   setCalFuelComValidate(false)
-            //   setCalPassengerValidate(false)
         }
       }
 
